@@ -1,0 +1,175 @@
+#
+# Damage appears to final result in value + 1
+#
+
+#Armor
+
+OrcHelmet:
+  Id: diamond_helmet
+  Display: '&f&lCasque Orc'
+  Lore:
+  - '&7Un casque des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Head:
+      Armor: 2
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+OrcChestplate:
+  Id: diamond_chestplate
+  Display: '&f&lPlastron Orc'
+  Lore:
+  - '&7Un plastron des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Chest:
+      Armor: 3
+      KnockbackResistance: 3%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+OrcLeggings:
+  Id: diamond_leggings
+  Display: '&f&lJambières Orc'
+  Lore:
+  - '&7Des jambières des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Legs:
+      Armor: 2
+      KnockbackResistance: 2%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+OrcBoots:
+  Id: diamond_boots
+  Display: '&f&lBottes Orcs'
+  Lore:
+  - '&7Des bottes des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Feet:
+      Armor: 1
+      MovementSpeed: 0.03
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+OrcShield:
+  Id: shield
+  Display: '&f&lBouclier Orc'
+  Lore:
+  - '&7Un bouclier des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 3
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+#Weapons
+
+OrcSword:
+  Id: diamond_sword
+  Display: '&f&lÉpée Orc'
+  Lore:
+  - '&7Une épée des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 5
+      AttackSpeed: -0.60
+    OffHand:
+      Damage: 2.5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+OrcAxe:
+  Id: diamond_axe
+  Display: '&f&lHache Orc'
+  Lore:
+  - '&7Une hache des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 10
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+OrcBow:
+  Id: bow
+  Display: '&f&lArc Orc'
+  Lore:
+  - '&7Un arc des'
+  - '&7Tribus Orcs.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS

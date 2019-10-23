@@ -1,0 +1,54 @@
+quester: 'Banquier'
+first: 'start'
+stop: 'false'
+NPC_options:
+  start:
+    text: 'Bien le bonjour.'
+    pointer: 'open,info,questions,bye'
+  open_rep:
+    text: 'Bien entendu &8%ph.luckperms_prefix%&7.'
+    event: 'open_bank_gui'
+  info_answer:
+    text: 'Vous avez &8%ph.bank_money% &7sur votre compte.\nVous utilisez &8%ph.bank_used_slots% &7/ &8%ph.bank_slots% &7slots.'
+    pointer: 'open,questions,bye'
+  questions_answer:
+    text: 'En quoi puis-je vous aider, &8%ph.luckperms_prefix% &7?'
+    pointer: 'slots,tabs,interest,money,bye'
+  slots_answer:
+    text: 'Un emplacement représente une case dans votre coffre d''objets. Vous en utilisez actuellement &8%ph.bank_used_slots% &7/ &8%ph.bank_slots% &7slots.\nAu total, vous pouvez en acheter 72 par onglet.\nVous pouvez acheter de nouveaux emplacements depuis le haut de votre banque d''objets.'
+    pointer: 'open,tabs,interest,money,bye'
+  tabs_answer:
+    text: 'Un onglet représente un coffre séparé, indiqué en bas de la page de la banque des objets. \nVous disposez d''un onglet avec 9 emplacements pour commencer et vous pouvez acheter 8 onglets supplémentaires. Chaque onglet peut comporter jusqu''à 72 emplacements, à condition de les acheter. \nVous pouvez acheter de nouveaux onglets depuis le haut de votre banque d''objets.'
+    pointer: 'open,slots,interest,money,bye'
+  interest_answer:
+    text: 'En déposant de l''argent dans la banque, vous gagnez des intérêts. Toutes les deux heures, et à condition d''être présent sur le monde de Gaïa, vous gagnez 0.01%.\nCa peut paraître dérisoire, mais vous verrez que c''est très lucratif à terme !'
+    event: 'display_interest_time'
+    pointer: 'open,slots,tabs,money,bye'
+  money_answer:
+    text: 'L''argent est gardé de façon sécurisée. Vous pouvez le gérer depuis votre compte.\nVous pouvez aussi envoyer de l''argent à un autre détenteur d''un compte en banque depuis votre compte.'
+    pointer: 'open,slots,tabs,bye'
+
+player_options:
+  open:
+    text: 'Je voudrais accéder à mon compte.'
+    pointer: 'open_rep'
+  info:
+    text: 'J''aimerais plus de renseignements sur mon compte.'
+    pointer: 'info_answer'
+  questions:
+    text: 'J''aimerais vous poser une question.'
+    pointer: 'questions_answer'
+  slots:
+    text: 'Comment fonctionnent les emplacements ?'
+    pointer: 'slots_answer'
+  tabs:
+    text: 'Comment fonctionnent les onglets ?'
+    pointer: 'tabs_answer'
+  interest:
+    text: 'Comment fonctionnent les intérêts ?'
+    pointer: 'interest_answer'
+  money:
+    text: 'Comment est géré l''argent par la banque ?'
+    pointer: 'money_answer'
+  bye:
+    text: 'Aurevoir.'

@@ -1,0 +1,96 @@
+#
+# Ressources
+#
+Tablet:
+  Id: brick
+  Data: 0
+  Display: '&aTablette'
+  Lore:
+  - '&7Cette tablette est'
+  - '&7composée de minerais'
+  - '&7précieux, et regorge'
+  - '&7d''un pouvoir de traction.'
+  - '' 
+  - '&7&oRareté : &aNon-Commun'
+  Amount: 1
+  Hide:
+  - ATTRIBUTES
+  - UNBREAKABLE
+  Options:
+    Unbreakable: true
+
+
+#
+# Personnal Stuff
+#
+HollishCape:
+  Id: elytra
+  Data: 0
+  Display: '&6&lCape de Hollish'
+  Lore:
+  - '&7Celle ou Celui'
+  - '&7qui porte cette cape,'
+  - '&7a un goût raffiné'
+  - '&7pour les belles choses.'
+  - '' 
+  - '&7&oRareté : &6Légendaire'
+  Amount: 1
+  Options:
+    Unbreakable: true
+
+QuestrelleCrown:
+  Id: diamond_helmet
+  Data: 0
+  Display: '&6&lCouronne de Questrelle'
+  Lore:
+  - '&7Celle ou Celui'
+  - '&7qui porte cette couronne,'
+  - '&7est le véritable Régent'
+  - '&7de la Cité-État de Questrelle.'
+  - '' 
+  - '&7&oRareté : &6Légendaire'
+  Amount: 1
+  Options:
+    Unbreakable: true
+
+QuestrellePlate:
+  Id: diamond_chestplate
+  Data: 0
+  Display: '&6&lHabit de Questrelle'
+  Lore:
+  - '&7L''habit officiel de la'
+  - '&7Régente ou du Régent,'
+  - '&7de la Cité-État de Questrelle.'
+  - '' 
+  - '&7&oRareté : &6Légendaire'
+  Amount: 1
+  Options:
+    Unbreakable: true
+
+QuestrelleLeggings:
+  Id: diamond_leggings
+  Data: 0
+  Display: '&6&lPantalon de Questrelle'
+  Lore:
+  - '&7Pantalon de l''habit officiel'
+  - '&7de la Régente ou du Régent,'
+  - '&7de la Cité-État de Questrelle.'
+  - '' 
+  - '&7&oRareté : &6Légendaire'
+  Amount: 1
+  Options:
+    Unbreakable: true
+
+QuestrelleBoots:
+  Id: diamond_boots
+  Data: 0
+  Display: '&6&lSouliers de Questrelle'
+  Lore:
+  - '&7Souliers de l''Habit officiel'
+  - '&7de la Régente ou du Régent,'
+  - '&7de la Cité-État de Questrelle.'
+  - '' 
+  - '&7&oRareté : &6Légendaire'
+  Amount: 1
+  Options:
+    Unbreakable: true

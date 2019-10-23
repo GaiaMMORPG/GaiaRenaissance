@@ -1,0 +1,264 @@
+# 
+# Raw Materials
+oak_pulp:
+  Id: charcoal
+  Display: '&fRésidus de chêne'
+  Lore:
+  - '&7Des copeaux de bois d''un'
+  - '&7chêne de faible qualité.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+dark_oak_pulp:
+  Id: charcoal
+  Display: '&fRésidus de chêne noir'
+  Lore:
+  - '&7Des copeaux de bois d''un'
+  - '&7chêne noir de faible qualité.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+acacia_pulp:
+  Id: charcoal
+  Display: '&fRésidus d''acacia'
+  Lore:
+  - '&7Des copeaux de bois d''un'
+  - '&7acacia de faible qualité.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+spruce_pulp:
+  Id: charcoal
+  Display: '&fRésidus de sapin'
+  Lore:
+  - '&7Des copeaux de bois d''un'
+  - '&7sapin de faible qualité.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+brich_pulp:
+  Id: charcoal
+  Display: '&fRésidus de bouleau'
+  Lore:
+  - '&7Des copeaux de bois d''un'
+  - '&7bouleau de faible qualité.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+jungle_pulp:
+  Id: charcoal
+  Display: '&fRésidus d''acajou'
+  Lore:
+  - '&7Des copeaux de bois d''un'
+  - '&7acajou de faible qualité.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+oak_log:
+  Id: oak_log
+  Display: '&aBûche de chêne'
+  Lore:
+  - '&7Du bois de chêne'
+  - '&7de bonne qualité.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+dark_oak_log:
+  Id: dark_oak_log
+  Display: '&aBûche de chêne noir'
+  Lore:
+  - '&7Du bois de chêne noir'
+  - '&7de bonne qualité.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+acacia_log:
+  Id: acacia_log
+  Display: '&aBûche d''acacia'
+  Lore:
+  - '&7Du bois d''acacia'
+  - '&7de bonne qualité.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+spruce_log:
+  Id: spruce_log
+  Display: '&aBûche de sapin'
+  Lore:
+  - '&7Du bois de sapin'
+  - '&7de bonne qualité.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+birch_log:
+  Id: birch_log
+  Display: '&aBûche de bouleau'
+  Lore:
+  - '&7Du bois de bouleau'
+  - '&7de bonne qualité.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+jungle_log:
+  Id: jungle_log
+  Display: '&aBûche d''acajou'
+  Lore:
+  - '&7Du bois d''acajou'
+  - '&7de bonne qualité.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+oak_planks:
+  Id: oak_planks
+  Display: '&aPlanches de chêne'
+  Lore:
+  - '&7Des planches de chêne'
+  - '&7pour la construction'
+  - '&7ou pour le crafting.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+dark_oak_planks:
+  Id: dark_oak_planks
+  Display: '&aPlanches de chêne noir'
+  Lore:
+  - '&7Des planches de chêne noir'
+  - '&7pour la construction'
+  - '&7ou pour le crafting.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+acacia_planks:
+  Id: acacia_planks
+  Display: '&aPlanches d''acacia'
+  Lore:
+  - '&7Des planches d''acacia'
+  - '&7pour la construction'
+  - '&7ou pour le crafting.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+spruce_planks:
+  Id: spruce_planks
+  Display: '&aPlanches de sapin'
+  Lore:
+  - '&7Des planches de sapin'
+  - '&7pour la construction'
+  - '&7ou pour le crafting.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+birch_planks:
+  Id: birch_planks
+  Display: '&aPlanches de bouleau'
+  Lore:
+  - '&7Des planches de bouleau'
+  - '&7pour la construction'
+  - '&7ou pour le crafting.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+jungle_planks:
+  Id: jungle_planks
+  Display: '&aPlanches d''acajou'
+  Lore:
+  - '&7Des planches d''acajou'
+  - '&7pour la construction'
+  - '&7ou pour le crafting.'
+  - ' '
+  - '&7&oRareté : &aNon-Commun'
+coal_dust:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: CHARCOAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §fPoussière de charbon
+      lore:
+      - §7De la poussière
+      - §7de charbon impure.
+      - ' '
+      - '§7§oRareté : §fCommun'
+coal:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: COAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §aCharbon
+      lore:
+      - §7Du charbon
+      - §7très pur.
+      - ' '
+      - '§7§oRareté : §aNon-Commun'
+gold_dust:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: CHARCOAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §fPoussière d'or
+      lore:
+      - §7De la poussière
+      - §7d'or impure.
+      - ' '
+      - '§7§oRareté : §fCommun'
+gold_ore:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: COAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §aMinerai d'or
+      lore:
+      - §7Du minerai d'or
+      - §7très pur.
+      - ' '
+      - '§7§oRareté : §aNon-Commun'
+iron_dust:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: CHARCOAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §fPoussière de fer
+      lore:
+      - §7De la poussière
+      - §7de fer impure.
+      - ' '
+      - '§7§oRareté : §fCommun'
+iron_ore:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: COAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §aMinerai de fer
+      lore:
+      - §7Du minerai de fer
+      - §7très pur.
+      - ' '
+      - '§7§oRareté : §aNon-Commun'
+lapis:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: LAPIS_LAZULI
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §aLapis-lazuli
+      lore:
+      - §7Du lapis-lazuli
+      - §7très pur.
+      - ' '
+      - '§7§oRareté : §aNon-Commun'
+lapis_dust:
+  ItemStack:
+    ==: org.bukkit.inventory.ItemStack
+    v: 1631
+    type: CHARCOAL
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §fPoussière de lapis-lazuli
+      lore:
+      - §7De la poussière
+      - §7de lapis-lazuli impure.
+      - ' '
+      - '§7§oRareté : §fCommun'

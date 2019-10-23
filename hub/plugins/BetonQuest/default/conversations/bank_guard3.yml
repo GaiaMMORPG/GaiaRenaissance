@@ -1,0 +1,38 @@
+#Race : Humain ou Elfe
+#Sexe : Masculin
+#Emplacement : 3909 / 130 / -8400
+#Âge : La quarantaine
+quester: 'Garde'
+first: 'debut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text: 'Vous êtes bienvenue à la banque de Questrelle !'
+    pointer: 'rep1,rep2,rep3'
+    
+  opt2:
+    text: 'Je ne suis pas votre ami, veuillez me montrer plus de respect la prochaine fois je vous prie.'
+    
+  opt3:
+    text: 'Un guide peut vous aider sans problème pour quelques scarbes, il n''est pas loin vous le trouverez facilement.'
+    pointer: 'bye'
+    
+  bye_pnj:
+    text: 'Adieu voyageur.'
+    
+player_options:
+  rep1:
+    text: 'Bonjour.'
+    
+  rep2:
+    text: 'Salut, je me suis perdu, tu pourrais me donner quelques repères ?'
+    pointer: 'opt2'
+    
+  rep3:
+    text: 'Bonjour, je me suis perdu, pourriez-vous me donner quelques repères ?'
+    pointer: 'opt3'
+    
+  bye:
+    text: 'Merci à vous, adieu !'
+    pointer: 'bye_pnj'    

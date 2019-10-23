@@ -1,0 +1,31 @@
+#========[¤]========#
+#					#
+#		Taxes		#
+#					#
+#========[¤]========#
+every hour:
+    loop {local::plots::*}:
+        if owner of claim with id loop-value is set:
+            set {_ownerID} to owner of claim with id loop-value's uuid
+            if difference between now and {local::plots::%loop-value%::taxes} > 24 hours:
+                set {_width} to width of claim with id loop-value
+                set {_height} to height of claim with id loop-value
+                set {_amount} to {_width} * {_height}
+                if money of offline player from uuid {_ownerID} >= {_amount}:
+                    remove {_amount} from offline player from uuid {_ownerID}'s money
+                    set {local::plots::%loop-value%::taxes} to now
+                    if bungeecord player "%offline player from uuid {_ownerID}%" is online:
+                        message "Vous avez payé ¤%{_amount}% pour votre parcelle." to bungeecord player "%offline player from uuid {_ownerID}%"
+                else:
+                    delete claim with id loop-value
+                    if bungeecord player "%offline player from uuid {_ownerID}%" is online:
+                        message "Vous n'avez pas assez d'argent pour entretenir votre parcelle." to bungeecord player "%offline player from uuid {_ownerID}%"
+                        message "Votre parcelle n'est donc plus protégée et a retrouvé son état naturel." to bungeecord player "%offline player from uuid {_ownerID}%"
+
+command /testingd:
+    trigger:
+        broadcast luckperms permissions of player
+        if player "hollishkid" has got bungee permission "ws.*":
+            send "yeah"
+        if the luckperms permissions of player contains "group.admin":
+            broadcast "ye"

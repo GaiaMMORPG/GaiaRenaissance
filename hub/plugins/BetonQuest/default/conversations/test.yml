@@ -1,0 +1,26 @@
+quester: 'Tester'
+first: 'debut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text: 'Salut comment ça va, %player% ?'
+    events: evenement1
+    pointer: 'rep1,rep2,rep3,bye'
+  continuer_conversation:
+    text: 'Ah cool, on continue de discuter ?'
+    pointer: 'bye'
+
+player_options:
+  rep1:
+    text: 'Très bien et toi ?'
+    pointer: 'continuer_conversation'
+  rep2:
+    text: 'Pas du tout, lâche moi !'
+    pointer: 'continuer_conversation'
+  rep3:
+    text: 'Bof bof'
+    pointer: 'continuer_conversation'
+  bye:
+    text: 'Aurevoir'
+

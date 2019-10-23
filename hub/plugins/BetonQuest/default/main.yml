@@ -1,0 +1,42 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+journal_main_page:
+  line1:
+    text: '-------- ¤ --------'
+    priority: 1
+  line2:
+    text: '     Progression'
+    priority: 2
+  line3:
+    text: '      de &6%player%'
+    priority: 3
+  line4:
+    text: ' '
+    priority: 4
+  line5:
+    text: ' '
+    priority: 5
+  line6:
+    text: 'Points de Quête : &2%point.quest.amount%'
+    priority: 6
+  line7:
+    text: 'Réputation : &2%point.reputation.amount%'
+    priority: 7
+  line8:
+    text: ' '
+    priority: 8
+  line9:
+    text: 'Points de Vote : &2%point.votes.amount%'
+    priority: 9
+  line11:
+    text: 'En Poche : &a¤&2%ph.vault_eco_balance_fixed%'
+    priority: 11
+  line12:
+    text: ' '
+    priority: 12
+  line15:
+    text: '-------- ¤ --------'
+    priority: 13

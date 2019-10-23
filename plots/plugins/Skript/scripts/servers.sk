@@ -1,0 +1,55 @@
+#========[¤]========#
+#					#
+#	   Servers		#
+#					#
+#========[¤]========#
+
+options:
+    hub_name: Hub
+    factions_name: Factions
+    plots_name: Plots
+
+#
+# This function provides a GUI to teleport between servers.
+#
+
+function ServersGUI(player: player):
+	set {_options} to {_player}'s skull named "%{_player}%"
+	set line 1 of lore of {_options} to "&7Afficher vos"
+	set line 2 of lore of {_options} to "&7options."
+	set line 3 of lore of {_options} to " "
+	set line 4 of lore of {_options} to "Zeta"
+	
+	set {_hub} to beacon named "&a{@hub_name}"
+	set line 1 of lore of {_hub} to "&7Cliquez ici pour"
+	set line 2 of lore of {_hub} to "&7vous rendre à"
+	set line 3 of lore of {_hub} to "&7{@hub_name}."
+
+	set {_factions} to beacon named "&a{@factions_name}"
+	set line 1 of lore of {_factions} to "&7Cliquez ici pour"
+	set line 2 of lore of {_factions} to "&7vous rendre à"
+	set line 3 of lore of {_factions} to "&7{@factions_name}."
+
+	set {_plots} to beacon named "&a{@plots_name}"
+	set line 1 of lore of {_plots} to "&7Cliquez ici pour"
+	set line 2 of lore of {_plots} to "&7vous rendre à"
+	set line 3 of lore of {_plots} to "&7{@plots_name}."
+
+	create new gui with virtual chest with 4 rows named "&aBateau":
+		format gui slot 0, 1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 15, 17, 18, 19, 20, 24, 25, 27, 29, 30, 31, 32, 33 and 35 with black stained glass pane named " "
+		format gui slot 4 with {_options}
+		format gui slot 8 to barrier named "&c&lFermer":
+			close {_player}'s inventory
+		format gui slot 10 with {_hub}:
+			TeleportationGUI({_player})
+		format gui slot 13 with {_factions}:
+			message "WIP" to {_player}
+		format gui slot 16 with {_cheval}:
+			message "WIP" to {_player}
+		format gui slot 26 with {_admin}:
+			message "WIP" to {_player}
+		format gui slot 28 with {_amis}:
+			message "WIP" to {_player}
+		format gui slot 40 with {_liens}:
+			message "WIP" to {_player}
+	open last gui to {_player}

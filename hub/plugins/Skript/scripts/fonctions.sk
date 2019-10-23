@@ -1,0 +1,84 @@
+#==========[¤]==========#
+#						#
+#		Fonctions		#
+#						#
+#==========[¤]==========#
+
+#
+# Items Fixer
+#
+#permet de donner des items (MM ou non) à des inventaires de joueurs pleins par commande
+#
+function ProperItemGiver(Player: player,Item: item):
+	if the inventory of {_Player} can hold {_Item}:
+		give {_Player} {_Item}
+	else:
+		message "&d&oVous n'avez pas assez de place dans votre inventaire." to {_Player}
+		message "&d&oVidez une place dans votre inventaire pour recevoir l'objet." to {_Player}
+		wait 20 seconds
+		if {_Player} is online:
+			ProperItemGiver({_Player}, {_Item})
+		else:
+			log "ProperItemGiver : %{_Player}% reçoit %{_Item}%" to "errors.log" 
+
+function MMProperItemGiver(Player: player,Item: string):
+	if the inventory of {_Player} can hold 1 diamond pickaxe named "Rumplestiltskin":
+		execute console command "mm items give %{_Player}% %{_Item}%"
+	else:
+		message "&d&oVous n'avez pas assez de place dans votre inventaire." to {_Player}
+		message "&d&oVidez une place dans votre inventaire pour recevoir l'objet." to {_Player}
+		wait 20 seconds
+		if {_Player} is online:
+			MMProperItemGiver({_Player}, {_Item})
+		else:
+			log "MMProperItemGiver : %{_Player}% reçoit %{_Item}%" to "errors.log"
+
+command /properitemgiver <player> <item>:
+	executable by: console
+	trigger:
+		ProperItemGiver(arg 1, arg 2)
+			
+command /mmproperitemgiver <player> <string>:
+	executable by: console
+	trigger:
+		MMProperItemGiver(arg 1, arg 2)
+		
+#
+#
+# Interface Pancarte (seems to dysfunction)
+#
+#
+command /signsearch <player>:
+	executable by: console
+	trigger:
+		wait 4 ticks
+		set {temp::%arg 1's uuid%::signsearch.bank} to true
+		set {_input::*} to "", "", "1: (retrait|depot)" and "2: (montant)"
+		set {_loc} to location of arg 1
+		set {_block} to type of block at {_loc}
+		set block at {_loc} to sign
+		loop {_input::*}:
+			(loop-index parsed as int) < 5
+			set line (loop-index parsed as int) of block at {_loc} to colored loop-value
+		wait 1 tick
+		set {_packet} to new play_server_open_sign_editor packet
+		set location pinfo 0 of {_packet} to {_loc}
+		send arg 1 packet {_packet}
+		set block at {_loc} to {_block}
+ 
+on packet event play_client_update_sign:
+	if {temp::%player's uuid%::signsearch.bank} is true:
+		set {_input::*} to string array pinfo 0 of event-packet
+		set {_amount} to {_input::2} parsed as integer 
+		if {_amount} is an integer:
+			if "%{_input::1}%" contains "dep":
+				make player execute command "/depot %{_amount}%"
+			else if "%{_input::1}%" contains "ret":
+				make player execute command "/retrait %{_amount}%"
+			else:
+				message "&d&oUtilisez ""depot"" ou ""retrait"" sur la première ligne."
+		else:
+			message "&d&oUtilisez un nombre entier sur la seconde ligne !"
+
+	delete {temp::%player's uuid%::signsearch.bank}
+	stop

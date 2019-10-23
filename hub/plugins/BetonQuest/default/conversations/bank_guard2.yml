@@ -1,0 +1,26 @@
+#Race : Humain ou Elfe
+#Sexe : Masculin
+#Emplacement : 3903 / 130 / -8384
+#Âge : La quarantaine
+quester: 'Garde'
+first: 'debut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text: 'Bienvenue à votre banque ! Parlez à un banquier pour accéder à votre compte.'
+    pointer: 'rep1,rep2,rep3'
+  
+  opt1: 
+    text: 'Désolé, ne faites pas attention à lui, il est un peu paranoïaque.'
+    
+player_options:
+  rep1:
+    text: 'Je vous remercie.'
+  
+  rep2:
+    text: 'Votre collègue est toujours aussi... menaçant ?'
+    pointer: 'opt1'
+ 
+  rep3: 
+    text: 'Je sais comment ça marche.'

@@ -1,0 +1,175 @@
+#
+# Damage appears to final result in value + 1
+#
+
+#Armor
+
+DwarfHelmet:
+  Id: diamond_helmet
+  Display: '&f&lCasque Nain'
+  Lore:
+  - '&7Casque traditionnel'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Head:
+      Armor: 1
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+DwarfChestplate:
+  Id: diamond_chestplate
+  Display: '&f&lPlastron Nain'
+  Lore:
+  - '&7Plastron traditionnel'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Chest:
+      Armor: 4
+      KnockbackResistance: 3%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+DwarfLeggings:
+  Id: diamond_leggings
+  Display: '&f&lJambières Nain'
+  Lore:
+  - '&7Jambières traditionnelles'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Legs:
+      Armor: 2
+      KnockbackResistance: 2%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+DwarfBoots:
+  Id: diamond_boots
+  Display: '&f&lBottes Nain'
+  Lore:
+  - '&7Bottes traditionnelles'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Feet:
+      Armor: 1
+      MovementSpeed: 0.01
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+DwarfShield:
+  Id: shield
+  Display: '&f&lBouclier de Nain'
+  Lore:
+  - '&7Bouclier traditionnel'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 3
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+#Weapons
+
+DwarfSword:
+  Id: diamond_sword
+  Display: '&f&lÉpée de Nain'
+  Lore:
+  - '&7Épée traditionnelle'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 5
+      AttackSpeed: -0.60
+    OffHand:
+      Damage: 2.5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+DwarfAxe:
+  Id: diamond_axe
+  Display: '&f&lHache de Nain'
+  Lore:
+  - '&7Hache traditionnelle'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 10
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+DwarfBow:
+  Id: bow
+  Display: '&f&lArc de Nain'
+  Lore:
+  - '&7Arc traditionnel'
+  - '&7de l''empire des Nains.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS

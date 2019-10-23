@@ -1,0 +1,175 @@
+#
+# Damage appears to final result in value + 1
+#
+
+#Armor
+
+ElfHelmet:
+  Id: diamond_helmet
+  Display: '&f&lCasque Elfique'
+  Lore:
+  - '&7Un casque digne de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Head:
+      Armor: 2
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+ElfChestplate:
+  Id: diamond_chestplate
+  Display: '&f&lPlastron Elfique'
+  Lore:
+  - '&7Un plastron digne de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Chest:
+      Armor: 3
+      KnockbackResistance: 3%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+ElfLeggings:
+  Id: diamond_leggings
+  Display: '&f&lJambières Elfiques'
+  Lore:
+  - '&7Des jambières dignes de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Legs:
+      Armor: 2
+      KnockbackResistance: 2%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+ElfBoots:
+  Id: diamond_boots
+  Display: '&f&lBottes Elfiques'
+  Lore:
+  - '&7Des bottes dignes de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Feet:
+      Armor: 1
+      MovementSpeed: 0.03
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+ElfShield:
+  Id: shield
+  Display: '&f&lBouclier Elfique'
+  Lore:
+  - '&7Un bouclier digne de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 3
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+#Weapons
+
+ElfSword:
+  Id: diamond_sword
+  Display: '&f&lÉpée Elfique'
+  Lore:
+  - '&7Une épée digne de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 5
+      AttackSpeed: -0.60
+    OffHand:
+      Damage: 2.5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+ElfAxe:
+  Id: diamond_axe
+  Display: '&f&lHache Elfique'
+  Lore:
+  - '&7Une hache digne de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 10
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+ElfBow:
+  Id: bow
+  Display: '&f&lArc Elfique'
+  Lore:
+  - '&7Un arc digne de'
+  - '&7la Ligue des Elfes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS

@@ -1,0 +1,40 @@
+#========[¤]========#
+#					#
+#	  Commandes		#
+#					#
+#========[¤]========#
+command /parcelle [<string>] [<integer>]:
+    trigger:
+        set {_uuid} to player's uuid
+        if arg 1 is "buy" or "achat" or "acheter":
+            if arg 2 is set:
+                if money of offline player from uuid {_uuid} >= arg 2 * 100:
+                    if bonus blocks of offline player from uuid {_uuid} + arg 2 <= 2500:
+                        make console execute command "adjustbonusclaimblocks %offline player from uuid {_uuid}% %arg 2%"
+                        remove arg 2 * 100 from offline player from uuid {_uuid}'s balance
+                        send "Vous avez acheté %arg 2% nouveaux blocs pour vos parcelles,"
+                        send "pour un prix de %arg 2 * 100%."
+                    else:
+                        send "Vous ne pouvez pas dépasser les 2500 blocs bonus pour vos parcelles."
+            else:
+                send "Vous devez spécifier une quantité pour cette action."
+
+        else if arg 1 is "sell" or "vente" or "vendre":
+            if arg 2 is set:
+                if bonus blocks of offline player from uuid {_uuid} >= arg 2:
+                    make console execute command "adjustbonusclaimblocks %offline player from uuid {_uuid}% -%arg 2%"
+                    add arg 2 * 50 to offline player from uuid {_uuid}'s balance
+                    send "Vous avez vendu %arg 2% blocs,"
+                    send "pour un prix de %arg 2 * 50%."
+                else:
+                    send "Montant supérieur au nombre de blocs détenu."
+            else: 
+                send "Vous devez spécifier une quantité pour cette action."
+
+        else if arg 1 is "aide" or "help":
+            send "Utilisation : /parcelle (achat | acheter | buy | vente | vendre | sell | aide | help) (quantité)"
+            send "Permet d'acheter ou de vendre de l'espace pour vos parcelles."
+            send "Prix d'achat : ¤100/bloc"
+            send "Prix de vente : ¤50/bloc"
+        else:
+            send "Utilisation : /parcelle (achat | acheter | buy | vente | vendre | sell | aide | help) (quantité)"

@@ -1,0 +1,175 @@
+#
+# Damage appears to final result in value + 1
+#
+
+#Armor
+
+HumanHelmet:
+  Id: diamond_helmet
+  Display: '&f&lCasque Humain'
+  Lore:
+  - '&7Un casque pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Head:
+      Armor: 2
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+HumanChestplate:
+  Id: diamond_chestplate
+  Display: '&f&lPlastron Humain'
+  Lore:
+  - '&7Un plastron pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Chest:
+      Armor: 3
+      KnockbackResistance: 3%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+HumanLeggings:
+  Id: diamond_leggings
+  Display: '&f&lJambières Humaines'
+  Lore:
+  - '&7Des jambières pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Legs:
+      Armor: 2
+      KnockbackResistance: 2%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+HumanBoots:
+  Id: diamond_boots
+  Display: '&f&lBottes Humaines'
+  Lore:
+  - '&7Des bottes pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Feet:
+      Armor: 1
+      MovementSpeed: 0.03
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+HumanShield:
+  Id: shield
+  Display: '&f&lBouclier Humain'
+  Lore:
+  - '&7Un bouclier pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 3
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+#Weapons
+
+HumanSword:
+  Id: diamond_sword
+  Display: '&f&lÉpée Humain'
+  Lore:
+  - '&7Un épée pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 5
+      AttackSpeed: -0.60
+    OffHand:
+      Damage: 2.5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+HumanAxe:
+  Id: diamond_axe
+  Display: '&f&lHache Humaine'
+  Lore:
+  - '&7Une hache pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 10
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+HumanBow:
+  Id: bow
+  Display: '&f&lArc Humain'
+  Lore:
+  - '&7Un arc pour le'
+  - '&7Royaume des Hommes.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS

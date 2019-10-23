@@ -1,0 +1,28 @@
+quester: 'Jacopo'
+first: 'start'
+stop: 'false'
+NPC_options:
+  start:
+    text: 'Salutations !'
+    pointer: 'teleport,known,bye'
+  teleport_answer:
+    text: 'Bien entendu &8%ph.luckperms_prefix% &7! Où veux-tu aller ?'
+    event: server_teleport_gui
+  known_answer:
+    text: 'Peut-être bien... je connais ton nom en tout cas, ô &8%player% &7!'
+    pointer: 'teleport,known_bis,bye'
+  known_answer_bis:
+    text: 'Les affaires ont bien marché pour moi !'
+    pointer: 'teleport,bye'
+player_options:
+  teleport:
+    text: 'Je voudrais naviguer sur ce navire.'
+    pointer: 'teleport_answer'
+  known:
+    text: 'J''ai l''impression de vous connaître...'
+    pointer: 'known_answer'
+  known_bis:
+    text: 'Vous étiez sur un bateau bien plus petit et bien moins habillé...'
+    pointer: 'known_answer_bis'
+  bye:
+    text: 'Aurevoir.'

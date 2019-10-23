@@ -1,0 +1,34 @@
+#Race : Humain ou Elfe
+#Sexe : Masculin
+#Emplacement : 3912 / 130 / -8389
+#Âge : la trentaine
+quester: 'Garde'
+first: 'debut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text: 'Ici, c''est la banque de Questrelle ! La plus sécurisée de toute !'
+    pointer: 'rep1'
+    
+  option1:
+    text: 'Il te suffit d''aller parler à un banquier.'
+
+  option3:
+    text: 'Bon voyage, jeune aventurier.'
+    
+player_options:
+  rep1:
+    text: 'Bonjour, où puis-je retirer de l''argent ?'
+    pointer: 'option1'
+    
+  rep2:
+    text: 'Bonjour soldat.'
+    pointer:
+    
+  rep3:
+    text: 'Je ne fais que passer.'
+    pointer: 'option3'
+    
+  rep4:
+    text: 'Je sais très bien où je suis.'

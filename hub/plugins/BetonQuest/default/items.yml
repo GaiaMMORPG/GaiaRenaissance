@@ -1,0 +1,5 @@
+# 
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+tablet: BRICK durability:0 name:§aTablette lore:§7Cette_tablette_est;§7composée_de_minerais;§7précieux,_et_regorge;§7d'un_pouvoir_de_traction.;;§7§oRareté_:_§aNon-Commun
+  unbreakable

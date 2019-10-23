@@ -1,0 +1,156 @@
+#Race : Elfe
+#Sexe : Féminin
+#Emplacement : 3996 / 114 / -8281
+#Âge : Enfant
+#Skin : Aikeri
+quester: 'Elenwën'
+first: 'debut,done'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text: 'Une légende raconte que si on jète une piece dans cette eau en faisant un vœux, il se réalisera dans notre vie par la sainte Gaïa.\nTu n''aurais pas une petite pièce, j''aimerais essayer...'
+    condition: '!elf_girl_tag'
+    pointer: 'rep1,rep2,rep3'
+  done:
+    text: 'Excuse moi, mais je suis un peu trop occupée à regarder le fond de ce puit maintenant...'
+    condition: 'elf_girl_tag'
+
+  opt1:
+    text: 'Oh merci ! Vous êtes très gentil !'
+    event: 'default.reput_plus_1,default.argent_moins_1,elf_girl_timer,elf_girl_tag'
+
+  opt2:
+    text: 'Ce ne sont pas des mensonges ! Si tu ne veux pas me donner une pièce, vas-t''en ! Moi, tout ce que je veux, c''est que mon vœux le plus cher se réalise.'
+    pointer: 'txt2,text2'
+  Rtxt2:
+    text: 'Merci. Je vais le faire tout de suite ! Au revoir !'
+    event: 'default.reput_plus_1,default.argent_moins_1,elf_girl_timer,elf_girl_tag'
+
+  opt3:
+    text: 'Comment ?! Tu ne connais pas Gaïa ?! Mais c''est notre déesse ! Notre protection céleste ! C''est elle qui nous a créé ! Mais... Qui es-tu pour ne pas la connaître ?'
+    pointer: 'text3,txt3'
+  Rtext3:
+    text: 'Tu veux être le grand Sage de la ville et tu ne connais même pas Gaïa ? HA HA HA, tu es drôle toi !'
+    pointer: 'RRtext3,2Rtext3,3Rtext3'
+  L2Rtext3:
+    text: 'Tu ne devrais pas trop te vanter, certaines créatures des ténèbres et les chefs de chaque race sont sûrement plus forts que toi...'
+    pointer: 'Demo,Question'
+  fuite:
+    text: 'Ne me touchez pas !'
+    event: 'default.reput_moins_3,default.vie_moins_5,default.lenteur_5_temps_5,elf_girl_timer,elf_girl_tag'
+
+  Haine:
+    text: 'Ne m''aproches plus jamais ! Vas-t''en !'
+  Ftext3:
+    text: 'Je t''aime bien, tu es assez drôle, même si ce n''est pas sérieusement, ne t''inquiètes pas, je retiendrais ton nom et le partagerais à ma famille. HA HA HA !'
+    
+  Jtxt3:
+    text: 'Si tu veux... mais seulement si tu me donnes une petite pièce pour mon vœux.'
+    pointer: 'txt2P3,Sorry'    
+    
+  explics:
+    text: 'Je ne suis pas une professionnelle, je ne sais que le principal. Si tu veux en savoir davantage de ce que je vais te dire, il faut aller voir un moine au monastère.'
+    pointer: 'rexplics,FN,Compliments'
+    
+  Vexplics:
+    text: 'On raconte que deux dieux existent, Gaïa et Khaos. Gaïa est notre déesse, à nous, les elfes, humains et nains, tandis que Khaos est le dieu ténébreux des orcs.'
+    pointer: 'Ncomprend'
+    
+  Rcomprend:
+    text: 'Non, plus maintenant, tous les orcs de cette ville ont refusés de croire en Khaos.\nSi tu me le permet, je reprends mon récit. \nOn dit qu''un Elfe d''antan bien avant la reconquête de Questrelle a reçu l''aide de Gaïa pendant une guerre mais y a laissé la vie.'
+    pointer: 'Interog'
+    
+  RInterog:
+    text: 'Personne d''autre n''a malheureusement eu l''aide de notre déesse jusqu''à maintenant. \nAh mais j''y pense, pour connaître ce qu''il s''est passé pendant la reconquête de Questrelle, tu peux aller voir les gens dans la bibliothèque du Capitol. Moi je n''ai pas le droit de savoir parce-que je suis encore une enfant. C''est injuste...'
+    pointer: 'Fexplics,2Fexplics'   
+    
+  bye3:
+    text: 'Mais de rien, à bientôt.'
+    
+  2bye3:
+    text: 'A la prochaine.'  
+    
+player_options:
+  rep1:
+    text: 'Tiens, ne la perd pas petite.'
+    pointer: 'opt1'
+
+  rep2:
+    text: 'Tu crois vraiment à toutes ces sottises ? Ce ne sont que des mensonges.'
+    pointer: 'opt2'
+    
+  txt2:
+    text: 'Bon aller, tiens, voilà ta pièce. Mais ne viens pas te plaindre si ça ne marche pas !'
+    pointer: 'Rtxt2'
+  text2:
+    text: 'Je ne voulais pas te vexer. Au revoir.'
+
+  rep3:
+    text: 'Qui est Gaïa ?'
+    pointer: 'opt3'
+    
+  text3:
+    text: 'Je suis %player%, souviens toi de moi petite ! Aujourd''hui je ne suis qu''un inculte, demain je serais à la tête de notre ville !'
+    pointer: 'Rtext3'
+    
+  RRtext3:
+    text: 'Ne te moques pas de moi... Ne t''inquiètes pas, tu verras, même si je ne serais pas le grand Sage, je ferais de grandes choses pour la ville ! Alors souviens-toi de moi !'
+    pointer: 'Ftext3'
+  
+  2Rtext3:
+    text: 'Peut-être que ma culture est légère mais mon talent au combat n''a pas d''égal !'
+    pointer: 'L2Rtext3'
+    
+  Demo:
+    text: 'Tu vas voir si je suis si faible que ça ! Approches !'
+    pointer: 'fuite'
+
+  Question:
+    text: 'Alors je pars de ce pas m''entrainer pour les vaincres. A bientôt.'
+    pointer: '2bye3'
+    
+  3Rtext3:
+    text: 'Tu as l''air d''être bien informée, pourrais-tu m''expliquer un peu plus en détail l''histoire de Gaïa ?'
+    pointer: 'explics'
+    
+  txt3:
+    text: 'Peu importe qui je suis ni d''où je viens, je veux juste que tu m''expliques qui est Gaïa précisément.'
+    pointer: 'Jtxt3'
+    
+  txt2P3:
+    text: 'Bon aller, tiens, voilà ta pièce. Mais ne viens pas te plaindre si ça ne marche pas !'
+    pointer: 'explics'
+    event: 'default.argent_moins_1'
+    
+  Sorry:
+    text: 'Désolé, mais je n''ai pas de pièce pour toi... Bon et bien au revoir du coup.'
+    pointer: '2bye3'
+
+  rexplics:
+    text: 'J''irais me renseigner, continues.'
+    pointer: 'Vexplics'
+    
+  Compliments:
+    text: 'Tu t''y connais déjà plus que moi... continues s''il te plaît, ça m''interresse.'
+    pointer: 'Vexplics'
+    
+  FN:
+    text: 'Finalement je n''ai pas trop le temps... ce sera pour une prochaine fois peut-être.'
+    pointer: '2bye3'
+    
+  Ncomprend:
+    text: 'Mais alors tous les Orcs autour de nous appartiennent aux ténèbres ?'
+    pointer: 'Rcomprend'
+    
+  Interog:
+    text: 'Mais alors Gaïa nous aiderait si nous rencontrerions des difficultées particulières ?'
+    pointer: 'RInterog'
+    
+  Fexplics:
+    text: 'Merci de ton aide, je t''en suis reconnaissant. Au revoir.'
+    pointer: 'bye3'
+    
+  2Fexplics:
+    text: 'Merci mais je n''ai pas de temps à perdre, j''ai plein de choses à faire... Ce fut un plaisir !'
+    pointer: '2bye3'

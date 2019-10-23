@@ -1,0 +1,16 @@
+command /mrpropre [<string>]:
+	executable by: console
+	trigger:
+		if arg 1 is "nowait":
+			wait 2 ticks
+			broadcast "MrPropre attendra seulement 2 secondes !"
+			wait 2 seconds
+			broadcast "MrPropre: done"
+		else if arg 1 is not set:
+			wait 5 seconds
+			broadcast "MrPropre: done"
+		else:
+			broadcast "MrPropre: Error"
+			broadcast "MrPropre: argument inexistant."
+		
+	

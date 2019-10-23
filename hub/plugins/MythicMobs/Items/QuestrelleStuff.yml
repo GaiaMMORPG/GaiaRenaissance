@@ -1,0 +1,175 @@
+#
+# Damage appears to final result in value + 1
+#   (unadjusted)
+
+#Armor
+
+QHelmet:
+  Id: diamond_helmet
+  Display: '&f&lCasque de Questrelle'
+  Lore:
+  - '&7Casque traditionnel'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Head:
+      Armor: 1
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+QChestplate:
+  Id: diamond_chestplate
+  Display: '&f&lPlastron de Questrelle'
+  Lore:
+  - '&7Plastron traditionnel'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Chest:
+      Armor: 4
+      KnockbackResistance: 3%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+QLeggings:
+  Id: diamond_leggings
+  Display: '&f&lJambières de Questrelle'
+  Lore:
+  - '&7Jambières traditionnelles'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Legs:
+      Armor: 2
+      KnockbackResistance: 2%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+QBoots:
+  Id: diamond_boots
+  Display: '&f&lBottes de Questrelle'
+  Lore:
+  - '&7Bottes traditionnelles'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    Feet:
+      Armor: 1
+      MovementSpeed: 0.01
+      KnockbackResistance: 1%
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+QShield:
+  Id: shield
+  Display: '&f&lBouclier de Questrelle'
+  Lore:
+  - '&7Bouclier traditionnel'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 3
+      AttackSpeed: -0.80
+    OffHand:
+      Damage: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+#Weapons
+
+QSword:
+  Id: diamond_sword
+  Display: '&f&lÉpée de Questrelle'
+  Lore:
+  - '&7Épée traditionnelle'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 5
+      AttackSpeed: -0.20
+    OffHand:
+      Damage: 2.5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+
+QHalberd:
+  Id: diamond_sword
+  Display: '&f&lHallebarde de Questrelle'
+  Lore:
+  - '&7Hallebarde traditionnelle'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Attributes:
+    MainHand:
+      Damage: 10
+      AttackSpeed: -0.40
+    OffHand:
+      Damage: 5
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS
+
+QBow:
+  Id: bow
+  Display: '&f&lArc de Questrelle'
+  Lore:
+  - '&7Arc traditionnel'
+  - '&7de la garde de Questrelle.'
+  - ' '
+  - '&7&oRareté : &fCommun'
+  Amount: 1
+  Options:
+    Repairable: false
+  Enchantments:
+  - DURABILITY:1
+  Hide:
+  - ENCHANTS

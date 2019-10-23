@@ -1,0 +1,135 @@
+#========[¤]========#
+#					#
+#	 BlockRegen		#
+#					#
+#========[¤]========#
+
+#
+#This function regens a plot, based on it's stored ID.
+#	It also deletes the stored data if the Deleted boolean is true.
+function PlotRegen(ID: integer, Deleted: boolean):
+	set {_worlds::*} to all current worlds
+	if {_worlds::*} contains "factions" and "factions_clean":
+		set {_world} to "factions" parsed as world
+		set {_world_clean} to "factions_clean" parsed as world
+		set {_A} to AdjustedRegionCoordinates({local::plots::%{_ID}%::lesser}, {_world}, "bottom")
+		set {_B} to AdjustedRegionCoordinates({local::plots::%{_ID}%::greater}, {_world}, "bottom")
+		set {_D} to AdjustedCornerCoordinates({local::plots::%{_ID}%::lesser}, {local::plots::%{_ID}%::greater}, {_world}, "D")
+		set {_ACurrent} to AdjustedRegionCoordinates(the lesser corner of the claim with id {_ID}, {_world}, "bottom")
+		set {_BCurrent} to AdjustedRegionCoordinates(the greater corner of the claim with id {_ID}, {_world}, "bottom")
+
+		if {_Deleted} is not true:
+			loop blocks between block at location at {_A} and block at location at {_D}:
+				loop blocks between block at location at loop-value and block at location at AdjustedCornerCoordinates(location at loop-value, {_B}, {_world}, "C"):
+					loop integers between 0 and 256:
+						set {_location} to location at x coordinate of loop-value-1, loop-value-3, z coordinate of loop-value-2 in world "factions"
+						if check [floor(x coordinate of {_location}) >= floor(x coordinate of {_ACurrent})]->[floor(x coordinate of {_location}) <= floor(x coordinate of {_BCurrent})]->[floor(z coordinate of {_location}) >= floor(z coordinate of {_ACurrent})]->[floor(z coordinate of {_location}) <= floor(z coordinate of {_BCurrent})]:
+							add 1 to {_blocks}
+						else:
+							add 1 to {_outside}
+							add 1 to {_blocks}
+							set {_location_clean} to location at x coordinate of loop-value-1, loop-value-3, z coordinate of loop-value-2 in world "factions_clean"
+							set block at location at {_location} to block at location at {_location_clean}
+
+			set {local::plots::%{_ID}%::lesser} to the lesser corner of the claim with id {_ID}
+			set {local::plots::%{_ID}%::greater} to the greater corner of the claim with id {_ID}
+
+		else if {_Deleted} is true:
+			loop blocks between block at location at {_A} and block at location at {_D}:
+				loop blocks between block at location at loop-value and block at location at AdjustedCornerCoordinates(location at loop-value, {_B}, {_world}, "C"):
+					loop integers between 0 and 256:
+						set {_location} to location at x coordinate of loop-value-1, loop-value-3, z coordinate of loop-value-2 in world "factions"
+						set {_location_clean} to location at x coordinate of loop-value-1, loop-value-3, z coordinate of loop-value-2 in world "factions_clean"
+						set block at location at {_location} to block at location at {_location_clean}
+
+			delete {local::plots::%{_ID}%::lesser}
+			delete {local::plots::%{_ID}%::greater}
+			#Added in from taxes.sk
+			delete {local::plots::%{_ID}%::taxes}
+			remove {_ID} from {local::plots::*}
+	else:
+		broadcast "Erreur critique."
+		broadcast "Merci de rapporter l'erreur SCP-01 au staff."
+
+#
+#This function checks discrepancies between actual plots,
+#	and those stored in data. It will take measures (PlotRegen)
+#	if any discrepancies are found.
+function RegionCheck(ID: integer):
+	if {local::plots::*} does not contain {_ID}:
+		add {_ID} to {local::plots::*}
+		set {local::plots::%{_ID}%::lesser} to the lesser corner of the claim with id {_ID}
+		set {local::plots::%{_ID}%::greater} to the greater corner of the claim with id {_ID}
+        #Added in from taxes.sk
+		set {local::plots::%{_ID}%::taxes} to now
+	else if {local::plots::%{_ID}%::lesser} is not the lesser corner of the claim with id {_ID}:
+		PlotRegen({_ID}, false)
+	else if {local::plots::%{_ID}%::greater} is not the greater corner of the claim with id {_ID}:
+		PlotRegen({_ID}, false)
+
+#
+#Coordinates utility functions
+function AdjustedRegionCoordinates(Location: location, World: world, YValue: string) :: location:
+	if {_YValue} is "bottom":
+		return location at x coordinate of {_Location}, 0, z coordinate of {_Location} in world {_World}
+
+function AdjustedCornerCoordinates(LesserLocation: location, GreaterLocation: location, World: world, To: string) :: location:
+	if {_To} is "D":
+		return location at x coordinate of {_GreaterLocation}, 0, z coordinate of {_LesserLocation} in world {_World}
+	else if {_To} is "C":
+		return location at x coordinate of {_LesserLocation}, 0, z coordinate of {_GreaterLocation} in world {_World}		
+
+#
+# This function is run at interval.
+#	It checks whether a stored plot has been deleted, if so,
+#	it regens the plot through the PlotRegen function.
+#	NOTE: this situation should never theoretically occur,
+#		  this is pure preventive safety measures.
+function WorldRegen():
+	loop {local::plots::*}:
+		if owner of claim with id loop-value is not set:
+			PlotRegen(loop-value, true)
+
+#
+#Events
+#	These update plots information on player or plugin interaction.
+on break:
+	if normal claims at event-location is set:
+		loop normal claims at event-location:
+			set {_ID} to loop-value 
+			set {_ID} to {_ID} parsed as integer
+			RegionCheck({_ID})
+#	else if admin claims at event-location is set:
+#		loop admin claims at event-location:
+#			set {_ID} to loop-value 
+#			set {_ID} to {_ID} parsed as integer
+#			RegionCheck({_ID})
+
+on place:
+	if normal claims at event-location is set:
+		loop normal claims at event-location:
+			set {_ID} to loop-value 
+			set {_ID} to {_ID} parsed as integer
+			RegionCheck({_ID})
+#	else if admin claims at event-location is set:
+#		loop admin claims at event-location:
+#			set {_ID} to loop-value 
+#			set {_ID} to {_ID} parsed as integer
+#			RegionCheck({_ID})
+
+on claim deletion:
+	if type of claim with id event-number is "basic":
+		set {_ID} to event-number
+		set {_ID} to {_ID} parsed as integer
+		set {local::temp::plotregen.%{_ID}%} to true
+		PlotRegen({_ID}, true)
+
+on claim expiration:
+	if type of claim with id event-number is "basic":
+		set {_ID} to event-number
+		set {_ID} to {_ID} parsed as integer
+		PlotRegen({_ID}, true)
+#
+#Recurring
+every hour:
+	WorldRegen()

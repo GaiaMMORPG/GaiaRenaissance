@@ -1,0 +1,20 @@
+#Race : Humain ou Elfe
+#Sexe : Masculin
+#Emplacement : 3899 / 130 / -8384
+#Âge : La soixantaine
+quester: 'Garde'
+first: 'debut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text: 'Ne faites rien de suspect ! Je vous ai à l''oeil, mécréant !'
+    pointer: 'rep1'
+
+  opt1: 
+    text: 'J''espère bien, à moins que vous vouliez vous faire trancher la gorge !'
+  
+player_options:
+  rep1: 
+    text: 'Ne vous inquiètez pas, je ne fais que passer...'
+    pointer: 'opt1'

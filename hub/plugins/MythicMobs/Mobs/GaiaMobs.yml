@@ -1,0 +1,203 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#
+
+#========[¤]========#
+#					          #
+#	     Defaults	    #
+#					          #
+#========[¤]========#
+
+pnj_jacopo:
+  Type: pig
+  Display: '&2Jacopo'
+  Disguise:
+    Type: player
+    Player: '&2Jacopo'
+    Skin: commander
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_pnj_1"} @trigger ~onInteract
+  
+pnj_banker:
+  Type: pig
+  Display: '&2Banquier'
+  Disguise:
+    Type: player
+    Player: '&2Banquier'
+    Skin: Frrancis
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_pnj_2"} @trigger ~onInteract
+
+pnj_guard_bank1:
+  Type: pig
+  Display: '&2Garde'
+  Disguise:
+    Type: player
+    Player: '&2Garde'
+    Skin: 7850
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  - QHalberd HAND
+  - QShield OFFHAND
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_bank_guard1"} @trigger ~onInteract
+
+pnj_guard_bank2:
+  Type: pig
+  Display: '&2Garde'
+  Disguise:
+    Type: player
+    Player: '&2Garde'
+    Skin: 7850
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  - QHalberd HAND
+  - QShield OFFHAND
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_bank_guard2"} @trigger ~onInteract
+
+pnj_guard_bank3:
+  Type: pig
+  Display: '&2Garde'
+  Disguise:
+    Type: player
+    Player: '&2Garde'
+    Skin: 7850
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  - QHalberd HAND
+  - QShield OFFHAND
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_bank_guard3"} @trigger ~onInteract
+
+pnj_guard_bank4:
+  Type: pig
+  Display: '&2Garde'
+  Disguise:
+    Type: player
+    Player: '&2Garde'
+    Skin: 7850
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  - QSword HAND
+  - QShield OFFHAND
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_bank_guard4"} @trigger ~onInteract
+
+#========[¤]========#
+#					          #
+#	     Randoms	    #
+#					          #
+#========[¤]========#
+pnj_elf_girl:
+  Type: pig
+  Display: '&2Elenwën'
+  Disguise:
+    Type: player
+    Player: '&2Elenwën'
+    Skin: Aikeri
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_elf_girl"} @trigger ~onInteract

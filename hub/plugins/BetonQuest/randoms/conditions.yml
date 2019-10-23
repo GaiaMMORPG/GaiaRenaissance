@@ -1,0 +1,11 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+#========[¤]========#
+#					          #
+#	      Timers     	#
+#					          #
+#========[¤]========#
+elf_girl_tag: tag elf_girl

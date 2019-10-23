@@ -1,0 +1,26 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+pnj_1:
+  Type: pig
+  Display: '&2Jacopo'
+  Disguise:
+    Type: player
+    Player: '&2Jacopo'
+    Skin: commander
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_pnj_1"} @trigger ~onInteract

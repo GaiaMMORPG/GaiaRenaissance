@@ -1,0 +1,56 @@
+# Plots commands
+
+
+# Obtenir ile -> confirmation!
+# aller sur ile
+# quitter ile
+
+# Ajouter joueur
+# supprimer joueur
+# autoriser/interdire build
+
+# Detruire ile -> confirmation!
+command /plots:
+	usage: &a/plots
+	trigger:
+		PlotsGUI(player)
+
+
+function PlotsGUI(player: player):
+    set {_get} to book named "&2Mon île"
+    set line 1 of lore of {_get} to "&7En obtenir une"
+
+
+    set {_home} to red bed named "&2Mon île"
+    set line 1 of lore of {_home} to "&7Y aller"
+
+
+    set {_leave} to oak door named "&7Quitter l'île"
+
+    set {_addplr} to green wool named "&2Construction"
+    set line 1 of lore of {_addplr} to "&7Autoriser un joueur"
+
+    set {_delplr} to red wool named "&2Construction"
+    set line 1 of lore of {_delplr} to "&7Interdire un joueur"
+
+    set {_delete} to tnt named "&7Restaurer votre île"
+
+    create new gui with virtual chest with 5 rows named "Gestion d'île":
+        format gui slot 8 with barrier named "&c&lFermer":
+            close {_player}'s inventory
+        #ws moving commands
+        format gui slot 10 with {_get}:
+            make {_player} execute command "/ws get"
+        format gui slot 19 with {_home}:
+            message "WIP" to {_player}
+        format gui slot 28 with {_leave}:
+            message "WIP" to {_player}
+        #ws world settings
+        format gui slot 13 with {_addplr}:
+            message "WIP" to {_player}
+        format gui slot 31 with {_delplr}:
+            message "WIP" to {_player}
+        format gui slot 34 with {_delete}:
+            message "WIP" to {_player}
+    open last gui to {_player}
+        

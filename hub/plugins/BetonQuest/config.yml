@@ -1,0 +1,81 @@
+version: v59
+mysql:
+  host: localhost
+  port: '3306'
+  user: bungeecord
+  pass: Mjd3VQbm
+  base: bungeecord
+  prefix: betonquest_
+language: fr
+update:
+  enabled: true
+  download_bugfixes: true
+  notify_new_release: true
+default_journal_slot: '-1'
+max_npc_distance: '5'
+citizens_npcs_by_name: 'false'
+default_conversation_IO: tellraw
+display_chat_after_conversation: 'true'
+combat_delay: '10'
+notify_pullback: 'false'
+default_package: default
+remove_items_after_respawn: 'false'
+quest_items_unbreakable: 'true'
+sounds:
+  start: ENTITY_VILLAGER_AMBIENT
+  end: ENTITY_VILLAGER_YES
+  journal: ENTITY_BAT_TAKEOFF
+  update: 'false'
+  full: 'false'
+cmd_blacklist:
+- spawn
+hook:
+  citizens: 'false'
+  mythicmobs: 'true'
+  vault: 'true'
+  worldguard: 'true'
+  skript: 'true'
+  mcmmo: 'true'
+  effectlib: 'true'
+  playerpoints: 'false'
+  heroes: 'true'
+  magic: 'false'
+  denizen: 'false'
+  skillapi: 'true'
+  quests: 'false'
+  shopkeepers: 'false'
+  placeholderapi: 'true'
+  holographicdisplays: 'true'
+  racesandclasses: 'false'
+  legendquest: 'false'
+  worldedit: 'true'
+  betonlangapi: 'true'
+  bountifulapi: 'true'
+  protocollib: 'true'
+  brewery: 'false'
+  jobsreborn: 'false'                    
+journal:
+  chars_per_line: '19'
+  lines_per_page: '13'
+  one_entry_per_page: 'true'
+  reversed_order: 'true'
+  hide_date: 'true'
+  full_main_page: 'true'
+journal_colors:
+  date:
+    day: '9'
+    hour: '6'
+  line: '0'
+  text: '0'
+conversation_colors:
+  npc: dark_green
+  player: dark_green
+  text: gray
+  answer: gray
+  number: yellow
+  option: gray,italic
+date_format: dd.MM.yyyy HH:mm
+packages:
+- default
+- randoms
+debug: 'false'

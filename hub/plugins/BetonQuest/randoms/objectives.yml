@@ -1,0 +1,11 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+#========[¤]========#
+#					          #
+#	      Timers     	#
+#					          #
+#========[¤]========#
+elf_girl_timer: delay 1440 interval:12000 events:elf_girl_untag

@@ -1,0 +1,135 @@
+size: 45
+Categories:
+  resources:
+    name: '&aRessources'
+    lore:
+    - '&7Toutes les ressources'
+    - '&7élémentaires sont craftables'
+    - '&7par tout le monde.'
+    slot: 12
+    id: OAK_LOG
+
+  basic:
+    name: '&aCrafts basiques'
+    lore:
+    - '&7Tous les crafts'
+    - '&7basiques sont craftables'
+    - '&7par tout le monde.'
+    slot: 14
+    id: LIME_DYE
+
+  furnace:
+    name: '&aFour'
+    lore:
+    - '&7Catégorie des objets'
+    - '&7craftables dans un four.'
+    - '&7Catégorie de crafts'
+    - '&7réservée aux Forgerons.'
+    - ' '
+    - '&7&oClic droit sur un'
+    - '&7&ofour pour ouvrir.'
+    slot: 21
+    permission: 'nonexistent.perm'
+    id: FURNACE
+    
+  anvil:
+    name: '&aEnclume'
+    lore:
+    - '&7Catégorie des objets'
+    - '&7craftables sur une enclume.'
+    - '&7Catégorie de crafts'
+    - '&7réservée aux Forgerons.'
+    - ' '
+    - '&7&oClic droit sur une'
+    - '&7&oenclume pour ouvrir.'
+    slot: 23
+    permission: 'nonexistent.perm'
+    id: ANVIL
+
+  artisans:
+    name: '&aArtisans'
+    lore:
+    - '&7Catégorie de crafts'
+    - '&7réservée aux Artisans.'
+    slot: 30
+    id: CRAFTING_TABLE
+
+Inventory:
+  '0':
+    slot: 0
+    id: BLACK_STAINED_GLASS_PANE
+  '1':
+    slot: 1
+    id: BLACK_STAINED_GLASS_PANE
+  '2':
+    slot: 2
+    id: BLACK_STAINED_GLASS_PANE
+  '3':
+    slot: 3
+    id: BLACK_STAINED_GLASS_PANE
+  '4':
+    slot: 4
+    name: '&6Information'
+    lore:
+    - '&7Selectionnez une catégorie'
+    - '&7pour crafter des objets.'
+    id: LEVER
+  '5':
+    slot: 5
+    id: BLACK_STAINED_GLASS_PANE
+  '6':
+    slot: 6
+    id: BLACK_STAINED_GLASS_PANE
+  '7':
+    slot: 7
+    id: BLACK_STAINED_GLASS_PANE
+  '8':
+    slot: 8
+    name: '&aAller au Menu'
+    command: sudo %player% menu
+    id: STICK
+  '9':
+    slot: 9
+    id: BLACK_STAINED_GLASS_PANE
+  '10':
+    slot: 17
+    id: BLACK_STAINED_GLASS_PANE
+  '11':
+    slot: 18
+    id: BLACK_STAINED_GLASS_PANE
+  '12':
+    slot: 26
+    id: BLACK_STAINED_GLASS_PANE
+  '13':
+    slot: 27
+    id: BLACK_STAINED_GLASS_PANE
+  '14':
+    slot: 35
+    id: BLACK_STAINED_GLASS_PANE
+  '15':
+    slot: 36
+    id: BLACK_STAINED_GLASS_PANE
+  '16':
+    slot: 37
+    id: BLACK_STAINED_GLASS_PANE
+  '17':
+    slot: 38
+    id: BLACK_STAINED_GLASS_PANE
+  '18':
+    slot: 39
+    id: BLACK_STAINED_GLASS_PANE
+  '19':
+    slot: 40
+    id: BLACK_STAINED_GLASS_PANE
+  '20':
+    slot: 41
+    id: BLACK_STAINED_GLASS_PANE
+  '21':
+    slot: 42
+    id: BLACK_STAINED_GLASS_PANE
+  '22':
+    slot: 43
+    id: BLACK_STAINED_GLASS_PANE
+  '23':
+    slot: 44
+    id: BLACK_STAINED_GLASS_PANE

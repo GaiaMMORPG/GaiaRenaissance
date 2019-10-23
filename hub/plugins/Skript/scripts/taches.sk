@@ -1,0 +1,139 @@
+#========[¤]========#
+#					#
+#		Tâches		#
+#					#
+#========[¤]========#
+
+#
+# Specific to this server tasks.
+#
+
+#
+# On First Join
+#
+on first join:
+	set join message to "&7&oBienvenue sur Gaïa Renaissance, &8%player% &7&o!"
+
+#
+# On Join
+#
+on join:
+	set join message to "&8%player% &7a rejoint Thol Gaïa."
+
+	# Visual Intro
+	apply potion of blindness 1 to the player for 15 seconds
+	apply potion of night vision 1 to the player for 6 seconds
+	async
+	ActionBarSend(player,"&4Pensez à utiliser le resource pack!")
+	play resource sound pack "gaia_intro" to player with volume 3
+	send title "&6Bienvenue" with subtitle "&esur Gaïa Renaissance" to player for 10 seconds with fadein 2 second and fade out 2 second
+
+
+#
+# On Quit
+#
+on quit:
+	set leave message to "&8%player% &7a quitté Thol Gaïa."
+	set {_uuid} to player's uuid
+	loop tree of {local::temp::%{_uuid}%::*}:
+		delete {local::temp::%{_uuid}%::%branch%}
+	
+#
+# On Command
+#
+on command:
+	log "%executor% : /%command% %arguments%" to "commands.log"
+
+command /accountage:
+	permission: skript.admin
+	trigger:
+		message "%first login of player%"
+		message "%last login of player%"
+		set {_age} to difference between first login of player and last login of player
+		message "%{_age}%"
+		#Can be usefull for deleting very young accounts.
+		#if {_age} is smaller than 1 minute:
+		#	if difference between first login of player and now is bigger than 1 month:
+		#		delete account
+
+#
+# On Unload
+#
+on unload:
+	loop tree of {temp::*}:
+		delete {temp::%branch%}
+	loop tree of {local::temp::*}:
+		delete {local::temp::%branch%}
+	#Restoring pending ressources (should be moved to mrpropre but not be executed on other servers.)
+	if size of {local::mined::locations::*} >= 1:
+		loop {local::mined::locations::*}:
+			set block at loop-value to metadata "gaiaresource" of block at location at loop-value
+			remove loop-value from {local::mined::locations::*}
+
+#
+# Periodic
+#
+
+# Is this still necessary with blockregen installed ?
+every 10 minutes in world "gaia":
+	loop {local::mined::locations::*}:
+		set block at loop-value to metadata "gaiaresource" of block at location at loop-value
+		remove loop-value from {local::mined::locations::*}
+
+every 1 minute in world "gaia":
+	async
+	set {_json} to text from url "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,BCH,ETH,DASH,LTC,ZEC&tsyms=EUR"
+
+	#BTC = Bons du Trésor
+	set line 1 of block at location at 3906, 143, -8393 of the world "gaia" to "&lBons du Trésor"
+	set line 2 of block at location at 3906, 143, -8393 of the world "gaia" to CryptoPrice({_json}, "BTC")
+	set line 3 of block at location at 3906, 143, -8393 of the world "gaia" to CryptoVariation({_json}, "BTC")
+
+	#BCH = Métaux précieux
+	set line 1 of block at location at 3906, 143, -8394 of the world "gaia" to "&lMétaux précieux"
+	set line 2 of block at location at 3906, 143, -8394 of the world "gaia" to CryptoPrice({_json}, "BCH")
+	set line 3 of block at location at 3906, 143, -8394 of the world "gaia" to CryptoVariation({_json}, "BCH")
+
+	#ETH = Nourriture
+	set line 1 of block at location at 3906, 143, -8395 of the world "gaia" to "&lNourriture"
+	set line 2 of block at location at 3906, 143, -8395 of the world "gaia" to CryptoPrice({_json}, "ETH")
+	set line 3 of block at location at 3906, 143, -8395 of the world "gaia" to CryptoVariation({_json}, "ETH")
+
+	#DASH = Minerais
+	set line 1 of block at location at 3906, 143, -8396 of the world "gaia" to "&lMinerais"
+	set line 2 of block at location at 3906, 143, -8396 of the world "gaia" to CryptoPrice({_json}, "DASH")
+	set line 3 of block at location at 3906, 143, -8396 of the world "gaia" to CryptoVariation({_json}, "DASH")
+
+	#LTC = Équipement
+	set line 1 of block at location at 3906, 143, -8392 of the world "gaia" to "&lÉquipement"
+	set line 2 of block at location at 3906, 143, -8392 of the world "gaia" to CryptoPrice({_json}, "LTC")
+	set line 3 of block at location at 3906, 143, -8392 of the world "gaia" to CryptoVariation({_json}, "LTC")
+
+	#ZEC = Bétail
+	set line 1 of block at location at 3906, 143, -8391 of the world "gaia" to "&lBétail"
+	set line 2 of block at location at 3906, 143, -8391 of the world "gaia" to CryptoPrice({_json}, "ZEC")
+	set line 3 of block at location at 3906, 143, -8391 of the world "gaia" to CryptoVariation({_json}, "ZEC")
+
+function CryptoPrice(json: string, currency: string) :: string:
+	set {_temp} to content of json value "RAW" from text {_json}
+	set {_temp} to content of json value "%{_currency}%" from text {_temp}
+	set {_temp} to content of json value "EUR" from text {_temp}
+	set {_temp} to content of json value "PRICE" from text {_temp}
+	set {_temp} to {_temp} parsed as number
+	if {_currency} is not "BTC":
+		set {_temp} to {_temp} * 10
+	set {_temp} to first 10 characters of {_temp}
+	
+	return "%{_temp}%¤"
+
+function CryptoVariation(json: string, currency: string) :: string:
+	set {_temp} to content of json value "DISPLAY" from text {_json}
+	set {_temp} to content of json value "%{_currency}%" from text {_temp}
+	set {_temp} to content of json value "EUR" from text {_temp}
+	set {_temp} to content of json value "CHANGEPCT24HOUR" from text {_temp}
+	set {_integer} to {_temp} parsed as number
+	if {_integer} < 0:
+		set {_return} to "&4&l%{_integer}%%%"
+	else:
+		set {_return} to "&2&l%{_integer}%%%"
+	return {_return}

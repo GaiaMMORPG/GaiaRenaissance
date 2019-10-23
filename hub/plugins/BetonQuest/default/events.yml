@@ -1,0 +1,51 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+#========[¤]========#
+#					          #
+#	  Convervsations	#
+#					          #
+#========[¤]========#
+conversation_pnj_test: 'conversation test'
+conversation_pnj_1: 'conversation jacopo'
+conversation_pnj_2: 'conversation banker'
+
+conversation_bank_guard1: 'conversation bank_guard1'
+conversation_bank_guard2: 'conversation bank_guard2'
+conversation_bank_guard3: 'conversation bank_guard3'
+conversation_bank_guard4: 'conversation bank_guard4'
+
+#========[¤]========#
+#					          #
+#	  Global Events	  #
+#					          #
+#========[¤]========#
+reput_plus_1: 'folder reput_plus_1_exe,reput_plus_1_message'
+reput_moins_3: 'point reputation -3'
+
+reput_plus_1_exe: 'point reputation 1'
+reput_plus_1_message: 'message &7Vous gagnez 1 point de réputation (Total: %point.reputation.amount%)'
+
+argent_moins_1: 'command eco take %player% 1'
+
+
+vie_moins_5: 'damage 5'
+
+lenteur_5_temps_5: 'effect SLOW 5 1 hidden noicon'
+
+#========[¤]========#
+#					          #
+#	  Server Teleport	#
+#					          #
+#========[¤]========#
+server_teleport_gui: 'command serverteleportations %player%'
+
+#========[¤]========#
+#					          #
+#	    Bank Addon	  #
+#					          #
+#========[¤]========#
+open_bank_gui: 'command openbankgui %player%'
+display_interest_time: 'sudo bank time'

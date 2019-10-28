@@ -1,0 +1,100 @@
+# -------------------------------------------------------------------------------
+# This file manages special rules that can overlaps messages sent by other
+# plugins or even the server, with the help of packets.
+#
+# You'll need ProtocolLib to enable this feature!
+#
+# [NOTICE] Following operators do not work on packet rules:
+# 'ignore usernames', 'ignore chatdisplay', 'ignore event' and 'handle as'
+#
+# For help, see the header in the rules.txt file.
+# -------------------------------------------------------------------------------
+
+# Hide unknown command message.
+match ^Unknown command.*
+then deny
+
+# Permission messages
+match You do not have permission|^I'm sorry, but you do not have permission to perform this.*|^You do not have access to that command.|^You do not have sufficient permissions.|^You don't have the required permission to use this command*
+dont verbose
+then rewrite &7Utilisez votre &8/menu &7pour toutes vos options.
+
+#
+# Hollish Addons
+#
+
+#Generic denied
+match thisisgloballydenied
+then deny
+
+#Commands
+
+match This command can only be used by the console
+then deny
+
+#Messages
+
+match ---- Balancetop --
+then rewrite &7--------- &8¤ &7Argent - Rangs &8¤ &7---------
+
+match Utilisez /balancetop
+then rewrite &7-----------------------------------
+
+match Meilleurs soldes au
+then deny
+
+match Total du serveur
+then deny
+
+#match Increases base mana
+#then replace eat this
+
+match SafeTrade
+then rewrite &7---------- &8¤ &7Échanges &8¤ &7----------
+
+match ------------------------------------
+then replace &7------------------------------------
+
+match Registered new ownership for furnace
+then replace &7Ce four vous appartient désormais :&8
+
+match break that
+then replace casser ce
+
+match place things
+then replace placer des choses
+
+match Your Minecraft account is already
+then rewrite &7Votre compte MineCraft est déjà relié à un compte Discord. Utilisez &8/discord unlink &7pour délier votre compte Minecraft du compte Discord actuel.
+
+match Your Minecraft account isn't associated
+then rewrite &7Votre compte MineCraft n'est pas encore relié à un compte Discord. Utilisez &8/discord link &7pour relier votre compte Minecraft à un compte Discord.
+
+match Your Minecraft account is no longer associated with
+then replace &7Votre comptre Minecraft n'est plus associé avec&8
+
+match Your Minecraft account is associated with
+then replace &7Votre compte Minecraft est associé au compte Discord&8
+
+# Anti plugin display
+
+match ChatControl Pro
+then deny
+
+match Created by
+then deny
+
+match Running LuckPerms
+then rewrite &7Utilisez votre &8/menu &7pour toutes vos options.
+
+match Advanced Achievements
+then deny
+
+match Bank
+then deny
+
+match GaïaControl
+then replace ' '
+
+match [MythicMobs] Item
+then deny

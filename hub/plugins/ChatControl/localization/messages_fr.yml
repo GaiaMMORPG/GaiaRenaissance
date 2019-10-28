@@ -1,0 +1,235 @@
+# -------------------------------------------------------------------------------------------
+# 
+#  Your file has been automatically updated at 28.06.2019 21:05:51
+#  to ChatControl 8.2.7
+# 
+#  Unfortunatelly, due to how Bukkit saves all .yml files, it was not possible
+#  preserve the documentation comments in your file. We apologize.
+# 
+#  If you'd like to view the default file, you can either:
+#  a) Open the ChatControl-8.2.7.jar with a WinRar or similar
+#  b) or, visit: https://github.com/kangarko/ChatControl/wiki
+# 
+# -------------------------------------------------------------------------------------------
+
+Cannot:
+  Chat_While_Muted: '&7Le chat est en sourdine, vous ne pouvez pas parler.'
+  Write_Books_While_Muted: '&7Vous ne pouvez pas rédiger de livre lorsque le chat
+    est en sourdine.'
+  Place_Signs_While_Muted: '&7Vous ne pouvez pas placer de pancarte lorsque le chat
+    est en sourdine.'
+  Command_While_Muted: '&7Cette commande est bloquée quand le chat est en sourdine.'
+  Chat_Until_Moved: '&7Vous ne pouvez pas écrire avant d''avoir bougé.'
+  Command_Until_Moved: '&7Vous ne pouvez pas utiliser cette commande avant d''avoir
+    bougé.'
+Anti_Bot:
+  Rejoin_Message: |-
+    {prefix}
+    &c
+    &cVeuillez attendre &7{time} {seconds} &cavant de vous reconnecter.
+  Disallowed_Nickname: '&cVotre pseudo comporte des caractères illégaux.'
+  Chat_Delay: '&7Merci d''attendre &8{time} {seconds} &7après votre login avant de
+    parler.'
+  Command_Delay: '&7Merci d''attendre &8{time} {seconds} &7après votre login avant
+    d''utiliser des commandes.'
+Anti_Spam:
+  Similar_Message: '&7Veuillez ne pas répéter le même message (ou similaire).'
+  Similar_Command: '&7Veuillez ne pas répéter la même commande (ou similaire).'
+  Parrot_Repeated: '&7Veuillez ne pas répéter un autre joueur.'
+  Too_Much_Caps: '&7N''abusez pas des majuscules.'
+  Command_Wait_Message: '&7Veuillez attendre &8{time} {seconds} &7avant la prochaine
+    commande.'
+  Chat_Wait_Message: '&7Veuillez attendre &8{time} {seconds} &7avant le prochain message.'
+  Message_Limit_Exceeded: '&7Vous pouvez seulement envoyer &8{limit} &7messages par
+    &8{period}&7.'
+  Command_Limit_Exceeded: '&7Vous pouvez seulement utiliser &8{limit} &7commandes
+    par &8{period}&7.'
+Chat_Mute:
+  Mute: '&7Chat mis en sourdine.'
+  Unmute: '&7Le chat n''est plus en sourdine.'
+  Mute_Broadcast: '&8{player} &7a mis le chat en sourdine.'
+  Unmute_Broadcast: '&8{player} &7a rétabli le chat.'
+  Anonymous_Mute_Broadcast: '&7Mise en sourdine du chat global.'
+  Anonymous_Unmute_Broadcast: '&7Chat global rétabli.'
+Chat_Clear:
+  Broadcast: '&8{player} &7a effacé le chat.'
+  Anonymous_Broadcast: '&7Le chat a été effacé.'
+  Console_Player_Message: '&7Console effacée avec succès.'
+  Console_Message: '&7Console effacée par &8{player}&7.'
+  Chat_Staff_Message: '&7Chat effacé par &8{player}&7.'
+Signs:
+  Duplicate_Text: '&7Vous ne pouvez pas faire plusieurs pancartes avec le même texte
+    !'
+  Duplicate_Text_Staff: '&8{player} &7a fait plusieurs pancartes avec le même texte
+    : &8{message}'
+  Broke_When_Violated_A_Rule: '&7Votre pancarte s''est cassée, elle ne respecte pas
+    une règle.'
+Books:
+  Block_When_Violated_A_Rule: '&7Impossible de créer le livre, il ne respecte pas
+    une règle.'
+Items:
+  Block_When_Violated_A_Rule: '&7Impossible de renommer l''objet, il ne respecte pas
+    une règle.'
+Points:
+  Not_Enabled: '&7Les points d''avertissement ne sont pas activés.'
+  Listing_Points_Of: '&7Liste des points d''avertissement de &8{player} &7:'
+Chat_Ignorer:
+  Disabled: '&7Le Chat Ignorer est désactivé.'
+  Set_Not_Found: '&cSet {ignoreSet} does not exists! Available: {available}'
+  No_Permission: '&cYou lack {permission} to ignore this set!'
+  Ignore: '&7You are &2now ignoring &7set {ignoreSet}.'
+  Unignore: '&7You are &6no longer &7ignoring set {ignoreSet}.'
+Formatter:
+  No_Permission: '&7Vous n''avez pas la permission de parler.'
+Channels:
+  Channels_Disabled: '&cChannels are disabled. To enable, set &7Chat.Channels.Enabled
+    &cto &7true &cin settings.yml'
+  Join: '&7Vous rejoignez le channel &8{channel}&7.'
+  Join_Other: '&8{player} a rejoint le channel &8{channel}&7.'
+  Leave: '&7Vous quittez le channel &8{channel}&7.'
+  Switch: '&7Vous quittez le channel &8{oldChannel}&7 pour le channel &8{channel}&7.'
+  Spy: '&7Vous espionnez le channel &8{channel}&7.'
+  Unspy: '&7Vous n''espionnez plus le channel &8{channel}&7.'
+  Cannot_Spy_Self: '&7Vous ne pouviez pas espionner le channel dans lequel vous vous
+    trouvez.'
+  Mode_Write: Écriture&7
+  Mode_Read: Lecture&7
+  Mode_Spy: Espion&7
+  Players: '&7Joueurs dans le channel &8{channel} &7: {player_list}'
+  Set: '&8{player} &7est désormais dans le channel &8{channel} &7en mode &8{mode}&7.'
+  Unset: '&8{player} &7n''est plus dans le channel &8{channel}&7.'
+  Invalid_Arguments: '&7Utilisez &8/menu &7pour toutes vos options.'
+  Notify_Channel: '&7Votre channel : &8{channel}&7. Utilisez &8/chat &7pour parcourir
+    les channels disponibles.'
+  Notify_No_Channels: '&7Vous n''écrivez dans aucun channel. Utilisez &8/chat entrer
+    &7pour rejoindre un channel.'
+  Already_Joined: '&7Vous êtes déjà dans ce channel. Utilisez &8/chat quitter {channel}
+    &7pour le quitter.'
+  Not_In_Channel: '&7Vous n''êtes pas dans ce channel. Utilisez &8/chat entrer {channel}
+    &7pour le rejoindre.'
+  Unknown_Channel: '&7Aucun channel du nom de &8{channel} &7n''existe. Disponibles
+    : &8{channel_list}&7.'
+  No_Write_Channels: '&7Vous n''avez aucun channel pour écrire. Utilisez &8/options
+    &7pour plus d''aide.'
+  Player_Joined_Channel: '&8{player} &7a rejoint le channel &8channel&7.'
+  Player_Left_Channel: '&8{player} &7a quitté le channel &8channel&7.'
+  Switch_No_Channel: '&7Vous devez avoir déjà rejoint un channel avant de pouvoir
+    y switcher.'
+  Muted_Cannot_Speak: '&7Vous ne pouvez pas parler ici, le channel &8{channel} &7est
+    en sourdine.'
+  Write_Limit_Reached: '&7Vous ne pouvez écrire que dans &8{limit} &7channel(s) à
+    la fois !'
+  Read_Limit_Reached: '&7Vous ne pouvez lire que dans &8{limit} &7channel(s) à la
+    fois !'
+  Unknown_Mode: '&7Ce mode de channel n''existe pas. Disponibles : &8{available}&7.'
+  Mute: '&7Le channel &8{channel} &7a été mis en sourdine.'
+  Unmute: '&7Le channel &8{channel} &7a n''est plus en sourdine.'
+  Your_Channels: '&7Vos channel(s) : &8{channels}&7.'
+  List_Help: '&7Pour afficher les joueurs dans un channel, utilisez &8/chat list <channel>&7.'
+  No_Party: You have no {party} you can chat within in this chat.
+  No_Plot: '&8&l! &cThere is no plot in this location. Your message could not be sent.'
+  List_Format: |-
+    &8{smooth_line}
+    <center>&7&lChannels
+    &f
+    &7Disponibles : &8{channel_list}
+    &f
+    <no_console>&7Vos channels (&8{channel_count}&7):
+    <no_console>&8{list_format_channel_line}
+    <no_console>&8
+    <conditional_tip>&7Conseil : /chat list <channel>
+    &8{smooth_line}
+  List_Format_Channel_Line: '&8 - &f{channel} &7(&8{mode})&6'
+  Send_Require_Join: '&8&l! &cYou cannot write to a channel you are not joined into.'
+Private_Messages:
+  No_Reply: '&7Vous n''avez personne à qui répondre.'
+  Afk_Warning: '&8{player} &7est AFK et pourrait ne pas voir votre message.'
+  Toggle_PM_Warning: '&7Votre message n''a pas été délivré car &8{player} &7ne reçoit
+    pas les messages privés.'
+  Ignore_Warning: '&7Votre message n''a pas été délivré car &8{player} &7vous ignore.'
+  Cannot_Message_Self: '&7Vous ne pouvez pas vous envoyer de messages privés.'
+  Conversing_Enabled: '&7Vous conversez avec &8{conversable}&7. Tapez &8{end} &7pour
+    quitter la conversation.'
+  Conversing_Disabled: '&7Vous ne conversez plus avec &8{conversable}&7.'
+Ignore:
+  List: '&7Vous ignorez (&8{size}&7) : &8{players}'
+  Cannot_Ignore_Yourself: '&7Vous ne pouvez pas vous ignorer...'
+  Ignore: '&7Vous ignorez &8{player}&7.'
+  Unignore: '&7Vous n''ignorez plus &8{player}&7.'
+Toggle_PM:
+  Enabled: '&8{player} &7reçoit désormais les messages privés.'
+  Disabled: '&8{player} &7ne reçoit plus les messages privés.'
+Toggle_BC:
+  Enabled: '&8{player} &7reçoit désormais les annonces.'
+  Disabled: '&8{player} &7ne reçoit plus les annonces.'
+Player:
+  Never_Played: '&8{player} &7est inconnu dans le monde de Gaïa.'
+  Not_Online: '&8{player} &7n''est pas connecté au monde de Gaïa.'
+Spy:
+  Enabled: '&7Vous espionnez désormais les commandes.'
+  Disabled: '&7Vous n''espionnez plus les commandes.'
+  Auto_Enabled_Join: '&7En vous connectant, vous espionnez les commandes.'
+Fake_Messages:
+  Fallback:
+    Join_Message: '&e{player} joined the game.'
+    Quit_Message: '&e{player} left the game.'
+    Kick_Message: '&e{player} left the game.'
+Announcer:
+  Message: |-
+    &7--------------------- &8¤ &7Annonce &8¤ &7---------------------
+    &7 {message}
+    &7---------------------------------------------------------
+  Console_Message: '&f[Annonce de &b{player}&f] : &7{message}'
+  Self_Message: '&7Annonce envoyée.'
+Usage:
+  Fake_Command: /chatcontrol fake <&bjoin&f/&aleave&f/&ekick&c> [player]
+  Calc_Command: '/chatcontrol calc <expression> (ex. : 4 + 4 / 2)'
+Invalid:
+  Handler: '&cLe gestionnaire d''événements (handler) ''{handler}'' n''existe pas
+    !'
+  Import_File: '&cError: File messages_fr.yml does not exist! Make sure it''s in ChatControl
+    folder in plugins/ folder.'
+  Player: '&7Le joueur &8{player} &7n''est pas connecté actuellement.'
+Commands:
+  No_Console: '&cCette commande n''est pas accessible depuis la console !'
+  Reload_Success: '{prefix} &2Configuration rechargée avec succès.'
+  Reload_Fail: '{prefix} &cLe rechargement a échoué, vérifiez la console. Erreur :
+    &4{error}'
+Update_Available: |-
+  &2Une mise à jour de &3ChatControl&2 est disponible.
+  &2Version actuelle : &f{current}&2; Nouvelle : &f{new}
+  &2URL : &7https://www.spigotmc.org/resources/10258/.
+No_Permission: '&7Utilisez votre &8/menu &7pour toutes vos options.'
+Import_Finished: '&7Import has been &2finished&7. Check console for more &binformation&7.'
+Import_Failed: '&cImport failed. Check console for more information. Error: {error}'
+Wrong_Parameters: '&7Mauvais paramètres ou permission manquante.'
+Wrong_Arguments: '&7Mauvais arguments. Utilisez &8/options &7pour voir toutes vos options.'
+Bungee_Chat_Error: '&cBungee chat requires BungeeCords support enabled.'
+Bungee_Chat_Toggle_On: '&7Vos messages sont désormais envoyés automatiquement dans
+  le chat global. Répétez la commande pour désactiver.'
+Bungee_Chat_Toggle_Off: '&7Vos messages ne sont plus envoyés automatiquement dans
+  le chat global.'
+Admin_Chat_Toggle_On: '&7Vos messages sont désormais envoyés automatiquement dans
+  le chat du Staff. Répétez la commande pour désactiver.'
+Admin_Chat_Toggle_Off: '&7Vos messages ne sont plus envoyés automatiquement dans le
+  chat du Staff.'
+Chat_Out_Of_Range: '&7Personne dans votre périmètre pour voir votre message...'
+General:
+  ChatControl: GaïaControl
+  Player_Join: connexion
+  Player_Quit: déconnexion
+  Player_Kick: expulsion (kick)
+  Reason: '&7Raison : &8{reason}'
+  Sign: PANCARTE
+  Sign_At_Location: '[PANCARTE en {location}]'
+  Command: COMMANDE
+  Message: message
+  Player: joueur
+  Channel: channel
+  None: aucun
+  Usage: '&7Utilisation : '
+  Result: '&7Résultat : &8{result}'
+  Seconds: seconde, secondes
+Version: 1
+Server_Prefix: '&8[&7GaïaControl&8]'
+Console_Name: '&7GaïaControl'

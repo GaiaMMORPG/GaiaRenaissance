@@ -1,0 +1,25 @@
+# -------------------------------------------------------------------------------
+# This file manages rules in commands (messages beginning with /)
+# and includes rules from rules.txt.
+#
+# For help, see the header in the rules.txt file.
+# -------------------------------------------------------------------------------
+
+#
+# Hollish Stuff
+#
+
+match ^/jobs (blockinfo|info|points|shop)$
+then deny
+
+match ^/bank money
+then deny
+
+match ^/aach (info|help)$
+then deny
+
+match ^/cc
+then deny
+
+match ^/ch (help|\?)
+then deny

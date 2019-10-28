@@ -1,0 +1,539 @@
+# Use a YAML editor like NotepadPlusPlus to edit this file.  
+# After editing, back up your changes before reloading the server in case you made a syntax error.  
+# Use dollar signs ($) for formatting codes, which are documented here: http://minecraft.gamepedia.com/Formatting_codes
+Messages:
+  RespectingClaims:
+    Text: "$7Respecte désormais les parcelles existantes."
+  IgnoringClaims:
+    Text: "$7Ignore désormais les parcelles existantes."
+  SuccessfulAbandon:
+    Text: "$7Vous avez abandonné toutes vos parcelles. Vous avez désormais un total de $8{0} blocs pour revendiquer de nouvelles parcelles."
+    Notes: '0: remaining blocks'
+  RestoreNatureActivate:
+    Text: Ready to restore some nature!  Right click to restore nature, and use /BasicClaims
+      to stop.
+  RestoreNatureAggressiveActivate:
+    Text: Aggressive mode activated.  Do NOT use this underneath anything you want
+      to keep!  Right click to aggressively restore nature, and use /BasicClaims to
+      stop.
+  FillModeActive:
+    Text: Fill mode activated with radius {0}.  Right click an area to fill.
+    Notes: '0: fill radius'
+  TransferClaimPermission:
+    Text: "$7Utilisez votre $8/menu $7pour toutes vos options."
+  TransferClaimMissing:
+    Text: There's no claim here.  Stand in the administrative claim you want to transfer.
+  TransferClaimAdminOnly:
+    Text: Only administrative claims may be transferred to a player.
+  PlayerNotFound2:
+    Text: "$7Aucun joueur avec ce nom s'est connecté récemment."
+  TransferTopLevel:
+    Text: "$7Seules les parcelles (en jaune) peuvent être transférées. Sortez de la sous-parcelle (en blanc) et réessayez."
+  TransferSuccess:
+    Text: "$7Parcelle transférée."
+  TrustListNoClaim:
+    Text: "$7Mettez vous à l'intérieur de la parcelle pour laquelle vous souhaitez obtenir plus d'informations."
+  ClearPermsOwnerOnly:
+    Text: "$7Seul le propriétaire de la parcelle peut supprimer toutes les permissions."
+  UntrustIndividualAllClaims:
+    Text: "$7Les permissions de $8{0} $7ont été révoquées sur toutes vos parcelles. Pour définir des permissions par parcelle, mettez vous à l'intérieur de la parcelle pour laquelle vous souhaitez définir les permissions."
+    Notes: '0: untrusted player'
+  UntrustEveryoneAllClaims:
+    Text: "$7Toutes les permissions ont été supprimées sur toutes vos parcelles. Pour définir des permissions par parcelle, mettez vous à l'intérieur de la parcelle pour laquelle vous souhaitez définir les permissions."
+  NoPermissionTrust:
+    Text: "$7Vous n'avez pas obtenu la permission de $8{0} $7pour gérer les permissions dans cette parcelle."
+    Notes: '0: claim owner''s name'
+  ClearPermissionsOneClaim:
+    Text: "$7Toutes les permissions ont été supprimées dans cette parcelle. Pour définir des permissions dans toutes vos parcelles, mettez vous à l'extérieur de toute parcelle."
+  UntrustIndividualSingleClaim:
+    Text: "$7Toutes les permissions de $8{0} $7ont été supprimées dans cette parcelle. Pour définir des permissions dans toutes vos parcelles, mettez vous à l'extérieur de toute parcelle."
+    Notes: '0: untrusted player'
+  OnlySellBlocks:
+    Text: "$7Les blocs peuvent seulement être vendus et non pas achetés."
+  BlockPurchaseCost:
+    Text: "$7Chaque bloc coûte $8{0}$7. Vous avez $8¤{1} $7en poche."
+    Notes: '0: cost of one block; 1: player''s account balance'
+  ClaimBlockLimit:
+    Text: "$7Vous avez avez atteint le nombre maximal de blocs. Vous ne pouvez pas en acheter davantage."
+  InsufficientFunds:
+    Text: "$7Vous n'avez pas assez d'argent. Il en faudrait $8¤{0} $7or vous n'en avez que $8¤{1}$7."
+    Notes: '0: total cost; 1: player''s account balance'
+  PurchaseConfirmation:
+    Text: "$7Vous avez acheté de nouveaux blocs pour $8¤{0}$7. Vous avez désormais un total de $8{1} $7blocs disponibles."
+    Notes: '0: total cost; 1: remaining blocks'
+  OnlyPurchaseBlocks:
+    Text: "$7Les blocs peuvent seulement être achetés et non pas vendus."
+  BlockSaleValue:
+    Text: "$7Chaque bloc vaut $8¤{0} $7à la vente. Vous en possédez $8{1} $7disponibles à la vente."
+    Notes: '0: block value; 1: available blocks'
+  NotEnoughBlocksForSale:
+    Text: "$7Vous n'avez pas autant de blocs disponibles à la vente."
+  BlockSaleConfirmation:
+    Text: "$7Vous avez vendu des blocs pour $8¤{0}$7. Vous avez désormais un total de $8{1} $7blocs disponibles."
+    Notes: '0: amount deposited; 1: remaining blocks'
+  AdminClaimsMode:
+    Text: Administrative claims mode active.  Any claims created will be free and
+      editable by other administrators.
+  BasicClaimsMode:
+    Text: "$7Retour en mode classique de création et d'édition de parcelles."
+  SubdivisionMode:
+    Text: "$7Mode sous-division activée. Utilisez votre pelle en or pour créer des sous-parcelles dans vos parcelles existantes. Utilisez $8/basicclaims $7pour revenir au mode classique de création de parcelles."
+  SubdivisionVideo2:
+    Text: "$7Un guide sera très bientôt disponible pour la création de sous-parcelles."
+    Notes: 0:video URL
+  DeleteClaimMissing:
+    Text: "$7Il n'y a pas de parcelle ici."
+  DeletionSubdivisionWarning:
+    Text: "$7Cette parcelle contient des sous-parcelles. Si vous voulez tout supprimer, utilisez $8/DeleteClaim $7à nouveau."
+  DeleteSuccess:
+    Text: "$7Parcelle supprimée."
+  CantDeleteAdminClaim:
+    Text: "$7Vous n'avez pas la permission de supprimer une parcelle administrative."
+  DeleteAllSuccess:
+    Text: "$7Toutes les parcelles de $8{0} $7ont été supprimées."
+    Notes: '0: owner''s name'
+  NoDeletePermission:
+    Text: "$7Vous n'avez pas la permission de supprimer des parcelles."
+  AllAdminDeleted:
+    Text: "$7Toutes les parcelles administratives ont été supprimées."
+  AdjustBlocksSuccess:
+    Text: "$7Le nombre de blocs supplémentaires de $8{0} $7a été modifié de $8{1}$7. Nouveau total de blocs supplémentaires : $8{2}$7."
+    Notes: '0: player; 1: adjustment; 2: new total'
+  NotTrappedHere:
+    Text: "$7Vous avez la permission de construction ici. Vous pouvez donc vous sortir d'ici sans aide."
+  RescuePending:
+    Text: "$7Ne bougez pas pendant 10 secondes et vous serez téléporté hors de cette parcelle."
+  NonSiegeWorld:
+    Text: "$7Les sièges ne sont pas autorisés dans ce monde."
+  AlreadySieging:
+    Text: "$7Vous êtes déjà en état de siège."
+  NotSiegableThere:
+    Text: "$7Vous ne pouvez pas assiéger $8{0}$7, puisque cet individu n'est pas sur une de ses parcelles."
+    Notes: '0: defending player'
+  SiegeTooFarAway:
+    Text: "$7Vous êtes trop loin pour assiéger cet individu."
+  NoSiegeYourself:
+    Text: "$7Ne soyez pas idiot, vous ne pouvez pas vous assiéger vous-même..."
+  NoSiegeDefenseless:
+    Text: "$7Cet individu est sans défense. Allez vous en prendre à quelqu'un d'autre !"
+  AlreadyUnderSiegePlayer:
+    Text: "$7L'individu $8{0} $7est déjà assiégé. Rejoignez la partie !"
+    Notes: '0: defending player'
+  AlreadyUnderSiegeArea:
+    Text: "$7Cette parcelle est déjà assiégée. Rejoignez la partie !"
+  NoSiegeAdminClaim:
+    Text: "$7Les sièges sont interdits dans cette zone."
+  SiegeOnCooldown:
+    Text: "$7Vous avez attaqué cet individu et/ou cette parcelle trop récemment."
+  SiegeAlert:
+    Text: "$7Vous êtes assiégé ! Si vous vous déconnectez maintenant, vous mourrez. Vous devez vaincre $8{0}$7, attendre qu'il ou elle abandonne, ou vous échapper."
+    Notes: '0: attacker name'
+  SiegeConfirmed:
+    Text: "$7Le siège a commencé !! Si vous vous déconnectez maintenant, vous mourrez. Vous devez vaincre $8{0}$7, le ou la chasser ou admettre votre défaite."
+    Notes: '0: defender name'
+  AbandonClaimMissing:
+    Text: "$7Pour supprimer une parcelle spécifique, mettez vous dedans avant d'utiliser cette commande."
+  NotYourClaim:
+    Text: "$7Ceci n'est pas votre parcelle."
+  DeleteTopLevelClaim:
+    Text: "$7Pour supprimer une sous-parcelle, mettez-vous à l'intérieur de celle-ci. Autrement, vous pouvez utiliser $8/AbandonTopLevelClaim $7afin de supprimer cette parcelle et toutes ses sous-parcelles."
+  AbandonSuccess:
+    Text: "$7Parcelle supprimée. Vous avez $8{0} $7bloc(s) de disponible."
+    Notes: '0: remaining claim blocks'
+  CantGrantThatPermission:
+    Text: "$7Vous ne pouvez pas accorder des permissions que vous n'avez pas vous-même."
+  GrantPermissionNoClaim:
+    Text: "$7Mettez-vous dans la parcelle pour laquelle vous souhaitez accorder cette permission."
+  GrantPermissionConfirmation:
+    Text: "$7Vous accordez à $8{0} $7la permission $8{1} $7dans $8{2}$7."
+    Notes: '0: target player; 1: permission description; 2: scope (changed claims)'
+  ManageUniversalPermissionsInstruction:
+    Text: "$7Pour gérer les permissions de toutes vos parcelles, mettez-vous à l'extérieur de celles-ci."
+  ManageOneClaimPermissionsInstruction:
+    Text: "$7Pour gérer les permissions d'une parcelle spécifique, mettez-vous à l'intérieur de celle-ci."
+  CollectivePublic:
+    Text: "tout le monde"
+    Notes: as in 'granted the public permission to...'
+  BuildPermission:
+    Text: "construction"
+  ContainersPermission:
+    Text: "accès aux conteneurs et aux animaux"
+  AccessPermission:
+    Text: "utilisation des boutons et des leviers"
+  PermissionsPermission:
+    Text: "gestion des permissions"
+  LocationCurrentClaim:
+    Text: "dans cette parcelle"
+  LocationAllClaims:
+    Text: "dans toutes vos parcelles"
+  PvPImmunityStart:
+    Text: "$7Vous êtes protégé des attaques d'autres individus, tant que vôtre inventaire est vide."
+  SiegeNoDrop:
+    Text: "$7Vous ne pouvez pas jeter des objets tant que vous êtes concerné par un siège."
+  DonateItemsInstruction:
+    Text: "$7Pour faire don des objets que vous avez en main, cliquez à nouveau sur le coffre."
+  ChestFull:
+    Text: "$7Ce coffre est plein."
+  DonationSuccess:
+    Text: "$7Objet(s) transféré(s) avec succès dans le coffre."
+  PlayerTooCloseForFire2:
+    Text: "$7Vous ne pouvez pas commencer un feu si proche d'un autre joueur."
+  TooDeepToClaim:
+    Text: "$7Ce coffre ne peut pas être protégé, car son altitude est trop basse. Vous devriez le bouger vers un niveau plus élevé."
+  ChestClaimConfirmation:
+    Text: "$7Ce coffre est protégé."
+  AutomaticClaimNotification:
+    Text: "$7Ce coffre et quelques blocs alentours sont protégés contre le vol et le grief."
+  UnprotectedChestWarning:
+    Text: "$7Ce coffre n'est pas protégé. Pensez à utiliser une pelle en or pour étendre une parcelle existante ou en créer une nouvelle."
+  ThatPlayerPvPImmune:
+    Text: "$7Vous ne pouvez pas attaquer des individus sans défense."
+  CantFightWhileImmune:
+    Text: "$7Vous ne pouvez pas attaquer quelqu'un lorsque vous êtes vous-même protégé du PvP."
+  NoDamageClaimedEntity:
+    Text: "$7Cela appartient à $8{0}$7."
+    Notes: '0: owner name'
+  ShovelBasicClaimMode:
+    Text: "$7Retour au mode basique de création et d'édition de parcelles."
+  RemainingBlocks:
+    Text: "$7Vous pouvez revendiquer $8{0} $7blocs supplémentaires."
+    Notes: '0: remaining blocks'
+  CreativeBasicsVideo2:
+    Text: ''
+    Notes: '{0}: video URL'
+  SurvivalBasicsVideo2:
+    Text: ''
+    Notes: '{0}: video URL'
+  TrappedChatKeyword:
+    Text: coincé;coincée;coince;bloqué;bloquée;bloque
+    Notes: When mentioned in chat, players get information about the /trapped command
+      (multiple words can be separated with semi-colons)
+  TrappedInstructions:
+    Text: "$7Vous êtes coincé(e) dans la parcelle de quelqu'un d'autre ? Utilisez la commande $8/trapped$7."
+  PvPNoDrop:
+    Text: "$7Vous ne pouvez pas jeter des objets lorsque vous en combat."
+  SiegeNoTeleport:
+    Text: "$7Vous ne pouvez pas vous téléporter en-dehors d'une parcelle assiégée."
+  BesiegedNoTeleport:
+    Text: "$7Vous ne pouvez pas vous téléporter dans une parcelle assiégée."
+  SiegeNoContainers:
+    Text: "$7Vous ne pouvez pas ouvrir de conteneurs tant que vous êtes concerné par un siège."
+  PvPNoContainers:
+    Text: "$7Vous ne pouvez pas ouvrir de conteneurs tant que vous êtes en combat."
+  PvPImmunityEnd:
+    Text: "$7Vous pouvez désormais vous battre avec d'autres individus."
+  NoBedPermission:
+    Text: "$7Vous n'avez pas la permission de $8{0} $7pour dormir ici."
+    Notes: '0: claim owner'
+  NoWildernessBuckets:
+    Text: "$7Vous ne pouvez pas vider des sceaux en-dehors de vos parcelles, ou à des altitudes trop basses."
+  NoLavaNearOtherPlayer:
+    Text: "$7Vous ne pouvez pas placer de la lava aussi proche de $8{0}$7."
+    Notes: '0: nearby player'
+  TooFarAway:
+    Text: "$7Ce bloc est trop loin pour être inspecté."
+  BlockNotClaimed:
+    Text: "$7Ce bloc ne fait partie d'aucune parcelle."
+  BlockClaimed:
+    Text: "$7Ce bloc appartient à une parcelle de $8{0}$7."
+    Notes: '0: claim owner'
+  SiegeNoShovel:
+    Text: "$7Vous ne pouvez pas utiliser votre pelle en or pendant un siège."
+  RestoreNaturePlayerInChunk:
+    Text: "$7Impossible de restaurer la nature ici. Le joueur $8{0} $7est dans ce chunk."
+    Notes: '0: nearby player'
+  NoCreateClaimPermission:
+    Text: "$7Vous n'avez pas la permission de revendiquer une parcelle."
+  ResizeNeedMoreBlocks:
+    Text: "$7Vous n'avez pas assez de blocs pour cette taille. Il vous en faudrait $8{0} $7de plus."
+    Notes: '0: how many needed'
+  NoCreativeUnClaim:
+    Text: "$7Vous ne pouvez pas supprimer cette parcelle. Vous pouvez seulement agrandir cette parcelle ou en créer de nouvelles."
+  ClaimResizeSuccess:
+    Text: "$7Parcelle redimensionnée. Il vous reste $8{0} $7blocs."
+    Notes: '0: remaining blocks'
+  ResizeFailOverlap:
+    Text: "$7Vous ne pouvez pas redimensionner ici, car vous empiétez sur une parcelle existante."
+  ResizeStart:
+    Text: "$7Redimensionnement de la parcelle. Utilisez votre pelle en or à nouveau pour indiquer le nouvel emplacement pour cet angle."
+  ResizeFailOverlapSubdivision:
+    Text: "$7Vous ne pouvez pas créer de sous-division ici, car elle empiéterait sur une autre sous-division."
+  SubdivisionStart:
+    Text: "$7Premier angle de la sous-division défini. Utilisez votre pelle en or pour placer l'angle opposé."
+  CreateSubdivisionOverlap:
+    Text: "$7La zone sélectionnée empiète sur une autre sous-division."
+  SubdivisionSuccess:
+    Text: "$7Sous-division créée. Utilisez $8/trust $7pour la partager avec d'autres individus."
+  CreateClaimFailOverlap:
+    Text: "$7Vous ne pouvez pas créer une nouvelle parcelle ici, puisqu'elle empiéterai une autre de vos parcelles existantes. Vous pouvez utiliser $8/abandonclaim $7pour la supprimer, ou alors utiliser votre pelle en or pour en changer la dimension."
+  CreateClaimFailOverlapOtherPlayer:
+    Text: "$7Vous ne pouvez pas créer une nouvelle parcelle ici, puisqu'elle empiéterai sur une parcelle de $8{0}$7."
+    Notes: '0: other claim owner'
+  ClaimsDisabledWorld:
+    Text: "$7Vous ne pouvez pas revendiquer de parcelles dans ce monde."
+  ClaimStart:
+    Text: "$7Premier angle de la parcelle définie. Utilisez la pelle en or à nouveau pour définir l'angle opposé. Pour annuler, rangez la pelle."
+  NewClaimTooNarrow:
+    Text: "$7Cette parcelle serait trop petite. Une parcelle doit être d'au moins $8{0} $7blocs de largeur."
+    Notes: '0: minimum claim width'
+  CreateClaimInsufficientBlocks:
+    Text: "$7Vous n'avez pas assez de blocs disponibles. Il vous en faudrait $8{0} $7de plus pour créer cette parcelle."
+    Notes: '0: additional blocks needed'
+  AbandonClaimAdvertisement:
+    Text: "$7Pour supprimer une parcelle afin de libérer des blocs, utilisez $8/abandonclaim$7."
+  CreateClaimFailOverlapShort:
+    Text: "$7La zone sélectionnée empiète sur une parcelle existante."
+  CreateClaimSuccess:
+    Text: "$7Parcelle créée !"
+  SiegeWinDoorsOpen:
+    Text: "$7Félicitations ! Les boutons et leviers de cette parcelle sont temporairement déverrouillés."
+  RescueAbortedMoved:
+    Text: "$7Vous avez bougé, le sauvetage est annulé."
+  SiegeDoorsLockedEjection:
+    Text: "$7Le temps du pillage est terminé. Vous avez été éjecté de la parcelle."
+  NoModifyDuringSiege:
+    Text: "$7Les parcelles ne peuvent pas être modifiées lorsqu'elles sont assiégées."
+  OnlyOwnersModifyClaims:
+    Text: "$7Seul $8{0} $7peut modifier cette parcelle."
+    Notes: '0: owner name'
+  NoBuildUnderSiege:
+    Text: "$7Cette parcelle est assiégée, personne ne peut construire dedans pendant ce temps."
+    Notes: '0: attacker name'
+  NoBuildPvP:
+    Text: "$7Vous ne pouvez pas construire dans une parcelle pendant un combat."
+  NoBuildPermission:
+    Text: "$7Vous n'avez pas la permission de $8{0} $7pour construire ici."
+    Notes: '0: owner name'
+  NonSiegeMaterial:
+    Text: "$7Vous ne parvenez pas à casser ce bloc, qui semble trop résistant."
+  NoOwnerBuildUnderSiege:
+    Text: "$7Vous ne pouvez pas modifier votre parcelle lorsqu'elle est assiégée."
+  NoAccessPermission:
+    Text: "$7Vous n'avez pas la permission de $8{0} $7pour utiliser cela."
+    Notes: '0: owner name.  access permission controls buttons, levers, and beds'
+  NoContainersSiege:
+    Text: "$7Cette parcelle est assiégée par $8{0}$7. Personne ne peut accéder aux conteneurs pendant le siège."
+    Notes: '0: attacker name'
+  NoContainersPermission:
+    Text: "$7Vous n'avez pas la permission de $8{0} $7d'ouvrir cela."
+    Notes: '0: owner''s name.  containers also include crafting blocks'
+  OwnerNameForAdminClaims:
+    Text: "la Cité de Questrelle."
+    Notes: as in 'You don't have an administrator's permission to build here.'
+  ClaimTooSmallForEntities:
+    Text: "$7Cette parcelle n'est pas assez grande pour cela. Agrandissez-la."
+  TooManyEntitiesInClaim:
+    Text: "$7Cette parcelle a déjà trop d'entités. Essayez d'agrandir la parcelle ou de supprimer des animaux, monstres, peintures ou minecarts."
+  YouHaveNoClaims:
+    Text: "$7Vous n'avez aucune parcelle."
+  ConfirmFluidRemoval:
+    Text: "$7En supprimant cette parcelle, toute la lave qui s'y trouve sera supprimée aussi. Si c'est ce que vous souhaitez, confirmez en utilisant $8/abandonclaim $7à nouveau."
+  AutoBanNotify:
+    Text: Auto-banned {0}({1}).  See logs for details.
+  AdjustGroupBlocksSuccess:
+    Text: 'Adjusted bonus claim blocks for players with the {0} permission by {1}.  New
+      total: {2}.'
+    Notes: '0: permission; 1: adjustment amount; 2: new total bonus'
+  InvalidPermissionID:
+    Text: Please specify a player name, or a permission in [brackets].
+  HowToClaimRegex:
+    Text: (^|.*\W)how\W.*\W(claim|protect|lock)(\W.*|$)
+    Notes: This is a Java Regular Expression.  Look it up before editing!  It's used
+      to tell players about the demo video when they ask how to claim land.
+  NoBuildOutsideClaims:
+    Text: "$7Vous ne pouvez pas construire ici, à moins de revendiquer une parcelle."
+  PlayerOfflineTime:
+    Text: "$7Dernière connexion il y a $8{0} $7jours."
+    Notes: '0: number of full days since last login'
+  BuildingOutsideClaims:
+    Text: "$7N'importe qui peut construire (et détruire !) ici. Pensez à revendiquer une parcelle afin de protéger vos constructions."
+  TrappedWontWorkHere:
+    Text: "$7Nous ne sommes pas en mesure de trouver un endroit sécurisé pour vos téléporter. Merci de contacter le staff."
+  CommandBannedInPvP:
+    Text: "$7Vous ne pouvez pas utiliser cette commande pendant un combat !"
+  UnclaimCleanupWarning:
+    Text: "$7Lorsque vous supprimez une parcelle, elle retrouve automatiquement son état naturel. Ce processus est irréversible."
+  BuySellNotConfigured:
+    Text: "$7L'achat et la vente de blocs est désactivée."
+  NoTeleportPvPCombat:
+    Text: "$7Vous ne pouvez pas vous téléporter pendant un combat."
+  NoTNTDamageAboveSeaLevel:
+    Text: "$7La TNT n'affecte pas les blocs au dessus du niveau de la mer."
+  NoTNTDamageClaims:
+    Text: "$7La TNT n'affecte pas les blocs dans une parcelle."
+  IgnoreClaimsAdvertisement:
+    Text: "$7Pour supprimer les messages d'aide, utilisez $8/ignoreclaims$7."
+  NoPermissionForCommand:
+    Text: "$7Utilisez votre $8/menu $7pour toutes vos options."
+  ClaimsListNoPermission:
+    Text: "$7Vous n'avez pas la permission d'obtenir des informations sur les parcelles d'autres individus."
+  ExplosivesDisabled:
+    Text: "$7Cette parcelle est désormais protégée contre les explosions. Utilisez $8/claimexplosions $7à nouveau pour enlever cette protection."
+  ExplosivesEnabled:
+    Text: "$7Cette parcelle n'est plus protégée contre les explosions. Utilisez $8/claimexplosions $7à nouveau pour remettre cette protection."
+  ClaimExplosivesAdvertisement:
+    Text: "$7Pour régler la protection (ou non) contre les explosions dans cette parcelle, utilisez $8/claimexplosions$7."
+  PlayerInPvPSafeZone:
+    Text: "$7Cet individu est dans une zone protégée du combat."
+  NoPistonsOutsideClaims:
+    Text: "$7Les pistons ne fonctionneront pas en-dehors d'une parcelle."
+  SoftMuted:
+    Text: Soft-muted {0}.
+    Notes: '0: The changed player''s name.'
+  UnSoftMuted:
+    Text: Un-soft-muted {0}.
+    Notes: '0: The changed player''s name.'
+  DropUnlockAdvertisement:
+    Text: "$7Personne ne peut ramasser vos affaires, à moins que vous utilisiez $8/unlockdrops $7d'abord."
+  PickupBlockedExplanation:
+    Text: "$7Vous ne pouvez pas ramasser ceci, à moins que $8{0} $7n'utilise $8/unlockdrops $7d'abord."
+    Notes: '0: The item stack''s owner.'
+  DropUnlockConfirmation:
+    Text: "$7D'autres individus peuvent désormais ramasser vos affaires au sol, jusqu'à votre prochaine mort."
+  DropUnlockOthersConfirmation:
+    Text: "$7Les objets au sol de $8{0} $7peuvent désormais être ramassé par n'importe qui."
+    Notes: '0: The owner of the unlocked drops.'
+  AdvertiseACandACB:
+    Text: You may use /ACB to give yourself more claim blocks, or /AdminClaims to
+      create a free administrative claim.
+  AdvertiseAdminClaims:
+    Text: You could create an administrative land claim instead using /AdminClaims,
+      which you'd share with other administrators.
+  AdvertiseACB:
+    Text: You may use /ACB to give yourself more claim blocks.
+  NotYourPet:
+    Text: "$7Cela appartient à $8{0} $7jusqu'à ce qu'il ou elle vous le donne avec $8/givepet."
+    Notes: '0: owner name'
+  PetGiveawayConfirmation:
+    Text: "$7Animal de compagnie transféré."
+  PetTransferCancellation:
+    Text: "$7Annulation du transfert de l'animal de compagnie."
+  ReadyToTransferPet:
+    Text: "$7Prêt pour le transfert. Faites un clic-droit sur l'animal que vous souhaitez transférer, ou annulez avec $8/givepet$7."
+  AvoidGriefClaimLand:
+    Text: "$7Evitez le grief, en revendiquant des parcelles, personne ne pourra construire ou casser sans votre consentement."
+  BecomeMayor:
+    Text: "$7Sous-divisez vos parcelles et devenez Maire de votre ville !"
+  ClaimCreationFailedOverClaimCountLimit:
+    Text: "$7Vous avez atteint le maximum de parcelles que vous pouvez détenir. Utilisez $8/abandonclaim $7pour en supprimer avant d'en recréer de nouvelles."
+  CreateClaimFailOverlapRegion:
+    Text: "$7Vous ne pouvez pas revendiquer ici puisque vous n'avez pas le droit de construire ici."
+  ResizeFailOverlapRegion:
+    Text: "$7Vous ne pouvez pas re-dimensionner votre parcelle ici puisque vous n'avez pas le droit de construire ici."
+  NoBuildPortalPermission:
+    Text: "$7Vous ne pouvez pas utiliser ce portail, puisque $8{0} $7ne vous a pas autorisé de construire à l'endroit où débouche ce portail."
+    Notes: '0: Destination land claim owner''s name.'
+  ShowNearbyClaims:
+    Text: "$8{0} $7parcelles ont été trouvées."
+    Notes: '0: Number of claims found.'
+  NoChatUntilMove:
+    Text: "$7Vous devez vous déplacer davantage avant de pouvoir parler."
+  SiegeImmune:
+    Text: "$7Ce joueur est actuellement immunisé contre les sièges."
+  SetClaimBlocksSuccess:
+    Text: "$7Mise à jour des blocs normaux."
+  IgnoreConfirmation:
+    Text: You're now ignoring chat messages from that player.
+  NotIgnoringPlayer:
+    Text: You're not ignoring that player.
+  UnIgnoreConfirmation:
+    Text: You're no longer ignoring chat messages from that player.
+  SeparateConfirmation:
+    Text: Those players will now ignore each other in chat.
+  UnSeparateConfirmation:
+    Text: Those players will no longer ignore each other in chat.
+  NotIgnoringAnyone:
+    Text: You're not ignoring anyone.
+  TrustListHeader:
+    Text: "$7Permissions explicites ici :"
+  Manage:
+    Text: "$7Gérer"
+  Build:
+    Text: "$7Construire"
+  Containers:
+    Text: "$7Conteneurs"
+  Access:
+    Text: "$7Accès"
+  HasSubclaimRestriction:
+    Text: "$7Cette sous-parcelle n'hérite pas ses permissions de la parcelle qui l'englobe."
+  StartBlockMath:
+    Text: "$8{0} $7blocs normaux + $8{1} $7bonus = $8{2} $7total."
+  ClaimsListHeader:
+    Text: "$7Parcelles"
+  ContinueBlockMath:
+    Text: "$7(-$8{0} $7blocs)"
+  EndBlockMath:
+    Text: "$7= $8{0} $7blocs restants."
+  NoClaimDuringPvP:
+    Text: "$7Vous ne pouvez pas revendiquer de parcelles pendant un combat."
+  UntrustAllOwnerOnly:
+    Text: "$7Seul le propriétaire peut supprimer toutes les permissions de sa parcelle."
+  ManagersDontUntrustManagers:
+    Text: "$7Seul le propriétaire peut rétrograder un manager."
+  BookAuthor:
+    Text: "Cité de Questrelle"
+  BookTitle:
+    Text: "Gestion des Parcelles"
+  BookIntro:
+    Text: "Cet ouvrage présente les rudiments de la gestion des parcelles administrées par la Cité de Questrelle."
+  BookDisabledChestClaims:
+    Text: ''
+  BookUsefulCommands:
+    Text: 'Commandes :'
+  BookLink:
+    Text: ''
+    Notes: '{0}: video URL'
+  BookTools:
+    Text: "Vous pouvez utiliser la pelle en or pour créer et modifier et un bâton pour obtenir des informations concernant une parcelle."
+    Notes: '0: claim modification tool name; 1:claim information tool name'
+  ResizeClaimTooNarrow:
+    Text: "$7La taille de cette parcelle serait trop petite. Les parcelle doivent être d'au moins $8{0} $7de largeur."
+    Notes: '0: minimum claim width'
+  ResizeClaimInsufficientArea:
+    Text: "$7La taille de cette parcelle serait trop petite. Les parcelle doivent compter au moins $8{0} $7blocs."
+    Notes: '0: minimum claim area'
+  NoProfanity:
+    Text: Please moderate your language.
+  PlayerNotIgnorable:
+    Text: You can't ignore that player.
+  NoEnoughBlocksForChestClaim:
+    Text: Because you don't have any claim blocks available, no automatic land claim
+      was created for you.  You can use /ClaimsList to monitor your available claim
+      block total.
+  IsIgnoringYou:
+    Text: That player is ignoring you.
+  MustHoldModificationToolForThat:
+    Text: "$7Vous devez avoir la pelle en or en main pour faire cela."
+  StandInClaimToResize:
+    Text: "$7Mettez vous dans une parcelle pour la redimensionner."
+  ClaimsExtendToSky:
+    Text: "$7Les parcelles s'étendent toujours jusqu'à la hauteur maximale de construction possible."
+  ClaimsAutoExtendDownward:
+    Text: "$7Les parcelles s'étendent automatiquement vers le bas lorsque vous placez des blocs sous une parcelle existante."
+  MinimumRadius:
+    Text: "$7Le rayon minimal est de $8{0}$7."
+    Notes: '0: minimum radius'
+  RadiusRequiresGoldenShovel:
+    Text: "$7Vous devez avoir une pelle en or en main lorsque vous spécifiez un rayon."
+  ClaimTooSmallForActiveBlocks:
+    Text: "$7Cette parcelle est trop petite pour supporter des blocs actifs (hoppers, spawners, beacons, ...). Aggrandissez-là d'abord."
+  TooManyActiveBlocksInClaim:
+    Text: "$7Cette parcelle a atteint le maximum de blocs actifs (hoppers, spawners, beacons, ...). Aggrandissez-là ou supprimez des blocs actifs si vous souhaitez en ajouter."
+  ConsoleOnlyCommand:
+    Text: That command may only be executed from the server console.
+  WorldNotFound:
+    Text: World not found.
+  AdjustBlocksAllSuccess:
+    Text: Adjusted all online players' bonus claim blocks by {0}.
+    Notes: '0: adjustment amount'
+  TooMuchIpOverlap:
+    Text: "$cTrop d'individus sont connectés depuis votre adresse IP. Merci de contacter le staff si vous pensez qu'il s'agit d'une erreur."
+  StandInSubclaim:
+    Text: "$7Vous devez être dans une sous-parcelle si vous voulez la restreindre."
+  SubclaimRestricted:
+    Text: "$7Cette sous-parcelle n'hérite plus ses permissions de la parcelle qui l'englobe."
+  SubclaimUnrestricted:
+    Text: "$7Cette sous-parcelle hérite ses permissions de la parcelle qui l'englobe."
+  NetherPortalTrapDetectionMessage:
+    Text: "$7Il semblerait que vous soyez coincé dans un portail du Nether. Nous allons vous secourir dans quelques secondes si tel est le cas."
+    Notes: Sent to player on join, if they left while inside a nether portal.

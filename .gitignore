@@ -5,12 +5,6 @@ bungeecord/plugins/AdvancedBan/Layouts.yml
 bungeecord/plugins/AdvancedBan/Messages.yml
 bungeecord/plugins/AdvancedBan/MySQL.yml
 bungeecord/plugins/BungeeControl/config.yml
-bungeecord/plugins/Skungee/scripts/functions.sk
-bungeecord/plugins/Skungee/scripts/governments.sk
-bungeecord/plugins/Skungee/scripts/menu.sk
-bungeecord/plugins/Skungee/scripts/mrpropre.sk
-bungeecord/plugins/Skungee/scripts/resources.sk
-bungeecord/plugins/Skungee/scripts/tasks.sk
 bungeecord/plugins/Skungee/config.yml
 bungeecord/plugins/bStats/config.yml
 bungeecord/plugins/bStats/temp.txt
@@ -229,6 +223,7 @@ hub/plugins/SkillAPI/players/8295e863-dc4f-4526-a04b-57723306c212.yml
 hub/plugins/SkillAPI/players/053731a1-a8a5-4bd7-9dc0-ffe321a57398.yml
 hub/plugins/SkillAPI/players/1484662d-7eb0-40f5-b28c-ef8b4dee9b61.yml
 hub/plugins/skRayFall/config.yml
+hub/plugins/Skript/scripts/testing.sk
 hub/plugins/Skungee/config.yml
 hub/plugins/Skungee/syntax.yml
 hub/plugins/skUtilities/config.yml

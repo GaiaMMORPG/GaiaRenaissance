@@ -1,0 +1,514 @@
+#========[¤]========#
+#					#
+#	 Gouvernements	#
+#					#
+#========[¤]========#
+#
+# This file is synced over the BungeeCord Network
+# 	and should therefore ONLY execute tasks which CAN
+#	affect players on join on ANY server of the network.
+#
+
+options:
+    DurationNomination: 3 minutes
+    DurationVoteRound1: 3 minutes
+    DurationVoteRound2: 3 minutes
+    #La durée du mandat doit toujours être 
+    #> à la somme des durées précédentes.
+    DurationTerm: 15 minutes
+
+    MaxNominatesPerRace: 100
+
+function RaceCheck(Player: player) :: string:
+    if {_Player} has permission "group.elfe":
+        return "Elfe"
+    else if {_Player} has permission "group.humain":
+        return "Humain"
+    else if {_Player} has permission "group.nain":
+        return "Nain"
+    else if {_Player} has permission "group.orc":
+        return "Orc"
+    else:
+        return "False"
+
+
+command /runner:    
+    trigger:
+        delete {governments::times::round2.done}
+
+function ElectionRaceInformation(Race: string, Message1: text, Message2: text, Message3: text):
+    if {_Race} is not "questrelle":
+        loop all of the bungeecord players:
+            set {_bungeeplayer} to loop-value parsed as offline player
+            if {_bungeeplayer} has permission "group.%{_Race}%":
+                set {_uuid} to {_bungeeplayer}'s uuid
+                wait 1 tick
+                message "&7--------------------- &8¤ &7Élections - %{_Race}% &8¤ &7---------------------" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7L'élection de votre race est terminée." to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "%{_Message1}%" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "%{_Message2}%" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "%{_Message3}%" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7-------------------------------------------------------------------" to bungeecord player {_bungeeplayer}
+    else if {_Race} is "questrelle":
+        if {_Message1} is "true":
+            loop all of the bungeecord players:
+                set {_bungeeplayer} to loop-value parsed as offline player
+                set {_uuid} to {_bungeeplayer}'s uuid
+                wait 1 tick
+                message "&7-------------------- &8¤ &7Élections - Questrelle &8¤ &7--------------------" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7Le nouveau Sage de Questrelle a été nommé." to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7Tous les honneurs à &8%offline player from uuid {governments::elected::questrelle}%" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7qui sera Sage de Questrelle." to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7----------------------------------------------------------------------" to bungeecord player {_bungeeplayer}
+        else if {_Message1} is "false":
+            loop all of the bungeecord players:
+                set {_bungeeplayer} to loop-value parsed as offline player
+                set {_uuid} to {_bungeeplayer}'s uuid
+                wait 1 tick
+                message "&7------------------- &8¤ &7Élections - Questrelle &8¤ &7--------------------" to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7Quorum non atteint pour l'élection du Sage de Questrelle." to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7Absence de Sage de Questrelle jusqu'à la prochaine élection." to bungeecord player {_bungeeplayer}
+                wait 1 tick
+                message "&7----------------------------------------------------------------------" to bungeecord player {_bungeeplayer}
+
+
+function ElectionResults(Race: string) :: boolean:
+    #Élection des Parlementaires
+    if {_Race} is not "questrelle":
+
+        #Variables
+        if {_Race} is "Elfe":
+            set {_title} to "Haut-Elfe"
+            set {_title.permission} to "hautelfe"
+        else if {_Race} is "Humain":
+            set {_title} to "Roi"
+            set {_title.permission} to "roi"
+        else if {_Race} is "Nain":
+            set {_title} to "Empereur"
+            set {_title.permission} to "empereur"
+        else if {_Race} is "Orc":
+            set {_title} to "Vieil-Orc"
+            set {_title.permission} to "vieilorc"
+
+        #Suppression anciens parlementaires
+        loop {governments::elected::%{_Race}%::*}:
+            set {_formerp} to offline player from uuid loop-value
+            if {_formerp} is set:
+                execute console command "lp user %{_formerp}% parent remove parlementaire"
+                execute console command "lp user %{_formerp}% parent remove %{_title.permission}%"
+        delete {governments::elected::%{_Race}%::*}
+
+        #Comptage des voix
+        set {_elected1.votes} to 0
+        set {_elected2.votes} to 0
+        set {_elected3.votes} to 0
+        loop {governments::elections::%{_Race}%::*}:
+            if {governments::votes::%loop-value%} > {_elected1.votes}:
+                set {governments::elected::%{_Race}%::1} to loop-value
+                set {_elected1.votes} to {governments::votes::%loop-value%}
+            else if {governments::votes::%loop-value%} > {_elected2.votes}:
+                set {governments::elected::%{_Race}%::2} to loop-value
+                set {_elected2.votes} to {governments::votes::%loop-value%}
+            else if {governments::votes::%loop-value%} > {_elected3.votes}:
+                set {governments::elected::%{_Race}%::3} to loop-value
+                set {_elected3.votes} to {governments::votes::%loop-value%}
+
+
+        #Quorum & nouveaux parlementaires
+        if {_elected1.votes} >= 1:
+            set {_message1} to "&8%offline player from uuid {governments::elected::%{_Race}%::1}% &7est nommé comme nouveau &8%{_title}%&7."
+            add {governments::elected::%{_Race}%::1} to {governments::elections::questrelle::*}
+            execute console command "lp user %offline player from uuid {governments::elected::%{_Race}%::1}% parent add %{_title.permission}%"
+        else:
+            set {_message1} to "&7Le quorum n'a pas été atteint pour le titre de &8%{_title}%&7."
+        if {_elected2.votes} >= 1:
+            set {_message2} to "&8%offline player from uuid {governments::elected::%{_Race}%::2}% &7est nommé comme nouveau &8Parlementaire&7."
+            add {governments::elected::%{_Race}%::2} to {governments::elections::questrelle::*}
+            execute console command "lp user %offline player from uuid {governments::elected::%{_Race}%::2}% parent add parlementaire"
+        else:
+            set {_message2} to "&7Le quorum n'a pas été atteint pour le titre de &8Parlementaire&7."
+        if {_elected3.votes} >= 1:
+            set {_message3} to "&8%offline player from uuid {governments::elected::%{_Race}%::3}% &7est nommé comme nouveau &8Parlementaire&7."
+            add {governments::elected::%{_Race}%::3} to {governments::elections::questrelle::*}
+            execute console command "lp user %offline player from uuid {governments::elected::%{_Race}%::3}% parent add parlementaire"
+        else:
+            set {_message3} to "&7Le quorum n'a pas été atteint pour le titre de &8Parlementaire&7."
+
+        ElectionRaceInformation({_Race}, {_message1}, {_message2}, {_message3})
+
+    #Élection du Sage
+    else:
+        #Suppression ancien Sage
+        set {_formersage} to offline player from uuid {governments::elected::questrelle}
+        execute console command "lp user %{_formersage}% parent remove sage"
+        delete {governments::elected::questrelle}
+
+        #Comptage des voix
+        set {_elected.votes} to 0
+
+        loop {governments::elections::questrelle::*}:
+            if {governments::votes::%loop-value%} = {_elected.votes}:
+                if {governments::votes::%loop-value%} is not 0:
+                    add loop-value to {local::temp::elected::*}
+                    delete {governments::elected::questrelle}
+                    set {_elected.votes} to {governments::votes::%loop-value%}
+            else if {governments::votes::%loop-value%} > {_elected.votes}:
+                delete {local::temp::elected::*}
+                set {governments::elected::questrelle} to loop-value
+                set {_elected.votes} to {governments::votes::%loop-value%}
+
+        if {governments::elected::questrelle} is not set:
+            if size of {local::temp::elected::*} > 1:
+                set {_newvote} to a random integer between 1 and size of {local::temp::elected::*}
+                loop {local::temp::elected::*}:
+                    if {_newvote} is loop-index:
+                        set {_elected.votes} to {governments::votes::%loop-value%} + 2
+                        set {governments::elected::questrelle} to loop-value
+                        exit loop
+            else:
+                #Quorum non atteint.
+                ElectionRaceInformation("questrelle", "false", "empty", "empty")
+
+        #Nouveau sage
+        if {governments::elected::questrelle} is set:
+            execute console command "lp user %{governments::elected::questrelle}% parent add sage"
+            ElectionRaceInformation("questrelle", "true", "empty", "empty")
+
+    return true
+
+every minute:
+    #Database maintainance and events, only on one server.
+    if current server contains "hub":
+        if current server does not contain "instance":
+
+            #Resetting the elections
+            if {governments::times::nominations} is not set:
+                if {governments::times::round1} is not set:
+                    if {governments::times::round2} is not set:
+                        
+                        delete {governments::voted::*}
+                        delete {governments::elections::Elfe::*}
+                        delete {governments::elections::Humain::*}
+                        delete {governments::elections::Nain::*}
+                        delete {governments::elections::Orc::*}
+                        delete {governments::elections::questrelle::*}
+
+                        set {governments::times::nominations} to now
+
+                        wait 2 ticks
+                        loop all of the bungeecord players:
+                            set {_player} to loop-value parsed as offline player
+                            set {_uuid} to {_player}'s uuid
+                            message "&7Une nouvelle élection vient de commencer au sein de votre race." to bungeecord player "%offline player from uuid {_uuid}%"
+                            message "&7Utilisez &8/elections info &7pour plus d'informations." to bungeecord player "%offline player from uuid {_uuid}%"
+
+            #End of nominations
+            if difference between now and {governments::times::nominations} > {@DurationNomination}:
+                if {governments::times::round1} is not set:
+                    set {governments::times::round1} to now
+                    loop all of the bungeecord players:
+                        set {_player} to loop-value parsed as offline player
+                        set {_uuid} to {_player}'s uuid
+                        message "&7Les candidatures sont terminées, vous pouvez voter pour les candidats." to bungeecord player "%offline player from uuid {_uuid}%"
+                        message "&7Utilisez &8/elections info &7pour plus d'informations." to bungeecord player "%offline player from uuid {_uuid}%"
+
+            #End of round 1
+            #Nomination des 12 Parlementaires
+            if {governments::times::round1} is set:
+                if difference between now and {governments::times::round1} > {@DurationVoteRound1}:
+                    if {governments::times::round2} is not set:
+                        set {governments::times::round2} to now
+                        delete {governments::elections::questrelle::*}
+
+                        if "%ElectionResults(""Elfe"")%" is "true":
+                            if "%ElectionResults(""Humain"")%" is "true":
+                                if "%ElectionResults(""Nain"")%" is "true":
+                                    if "%ElectionResults(""Orc"")%" is "true":
+                                        wait 2 ticks
+                                        delete {governments::votes::*}
+                                        delete {governments::voted::*}
+
+                                        #SetUp pour élection du Sage
+                                        loop 3 times:
+                                            set {governments::votes::%{governments::elected::Nain::%loop-value%}%} to 0
+                                            set {governments::votes::%{governments::elected::Elfe::%loop-value%}%} to 0
+                                            set {governments::votes::%{governments::elected::Humain::%loop-value%}%} to 0
+                                            set {governments::votes::%{governments::elected::Orc::%loop-value%}%} to 0
+
+                                    else:
+                                        log "Erreur ESCP-E-002 est survenue. Impossible de process correctement les élections pour Orc." to "errors.log"
+                                else:
+                                    log "Erreur ESCP-E-002 est survenue. Impossible de process correctement les élections pour Nain." to "errors.log"
+                            else:
+                                log "Erreur ESCP-E-002 est survenue. Impossible de process correctement les élections pour Humain." to "errors.log"
+                        else:
+                            log "Erreur ESCP-E-002 est survenue. Impossible de process correctement les élections pour Elfe." to "errors.log"
+
+            #End of round 2
+            #Nomination du Sage
+            if {governments::times::round2} is set:
+                if difference between now and {governments::times::round2} > {@DurationVoteRound2}:
+                    if {governments::times::round2.done} is not set:
+                        set {governments::times::round2.done} to true
+                        delete {governments::voted::*}
+
+                        if "%ElectionResults(""questrelle"")%" is "true": 
+                            wait 2 ticks
+                            delete {governments::votes::*}
+
+                
+                #suppression des données
+
+                #suppression des anciens parlementaires
+                #Désignation des nouveau parlementaires
+
+            #End of term
+            if difference between now and {governments::times::nominations} > {@DurationTerm}:
+                delete {governments::times::nominations}
+                delete {governments::times::round1}
+                delete {governments::times::round2}
+                delete {governments::times::round2.done}
+
+
+
+command /elections [<string>] [<string>]:
+    aliases: /election
+    usage: &8/elections [info|candidater|revoquer|voter] [nom du joueur]
+    trigger:
+        if arg 1 is "candid" or "candidat" or "candidater":
+            if difference between now and {governments::times::nominations} <= {@DurationNomination}:
+                set {_race} to RaceCheck(player)
+                if {_race} is not "False":
+                    set {_uuid} to player's uuid
+                    if size of {governments::elections::%{_race}%::*} <= {@MaxNominatesPerRace}:
+                        if {governments::elections::%{_race}%::*} does not contain {_uuid}:
+                            add {_uuid} to {governments::elections::%{_race}%::*}
+                            set {governments::votes::%{_uuid}%} to 0
+                            message "&7Vous avez candidaté pour l'élection de la race &8%{_race}%&7."
+                        else:
+                            message "&7Vous êtes déjà nominé cette élection."
+                    else:
+                        message "&7Il y a déjà {@MaxNominatesPerRace} candidats à ce poste, vous ne pouvez plus vous nominer jusqu'aux prochaines élections."
+                else:
+                    message "&7Vous ne pouvez pas participer à des élections tant que vous n'appartenez à aucune race."
+            else:
+                message "&7Les candidatures sont actuellement fermées."
+
+
+        else if arg 1 is "revoque" or "revoquer":
+            if difference between now and {governments::times::nominations} <= {@DurationNomination}:
+                set {_race} to RaceCheck(player)
+                if {_race} is not "False":
+                    set {_uuid} to player's uuid
+                    if {governments::elections::%{_race}%::*} contains {_uuid}:
+                        remove {_uuid} from {governments::elections::%{_race}%::*}
+                        delete {governments::votes::%{_uuid}%}
+                        message "&7Vous avez révoqué votre candidature pour l'élection de la race &8%{_race}%&7."
+                    else:
+                        message "&7Vous n'êtes pas nominé pour cette élection."
+                else:
+                    message "&7Vous n'appartennez à aucune race."
+            else:
+                message "&7Les nominations sont actuellement fermées, par conséquent, vous ne pouvez pas vous révoquer."
+
+
+
+
+        else if arg 1 is "vote" or "voter":
+            if {governments::times::round1} is set:
+                if difference between now and {governments::times::round1} <= {@DurationVoteRound1}:
+                    set {_race} to RaceCheck(player)
+                    set {_nominee} to arg 2 parsed as offline player                  
+                    if {_nominee} has played before:
+                        set {_uuid} to {_nominee}'s uuid
+                        if {governments::elections::%{_race}%::*} contains {_uuid}:
+
+                            if {governments::voted::%player's uuid%} is not true:
+                                if {_nominee.race} is not "False":
+                                    if {governments::elections::%{_race}%::*} contains {_uuid}:
+                                        if {governments::votes::%{_uuid}%} is set:
+                                            add 1 to {governments::votes::%{_uuid}%}
+                                        else:
+                                            set {governments::votes::%{_uuid}%} to 1
+
+                                        set {governments::voted::%player's uuid%} to true
+                                        message "&7Vous avez voté pour &8%{_nominee}%&7."
+                                    else:
+                                        message "&7Cette personne n'est pas nominée pour cette élection."
+                                else:
+                                    message "&7Cette personne n'appartient à aucune race."
+                            else:
+                                message "&7Vous avez déjà voté pour cette élection."
+                        else:
+                            message "&7Cette personne n'est pas candidate à cette élection."
+                    else:
+                        message "&7Il n'y a personne de ce nom sur Gaïa."
+
+            else if difference between now and {governments::times::nominations} <= {@DurationNomination}:
+                message "&7Vous ne pouvez pas voter actuellement, seules les nominations sont autorisées."
+            else:
+                message "&7Aucune élection en cours."
+
+            if {governments::times::round2} is set:
+                if difference between now and {governments::times::round2} <= {@DurationVoteRound2}:
+                    if player has permission "group.parlementaire": 
+                        set {_nominee} to arg 2 parsed as offline player
+                        set {_nominee.race} to RaceCheck({_nominee})
+                        set {_player.race} to RaceCheck(player)
+                        if {_player.race} is not {_nominee.race}:
+
+                            set {_uuid} to {_nominee}'s uuid
+                            if {governments::voted::%player's uuid%} is not true:
+                                if {_nominee} has permission "group.parlementaire":
+                                    if {governments::votes::%{_uuid}%} is set:
+                                        add 1 to {governments::votes::%{_uuid}%}
+                                    else:
+                                        set {governments::votes::%{_uuid}%} to 1
+                                    
+                                    set {governments::voted::%player's uuid%} to true
+                                    message "&7Vous avez voté pour &8%{_nominee}%&7."
+                                else:
+                                    message "&7Cette personne n'est pas nominée pour cette élection."
+                            else:
+                                message "&7Vous avez déjà voté pour cette élection."
+                        else:
+                            message "&7Vous ne pouvez pas voter pour quelqu'un de votre race dans l'élection du Sage."
+                    else:
+                        message "&7Seul un parlementaire peut voter pour élire un nouveau sage."
+                else:
+                    message "&7Aucun vote en cours actuellement."
+
+
+
+        else if arg 1 is "info" or "informations":
+            set {_race} to RaceCheck(player)
+            if {_race} is not "False":
+                #Variables
+                if {_race} is "Elfe":
+                    set {_title} to "Haut-Elfe"
+                else if {_race} is "Humain":
+                    set {_title} to "Roi"
+                else if {_race} is "Nain":
+                    set {_title} to "Empereur"
+                else if {_race} is "Orc":
+                    set {_title} to "Vieil-Orc"
+
+                set {_endnominations} to {@DurationNomination} after {governments::times::nominations}
+                set {_endround1} to {@DurationVoteRound1} after {governments::times::round1}
+                set {_endround2} to {@DurationVoteRound2} after {governments::times::round2}
+                set {_newelections} to {@DurationTerm} after {governments::times::nominations}
+
+                message "&7--------------------- &8¤ &7Élections &8¤ &7---------------------"
+                message "&7Les élections permettent d'élire les représentants des Races."
+                message "&7Ces représentants deviennent alors Parlementaires."
+                message "&7Les 12 Parlementaires élisent ensuite parmis eux, le Sage."
+                message "&7Ce Sage est le dirigent de Questrelle et détient donc le plus"
+                message "&7haut grade parmis toutes les races de Gaïa."
+                message " "
+
+                if difference between now and {governments::times::nominations} <= {@DurationNomination}:
+                    message "&7Élection actuelle : &8Nominations."
+                    message "&7Pendant cette phase, tout le monde pour candidater"
+                    message "&7pour devenir Parlementaire de sa Race."
+                    message "&7Le Parlementaire avec le plus de voix devient"
+                    message "&8%{_title}%&7, le leader de votre race."
+                    message " "
+                    message "&7Cette phase se termine le : %{_endnominations}%"
+                    message "&7Total : &8%size of {governments::elections::%{_race}%::*}% &7nominé(s)."
+                    loop {governments::elections::%{_race}%::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value%"
+                        wait 1 tick
+
+                if difference between now and {governments::times::round1} <= {@DurationVoteRound1}:
+                    message "&7Élection actuelle : &8Vote de la Race."
+                    message "&7Pendant cette phase, les races votent"
+                    message "&7pour leurs candidats au poste de Parlementaire."
+                    message "&7Le Parlementaire avec le plus de voix devient"
+                    message "&8%{_title}%&7, le leader de votre race."
+                    message " "
+                    message "&7Cette phase se termine le : %{_endround1}%"
+                    message "&7Total : &8%size of {governments::elections::questrelle::*}% &7nominé(s)."
+                    loop {governments::elections::questrelle::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value%"
+                        wait 1 tick
+
+                if difference between now and {governments::times::round2} <= {@DurationVoteRound2}:
+                    message "&7Élection actuelle : &8Vote pour le Sage."
+                    message "&7Pendant cette phase, les Parlementaires des 4 races"
+                    message "&7votent pour l'un d'entre eux, pour le rang de Sage."
+                    message " "
+                    message "&7Cette phase se termine le : %{_endround2}%"
+
+                else:
+                    message "&7De nouvelles élections auront lieu à partir de :"
+                    message "&8%{_newelections}%"
+
+                message "&7------------------------------------------------------------"
+
+
+            else:
+                message "&7Vous n'appartenez à aucune race."
+
+        else if arg 1 is "reset":
+            if player has permission "group.gamedesigner":
+                delete {governments::times::nominations}
+                delete {governments::times::round1}
+                delete {governments::times::round2}
+                delete {governments::times::round2.done}
+
+        else if arg 1 is "infoadmin":
+            if player has permission "group.gamedesigner":
+                message "&7Nominations : &8%{governments::times::nominations}%"
+                message "&7Round 1 :  &8%{governments::times::round1}%"
+                message "&7Round 2 : &8%{governments::times::round2}%"
+                message "&7Nombre de votants : &8%size of {governments::voted::*}% & %{governments::times::round2.done}%"
+                if difference between now and {governments::times::nominations} <= {@DurationNomination}:
+                    message "&7Round actuel : Nominations"
+                    message "&7Nominés Elfe : "
+                    loop {governments::elections::Elfe::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value%"
+                    message "&7Nominés Nain : "
+                    loop {governments::elections::Nain::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value%"
+                    message "&7Nominés Humain : "
+                    loop {governments::elections::Humain::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value%"
+                    message "&7Nominés Orc : "
+                    loop {governments::elections::Orc::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value%"
+                if difference between now and {governments::times::round1} <= {@DurationVoteRound1}:
+                    message "&7Round actuel : Élections Races"
+                    message "&7Candidats Elfe : "
+                    loop {governments::elections::Elfe::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value% &7(&8%{governments::votes::%loop-value%}% &7Vote(s))"
+                    message "&7Candidats Nain : "
+                    loop {governments::elections::Nain::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value% &7(&8%{governments::votes::%loop-value%}% &7Vote(s))"
+                    message "&7Candidats Humain : "
+                    loop {governments::elections::Humain::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value% &7(&8%{governments::votes::%loop-value%}% &7Vote(s))"
+                    message "&7Candidats Orc : "
+                    loop {governments::elections::Orc::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value% &7(&8%{governments::votes::%loop-value%}% &7Vote(s))"
+                if difference between now and {governments::times::round2} <= {@DurationVoteRound2}:
+                    message "&7Round actuel : Élection du Sage"
+                    message "&7Candidats : "
+                    loop {governments::elections::questrelle::*}:
+                        message "&7%loop-index%. &8%offline player from uuid loop-value% &7(&8%{governments::votes::%loop-value%}% &7Vote(s))"
+
+        else:
+            message "&7Utilisez /elections [info|candidater|revoquer|voter] [nom du joueur]"
+
+function GovernmentsGUI(player: player):
+    broadcast "yellow"

@@ -1,0 +1,419 @@
+#========[¤]========#
+#					#
+#	  Resources 	#
+#					#
+#========[¤]========#
+
+
+options:
+	#Skill Advantages
+	#Defines the maximum percentage change of an extra drop
+	MaxBucheronLuckPercentage: 50
+	MaxMineurLuckPercentage: 50
+
+	#Skill Limits
+	MinLevelDarkOakLog: 1
+	MinLevelAcaciaLog: 1
+	MinLevelSpruceLog: 1
+	MinLevelBirchLog: 1
+	MinLevelJungleLog: 1
+
+	MinLevelGoldOre: 1
+	MinLevelIronOre: 1
+	MinLevelLapisOre: 1
+	MinLevelCharbonOre: 1
+	MinLevelDiamondOre: 1
+	MinLevelRedstoneOre: 1
+	MinLevelEmeraldOre: 1
+	MinLevelQuartzOre: 1
+	
+	#Recommended to keep < 200
+	MaxTreeSize: 200
+	MaxTreeHealth: 4
+
+	#Amount of dust dropped = ceil(Bucheron/Mineur Level * DustMultiplier)
+	#Can be set for Hub & all other servers seperately.
+	DustMultiplierHub: 0.3
+	DustMultiplierRest: 0.5
+
+function ResourceRegistrator(location: location) :: boolean:
+	if block at {_location} is any log:
+		loop tree at location at block at {_location}:
+			add 1 to {_count}
+			if {_count} < {@MaxTreeSize}:
+				set metadata "gaiaresource" of loop-block to type of loop-block
+				set metadata "health" of loop-block to a random integer between 2 and 4
+			else:
+				exit loop
+		if {_count} >= {@MaxTreeSize}:
+			send "Un arbre trop grand pour être enregistré a été détecté." to console
+			send "Emplacement %{_location}%" to console
+			log "Un arbre trop grand pour être enregistré a été détecté." to "errors.log"
+			log "Emplacement %{_location}%" to "errors.log"
+			return false
+		else:
+			return true
+	else:
+		send "Un arbre n'a pas pu être enregistré correctement à %{_location}%  - Erreur 95-D." to console
+		log "Un arbre n'a pas pu être enregistré correctement à %{_location}%  - Erreur 95-D." to "errors.log"
+		return false
+
+function CustomResourceDrop(type: item, location: location, player: player):
+	if current server contains "hub":
+		if current server does not contain "instance":
+			set {_amount} to 1
+			set {_multiplier} to {@DustMultiplierHub}
+		else:
+			set {_amount} to 0
+			set {_multiplier} to {@DustMultiplierRest}
+
+	set {_luck} to random integer between 1 and 100
+
+	#
+	# Logs
+	#
+	if {_type} is any log:
+		set {_bucheron.level} to placeholder "jobs_level_Bûcheron" from {_player} parsed as integer
+		if {_luck} <= ({_bucheron.level} / 100 * {@MaxBucheronLuckPercentage}):
+			add 1 to {_amount}
+			ActionBarSend({_player}, "&7Double ressources.")
+		
+
+		if "%{_type}%" contains "stripped":
+			if "%{_type}%" contains "oak":
+				loop {_amount} times:
+					drop 1 stripped oak log named "&fBûche de chêne écorcée" with lore "&7Du bois de chêne" and "&7débarassé de son écorce." and " " and "&7&oRareté : &fCommun" at {_location}
+				loop ceil({_bucheron.level} * {_multiplier}) times:
+					drop 1 charcoal named "&fRésidus de chêne" with lore "&7Des copeaux de bois d'un" and "&7chêne de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+				
+			else if "%{_type}%" contains "dark oak":
+				loop {_amount} times:
+					drop 1 stripped dark oak log named "&fBûche de chêne noir écorcée" with lore "&7Du bois de chêne noir" and "&7débarassé de son écorce." and " " and "&7&oRareté : &fCommun" at {_location}
+				loop ceil({_bucheron.level} * {_multiplier}) times:
+					drop 1 charcoal named "&fRésidus de chêne noir" with lore "&7Des copeaux de bois d'un" and "&7chêne noir de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+		
+			else if "%{_type}%" contains "acacia":
+				loop {_amount} times:
+					drop 1 stripped acacia log named "&fBûche d'acacia écorcée" with lore "&7Du bois d'acacia" and "&7débarassé de son écorce." and " " and "&7&oRareté : &fCommun" at {_location}
+				loop ceil({_bucheron.level} * {_multiplier}) times:
+					drop 1 charcoal named "&fRésidus d'acacia" with lore "&7Des copeaux de bois d'un" and "&7acacia de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+				
+			else if "%{_type}%" contains "spruce":
+				loop {_amount} times:
+					drop 1 stripped spruce log named "&fBûche de sapin écorcée" with lore "&7Du bois de sapin" and "&7débarassé de son écorce." and " " and "&7&oRareté : &fCommun" at {_location}
+				loop ceil({_bucheron.level} * {_multiplier}) times:
+					drop 1 charcoal named "&fRésidus de sapin" with lore "&7Des copeaux de bois d'un" and "&7sapin de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+				
+			else if "%{_type}%" contains "birch":
+				loop {_amount} times:
+					drop 1 stripped birch log named "&fBûche de bouleau écorcée" with lore "&7Du bois de bouleau" and "&7débarassé de son écorce." and " " and "&7&oRareté : &fCommun" at {_location}
+				loop ceil({_bucheron.level} * {_multiplier}) times:
+					drop 1 charcoal named "&fRésidus de bouleau" with lore "&7Des copeaux de bois d'un" and "&7bouleau de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+				
+			else if "%{_type}%" contains "jungle":
+				loop {_amount} times:
+					drop 1 stripped jungle log named "&fBûche d'acajou écorcée" with lore "&7Du bois d'acajou" and "&7débarassé de son écorce." and " " and "&7&oRareté : &fCommun" at {_location}
+				loop ceil({_bucheron.level} * {_multiplier}) times:
+					drop 1 charcoal named "&fRésidus d'acajou" with lore "&7Des copeaux de bois d'un" and "&7acajou de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+
+		else if "%{_type}%" contains "oak":
+			loop {_amount} times:
+				drop 1 oak log named "&fBûche de chêne" with lore "&7Du bois de chêne" and "&7de bonne qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_bucheron.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fRésidus de chêne" with lore "&7Des copeaux de bois d'un" and "&7chêne de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "dark oak":
+			loop {_amount} times:
+				drop 1 dark oak log named "&fBûche de chêne noir" with lore "&7Du bois de chêne noir" and "&7de bonne qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_bucheron.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fRésidus de chêne noir" with lore "&7Des copeaux de bois d'un" and "&7chêne noir de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+	
+		else if "%{_type}%" contains "acacia":
+			loop {_amount} times:
+				drop 1 acacia log named "&fBûche d'acacia" with lore "&7Du bois d'acacia" and "&7de bonne qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_bucheron.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fRésidus d'acacia" with lore "&7Des copeaux de bois d'un" and "&7acacia de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "spruce":
+			loop {_amount} times:
+				drop 1 spruce log named "&fBûche de sapin" with lore "&7Du bois de sapin" and "&7de bonne qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_bucheron.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fRésidus de sapin" with lore "&7Des copeaux de bois d'un" and "&7sapin de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "birch":
+			loop {_amount} times:
+				drop 1 birch log named "&fBûche de bouleau" with lore "&7Du bois de bouleau" and "&7de bonne qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_bucheron.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fRésidus de bouleau" with lore "&7Des copeaux de bois d'un" and "&7bouleau de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "jungle":
+			loop {_amount} times:
+				drop 1 jungle log named "&fBûche d'acajou" with lore "&7Du bois d'acajou" and "&7de bonne qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_bucheron.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fRésidus d'acajou" with lore "&7Des copeaux de bois d'un" and "&7acajou de faible qualité." and " " and "&7&oRareté : &fCommun" at {_location}
+	#
+	# Ores
+	#
+	else if {_type} is any ore:
+		set {_mineur.level} to placeholder "jobs_level_Mineur" from {_player} parsed as integer
+		if {_luck} <= ({_mineur.level} / 100 * {@MaxMineurLuckPercentage}):
+			add 1 to {_amount}
+			ActionBarSend({_player}, "&7Double ressources.")
+			
+		if "%{_type}%" contains "gold": 
+			loop {_amount} times:
+				drop 1 coal named "&fMinerai d'or" with lore "&7Du minerai d'or" and "&7très pur." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière d'or" with lore "&7De la poussière" and "&7d'or impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "iron":
+			loop {_amount} times:
+				drop 1 coal named "&fMinerai de fer" with lore "&7Du minerai de fer" and "&7très pur." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière de fer" with lore "&7De la poussière" and "&7de fer impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "coal":
+			loop {_amount} times:
+				drop 1 coal named "&fCharbon" with lore "&7Du charbon" and "&7très pur." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière de charbon" with lore "&7De la poussière" and "&7de charbon impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "lapis":
+			loop {_amount} times:
+				drop 1 lapis named "&fLapis-lazuli" with lore "&7Du lapis-lazuli brut." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière de lapis-lazuli" with lore "&7De la poussière" and "&7de lapis-lazuli impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "diamond":
+			loop {_amount} times:
+				drop 1 diamond named "&fDiamant" with lore "&7Du diamant brut." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière de diamant" with lore "&7De la poussière" and "&7de diamant impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "redstone":
+			loop {_amount} times:
+				drop 1 redstone named "&fRedstone" with lore "&7De la redstone brute." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière de redstone" with lore "&7De la poussière" and "&7de redstone impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "emerald":
+			loop {_amount} times:
+				drop 1 emerald named "&fÉmeraude" with lore "&7De l'émeraude brute." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière d'émeraude" with lore "&7De la poussière" and "&7d'émeraude impure." and " " and "&7&oRareté : &fCommun" at {_location}
+			
+		else if "%{_type}%" contains "nether quartz":
+			loop {_amount} times:
+				drop 1 nether quartz named "&fQuartz" with lore "&7Du quartz brut." and " " and "&7&oRareté : &fCommun" at {_location}
+			loop ceil({_mineur.level} * {_multiplier}) times:
+				drop 1 charcoal named "&fPoussière de quartz" with lore "&7De la poussière" and "&7de quartz impure." and " " and "&7&oRareté : &fCommun" at {_location}
+	else:
+		ActionBarSend({_player}, "&7Ce bloc n'a pas encore de drop associé")
+
+
+on block break:
+	if gamemode of player is survival:
+		set {_location} to location at event-block
+		set {_type} to type of event-block
+		if "%region at event-block%" contains "resource":
+			if event-block is any log:
+				if metadata "health" of event-block is set:
+					if metadata "health" of event-block <= 1:
+						loop tree at location at event-block:
+							add 1 to {_count}
+							set {_ty} to type of loop-block
+							if {_count} < {@MaxTreeSize}:
+								set metadata "gaiaresource" of loop-block to {_ty}
+								set metadata "health" of loop-block to a random integer between 2 and {@MaxTreeHealth}
+								set {_loc} to location at loop-block
+								add {_loc} to {local::mined::locations::*}
+								set block at {_loc} to air
+								wait 1 tick
+							else:
+								exit loop
+								message "&7Erreur. Signalez le bloc que vous venez de casser au staff avec l'erreur SCP-B001."
+					else:
+						cancel the drops
+						wait 1 tick
+						set {_x} to metadata "health" of event-block
+						set {_x} to {_x} - 1
+						set metadata "health" of event-block to {_x}
+						set block at {_location} to metadata "gaiaresource" of block at location at {_location}
+						CustomResourceDrop({_type}, {_location}, player)
+
+				else if ResourceRegistrator(location at event-block) is true:
+					cancel the drops
+					wait 1 tick
+					set block at {_location} to {_type}
+					CustomResourceDrop({_type}, {_location}, player)
+			else if event-block is any ore:
+				cancel the drops
+				CustomResourceDrop({_type}, {_location}, player)
+		else:
+			if event-block is any ore or any log:
+				cancel the drops
+				CustomResourceDrop({_type}, {_location}, player)
+
+
+on block damage:
+	if gamemode of player is survival:
+		set {_type} to type of event-block
+		#
+		# Logs
+		#
+		if {_type} is any log:
+			set {_bucheron.level} to placeholder "jobs_level_Bûcheron" from player parsed as integer
+			if {_bucheron.level} is set:
+				play resource sound pack "chop" to player with volume 1
+				if "%{_type}%" contains "dark oak":
+					if {_bucheron.level} < {@MinLevelDarkOakLog}:
+						cancel event
+						ActionBarSend(player, "&7Bûcheron Niv.{@MinLevelDarkOakLog} requis pour abattre cet arbre.")
+			
+				else if "%{_type}%" contains "acacia":
+					if {_bucheron.level} < {@MinLevelAcaciaLog}:
+						cancel event
+						ActionBarSend(player, "&7Bûcheron Niv.{@MinLevelAcaciaLog} requis pour abattre cet arbre.")
+					
+				else if "%{_type}%" contains "spruce":
+					if {_bucheron.level} < {@MinLevelSpruceLog}:
+						cancel event
+						ActionBarSend(player, "&7Bûcheron Niv.{@MinLevelSpruceLog} requis pour abattre cet arbre.")
+					
+				else if "%{_type}%" contains "birch":
+					if {_bucheron.level} < {@MinLevelBirchLog}:
+						cancel event
+						ActionBarSend(player, "&7Bûcheron Niv.{@MinLevelBirchLog} requis pour abattre cet arbre.")
+					
+				else if "%{_type}%" contains "jungle":
+					if {_bucheron.level} < {@MinLevelJungleLog}:
+						cancel event
+						ActionBarSend(player, "&7Bûcheron Niv.{@MinLevelJungleLog} requis pour abattre cet arbre.")
+			else:
+				cancel event
+				ActionBarSend(player, "&7Métier Bûcheron requis pour abattre cet arbre.")
+		#
+		# Ores
+		#
+		else if {_type} is any ore:
+			set {_mineur.level} to placeholder "jobs_level_Mineur" from player parsed as integer
+			if {_mineur.level} is set:
+				play resource sound pack "pickaxe_mining" to player with volume 1
+				if "%{_type}%" contains "gold": 
+					if {_mineur.level} < {@MinLevelGoldOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelGoldOre} requis pour miner ce minerai.")
+
+				else if "%{_type}%" contains "iron":
+					if {_mineur.level} < {@MinLevelIronOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelIronOre} requis pour miner ce minerai.")
+				
+				else if "%{_type}%" contains "coal":
+					if {_mineur.level} < {@MinLevelCharbonOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelCharbonOre} requis pour miner ce minerai.")
+				
+				else if "%{_type}%" contains "lapis":
+					if {_mineur.level} < {@MinLevelLapisOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelLapisOre} requis pour miner ce minerai.")			
+				
+				else if "%{_type}%" contains "diamond":
+					if {_mineur.level} < {@MinLevelDiamondOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelDiamondOre} requis pour miner ce minerai.")
+				
+				else if "%{_type}%" contains "redstone":
+					if {_mineur.level} < {@MinLevelRedstoneOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelRedstoneOre} requis pour miner ce minerai.")
+				
+				else if "%{_type}%" contains "emerald":
+					if {_mineur.level} < {@MinLevelEmeraldOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelEmeraldOre} requis pour miner ce minerai.")
+				
+				else if "%{_type}%" contains "nether quartz":
+					if {_mineur.level} < {@MinLevelQuartzOre}:
+						cancel event
+						ActionBarSend(player, "&7Mineur Niv.{@MinLevelQuartzOre} requis pour miner ce minerai.")
+			else:
+				cancel event
+				ActionBarSend(player, "&7Métier Mineur requis pour miner ce minerai.")
+
+#
+# Resource Info/Purge Command
+#
+command /mine [<text>] [<integer>]:
+	usage: &7/mine [info/purge]
+	permission: skript.builder
+	trigger:
+		if arg 1 is "info":
+			if metadata "gaiaresource" of targeted block is set:
+				#ores
+				if target block is any ore:
+					set {_gaiaresource} to metadata "gaiaresource" of targeted block
+					if {_gaiaresource} is set:
+						message "&7Ce bloc est enregistré et peut être exploité."
+						message "&7Ressource : &8%{_gaiaresource}%"
+				#logs
+				else if targeted block is any log:
+					loop tree at location at targeted block:
+						add 1 to {_count}
+						if {_count} < {@MaxTreeSize}:
+							if metadata "gaiaresource" of loop-block is not set:
+								message "&7Erreur : %location at loop-block%"
+								message "&7n'est pas enregistré."
+						else:
+							exit loop
+					if {_count} >= {@MaxTreeSize}:
+						message "&7Cet arbre n'a pas pu être analysé dans son intégralité (trop grand)."
+						message "&7Bloc visé : %metadata ""gaiaresource"" of targeted block%"
+					else:
+						message "&7Arbre correctement analysé. Taille &8%{_count}%&7."
+						message "&7Bloc visé : %metadata ""gaiaresource"" of targeted block%"
+						message "&7Santé : %metadata ""health"" of targeted block%"
+
+					if "%region at targeted block%" contains "resource":
+						message "&7Bloc exploitable : &aoui"
+					else:
+						message "&7Bloc exploitable : &cnon"
+						message "&7Ne se trouve pas dans une région appropriée."	
+					if metadata "gaiaresource" of targeted block is set:
+						message "&7Bloc exploité auparavant : &aoui"
+					else:
+						message "&7Bloc exploité auparavant : &cnon"
+
+			else if targeted block is any log:
+				loop tree at location at targeted block:
+					add 1 to {_count}
+					if {_count} > {@MaxTreeSize}:
+						exit loop
+				if {_count} >= {@MaxTreeSize}:
+					message "&7Cet arbre n'a pas pu être analysé dans son intégralité (trop grand)."
+				else:
+					message "&7Arbre correctement analysé. Taille &8%{_count}%&7."
+				if "%region at targeted block%" contains "resource":
+					message "&7Bloc exploitable : &aoui"
+				else:
+					message "&7Bloc exploitable : &cnon"
+					message "&7Ne se trouve pas dans une région appropriée."	
+				if metadata "gaiaresource" of targeted block is set:
+					message "&7Bloc exploité auparavant : &aoui"
+				else:
+					message "&7Bloc exploité auparavant : &cnon"
+				
+
+			else:
+				message "&7Ce bloc n'est pas enregistré comme étant exploitable."
+			
+			message "&7Total de blocs cassés actuellement : %size of {local::mined::locations::*}%"
+		
+		else if arg 1 is "purge":
+			loop {local::mined::locations::*}:
+				delete metadata "gaiaresource" of block at location at %loop-value%
+			delete {local::mined::locations::*}
+			message "&7Tous les blocs cassés ont été purgés ; i.e. supprimés de la liste des cassés et ne sont plus exploitables."
+		else:
+			message "&7Utilisez &8/mine [info/purge]"

@@ -1,0 +1,595 @@
+# !-----------------------------------------------------------------------------------------!
+#                  Welcome to ChatControl's Chat Formatting Configuration
+#
+#   In this configuration you can setup how the message in the chat should look like.
+# 
+#   Since we support different message formats per different permissions,
+#   per channels, or many other places in the plugin, you can create a so-called
+#   formats that can be reused multiple times.
+#
+#   For configuration, see:
+#   - https://github.com/kangarko/ChatControl-Pro/wiki/Formats
+#
+#   For variables, see:
+#   - https://github.com/kangarko/ChatControl-Pro/wiki/Variables
+#
+#   Remember, you can remove or edit all formats below, and create your own ones!
+#
+# !-----------------------------------------------------------------------------------------!
+
+# -----------------------------------------------------------------------------------------
+# Enable chat formatting?
+# -----------------------------------------------------------------------------------------
+Enabled: true
+
+# -----------------------------------------------------------------------------------------
+# Integration with other plugins
+# -----------------------------------------------------------------------------------------
+Integration:
+  #
+  # Requires DiscordSRV. 
+  #
+  # Send your normal chat message to your DiscordSRV channel? If so, set the name of the
+  # channel to which we shall send the message.
+  #
+  Discord_Channel: "gaia"
+
+# -----------------------------------------------------------------------------------------
+# Configuration of the default chat types in the game.
+# -----------------------------------------------------------------------------------------
+Formatting: 
+  #
+  # The default chat format applied over all worlds.
+  #
+  Default: Chat
+  #
+  # If range mode is enabled, used if the ranged message starts with and "!".
+  # Such messages are send to everyone (if the sender has "chatcontrol.chat.globalrange" permission).
+  #
+  Global: Global_Chat
+  #
+  # A format used in the /me command.
+  #
+  Me: Me
+  #
+  # If range mode is enabled, used to send messages to players with "chatcontrol.chat.spy"
+  # permission that they normally shouldn't see (because it's outside their range).
+  #
+  # To spy on private messages (e.g. /tell or /mail), use /spy feature.
+  #
+  Spy: Spy_Chat
+  #
+  # If party chat is enabled, you can then spy on the messages with "chatcontrol.chat.spy" permission.
+  # Requires mcMMO.
+  #
+  Party_Spy: Spy_Party_Chat
+  #
+  # Used in admin chat via "/chc ach" command, used by staff to communicate with each other.
+  #
+  Admin: Admin_Chat
+  #      
+  # Used in "/chc bungeechat" command which sends messages over bungee.
+  #
+  # Requires BungeeCords support.
+  #
+  Bungee: Bungee_Chat
+  
+# -----------------------------------------------------------------------------------------
+# If TownyChat is installed, let it format your Towny channels while letting ChatControl
+# format the normal chat.
+# -----------------------------------------------------------------------------------------
+Towny_Chat: 
+  #
+  # Should formatting for listed channels be handled by Towny or ignored?
+  # (Channels not listed will do the opposite)
+  #
+  Channel_Mode_Replace: true
+  #
+  # What channels should we format (or not format)?
+  # The * channel is a placeholder for when a player is not speaking in a channel
+  #
+  Channels: 
+    - '*'
+    - general
+
+# -----------------------------------------------------------------------------------------
+# You can optionally enable or disable the formatter depending on the world
+# that the player speaking is in
+# -----------------------------------------------------------------------------------------
+World_Settings:
+  #
+  # Should the listed worlds be the only worlds where the formatter runs?
+  # The default (false) treats the listed worlds as a list of where the formatter does not run.
+  #
+  Use_As_Whitelist: false
+  #
+  # List of worlds to disable (or enable) the formatter
+  #
+  Worlds:
+    - World_to_disable_formatter_on
+
+# -----------------------------------------------------------------------------------------
+# Ranged mode limits the reach of player's message.
+#
+# For per-world chat, give everyone 'chatcontrol.chat.overrideranged' permission.
+# -----------------------------------------------------------------------------------------
+Range: 
+  #
+  # Enable ranged mode?
+  #
+  Enabled: false
+  #
+  # Send a ranged message everywhere if it begins with the letter below and player has 
+  # the chatcontrol.chat.globalrange permission.
+  #
+  # Set to none to disable. Traditionally, this used to be "!"
+  #
+  Global_Shortcut: "none"
+  #
+  # How many blocks around the sender should the players see their message?
+  #
+  Distance: 100.0
+  # 
+  # Worlds that shares the same chat.
+  #
+  # The ignore the Distance above, and every player in the other world will see the message.
+  #
+  Linked_Worlds: 
+      normal:
+        - world
+        - world_nether
+      skyland:
+        - skyland
+        - skyland_nether
+
+# -----------------------------------------------------------------------------------------
+# Here are the actual formats. A format represents how a message should look like.
+# Each format consists of Parts (each part is configured individually).
+#
+# You can re-use them in different parts of the plugin, for example in chat channels.
+#
+# For tutorial, see https://github.com/kangarko/ChatControl-Pro/wiki/Formats
+# -----------------------------------------------------------------------------------------
+Formats:
+  Chat:
+    Channel: 
+      Message: "&8[&7♙&8]"
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&7Channel : &8Monde"
+
+    Prefix: 
+      Message: "&f{luckperms_prefix} "
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Player:
+      Message: "&f{player}"
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Suffix:
+      Message: " &f{luckperms_suffix}&7: "
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Actual_Message:
+      Message: "&7{message}"
+
+  Discord:
+    Channel: 
+      Message: "&8[&7♤&8]"
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&7Message envoyé"
+          - "&7depuis le Discord."
+          - "&7"
+          - "&7&oCliquez ici pour"
+          - "&7&orejoindre le Discord."
+      Click_Event:
+        Action: OPEN_URL
+        Value: 'http://discord.gaia-craft.fr'
+
+    Actual_Message:
+      Message: "&f{player} : &7{message}"
+
+
+  Admin_Chat: 
+    Channel: 
+      Message: "&8[&7♕&8]"
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&7Channel : &8Staff"
+
+    Prefix: 
+      Message: "&f{luckperms_prefix} "
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Player:
+      Message: "&f{player}"
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Suffix:
+      Message: " &f{luckperms_suffix}&7: "
+
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Actual_Message:
+      Message: "&7{message}"
+
+
+  Commerce: 
+    Channel: 
+      Message: "&8[&7⚖&8]"
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&7Channel : &8Commerce"
+
+    Prefix: 
+      Message: "&f{luckperms_prefix} "
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Player:
+      Message: "&f{player}"
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Suffix:
+      Message: " &f{luckperms_suffix}&7: "
+
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Actual_Message:
+      Message: "&7{message}"
+
+
+  RolePlay:
+    Channel: 
+      Message: "&8[&7♔&8]"
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&7Channel : &8Role-Play"
+
+    Prefix: 
+      Message: "&f{luckperms_prefix} "
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Player:
+      Message: "&f{player}"
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Suffix:
+      Message: " &f{luckperms_suffix}&7: "
+
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Actual_Message:
+      Message: "&7{message}"
+
+  #
+  # This example format is used in global bungee chat with "/chc g".
+  #
+  Bungee_Chat:  
+    Prefix: 
+      Message: "&f{luckperms_prefix} "
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer"
+          - "&7&oun message à ce joueur."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Player:
+      Message: "&f{player}"
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Suffix:
+      Message: " &f{luckperms_suffix}&7: "
+
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player} &8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Actual_Message:
+      Message: "&7{message}"
+  #
+  # This example format is used in spy chat for admins, when ranged mode is enabled.
+  #
+  Spy_Chat: 
+    Everything: 
+      Message: "&8[&7🔎&8] &7{player}: &8{message}"    
+  #
+  # This example format is used in spy chat when party mode is enabled.
+  #
+  Spy_Party_Chat: 
+    Everything: 
+      Message: "&8SPY: [{party}&8]&f {pl_prefix}{player}:{pl_suffix} {message}"
+  
+  #
+  # This example format is used in global chat when ranged mode is enabled.
+  #
+  Global_Chat: 
+    Prefix: 
+      Message: "&8[&7&l♔&8] &f{luckperms_prefix} "
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player}&8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Player:
+      Message: "&f{player}"
+
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player}&8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Suffix:
+      Message: " &f{luckperms_suffix}&7: "
+
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values: 
+          - "&8----- ¤ &7{player}&8¤ -----"
+          - "&7Rôle : &8{luckperms_prefix}" 
+          - "&7Ping : &8{player_ping}"   
+          - ""
+          - "&7&oCliquez pour envoyer un message."  
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: '/msg {player} '
+
+    Actual_Message:
+      Message: "&7{message}" 
+  #
+  # This example format is used in /me
+  #
+  Me:
+    Vip: 
+      Message: "&6* "
+      Condition: 'player.hasPermission("chatcontrol.groups.vip")'
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values: 
+          - "&6This player is VIP"
+          - "&6Check out &e/web &6to obtain VIP"
+    Normal: 
+      Message: "&f* "
+      Condition: '!player.hasPermission("chatcontrol.groups.vip")'
+    Player: 
+      Message: "{player} "
+      Click_Event: 
+        Action: SUGGEST_COMMAND
+        Value: "/tell {player} "            
+    The_Rest: 
+      Message: "{message}"
+  #
+  # This example format is used in private messages for the sender.
+  #
+  Private_Message_Sender: 
+    Everything:
+      Message: "&8[&7✉&8]&f{sender} : &7{message}"
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values:
+          - "&8----- ¤ &7Message Privé &8¤ -----"
+          - "&7Destinataire : &8{receiver}"
+          - "&7Message : &8{message}"
+          - ""
+          - "&7Envoyé : &8{timestamp}"
+          - "&7Cliquez pour renouveler."
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: "/msg {player} "
+  #
+  # This example format is used in private messages for the receiver.
+  #
+  Private_Message_Receiver:
+    Everything:
+      Message: "&8[&7✉&8]&f{sender} : &7{message}"
+      Hover_Event:
+        Action: SHOW_TEXT
+        Values:
+          - "&8----- ¤ &7Message Privé &8¤ -----"
+          - "&7De : &8{sender}"
+          - "&7Message : &8{message}"
+          - ""
+          - "&7Reçu : &8{timestamp}"
+          - "&7Cliquez pour répondre."
+      Click_Event:
+        Action: SUGGEST_COMMAND
+        Value: "/r "
+  #
+  # This example format is used for admins when an advertising message is caught.
+  #  
+  Ad_Info: 
+    Info: 
+      Message: |-
+               &6&m----------------------------------------------
+               &r              &7&o(( Publicité ! ))
+               
+                 &6x &eJoueur: &f{player}
+                 &6x &eMessage: &f{message}
+    
+    More_Info: 
+      Message: |- 
+               &r
+                 &8[&9x&8] Plus d'informations ici."
+               &6&m----------------------------------------------
+      Hover_Event: 
+        Action: SHOW_TEXT
+        Values:
+          - "     &8~ &7Information &8~     " 
+          - "&7Heure: &8{timestamp}"
+          - ""
+          - "&fCliquez ici pour avertir le joueur."
+      Click_Event: 
+        Action: SUGGEST_COMMAND
+        Value: "/tempwarn {player} 1mo Il est interdit de faire de la publicité."

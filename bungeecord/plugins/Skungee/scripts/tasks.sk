@@ -1,0 +1,94 @@
+#========[¤]========#
+#					#
+#		Tasks		#
+#					#
+#========[¤]========#
+#
+# This file is synced over the BungeeCord Network
+# 	and should therefore ONLY execute tasks which CAN
+#	affect players on join on ANY server of the network.
+#
+
+#
+# Utilities
+#
+command /formattedservermessages <player> <text>:
+	executable by: console
+	trigger:
+		send "&7%arg 2%" to arg 1
+#
+# Banking
+#
+
+#GUI
+command /openbankgui <offlineplayer>:
+	executable by: console
+	trigger:
+		make arg 1 run command "bank open" as op
+
+#
+# Aliases
+#
+
+#backpack
+command /sac:
+	trigger:
+		make player execute command "backpack"
+
+#
+# Forbidden Actions
+#
+on craft:
+	if "%event-slot%" contains "crafting slot 0":
+		if gamemode of player is survival:
+			cancel event
+			message "&7Vous ne pouvez pas faire cela."
+
+on right click on anvil:
+	cancel event
+	execute console command "ecraft open anvil %player%"
+
+on right click on furnace:
+	cancel event
+	execute console command "ecraft open furnace %player%"
+
+#
+# SideBar
+#
+every 10 seconds:
+	async
+	loop all players:
+		set {_player} to loop-player
+		set tablist header of bungeecord player {_player} to "&7&nGaïa Renaissance%nl%&7Comptes uniques : %placeholder ""server_unique_joins"" from {_player}%" and "&7Temps de jeu : %placeholder ""statistic_time_played"" from {_player}%%nl%&7Ping : %placeholder ""player_ping"" from {_player}% &8| &7Votre IP : %placeholder ""player_ip"" from {_player}%%nl%&7TPS : %placeholder ""server_tps_1"" from {_player}% &8(/1sec) | &7%placeholder ""server_tps_5"" from {_player}% &8(/5sec)%nl%&7------------------ &8¤ &7------------------"
+
+		wipe {_player}'s sidebar
+		set name of sidebar of {_player} to "&7&n%{_player}%&r&7 (Race : &8%RaceCheck({_player})%&7)"
+		set score "&7%placeholder ""heroes_class"" from {_player}% (Niv.&8%placeholder ""heroes_class_level"" from {_player}%&7/&8%placeholder ""heroes_class_maxlevel"" from {_player}%&7)" in sidebar of {_player} to 100
+		set score "&8%placeholder ""heroes_class_exp"" from {_player}%&7/&8%placeholder ""heroes_class_maxexp"" from {_player}%&7xp (&8%placeholder ""heroes_class_exp_percent"" from {_player}%&7%%)" in sidebar of {_player} to 99
+		set score "&7%placeholder ""heroes_class2"" from {_player}% (Niv.&8%placeholder ""heroes_class2_level"" from {_player}%&7/&8%placeholder ""heroes_class2_maxlevel"" from {_player}%&7)" in sidebar of {_player} to 98
+		set score "&8%placeholder ""heroes_class2_exp"" from {_player}%&7/&8%placeholder ""heroes_class2_maxexp"" from {_player}%&7xp (&8%placeholder ""heroes_class2_exp_percent"" from {_player}%&7%%)" in sidebar of {_player} to 97
+		set score "&7&nMétiers&r&7 (Niv.&8%placeholder ""jobs_total_levels"" from {_player}%&7)" in sidebar of {_player} to 90
+		if placeholder "jobs_level_Bûcheron" from {_player} is set:
+			set score "&7Bûcheron (Niv.&8%placeholder ""jobs_level_Bûcheron"" from {_player}%&7/&8%placeholder ""jobs_max_level_Bûcheron"" from {_player}%&7)" in sidebar of {_player} to 85
+		if placeholder "jobs_level_Mineur" from {_player} is set:
+			set score "&7Mineur (Niv.&8%placeholder ""jobs_level_Mineur"" from {_player}%&7/&8%placeholder ""jobs_max_level_Mineur"" from {_player}%&7)" in sidebar of {_player} to 80
+		if placeholder "jobs_level_Excavateur" from {_player} is set:
+			set score "&7Excavateur (Niv.&8%placeholder ""jobs_level_Excavateur"" from {_player}%&7/&8%placeholder ""jobs_max_level_Excavateur"" from {_player}%&7)" in sidebar of {_player} to 75
+		if placeholder "jobs_level_Constructeur" from {_player} is set:
+			set score "&7Constructeur (Niv.&8%placeholder ""jobs_level_Constructeur"" from {_player}%&7/&8%placeholder ""jobs_max_level_Constructeur"" from {_player}%&7)" in sidebar of {_player} to 70
+		if placeholder "jobs_level_Fermier" from {_player} is set:
+			set score "&7Fermier (Niv.&8%placeholder ""jobs_level_Fermier"" from {_player}%&7/&8%placeholder ""jobs_max_level_Fermier"" from {_player}%&7)" in sidebar of {_player} to 65
+		if placeholder "jobs_level_Éleveur" from {_player} is set:
+			set score "&7Éleveur (Niv.&8%placeholder ""jobs_level_Éleveur"" from {_player}%&7/&8%placeholder ""jobs_max_level_Éleveur"" from {_player}%&7)" in sidebar of {_player} to 60
+		if placeholder "jobs_level_Chasseur" from {_player} is set:
+			set score "&7Chasseur (Niv.&8%placeholder ""jobs_level_Chasseur"" from {_player}%&7/&8%placeholder ""jobs_max_level_Chasseur"" from {_player}%&7)" in sidebar of {_player} to 55
+		if placeholder "jobs_level_Artisan" from {_player} is set:
+			set score "&7Artisan (Niv.&8%placeholder ""jobs_level_Artisan"" from {_player}%&7/&8%placeholder ""jobs_max_level_Artisan"" from {_player}%&7)" in sidebar of {_player} to 50
+		if placeholder "jobs_level_Pêcheur" from {_player} is set:
+			set score "&7Pêcheur (Niv.&8%placeholder ""jobs_level_Pêcheur"" from {_player}%&7/&8%placeholder ""jobs_max_level_Pêcheur"" from {_player}%&7)" in sidebar of {_player} to 45
+		if placeholder "jobs_level_Forgeron" from {_player} is set:
+			set score "&7Forgeron (Niv.&8%placeholder ""jobs_level_Forgeron"" from {_player}%&7/&8%placeholder ""jobs_max_level_Forgeron"" from {_player}%&7)" in sidebar of {_player} to 40
+
+		#set score "&7&nCoordonnées : " in sidebar of {_player} to 30
+		#set score "&8%placeholder ""player_x"" from {_player}%&7,&8%placeholder ""player_y"" from {_player}%&7,&8%placeholder ""player_z"" from {_player}%" in sidebar of {_player} to 29
+

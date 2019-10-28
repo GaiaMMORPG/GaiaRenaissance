@@ -1,6 +1,6 @@
 Official repository of the "Gaïa - La Renaissance" project.
 
-Copyright (C) 2018 HollishKid
+Copyright (C) 2019 HollishKid
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

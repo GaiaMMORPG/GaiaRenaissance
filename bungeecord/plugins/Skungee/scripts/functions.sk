@@ -1,0 +1,95 @@
+#==========[¤]==========#
+#						#
+#		Fonctions		#
+#						#
+#==========[¤]==========#
+#
+# This file is synced over the BungeeCord Network
+# 	and should therefore ONLY execute tasks which CAN
+#	affect players on join on ANY server of the network.
+#
+options:
+    bench-id : "siege"
+
+
+#
+# TellRaw
+#
+function TellRaw(Player: player,Text: string,HoverText: string,URL: string):
+	execute console command "tellraw %{_Player}% {""text"":""%{_Text}%"",""clickEvent"":{""action"":""open_url"",""value"":""%{_URL}%""},""hoverEvent"":{""action"":""show_text"",""value"":""%{_HoverText}%""}}"
+
+#
+# ActionBar
+#
+function ActionBarSend(Player: player, Text: text):
+    loop 3 times:
+        send actionbar "&7%{_Text}%" to {_Player}
+        wait 2 seconds
+
+#
+# Particles
+#
+
+#Teleportation
+function TeleportParticles(Player: player):
+    drawRings particle "redstone", speed 1, RGB 255, 255, 255, center {_Player}, id "teleport_%{_Player}%", randomRotation true, animated true, radius 1, ringCount 4, ringDensity 1, visibleRange 32
+    drawDot count 50, particle "mobspell", XYZ 255, 255, 255, center {_Player}, visibleRange 32, pulseDelay 1, keepFor 10 seconds
+    wait 10 seconds
+    stopEffect id "teleport_%{_Player}%"
+
+    
+#
+# Sièges
+#
+on right click:
+    event-player's gamemode is not creative or spectator
+    event-block is set
+    if benchCheck(event-block's location) is true:
+        benchSit(event-player, event-block's location)
+
+    if "%block at event-block's location%" contains "dragon egg":
+        cancel event
+        
+on quit:
+    event-player's vehicle is set
+    event-player's vehicle's name = {@bench-id}
+    eject any passengers from event-player's vehicle
+    
+on break:
+    "%event-block%" contains "stair"
+    loop all silverfishes in radius 0.5 of event-block:
+        loop-entity's name = {@bench-id}
+        eject any passengers from loop-entity
+        exit loop
+    
+on dismount:
+    event-entity's vehicle's name = {@bench-id}
+    set {_entity} to event-entity's vehicle
+    set {_loc} to {_entity}'s location
+    set y-coord of {_loc} to 1
+    wait 1 tick
+    teleport {_entity} to {_loc}
+    set {_entity}'s health to 0
+
+function benchCheck(loc: location) :: boolean:
+    "%block at {_loc}%" contains "stair":
+        #block 1 meter below {_loc} = {@condition-block}
+        loop all silverfishes in radius 0.5 of {_loc}:
+            loop-entity's name = {@bench-id}
+            if loop-entity's passenger is not set:
+                kill loop-entity
+                return true
+            else:
+                return false
+        return true
+    return false
+        
+function benchSit(entity: entity, loc: location):
+    remove 0.49 from {_loc}'s y-coord
+    spawn silverfish at {_loc}
+    add "{NoAI:1,Silent:1,PersistenceRequired:0,Invulnerable:1}" to nbt of last spawned entity
+    set {_uuid} to last spawned entity's uuid
+    apply invisibility without any particles to last spawned entity for 365 days
+    set last spawned entity's max health to 0.1
+    set last spawned entity's name to {@bench-id}
+    make {_entity} ride entity from uuid {_uuid}

@@ -25,6 +25,10 @@ options:
 #set {louvre_break_sign} to location at -9761, 73, 2357 of the world "gaia"
 #set line 3 of block at {louvre_break_sign} to "%{block.breaks.louvre}%"
 
+on block break:
+	if event-block is any ore or any log:
+		message "hello"
+
 command /urler:
 	trigger:
 		set {_level} to placeholder "betonquest_default:point.reputation.amount" from player

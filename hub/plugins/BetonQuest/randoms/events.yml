@@ -3,21 +3,37 @@
 #   It should NEVER execute tasks on a global scale, which maybe repeated.
 #
 
-#========[¤]========#
-#					          #
-#	  Convervsations	#
-#					          #
-#========[¤]========#
+#===========[¤]==========#
+#					     #      
+#     Convervsations     #
+#					     #     
+#===========[¤]==========#
 conversation_elf_girl: 'conversation elf_girl'
-
+conversation_vieil_homme: 'conversation vieil_homme'
+conversation_possede: ' conversation possede'
 
 
 #========[¤]========#
-#					          #
-#	       Tags     	#
-#					          #
+#					#         
+#	     Tags     	#
+#					#          
 #========[¤]========#
 elf_girl_tag: 'tag add elf_girl'
 elf_girl_timer: 'objective start elf_girl_timer'
 elf_girl_untag: 'tag del elf_girl'
 vieil_homme_tag: 'tag add vieil_homme_tag'
+#========[¤]======#
+#                 #
+#     Possédé     #
+#                 #
+#========[¤]======#
+possede_tag_1: 'tag add possede_tag_1'
+possede_tag_2: 'tag add possede_tag_2'
+possede_tag_3: 'tag add possede_tag_3'
+possede_tag_4: 'tag add possede_tag_4'
+possede_tag_5: 'tag add possede_tag_5'
+untag_possede_tag_1: 'tag del possede_tag_1'
+untag_possede_tag_2: 'tag del possede_tag_2'
+untag_possede_tag_3: 'tag del possede_tag_3'
+untag_possede_tag_4: 'tag del possede_tag_4'
+untag_possede_tag_5: 'tag del possede_tag_5'

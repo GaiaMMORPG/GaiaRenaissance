@@ -1,0 +1,29 @@
+#Race: Humain
+#Emplacement:
+#sexe: Femme
+quester: 'vieil homme'
+first: 'debut,done'
+stop: 'false'
+
+NPC_options:
+  debut: 
+    text: 'Vous voulez parler à un vieil homme ? Faire votre bonne action de la journée ? Et bien désolé mais je n''ai pas toute la journée !'
+    pointer: 'reponse,reponse_b'
+  done:
+    text: 'Je vous ai déjà dis d''aller voir ailleurs.'
+    condition: 'vieil_homme_tag'
+  bye:
+    text: 'Parfait, et bien adieu.'
+    event: 'vieil_homme_tag'
+  confirmation:
+    text: 'Je ne cours pas après l''argent. Allez voir un guide pour demander cela.'
+    event: 'vieil_homme_tag'
+    
+player_options:
+  reponse:
+    text: 'Cela ne me gène pas puisque ça n''était pas mon intention.'
+    pointer: 'bye'
+  reponse_b:
+    text: 'Et vous ne pouvez pas m''indiquer un chemin en échange d''une petite pièce ?'
+    pointer: 'confirmation'
+    

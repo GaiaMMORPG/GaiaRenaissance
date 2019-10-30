@@ -1,0 +1,11 @@
+#race:
+#emplacement:
+#sexe:
+
+quester:
+first: 'debut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    text:

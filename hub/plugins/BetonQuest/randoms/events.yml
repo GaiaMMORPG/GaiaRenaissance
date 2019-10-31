@@ -4,24 +4,23 @@
 #
 
 #===========[¤]==========#
-#					               #      
+#                        #      
 #     Convervsations     #
-#					               #    
+#                        #    
 #===========[¤]==========#
 conversation_elf_girl: 'conversation elf_girl'
 conversation_vieil_homme: 'conversation vieil_homme'
-conversation_possede: ' conversation possede'
-
+conversation_possede: 'conversation possede'
 
 #========[¤]========#
-#					          #         
-#	     Tags     	  #
-#				            #  
+#                   #         
+#        Tags       #
+#                   #  
 #========[¤]========#
 elf_girl_tag: 'tag add elf_girl'
 elf_girl_timer: 'objective start elf_girl_timer'
 elf_girl_untag: 'tag del elf_girl'
-vieil_homme_tag: 'tag add vieil_homme_tag'
+
 #========[¤]======#
 #                 #
 #     Possédé     #

@@ -231,7 +231,7 @@ pnj_elf_girl:
   Skills:
   - command{c="bq event <trigger.name> randoms.conversation_elf_girl"} @trigger ~onInteract
 
-  vieil_homme:
+vieil_homme:
   Type: pig
   Display: '&2Vieil homme'
   Disguise:
@@ -254,7 +254,7 @@ pnj_elf_girl:
   Skills:
   - command{c="bq event <trigger.name> randoms.conversation_vieil_homme"} @trigger ~onInteract
 
-  possede:
+possede:
   Type: pig
   Display: '&2Possédé'
   Disguise:

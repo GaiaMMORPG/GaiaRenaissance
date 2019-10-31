@@ -3,31 +3,30 @@
 #sexe: Masculin
 
 quester: 'Possédé'
-first: 'debut,suite,suivant,phrase,presque,fin'
+first: 'fin,presque,phrase,suivant,suite,debut'
 stop: 'false'
 
 NPC_options:
   debut:
-    text: '"Et les forces des ténèbres arrivèrent..."'
+    text: '"...Et les forces des ténèbres arrivèrent..."'
     event: 'possede_tag_1'
   suite:
     condition: 'possede_tag_1'
     event: 'untag_possede_tag_1, possede_tag_2'
-    text: '"Et la guerre éclata..."'
+    text: '"...Et la guerre éclata..."'
   suivant:
     condition: 'possede_tag_2'
-    event: 'untag_possede_tag_2,possede_tag_2'
-    text: '"Et la déesse fit replier ses troupes..."'
+    event: 'untag_possede_tag_2,possede_tag_3'
+    text: '"...Et la déesse fit replier ses troupes..."'
   phrase:
     condition: 'possede_tag_3'
     event: 'untag_possede_tag_3,possede_tag_4'
-    text: '"Et des milliers d''années passèrent..."'
-    
+    text: '"...Et des milliers d''années passèrent..."' 
   presque:
     condition: 'possede_tag_4'
     event: 'untag_possede_tag_4,possede_tag_5'
-    text: '"Et les divins prédirent la venue d''un héros inconnu..."'
+    text: '"...Et les divins prédirent la venue d''un héros inconnu..."'
   fin:
    condition: 'possede_tag_5'
    event: 'untag_possede_tag_5'
-   text: '"%player%."'
+   text: '"...%player%..."'

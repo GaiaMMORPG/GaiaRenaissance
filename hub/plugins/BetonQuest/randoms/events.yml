@@ -4,9 +4,9 @@
 #
 
 #===========[¤]==========#
-#					     #      
+#					               #      
 #     Convervsations     #
-#					     #     
+#					               #    
 #===========[¤]==========#
 conversation_elf_girl: 'conversation elf_girl'
 conversation_vieil_homme: 'conversation vieil_homme'
@@ -14,9 +14,9 @@ conversation_possede: ' conversation possede'
 
 
 #========[¤]========#
-#					#         
-#	     Tags     	#
-#					#          
+#					          #         
+#	     Tags     	  #
+#				            #  
 #========[¤]========#
 elf_girl_tag: 'tag add elf_girl'
 elf_girl_timer: 'objective start elf_girl_timer'

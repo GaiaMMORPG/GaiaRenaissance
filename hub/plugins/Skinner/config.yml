@@ -1,0 +1,42 @@
+MythicMobs: true
+Citizens: false
+VanillaMobs: false
+MM-Disguises:
+  pnj_jacopo:
+    displayName:
+    disguise: pnj_jacopo
+  pnj_market:
+    displayName:
+    disguise: pnj_market
+  pnj_banker1:
+    displayName:
+    disguise: pnj_banker1
+  pnj_banker2:
+    displayName:
+    disguise: pnj_banker2
+  pnj_banker3:
+    displayName:
+    disguise: pnj_banker3
+  pnj_guard_bank1:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_guard_bank2:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_guard_bank3:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_guard_bank4:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_elf_girl:
+    displayName:
+    disguise: pnj_elf_girl
+Citizens-Disguises:
+  #ExampleNPCName:
+  #  displayName: Example NPC display name
+  #  disguise: exampleDisguiseName
+VanillaMobs-Disguises:
+  #CREEPER:
+  #  displayName: Example display name
+  #  disguise: exampleDisguiseName

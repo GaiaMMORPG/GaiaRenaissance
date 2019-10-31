@@ -19,15 +19,17 @@ Categories:
     id: LIME_DYE
 
   furnace:
-    name: '&aFour'
+    name: '&aHaut-Fourneau'
     lore:
     - '&7Catégorie des objets'
-    - '&7craftables dans un four.'
+    - '&7craftables dans un'
+    - '&7haut fourneau de métal.'
     - '&7Catégorie de crafts'
     - '&7réservée aux Forgerons.'
     - ' '
     - '&7&oClic droit sur un'
-    - '&7&ofour pour ouvrir.'
+    - '&7&ohaut fourneau'
+    - '&7&opour ouvrir.'
     slot: 21
     permission: 'nonexistent.perm'
     id: FURNACE

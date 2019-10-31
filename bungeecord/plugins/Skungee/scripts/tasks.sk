@@ -44,13 +44,47 @@ on craft:
 			cancel event
 			message "&7Vous ne pouvez pas faire cela."
 
+on right click on enchantment table:
+	cancel event
+
 on right click on anvil:
 	cancel event
 	execute console command "ecraft open anvil %player%"
 
 on right click on furnace:
-	cancel event
-	execute console command "ecraft open furnace %player%"
+	if nbt of event-block contains "Haut-Fourneau":
+		cancel event
+		execute console command "ecraft open furnace %player%"
+
+on smelt:
+	if event-block's ore slot is any ore:
+		cancel event
+
+#
+# Custom texture for specific blocks
+#
+on block place:
+	if event-block is furnace:
+		if nbt of event-block contains "Haut":
+			set biome at event-block to the void
+
+on block break:
+	if event-block is furnace:
+		if nbt of event-block contains "Haut":
+			if "%biome north of event-block%" contains "void":
+				if "%biome south of event-block%" contains "void":
+					if "%biome east of event-block%" contains "void":
+						if "%biome west of event-block%" contains "void":
+							log "Problème de biome suite à destruction de four en %event-location%, %event-world%  - Erreur 1618-TheVoid." to "errors.log"
+						else:
+							set biome at event-block to biome west of event-block
+					else:
+						set biome at event-block to biome east of event-block
+				else:
+					set biome at event-block to biome south of event-block
+			else:
+				set biome at event-block to biome north of event-block
+			
 
 #
 # SideBar

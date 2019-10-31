@@ -61,7 +61,7 @@ on close anvil gui named "MarketSell":
 		set {_integer} to event-text parsed as integer
 		wait 1 second
 		make player execute command "market sell %{_integer}%"
-		message "&7Vous avec mis votre objet en vente sur le marché pour un prix de %{_integer}%¤."
+		message "&7Vous avez mis votre objet en vente sur le marché pour un prix de %{_integer}%¤."
 	else:
 		message "&7Merci de préciser le prix entier auquel vous souhaitez vendre l'objet que vous tenez actuellement en main."
 

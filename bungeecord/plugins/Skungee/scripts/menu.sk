@@ -29,13 +29,13 @@ options:
 
 	Bucherons: 4118, 131, -8388
 	Mineurs: 4090, 98, -8717
-	Excavateurs: 3914, 106, -8719
+	Excavateurs: 3916, 106, -8713
 	Constructeurs: 3928, 130, -8174
 	Fermiers: 4319, 113, -8600
 	Eleveurs: 4356, 104, -8657
 	Chasseurs: 4147, 34, -8080
-	Artisans: 4289, 20, -8014
-	Pecheurs: 3854, 19, -8788
+	Artisans: 4278, 19, -8002
+	Pecheurs: 3854, 19, -8787
 	Forgerons: 4453, 98, -8349
 
 command /menu:

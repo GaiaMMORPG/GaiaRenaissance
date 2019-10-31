@@ -231,13 +231,9 @@ pnj_elf_girl:
   Skills:
   - command{c="bq event <trigger.name> randoms.conversation_elf_girl"} @trigger ~onInteract
 
-vieil_homme:
+pnj_ulfric:
   Type: pig
-  Display: '&2Vieil homme'
-  Disguise:
-    Type: player
-    Player: '&2Vieil homme'
-    Skin: Aeldim
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -254,13 +250,9 @@ vieil_homme:
   Skills:
   - command{c="bq event <trigger.name> randoms.conversation_vieil_homme"} @trigger ~onInteract
 
-possede:
+pnj_eglesias:
   Type: pig
-  Display: '&2Possédé'
-  Disguise:
-    Type: player
-    Player: '&2Possédé'
-    Skin: AbouLahab
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false

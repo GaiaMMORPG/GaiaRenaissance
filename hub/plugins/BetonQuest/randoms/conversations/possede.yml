@@ -1,8 +1,8 @@
-#race: Humain
-#emplacement:
-#sexe: Masculin
+#Race: Humain
+#Emplacement: 4299 20 -8019
+#Sexe: Masculin
 
-quester: 'Possédé'
+quester: 'Églesias'
 first: 'fin,presque,phrase,suivant,suite,debut'
 stop: 'false'
 

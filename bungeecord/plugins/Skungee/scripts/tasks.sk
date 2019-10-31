@@ -1,7 +1,7 @@
 #========[¤]========#
-#					#
-#		Tasks		#
-#					#
+#                   #
+#       Tasks       #
+#                   #
 #========[¤]========#
 #
 # This file is synced over the BungeeCord Network
@@ -36,6 +36,37 @@ command /sac:
 		make player execute command "backpack"
 
 #
+# Rerouted & Forbidden Commands
+#
+on command:
+	if command is "mp":
+		cancel event
+		make player execute command "msg %arguments%"
+	
+	else if command contains "market":
+		if executor does not have permission "market.temp":
+			cancel event
+			message "&7Pour accéder au marché, parlez à un commerçant dans un marché."
+
+
+command /custommarktsell <player>:
+	executable by: console
+	trigger:
+		open an anvil gui named "MarketSell" to arg 1 with default text "Vendre objet en main : prix ?"
+
+on close anvil gui named "MarketSell":
+	set {_integer} to event-text parsed as integer
+	if {_integer} is integer:
+		execute command "lp user %player% permission settemp market.temp true 3seconds"
+		set {_integer} to event-text parsed as integer
+		wait 1 second
+		make player execute command "market sell %{_integer}%"
+		message "&7Vous avez mis votre objet en vente sur le marché pour un prix de %{_integer}%¤."
+	else:
+		message "&7Merci de préciser le prix entier auquel vous souhaitez vendre l'objet que vous tenez actuellement en main."
+
+
+#
 # Forbidden Actions
 #
 on craft:
@@ -59,6 +90,30 @@ on right click on furnace:
 on smelt:
 	if event-block's ore slot is any ore:
 		cancel event
+
+#
+# Vehicule Management
+#
+on vehicle exit:
+	set {_vehicle} to vehicle of player
+	if "%{_vehicle}%" contains "boat":
+		delete vehicle of player
+		if "%{_vehicle}%" contains "dark oak":
+			drop 1 dark oak boat at event-location
+		else if "%{_vehicle}%" contains "oak":
+			drop 1 oak boat at event-location
+			# The spruce boat appears to be bugged => on entering, it opens an anvil for some reason.
+		else if "%{_vehicle}%" contains "spruce":
+			drop 1 spruce boat at event-location
+		else if "%{_vehicle}%" contains "jungle":
+			drop 1 jungle boat at event-location
+		else if "%{_vehicle}%" contains "acacia":
+			drop 1 acacia boat at event-location
+		else if "%{_vehicle}%" contains "birch":
+			drop 1 birch boat at event-location
+	else if "%{_vehicle}%" contains "minecart":
+		delete vehicle of the player
+		drop 1 minecart at event-location
 
 #
 # Custom texture for specific blocks

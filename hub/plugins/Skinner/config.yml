@@ -32,6 +32,12 @@ MM-Disguises:
   pnj_elf_girl:
     displayName:
     disguise: pnj_elf_girl
+  pnj_ulfric:
+    displayName:
+    disguise: pnj_ulfric
+  pnj_eglesias:
+    displayName:
+    disguise: pnj_eglesias
 Citizens-Disguises:
   #ExampleNPCName:
   #  displayName: Example NPC display name

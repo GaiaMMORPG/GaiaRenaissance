@@ -2,7 +2,7 @@
 #Sexe : Féminin
 #Emplacement : 3996 / 114 / -8281
 #Âge : Enfant
-#Skin : Aikeri
+
 quester: 'Elenwën'
 first: 'debut,done'
 stop: 'false'

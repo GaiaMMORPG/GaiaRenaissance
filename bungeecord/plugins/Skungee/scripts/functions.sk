@@ -42,10 +42,10 @@ function TeleportParticles(Player: player):
 # Sièges
 #
 on right click:
-    event-player's gamemode is not creative or spectator
-    event-block is set
-    if benchCheck(event-block's location) is true:
-        benchSit(event-player, event-block's location)
+    if event-player's gamemode is not creative or spectator:
+        if event-block is set:
+            if benchCheck(event-block's location) is true:
+                benchSit(event-player, event-block's location)
 
     if "%block at event-block's location%" contains "dragon egg":
         cancel event
@@ -72,16 +72,16 @@ on dismount:
     set {_entity}'s health to 0
 
 function benchCheck(loc: location) :: boolean:
-    "%block at {_loc}%" contains "stair":
-        #block 1 meter below {_loc} = {@condition-block}
-        loop all silverfishes in radius 0.5 of {_loc}:
-            loop-entity's name = {@bench-id}
-            if loop-entity's passenger is not set:
-                kill loop-entity
-                return true
-            else:
-                return false
-        return true
+    if "%block at {_loc}%" contains "stair":
+        if data value of block at {_loc} is between 0 and 3:
+            loop all silverfishes in radius 0.5 of {_loc}:
+                loop-entity's name = {@bench-id}
+                if loop-entity's passenger is not set:
+                    kill loop-entity
+                    return true
+                else:
+                    return false
+            return true
     return false
         
 function benchSit(entity: entity, loc: location):

@@ -10,11 +10,7 @@
 
 pnj_jacopo:
   Type: pig
-  Display: '&2Jacopo'
-  Disguise:
-    Type: player
-    Player: '&2Jacopo'
-    Skin: commander
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -31,13 +27,66 @@ pnj_jacopo:
   Skills:
   - command{c="bq event <trigger.name> default.conversation_pnj_1"} @trigger ~onInteract
   
-pnj_banker:
+pnj_banker1:
   Type: pig
-  Display: '&2Banquier'
-  Disguise:
-    Type: player
-    Player: '&2Banquier'
-    Skin: Frrancis
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_pnj_2"} @trigger ~onInteract
+
+pnj_banker2:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_pnj_2"} @trigger ~onInteract
+
+pnj_banker3:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_pnj_2"} @trigger ~onInteract
+
+pnj_market:
+  Type: pig
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -56,11 +105,7 @@ pnj_banker:
 
 pnj_guard_bank1:
   Type: pig
-  Display: '&2Garde'
-  Disguise:
-    Type: player
-    Player: '&2Garde'
-    Skin: 7850
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -86,11 +131,7 @@ pnj_guard_bank1:
 
 pnj_guard_bank2:
   Type: pig
-  Display: '&2Garde'
-  Disguise:
-    Type: player
-    Player: '&2Garde'
-    Skin: 7850
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -116,11 +157,7 @@ pnj_guard_bank2:
 
 pnj_guard_bank3:
   Type: pig
-  Display: '&2Garde'
-  Disguise:
-    Type: player
-    Player: '&2Garde'
-    Skin: 7850
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -146,11 +183,7 @@ pnj_guard_bank3:
 
 pnj_guard_bank4:
   Type: pig
-  Display: '&2Garde'
-  Disguise:
-    Type: player
-    Player: '&2Garde'
-    Skin: 7850
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -181,11 +214,7 @@ pnj_guard_bank4:
 #========[¤]========#
 pnj_elf_girl:
   Type: pig
-  Display: '&2Elenwën'
-  Disguise:
-    Type: player
-    Player: '&2Elenwën'
-    Skin: Aikeri
+  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false

@@ -1,5 +1,5 @@
-pnj_banker:
-  MobName: pnj_banker
+pnj_banker1:
+  MobName: pnj_banker1
   World: gaia
   X: 3912
   Y: 130

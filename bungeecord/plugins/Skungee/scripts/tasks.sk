@@ -1,7 +1,7 @@
 #========[¤]========#
-#					#
-#		Tasks		#
-#					#
+#                   #
+#       Tasks       #
+#                   #
 #========[¤]========#
 #
 # This file is synced over the BungeeCord Network
@@ -90,6 +90,30 @@ on right click on furnace:
 on smelt:
 	if event-block's ore slot is any ore:
 		cancel event
+
+#
+# Vehicule Management
+#
+on vehicle exit:
+	set {_vehicle} to vehicle of player
+	if "%{_vehicle}%" contains "boat":
+		delete vehicle of player
+		if "%{_vehicle}%" contains "dark oak":
+			drop 1 dark oak boat at event-location
+		else if "%{_vehicle}%" contains "oak":
+			drop 1 oak boat at event-location
+			# The spruce boat appears to be bugged => on entering, it opens an anvil for some reason.
+		else if "%{_vehicle}%" contains "spruce":
+			drop 1 spruce boat at event-location
+		else if "%{_vehicle}%" contains "jungle":
+			drop 1 jungle boat at event-location
+		else if "%{_vehicle}%" contains "acacia":
+			drop 1 acacia boat at event-location
+		else if "%{_vehicle}%" contains "birch":
+			drop 1 birch boat at event-location
+	else if "%{_vehicle}%" contains "minecart":
+		delete vehicle of the player
+		drop 1 minecart at event-location
 
 #
 # Custom texture for specific blocks

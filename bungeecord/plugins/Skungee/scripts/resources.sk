@@ -462,8 +462,11 @@ on block break of pumpkin:
 on block break of sugar cane:
 	if gamemode of player is survival:
 		if "%region at event-location%" contains "resource":
-			drop 1 sugar cane named "&fCanne à Sucre" with lore "&7Cette canne à sucre" and "&7peut être raffiné" and "&7pour obtenir du sucre." and " " and "&7&oRareté : &fCommun" at event-location
-			drop 1 sugar named "&7Sucre" with lore "&7Du bon sucre raffiné," and "&7prêt à être mangé." and " " and "&7&oRareté : &fCommun" at event-location
+			if block below event-block is sand:
+				cancel event
+			else:
+				drop 1 sugar cane named "&fCanne à Sucre" with lore "&7Cette canne à sucre" and "&7peut être raffiné" and "&7pour obtenir du sucre." and " " and "&7&oRareté : &fCommun" at event-location
+				drop 1 sugar named "&7Sucre" with lore "&7Du bon sucre raffiné," and "&7prêt à être mangé." and " " and "&7&oRareté : &fCommun" at event-location
 		else:
 			drop 1 sugar named "&7Sucre" with lore "&7Du bon sucre raffiné," and "&7prêt à être mangé." and " " and "&7&oRareté : &fCommun" at event-location
 
@@ -473,10 +476,15 @@ on block break of sugar cane:
 on block break of grass or dirt or coarse dirt or podzol or soul sand:
 	if block above event-block is any small flower or nether wart plant or potato plant or wheat plant or carrot plant or beetroot plant or melon stem or pumpkin stem:
 		cancel event
-		ActionBarSend({_player}, "&7Vous ne pouvez pas casser un block sur lequel se trouve une plante.")
+		ActionBarSend({_player}, "&7Vous ne pouvez pas casser un bloc sur lequel se trouve une plante.")
+	
+on block break of sand:
+	if block above event-block is sugar cane:	
+		cancel event
+		ActionBarSend({_player}, "&7Vous ne pouvez pas casser un bloc sur lequel se trouve une plante.")
 
 #
-# Planting
+# Planting (only applies to non-hub servers.)
 #
 function PlantPlanter(player: player, location: location):
 	if name of {_player}'s tool contains "Tulipe":
@@ -515,33 +523,36 @@ function PlantPlanter(player: player, location: location):
 
 
 on right click on grass or dirt or coarse dirt or podzol or soul sand:
-	if name of player's tool contains "Graine":
-		cancel event
-		remove 1 of player's tool from player
-		PlantPlanter(player, event-location)
-	else if player's tool is any small flower or nether wart plant:
-		cancel event
-		ActionBarSend({_player}, "&7Vous devez récupérer des graines de cette plante afin de la planter.")
+	if gamemode of player is survival:
+		if name of player's tool contains "Graine":
+			if current server does not contain "hub":
+				cancel event
+				remove 1 of player's tool from player
+				PlantPlanter(player, event-location)
+			else if player's tool is any small flower or nether wart plant:
+				cancel event
+				ActionBarSend({_player}, "&7Vous devez récupérer des graines de cette plante afin de la planter.")
 
 on right click on farmland:
 	if gamemode of player is survival:
 		if name of player's tool contains "Graine":
-			cancel event
-			remove 1 of player's tool from player
-			if name of player's tool contains "Pomme de terre":
-				set block above event-location to freshly planted potato plant
-			if name of player's tool contains "Blé":
-				set block above event-location to freshly planted wheat plant
-			else if name of player's tool contains "Carotte":
-				set block above event-location to freshly planted carrot plant
-			else if name of player's tool contains "Betterave":
-				set block above event-location to freshly planted beetroot plant
-			else if name of player's tool contains "Melon":
-				set block above event-location to freshly planted melon stem
-			else if name of player's tool contains "Citrouille":
-				set block above event-location to freshly planted pumpkin stem
-			else:
-				PlantPlanter(player, event-location)
+			if current server does not contain "hub":
+				cancel event
+				remove 1 of player's tool from player
+				if name of player's tool contains "Pomme de terre":
+					set block above event-location to freshly planted potato plant
+				if name of player's tool contains "Blé":
+					set block above event-location to freshly planted wheat plant
+				else if name of player's tool contains "Carotte":
+					set block above event-location to freshly planted carrot plant
+				else if name of player's tool contains "Betterave":
+					set block above event-location to freshly planted beetroot plant
+				else if name of player's tool contains "Melon":
+					set block above event-location to freshly planted melon stem
+				else if name of player's tool contains "Citrouille":
+					set block above event-location to freshly planted pumpkin stem
+				else:
+					PlantPlanter(player, event-location)
 		else:
 			cancel event
 

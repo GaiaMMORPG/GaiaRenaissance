@@ -75,6 +75,11 @@ on craft:
 			cancel event
 			message "&7Vous ne pouvez pas faire cela."
 
+on right click on crafting table:
+	if player is not sneaking:
+		cancel event
+		execute console command "ecraft open main %player%"
+
 on right click on enchantment table:
 	cancel event
 
@@ -139,7 +144,6 @@ on block break:
 					set biome at event-block to biome south of event-block
 			else:
 				set biome at event-block to biome north of event-block
-			
 
 #
 # SideBar

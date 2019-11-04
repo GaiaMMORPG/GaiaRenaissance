@@ -8,12 +8,23 @@ Categories:
     - '&7par tout le monde.'
     slot: 12
     id: OAK_LOG
+  
+  normal_info:
+    name: '&aCrafts Classiques'
+    lore:
+    - '&7Un établi classique'
+    - '&7peut être ouvert en'
+    - '&7cliquant sur un établi'
+    - '&7en étant accroupi.'
+    permission: 'nonexistent.perm'
+    slot: 13
+    id: CRAFTING_TABLE
 
-  basic:
-    name: '&aCrafts basiques'
+  advanced:
+    name: '&aCrafts avancés'
     lore:
     - '&7Tous les crafts'
-    - '&7basiques sont craftables'
+    - '&7sont craftables'
     - '&7par tout le monde.'
     slot: 14
     id: LIME_DYE
@@ -71,10 +82,15 @@ Inventory:
     id: BLACK_STAINED_GLASS_PANE
   '4':
     slot: 4
-    name: '&6Information'
+    name: '&2Information'
     lore:
-    - '&7Selectionnez une catégorie'
+    - '&7Sélectionnez une catégorie'
     - '&7pour crafter des objets.'
+    - ' '
+    - '&7&oCertain crafts ne sont'
+    - '&7&opas directement accessibles.'
+    - '&7&oLisez les informations sur'
+    - '&7&ochaque catégorie pour y accéder.'
     id: LEVER
   '5':
     slot: 5

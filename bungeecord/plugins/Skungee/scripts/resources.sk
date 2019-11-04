@@ -54,13 +54,13 @@ options:
 
 	#Amount of dust dropped = ceil(Bucheron/Mineur Level * DustMultiplier)
 	#Can be set for Hub & all other servers seperately.
-	DustMultiplierHub: 0.3
-	DustMultiplierRest: 0.5
+	DustMultiplierHub: 0.03
+	DustMultiplierRest: 0.05
 
 	#Amount of seeds from plants and flowers dropped = ceil(Fermier Level * Flower/PlantSeedMultiplierHub)
 	#There are no seeds besides the Hub.
-	FlowerSeedMultiplierHub: 0.3
-	PlantSeedMultiplierHub: 0.3
+	FlowerSeedMultiplierHub: 0.03
+	PlantSeedMultiplierHub: 0.03
 
 function ResourceRegistrator(location: location) :: boolean:
 	if block at {_location} is any log:
@@ -393,17 +393,27 @@ on block break of potato plant:
 			if "%region at event-location%" contains "resource":
 				wait 1 tick
 				set block at event-location to freshly planted potato plant
-				drop 1 wheat seeds named "&fGraines de Pomme de terre" with lore "&7Graines de" and "&7pomme de terre." and " " and "&7&oRareté : &fCommun" at {_location}
+				drop 1 wheat seeds named "&fGraines de Pomme de terre" with lore "&7Graines de" and "&7pomme de terre." and " " and "&7&oRareté : &fCommun" at event-location
+
+on block break of wheat plant:
+	if gamemode of player is survival:
+		cancel the drops
+		if data value of event-block is 7:
+			drop 1 wheat named "&fBlé" with lore "&7Ce blé fera" and "&7du très bon pain." and " " and "&7&oRareté : &fCommun" at event-location
+			if "%region at event-location%" contains "resource":
+				wait 1 tick
+				set block at event-location to freshly planted wheat plant
+				drop 1 wheat seeds named "&fGraines de Blé" with lore "&7Graines de" and "&7blé." and " " and "&7&oRareté : &fCommun" at event-location
 
 on block break of carrot plant:
 	if gamemode of player is survival:
 		cancel the drops
 		if data value of event-block is 7:
-			drop 1 carrot named "&fCarotte" with lore "&7Peu combler une" and "&7petite faim." and " " and "&7&oRareté : &fCommun" at event-location
+			drop 1 carrot named "&fCarotte" with lore "&7Peut combler une" and "&7petite faim." and " " and "&7&oRareté : &fCommun" at event-location
 			if "%region at event-location%" contains "resource":
 				wait 1 tick
 				set block at event-location to freshly planted carrot plant
-				drop 1 wheat seeds named "&fGraines de Carotte" with lore "&7Graines de" and "&7carotte." and " " and "&7&oRareté : &fCommun" at {_location}
+				drop 1 wheat seeds named "&fGraines de Carotte" with lore "&7Graines de" and "&7carotte." and " " and "&7&oRareté : &fCommun" at event-location
 
 on block break of beetroot plant:
 	if gamemode of player is survival:
@@ -413,7 +423,7 @@ on block break of beetroot plant:
 			if "%region at event-location%" contains "resource":
 				wait 1 tick
 				set block at event-location to freshly planted beetroot plant
-				drop 1 beetroot seeds named "&fGraines de Betterave" with lore "&7Graines de" and "&7betterave." and " " and "&7&oRareté : &fCommun" at {_location}
+				drop 1 beetroot seeds named "&fGraines de Betterave" with lore "&7Graines de" and "&7betterave." and " " and "&7&oRareté : &fCommun" at event-location
 
 on block break of melon:
 	if gamemode of player is survival:
@@ -422,7 +432,7 @@ on block break of melon:
 			drop 1 melon slice named "&fTranche de Melon" with lore "&7Une tranche juteuse" and "&7de melon." and " " and "&7&oRareté : &fCommun" at event-location
 			wait 1 tick
 			if "%region at event-location%" contains "resource":
-				drop 1 melon seeds named "&fGraines de Melon" with lore "&7Graines de" and "&7melon." and " " and "&7&oRareté : &fCommun" at {_location}
+				drop 1 melon seeds named "&fGraines de Melon" with lore "&7Graines de" and "&7melon." and " " and "&7&oRareté : &fCommun" at event-location
 			else if block north of event-block is melon stem:
 				set block north of event-block to air
 			else if block south of event-block is melon stem:
@@ -439,7 +449,7 @@ on block break of pumpkin:
 			drop 1 pumpkin named "&7Citrouille" with lore "&7Une grosse" and "&7citrouille." and " " and "&7&oRareté : &fCommun" at event-location
 			wait 1 tick
 			if "%region at event-location%" contains "resource":
-				drop 1 pumpkin seeds named "&fGraines de Citrouille" with lore "&7Graines de" and "&7citrouille." and " " and "&7&oRareté : &fCommun" at {_location}
+				drop 1 pumpkin seeds named "&fGraines de Citrouille" with lore "&7Graines de" and "&7citrouille." and " " and "&7&oRareté : &fCommun" at event-location
 			else if block north of event-block is pumpkin stem:
 				set block north of event-block to air
 			else if block south of event-block is pumpkin stem:
@@ -449,7 +459,91 @@ on block break of pumpkin:
 			else if block west of event-block is pumpkin stem:
 				set block west of event-block to air
 
+on block break of sugar cane:
+	if gamemode of player is survival:
+		if "%region at event-location%" contains "resource":
+			drop 1 sugar cane named "&fCanne à Sucre" with lore "&7Cette canne à sucre" and "&7peut être raffiné" and "&7pour obtenir du sucre." and " " and "&7&oRareté : &fCommun" at event-location
+			drop 1 sugar named "&7Sucre" with lore "&7Du bon sucre raffiné," and "&7prêt à être mangé." and " " and "&7&oRareté : &fCommun" at event-location
+		else:
+			drop 1 sugar named "&7Sucre" with lore "&7Du bon sucre raffiné," and "&7prêt à être mangé." and " " and "&7&oRareté : &fCommun" at event-location
 
+#
+# Forbid alternative planting and breaking
+#
+on block break of grass or dirt or coarse dirt or podzol or soul sand:
+	if block above event-block is any small flower or nether wart plant or potato plant or wheat plant or carrot plant or beetroot plant or melon stem or pumpkin stem:
+		cancel event
+		ActionBarSend({_player}, "&7Vous ne pouvez pas casser un block sur lequel se trouve une plante.")
+
+#
+# Planting
+#
+function PlantPlanter(player: player, location: location):
+	if name of {_player}'s tool contains "Tulipe":
+		if line 2 of lore of {_player}'s tool contains "rouge":
+			set block above {_location} to red tulip
+		else if line 2 of lore of {_player}'s tool contains "orange":
+			set block above {_location} to orange tulip
+		else if line 2 of lore of {_player}'s tool contains "blanche":
+			set block above {_location} to white tulip
+		else if line 2 of lore of {_player}'s tool contains "rose":
+			set block above {_location} to pink tulip
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Pissenlit":
+		set block above {_location} to dandelion
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Coquelicot":
+		set block above {_location} to poppy
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Orchidée":
+		set block above {_location} to blue orchid
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Allium":
+		set block above {_location} to allium
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Houstonie":
+		set block above {_location} to azure bluet
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Marguerite":
+		set block above {_location} to oxeye daisy
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else if name of {_player}'s tool contains "Verrues":
+		set block above {_location} to nether wart plant
+		set metadata "gaiaresource" of block above {_location} to "fresh"
+	else:
+		message "&7Vous plantez la graine, mais elle ne donnera rien. Vous perdez votre graine." to {_player}
+
+
+on right click on grass or dirt or coarse dirt or podzol or soul sand:
+	if name of player's tool contains "Graine":
+		cancel event
+		remove 1 of player's tool from player
+		PlantPlanter(player, event-location)
+	else if player's tool is any small flower or nether wart plant:
+		cancel event
+		ActionBarSend({_player}, "&7Vous devez récupérer des graines de cette plante afin de la planter.")
+
+on right click on farmland:
+	if gamemode of player is survival:
+		if name of player's tool contains "Graine":
+			cancel event
+			remove 1 of player's tool from player
+			if name of player's tool contains "Pomme de terre":
+				set block above event-location to freshly planted potato plant
+			if name of player's tool contains "Blé":
+				set block above event-location to freshly planted wheat plant
+			else if name of player's tool contains "Carotte":
+				set block above event-location to freshly planted carrot plant
+			else if name of player's tool contains "Betterave":
+				set block above event-location to freshly planted beetroot plant
+			else if name of player's tool contains "Melon":
+				set block above event-location to freshly planted melon stem
+			else if name of player's tool contains "Citrouille":
+				set block above event-location to freshly planted pumpkin stem
+			else:
+				PlantPlanter(player, event-location)
+		else:
+			cancel event
 
 on block damage:
 	if gamemode of player is survival:
@@ -542,82 +636,85 @@ on block damage:
 		# Flowers and plants
 		#
 		else if type of event-block is any small flower or any tulip or potato plant or wheat plant or carrot plant or melon or pumpkin or beetroot plant or nether wart plant:
-			set {_fermier.level} to placeholder "jobs_level_Fermier" from player parsed as integer
-			if {_fermier.level} is set:
-				# Plants
-				if "%{_type}%" contains "potato":
-					if {_fermier.level} < {@MinLevelPotato}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelPotato} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "wheat":
-					if {_fermier.level} < {@MinLevelWheat}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelWheat} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "carrot":
-					if {_fermier.level} < {@MinLevelCarrot}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelCarrot} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "melon":
-					if {_fermier.level} < {@MinLevelMelon}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelMelon} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "pumpkin":
-					if {_fermier.level} < {@MinLevelPumpkin}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelPumpkin} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "beetroot":
-					if {_fermier.level} < {@MinLevelBeetroot}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelBeetroot} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "wart":
-					if {_fermier.level} < {@MinLevelWart}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelWart} requis pour récolter cette plante.")
-				# Flowers
-				else if "%{_type}%" contains "dandelion":
-					if {_fermier.level} < {@MinLevelDandelion}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelDandelion} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "poppy":
-					if {_fermier.level} < {@MinLevelPoppy}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelPoppy} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "orchid":
-					if {_fermier.level} < {@MinLevelBlueOrchid}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelBlueOrchid} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "allium":
-					if {_fermier.level} < {@MinLevelAllium}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelAllium} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "azure":
-					if {_fermier.level} < {@MinLevelAzureBluet}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelAzureBluet} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "oxeye":
-					if {_fermier.level} < {@MinLevelOxeyeDaisy}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelOxeyeDaisy} requis pour récolter cette plante.")
-				# Tulips
-				else if "%{_type}%" contains "red":
-					if {_fermier.level} < {@MinLevelRedTulip}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelRedTulip} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "orange":
-					if {_fermier.level} < {@MinLevelOrangeTulip}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelOrangeTulip} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "white":
-					if {_fermier.level} < {@MinLevelWhiteTulip}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelWhiteTulip} requis pour récolter cette plante.")
-				else if "%{_type}%" contains "pink":
-					if {_fermier.level} < {@MinLevelPinkTulip}:
-						cancel event
-						ActionBarSend(player, "&7Fermier Niv.{@MinLevelPinkTulip} requis pour récolter cette plante.")
+			if metadata "gaiaresource" of event-block is not "fresh":
+				set {_fermier.level} to placeholder "jobs_level_Fermier" from player parsed as integer
+				if {_fermier.level} is set:
+					# Plants
+					if "%{_type}%" contains "potato":
+						if {_fermier.level} < {@MinLevelPotato}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelPotato} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "wheat":
+						if {_fermier.level} < {@MinLevelWheat}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelWheat} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "carrot":
+						if {_fermier.level} < {@MinLevelCarrot}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelCarrot} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "melon":
+						if {_fermier.level} < {@MinLevelMelon}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelMelon} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "pumpkin":
+						if {_fermier.level} < {@MinLevelPumpkin}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelPumpkin} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "beetroot":
+						if {_fermier.level} < {@MinLevelBeetroot}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelBeetroot} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "wart":
+						if {_fermier.level} < {@MinLevelWart}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelWart} requis pour récolter cette plante.")
+					# Flowers
+					else if "%{_type}%" contains "dandelion":
+						if {_fermier.level} < {@MinLevelDandelion}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelDandelion} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "poppy":
+						if {_fermier.level} < {@MinLevelPoppy}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelPoppy} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "orchid":
+						if {_fermier.level} < {@MinLevelBlueOrchid}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelBlueOrchid} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "allium":
+						if {_fermier.level} < {@MinLevelAllium}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelAllium} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "azure":
+						if {_fermier.level} < {@MinLevelAzureBluet}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelAzureBluet} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "oxeye":
+						if {_fermier.level} < {@MinLevelOxeyeDaisy}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelOxeyeDaisy} requis pour récolter cette plante.")
+					# Tulips
+					else if "%{_type}%" contains "red":
+						if {_fermier.level} < {@MinLevelRedTulip}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelRedTulip} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "orange":
+						if {_fermier.level} < {@MinLevelOrangeTulip}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelOrangeTulip} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "white":
+						if {_fermier.level} < {@MinLevelWhiteTulip}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelWhiteTulip} requis pour récolter cette plante.")
+					else if "%{_type}%" contains "pink":
+						if {_fermier.level} < {@MinLevelPinkTulip}:
+							cancel event
+							ActionBarSend(player, "&7Fermier Niv.{@MinLevelPinkTulip} requis pour récolter cette plante.")
+				else:
+					cancel event
+					ActionBarSend(player, "&7Métier Fermier requis pour récolter cette plante.")
 			else:
-				cancel event
-				ActionBarSend(player, "&7Métier Fermier requis pour récolter cette plante.")
+				ActionBarSend(player, "&7Cette plante est trop jeune pour être récoltée.")
 
 #
 # Resource Info/Purge Command

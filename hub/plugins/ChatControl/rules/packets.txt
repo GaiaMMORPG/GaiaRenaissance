@@ -58,11 +58,17 @@ then replace &7------------------------------------
 match Registered new ownership for furnace
 then replace &7Ce four vous appartient désormais :&8
 
-match break that
-then replace casser ce
+match Sorry, but you can't break that block
+then deny
+then actionbar &7Vous ne pouvez pas casser ce bloc ici.
 
-match place things
-then replace placer des choses
+match Sorry, but you can't place things
+then deny
+then actionbar &7Vous ne pouvez pas placer ça ici.
+
+match Sorry, but you can't place that block
+then deny
+then actionbar &7Vous ne pouvez pas placer ce bloc ici.
 
 match Your Minecraft account is already
 then rewrite &7Votre compte MineCraft est déjà relié à un compte Discord. Utilisez &8/discord unlink &7pour délier votre compte Minecraft du compte Discord actuel.

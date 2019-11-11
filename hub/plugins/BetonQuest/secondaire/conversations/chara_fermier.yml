@@ -1,7 +1,7 @@
 quester: 'Fermier'
 first: 'queteverif_h,queteverif_o,humain,orc,elfe,nain'
 stop: 'false'
-#ne pas oublier queteverif_e/queteverif_n
+
 # NPC
 NPC_options:
 

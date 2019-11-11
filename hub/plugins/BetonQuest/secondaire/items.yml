@@ -1,0 +1,22 @@
+# 
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+seau_du_fermier: BUCKET data:0 name:§aSeau_du_Fermier lore:§7Il_vous_a_été_fourni;§7par_le_Fermier_pour;§7chercher_de_l'eau.;§2Objet_de_Quête
+
+#========[¤]========#
+#					          #
+#	    Vanilla   	  #
+#	    Basiques      #
+#========[¤]========#
+wheat: WHEAT lore:none
+water_bucket: WATER_BUCKET lore:none
+wheat_seeds: WHEAT_SEEDS lore:none
+bone: BONE lore:none
+
+#========[¤]========#
+#					          #
+#	    Outils     	  #
+#			              #
+#========[¤]========#
+
+iron_hoe: IRON_HOE lore:none  

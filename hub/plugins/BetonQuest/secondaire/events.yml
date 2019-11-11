@@ -1,0 +1,52 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+
+#========[¤]========#
+#					          #
+#	     Général    	#
+#					          #
+#========[¤]========#
+
+# default.reput_plus_1 : Donne 1 réputation.
+
+
+
+#========[¤]========#
+#					          #
+#	  Conversations	  #
+#					          #
+#========[¤]========#
+
+conversation_fermier: 'conversation chara_fermier'
+
+#========[¤]========#
+#					          #
+#	    Personnage	  #
+#				Fermier	    #
+#========[¤]========#
+
+h_fermieraccept: tag add h_fermierquete
+h_fermierfin1: tag del h_fermierquete
+h_fermierfin2: tag add h_fermierfin
+h_fermierseaugive: give seau_du_fermier:1
+h_retraitseau: take seau_du_fermier:1
+h: permission add perm group.humain
+
+
+o_fermieraccept: tag add o_fermierquete
+o_fermierfin1: tag del o_fermierquete
+o_fermierfin2: tag add o_fermierfin
+o_fermierretraitos: take bone:20
+
+e_fermieraccept: tag add e_fermierquete
+e_fermierfin1: tag del e_fermierquete
+e_fermierfin2: tag add e_fermierfin
+e_fermierretraitseed: take wheat_seeds:60
+
+n_fermieraccept: tag add n_fermierquete
+n_fermierfin1: tag del n_fermierquete
+n_fermierfin2: tag add n_fermierfin
+n_fermierretraithoue: take iron_hoe:1

@@ -11,6 +11,7 @@ update:
   enabled: true
   download_bugfixes: true
   notify_new_release: true
+  notify_dev_build: true
 default_journal_slot: '-1'
 max_npc_distance: '5'
 citizens_npcs_by_name: 'false'
@@ -53,7 +54,7 @@ hook:
   bountifulapi: 'true'
   protocollib: 'true'
   brewery: 'false'
-  jobsreborn: 'false'                    
+  jobsreborn: 'false'
 journal:
   chars_per_line: '19'
   lines_per_page: '13'
@@ -78,4 +79,5 @@ date_format: dd.MM.yyyy HH:mm
 packages:
 - default
 - randoms
+- secondaire
 debug: 'false'

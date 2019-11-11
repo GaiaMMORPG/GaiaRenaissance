@@ -1,0 +1,565 @@
+[01.06.2019 18:08:30] ERROR: Could not get the latest release
+[01.06.2019 18:08:34] ERROR: Could not get the latest release
+[01.06.2019 18:08:42] ERROR: Could not get the latest release
+[01.06.2019 18:32:32] ERROR: Could not get the latest release
+[02.06.2019 13:23:20] ERROR: Could not get the latest release
+[02.06.2019 13:23:31] ERROR: Could not get the latest release
+[02.06.2019 20:18:51] ERROR: Could not get the latest release
+[02.06.2019 20:33:12] ERROR: Could not get the latest release
+[02.06.2019 23:36:08] ERROR: Could not get the latest release
+[02.06.2019 23:36:14] ERROR: Could not get the latest release
+[02.06.2019 23:36:19] ERROR: Could not get the latest release
+[02.06.2019 23:36:27] ERROR: Could not get the latest release
+[02.06.2019 23:48:22] ERROR: Could not get the latest release
+[02.06.2019 23:48:32] ERROR: Could not get the latest release
+[02.06.2019 23:48:34] ERROR: Could not get the latest release
+[02.06.2019 23:48:36] ERROR: Could not get the latest release
+[02.06.2019 23:48:43] ERROR: Could not get the latest release
+[03.06.2019 00:06:52] ERROR: Could not get the latest release
+[03.06.2019 00:06:59] ERROR: Could not get the latest release
+[03.06.2019 00:07:03] ERROR: Could not get the latest release
+[03.06.2019 00:07:03] ERROR: Could not get the latest release
+[03.06.2019 00:07:10] ERROR: Could not get the latest release
+[03.06.2019 00:20:03] ERROR: Could not get the latest release
+[03.06.2019 00:20:11] ERROR: Could not get the latest release
+[03.06.2019 00:20:14] ERROR: Could not get the latest release
+[03.06.2019 00:20:16] ERROR: Could not get the latest release
+[03.06.2019 00:20:24] ERROR: Could not get the latest release
+[03.06.2019 01:30:15] ERROR: Could not get the latest release
+[03.06.2019 01:36:37] ERROR: Could not get the latest release
+[03.06.2019 01:36:41] ERROR: Could not get the latest release
+[03.06.2019 01:36:47] ERROR: Could not get the latest release
+[03.06.2019 01:36:48] ERROR: Could not get the latest release
+[03.06.2019 01:36:56] ERROR: Could not get the latest release
+[05.06.2019 13:36:54] ERROR: Could not get the latest release
+[05.06.2019 13:37:00] ERROR: Could not get the latest release
+[05.06.2019 13:37:01] ERROR: Could not get the latest release
+[05.06.2019 13:37:08] ERROR: Could not get the latest release
+[05.06.2019 13:43:13] ERROR: Could not get the latest release
+[05.06.2019 13:43:20] ERROR: Could not get the latest release
+[05.06.2019 13:43:21] ERROR: Could not get the latest release
+[05.06.2019 13:43:23] ERROR: Could not get the latest release
+[05.06.2019 13:43:27] ERROR: Could not get the latest release
+[05.06.2019 16:32:16] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:32:16] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:32:25] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:32:33] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:57:44] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:57:58] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:58:02] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:58:10] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 16:58:18] ERROR: Error in 'default.banker' conversation: Quester's name is not defined
+[05.06.2019 21:56:24] ERROR: Error in 'default.banker' conversation: Error in 'open_rep' NPC option option's events: Event 'default.open_bank' is not defined
+[05.06.2019 22:12:55] ERROR: Error in 'default.banker' conversation: Error while creating '%ph_bank_money%' variable: Variable type ph_bank_money is not registered
+[05.06.2019 22:20:27] ERROR: Error in 'default.banker' conversation: Error while creating '%bph.ank_slots%' variable: Variable type bph is not registered
+[06.06.2019 16:12:59] ERROR: Could not get the latest release
+[06.06.2019 16:13:03] ERROR: Could not get the latest release
+[06.06.2019 16:13:06] ERROR: Could not get the latest release
+[06.06.2019 16:13:07] ERROR: Could not get the latest release
+[06.06.2019 16:13:12] ERROR: Could not get the latest release
+[28.06.2019 14:22:29] ERROR: Could not get the latest dev build number
+[28.06.2019 14:22:31] ERROR: Could not get the latest dev build number
+[28.06.2019 14:22:37] ERROR: Could not get the latest dev build number
+[28.06.2019 14:22:42] ERROR: Could not get the latest dev build number
+[28.06.2019 14:22:43] ERROR: Could not get the latest dev build number
+[28.06.2019 21:06:01] ERROR: Could not get the latest dev build number
+[28.06.2019 21:31:18] ERROR: Could not get the latest dev build number
+[28.06.2019 21:31:20] ERROR: Could not get the latest dev build number
+[28.06.2019 21:31:22] ERROR: Could not get the latest dev build number
+[28.06.2019 21:31:29] ERROR: Could not get the latest dev build number
+[28.06.2019 21:31:32] ERROR: Could not get the latest dev build number
+[28.06.2019 21:34:53] ERROR: Could not get the latest dev build number
+[28.06.2019 21:35:00] ERROR: Could not get the latest dev build number
+[28.06.2019 21:35:03] ERROR: Could not get the latest dev build number
+[28.06.2019 21:35:04] ERROR: Could not get the latest dev build number
+[28.06.2019 21:35:09] ERROR: Could not get the latest dev build number
+[29.06.2019 23:13:18] ERROR: Could not get the latest dev build number
+[29.06.2019 23:13:42] ERROR: Could not get the latest dev build number
+[29.06.2019 23:13:46] ERROR: Could not get the latest dev build number
+[29.06.2019 23:13:55] ERROR: Could not get the latest dev build number
+[29.06.2019 23:14:05] ERROR: Could not get the latest dev build number
+[30.06.2019 03:14:19] ERROR: Could not get the latest dev build number
+[30.06.2019 03:14:58] ERROR: Could not get the latest dev build number
+[30.06.2019 03:15:04] ERROR: Could not get the latest dev build number
+[30.06.2019 03:15:10] ERROR: Could not get the latest dev build number
+[30.06.2019 03:15:21] ERROR: Could not get the latest dev build number
+[01.07.2019 14:10:28] ERROR: Could not get the latest dev build number
+[01.07.2019 14:10:42] ERROR: Could not get the latest dev build number
+[01.07.2019 14:24:45] ERROR: Could not get the latest dev build number
+[01.07.2019 14:24:50] ERROR: Could not get the latest dev build number
+[01.07.2019 14:24:51] ERROR: Could not get the latest dev build number
+[01.07.2019 14:24:56] ERROR: Could not get the latest dev build number
+[01.07.2019 14:24:57] ERROR: Could not get the latest dev build number
+[04.07.2019 01:16:59] ERROR: Could not get the latest dev build number
+[04.07.2019 01:37:58] ERROR: Could not get the latest dev build number
+[04.07.2019 01:44:49] ERROR: Could not get the latest dev build number
+[04.07.2019 13:01:49] ERROR: Could not get the latest dev build number
+[06.07.2019 17:29:45] ERROR: Could not get the latest dev build number
+[06.07.2019 17:38:52] ERROR: Could not get the latest dev build number
+[06.07.2019 17:39:01] ERROR: Could not get the latest dev build number
+[06.07.2019 17:39:07] ERROR: Could not get the latest dev build number
+[06.07.2019 17:39:07] ERROR: Could not get the latest dev build number
+[07.07.2019 16:19:54] ERROR: Error in 'default.test' conversation: Text not defined in NPC option continuer_conversation
+[07.07.2019 16:19:56] ERROR: Conversation doesn't exist: default.test
+[07.07.2019 16:19:57] ERROR: Conversation doesn't exist: default.test
+[07.07.2019 16:20:02] ERROR: Conversation doesn't exist: default.test
+[07.07.2019 16:20:02] ERROR: Conversation doesn't exist: default.test
+[08.07.2019 14:43:08] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[08.07.2019 14:43:19] ERROR: Could not get the latest dev build number
+[08.07.2019 14:46:20] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[08.07.2019 14:46:22] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[08.07.2019 14:46:26] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[08.07.2019 14:46:36] ERROR: Could not get the latest dev build number
+[08.07.2019 14:46:37] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[08.07.2019 14:46:42] ERROR: Could not get the latest dev build number
+[08.07.2019 14:46:47] ERROR: Could not get the latest dev build number
+[08.07.2019 14:46:49] ERROR: Could not get the latest dev build number
+[09.07.2019 12:24:53] ERROR: Conversation doesn't exist: default.test
+[09.07.2019 12:24:54] ERROR: Conversation doesn't exist: default.test
+[12.07.2019 16:11:46] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 16:11:55] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 16:11:56] ERROR: Could not get the latest dev build number
+[12.07.2019 16:12:05] ERROR: Could not get the latest dev build number
+[12.07.2019 16:18:35] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 16:18:45] ERROR: Could not get the latest dev build number
+[12.07.2019 16:33:43] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 16:33:54] ERROR: Could not get the latest dev build number
+[12.07.2019 16:39:18] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 16:39:28] ERROR: Could not get the latest dev build number
+[12.07.2019 16:54:52] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 16:55:02] ERROR: Could not get the latest dev build number
+[12.07.2019 18:30:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 18:30:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 18:30:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 18:30:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 18:30:05] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 18:30:17] ERROR: Could not get the latest dev build number
+[12.07.2019 18:30:18] ERROR: Could not get the latest dev build number
+[12.07.2019 18:30:21] ERROR: Could not get the latest dev build number
+[12.07.2019 18:30:21] ERROR: Could not get the latest dev build number
+[12.07.2019 18:30:27] ERROR: Could not get the latest dev build number
+[12.07.2019 21:43:53] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 21:43:59] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 21:44:06] ERROR: Could not get the latest dev build number
+[12.07.2019 21:44:19] ERROR: Could not get the latest dev build number
+[12.07.2019 21:51:19] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 21:51:33] ERROR: Could not get the latest dev build number
+[12.07.2019 21:55:35] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 21:55:49] ERROR: Could not get the latest dev build number
+[12.07.2019 22:00:57] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:01:10] ERROR: Could not get the latest dev build number
+[12.07.2019 22:06:30] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:06:50] ERROR: Could not get the latest dev build number
+[12.07.2019 22:10:39] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:10:58] ERROR: Could not get the latest dev build number
+[12.07.2019 22:31:25] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:31:36] ERROR: Could not get the latest dev build number
+[12.07.2019 22:40:09] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:40:19] ERROR: Could not get the latest dev build number
+[12.07.2019 22:46:22] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:46:32] ERROR: Could not get the latest dev build number
+[12.07.2019 22:56:12] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 22:56:22] ERROR: Could not get the latest dev build number
+[12.07.2019 23:07:08] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 23:07:19] ERROR: Could not get the latest dev build number
+[12.07.2019 23:12:09] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 23:12:19] ERROR: Could not get the latest dev build number
+[12.07.2019 23:46:03] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 23:46:13] ERROR: Could not get the latest dev build number
+[12.07.2019 23:57:42] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[12.07.2019 23:57:56] ERROR: Could not get the latest dev build number
+[13.07.2019 00:03:45] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:04:00] ERROR: Could not get the latest dev build number
+[13.07.2019 00:15:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:15:05] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:15:12] ERROR: Could not get the latest dev build number
+[13.07.2019 00:15:20] ERROR: Could not get the latest dev build number
+[13.07.2019 00:22:00] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:22:08] ERROR: Could not get the latest dev build number
+[13.07.2019 00:39:37] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:39:44] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:39:51] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:39:57] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:40:03] ERROR: Could not get the latest dev build number
+[13.07.2019 00:40:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 00:40:10] ERROR: Could not get the latest dev build number
+[13.07.2019 00:40:10] ERROR: Could not get the latest dev build number
+[13.07.2019 00:40:14] ERROR: Could not get the latest dev build number
+[13.07.2019 00:40:17] ERROR: Could not get the latest dev build number
+[13.07.2019 01:41:46] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:41:58] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:42:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:42:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:42:12] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:42:14] ERROR: Could not get the latest dev build number
+[13.07.2019 01:42:16] ERROR: Could not get the latest dev build number
+[13.07.2019 01:42:19] ERROR: Could not get the latest dev build number
+[13.07.2019 01:42:22] ERROR: Could not get the latest dev build number
+[13.07.2019 01:42:24] ERROR: Could not get the latest dev build number
+[13.07.2019 01:53:15] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:53:25] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:53:30] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:53:31] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:53:39] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 01:53:41] ERROR: Could not get the latest dev build number
+[13.07.2019 01:53:43] ERROR: Could not get the latest dev build number
+[13.07.2019 01:53:47] ERROR: Could not get the latest dev build number
+[13.07.2019 01:53:49] ERROR: Could not get the latest dev build number
+[13.07.2019 01:53:52] ERROR: Could not get the latest dev build number
+[13.07.2019 02:03:41] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:03:53] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:03:56] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:03:58] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:04:07] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:04:10] ERROR: Could not get the latest dev build number
+[13.07.2019 02:04:15] ERROR: Could not get the latest dev build number
+[13.07.2019 02:04:16] ERROR: Could not get the latest dev build number
+[13.07.2019 02:04:19] ERROR: Could not get the latest dev build number
+[13.07.2019 02:04:20] ERROR: Could not get the latest dev build number
+[13.07.2019 02:17:42] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:17:50] ERROR: Could not get the latest dev build number
+[13.07.2019 02:29:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:29:14] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:29:16] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:29:17] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:29:26] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:29:32] ERROR: Could not get the latest dev build number
+[13.07.2019 02:29:35] ERROR: Could not get the latest dev build number
+[13.07.2019 02:29:36] ERROR: Could not get the latest dev build number
+[13.07.2019 02:29:38] ERROR: Could not get the latest dev build number
+[13.07.2019 02:29:41] ERROR: Could not get the latest dev build number
+[13.07.2019 02:41:39] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:41:56] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:41:57] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:41:59] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:42:09] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 02:42:13] ERROR: Could not get the latest dev build number
+[13.07.2019 02:42:17] ERROR: Could not get the latest dev build number
+[13.07.2019 02:42:19] ERROR: Could not get the latest dev build number
+[13.07.2019 02:42:23] ERROR: Could not get the latest dev build number
+[13.07.2019 02:42:24] ERROR: Could not get the latest dev build number
+[13.07.2019 15:55:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 15:55:02] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 15:55:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 15:55:13] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 15:55:19] ERROR: Could not get the latest dev build number
+[13.07.2019 15:55:23] ERROR: Could not get the latest dev build number
+[13.07.2019 15:55:29] ERROR: Could not get the latest dev build number
+[13.07.2019 15:55:35] ERROR: Could not get the latest dev build number
+[13.07.2019 16:08:29] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 16:09:17] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 16:09:19] ERROR: Could not get the latest dev build number
+[13.07.2019 16:09:32] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 16:09:43] ERROR: Could not get the latest dev build number
+[13.07.2019 16:09:48] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 16:09:51] ERROR: Could not get the latest dev build number
+[13.07.2019 16:10:00] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 16:10:04] ERROR: Could not get the latest dev build number
+[13.07.2019 16:10:13] ERROR: Could not get the latest dev build number
+[13.07.2019 16:40:35] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 16:40:47] ERROR: Could not get the latest dev build number
+[13.07.2019 19:16:03] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 19:16:17] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 19:16:17] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 19:16:25] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 19:16:32] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 19:16:47] ERROR: Could not get the latest dev build number
+[13.07.2019 19:16:48] ERROR: Could not get the latest dev build number
+[13.07.2019 19:16:52] ERROR: Could not get the latest dev build number
+[13.07.2019 19:16:54] ERROR: Could not get the latest dev build number
+[13.07.2019 19:17:00] ERROR: Could not get the latest dev build number
+[13.07.2019 21:14:58] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 21:15:18] ERROR: Could not get the latest dev build number
+[13.07.2019 21:17:59] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 21:18:18] ERROR: Could not get the latest dev build number
+[13.07.2019 21:21:31] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 21:21:39] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[13.07.2019 21:21:53] ERROR: Could not get the latest dev build number
+[13.07.2019 21:22:00] ERROR: Could not get the latest dev build number
+[14.07.2019 17:04:07] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:08] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:08] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:08] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:09] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:09] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:53] ERROR: Conversation doesn't exist: default.test
+[14.07.2019 17:04:54] ERROR: Conversation doesn't exist: default.test
+[15.07.2019 20:21:38] ERROR: Conversation doesn't exist: default.test
+[15.07.2019 22:33:10] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[15.07.2019 22:33:58] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[15.07.2019 22:34:12] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[15.07.2019 22:34:29] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[15.07.2019 22:34:29] ERROR: Could not get the latest dev build number
+[15.07.2019 22:34:41] ERROR: Could not get the latest dev build number
+[15.07.2019 22:34:43] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[15.07.2019 22:34:51] ERROR: Could not get the latest dev build number
+[15.07.2019 22:35:02] ERROR: Could not get the latest dev build number
+[15.07.2019 22:35:12] ERROR: Could not get the latest dev build number
+[17.07.2019 11:48:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.07.2019 11:48:27] ERROR: Could not get the latest dev build number
+[17.07.2019 14:48:30] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.07.2019 14:48:40] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.07.2019 14:48:41] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.07.2019 14:48:45] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.07.2019 14:48:54] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.07.2019 14:49:19] ERROR: Could not get the latest dev build number
+[17.07.2019 14:49:20] ERROR: Could not get the latest dev build number
+[17.07.2019 14:49:24] ERROR: Could not get the latest dev build number
+[17.07.2019 14:49:24] ERROR: Could not get the latest dev build number
+[17.07.2019 14:49:29] ERROR: Could not get the latest dev build number
+[28.07.2019 19:22:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[28.07.2019 19:22:02] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[28.07.2019 19:22:07] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[28.07.2019 19:22:09] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[28.07.2019 19:22:15] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[16.08.2019 17:16:53] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[16.08.2019 17:16:57] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[16.08.2019 17:17:05] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:39:59] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:39:59] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:40:01] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:40:08] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:40:12] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:43:02] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:45:51] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:46:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:46:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:46:08] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[26.08.2019 21:46:51] ERROR: Could not get the latest release
+[26.08.2019 21:47:13] ERROR: Could not get the latest release
+[26.08.2019 21:47:16] ERROR: Could not get the latest release
+[26.08.2019 21:47:28] ERROR: Could not get the latest release
+[26.08.2019 23:46:16] ERROR: Conversation doesn't exist: default.test
+[27.08.2019 12:14:21] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[30.08.2019 23:51:13] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[30.08.2019 23:56:36] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[01.09.2019 10:42:31] ERROR: Conversation doesn't exist: default.test
+[01.09.2019 10:42:32] ERROR: Conversation doesn't exist: default.test
+[21.09.2019 18:26:59] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[21.09.2019 19:00:58] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[14.10.2019 17:45:40] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[17.10.2019 22:25:55] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:25:55] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:25:56] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:25:56] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:25:57] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:26:02] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:26:02] ERROR: Conversation doesn't exist: default.test
+[17.10.2019 22:26:03] ERROR: Conversation doesn't exist: default.test
+[20.10.2019 16:18:06] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[20.10.2019 16:30:03] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[21.10.2019 21:19:38] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:41] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:41] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:41] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:41] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:42] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:48] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:49] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:19:49] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:13] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:13] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:14] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:14] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:14] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:14] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:14] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:15] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:18] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:18] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:19] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:19] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:19] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:19] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:19] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:20] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:20] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:20] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:20] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:20] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:22] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:22] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:22] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:23] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:24] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:24] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:24] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:24] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:24] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:25] ERROR: Conversation doesn't exist: default.test
+[21.10.2019 21:20:25] ERROR: Conversation doesn't exist: default.test
+[22.10.2019 19:55:28] ERROR: Error in 'default.lenteur_5_temps_5' event (effect): Error while parsing 3 argument: Could not parse a number: For input string: "hidden"
+[22.10.2019 19:55:28] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 19:57:32] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 19:58:57] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 19:58:57] ERROR: Error in 'randoms.elf_girl' conversation: Error in 'opt1' NPC option option's events: Event 'randoms.reput_plus_1' is not defined
+[22.10.2019 19:59:56] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 20:06:35] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 20:17:49] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 20:25:04] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 20:27:42] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 21:44:50] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 21:47:17] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 21:47:43] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:25:18] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:25:18] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:25:18] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:26:27] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:26:27] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:26:27] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:27:37] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:27:37] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:27:37] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:30:12] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:30:12] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:30:12] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:31:26] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:31:26] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:32:42] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:32:43] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:32:44] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:34:29] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:34:29] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:34:29] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:41:11] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:41:11] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:41:11] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:41:44] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:41:44] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:41:44] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:42:10] ERROR: Could not get the latest dev build number
+[22.10.2019 22:42:47] ERROR: Could not get the latest dev build number
+[22.10.2019 22:43:12] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:43:13] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:43:14] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:43:16] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:43:16] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:46:10] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:46:10] ERROR: Error in 'default.bank_guard2' conversation: Quester's name is not defined
+[22.10.2019 22:46:10] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:47:13] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:47:16] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:47:17] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:47:18] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:47:20] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:47:20] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:48:19] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:48:19] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:48:20] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:48:21] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:48:21] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:48:22] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:48:22] ERROR: Conversation doesn't exist: default.bank_guard2
+[22.10.2019 22:49:25] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:49:25] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:49:53] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:49:53] ERROR: Error in 'default.bank_guard1' conversation: Quester's name is not defined
+[22.10.2019 22:50:12] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:50:12] ERROR: There was some error. Please send it to the developer: <coosheck@gmail.com>
+[22.10.2019 22:50:46] ERROR: Error in 'default.test' conversation: Error in 'debut' NPC option option's events: Event 'default.evenement1' is not defined
+[22.10.2019 22:50:46] ERROR: There was some error. Please send it to the developer: <coosheck@gmail.com>
+[22.10.2019 22:51:20] ERROR: There was some error. Please send it to the developer: <coosheck@gmail.com>
+[22.10.2019 22:51:41] ERROR: There was some error. Please send it to the developer: <coosheck@gmail.com>
+[22.10.2019 22:51:50] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:51:51] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:51:51] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:53:04] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:53:06] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:53:06] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:53:07] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:53:21] ERROR: There was some error. Please send it to the developer: <coosheck@gmail.com>
+[22.10.2019 22:54:52] ERROR: Conversation doesn't exist: default.bank_guard1
+[22.10.2019 22:54:55] ERROR: There was some error. Please send it to the developer: <coosheck@gmail.com>
+[22.10.2019 23:35:01] ERROR: Could not get the latest dev build number
+[22.10.2019 23:48:48] ERROR: Could not get the latest dev build number
+[23.10.2019 04:17:14] ERROR: Could not get the latest dev build number
+[23.10.2019 04:25:25] ERROR: Could not get the latest dev build number
+[23.10.2019 04:25:41] ERROR: Could not get the latest dev build number
+[23.10.2019 04:26:28] ERROR: Could not get the latest dev build number
+[23.10.2019 04:26:30] ERROR: Could not get the latest dev build number
+[23.10.2019 04:26:52] ERROR: Could not get the latest dev build number
+[29.10.2019 16:33:51] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:33:51] ERROR: Error in 'default.chara_fermier' conversation: Error in 'humain' NPC option option's conditions: Condition 'default.humain' is not defined
+[29.10.2019 16:34:48] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:50] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:52] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:52] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:53] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:53] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:54] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:34:54] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:35:55] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:35:55] ERROR: Error in 'default.chara_fermier' conversation: Error in 'humain' NPC option option's conditions: Condition 'default.humain' is not defined
+[29.10.2019 16:39:44] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:39:44] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:39:44] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 16:45:59] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:45:59] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:45:59] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 16:48:15] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:48:15] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:48:15] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 16:48:17] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:18] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:18] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:19] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:20] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:20] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:20] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:20] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:21] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:21] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:47] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:48:47] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:48:47] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 16:48:49] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:49] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:50] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:51] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:48:54] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:49:27] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:49:27] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:49:27] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 16:52:00] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:52:00] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:53:42] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:53:42] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:53:42] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:53:42] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:53:42] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:53:44] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:53:44] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:53:44] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 16:53:45] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 16:59:12] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:59:12] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 16:59:12] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 17:05:41] ERROR: Conversation doesn't exist: conversations.chara_fermier
+[29.10.2019 17:05:42] ERROR: Conversation doesn't exist: conversations.chara_fermier
+[29.10.2019 17:06:54] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:06:54] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:06:54] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 17:06:56] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 17:06:56] ERROR: Conversation doesn't exist: default.chara_fermier
+[29.10.2019 17:08:56] ERROR: Event type conversations is not registered, check if it's spelled correctly in 'default.conversation_fermier' event.
+[29.10.2019 17:08:56] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:08:56] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:08:56] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 17:08:57] ERROR: Event default.conversation_fermier is not defined
+[29.10.2019 17:08:58] ERROR: Event default.conversation_fermier is not defined
+[29.10.2019 17:08:58] ERROR: Event default.conversation_fermier is not defined
+[29.10.2019 17:10:37] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:10:37] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:10:37] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 17:11:25] ERROR: Error in 'default.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:11:25] ERROR: Error in 'default.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'default.seeds' is not defined
+[29.10.2019 17:11:25] ERROR: Error in 'default.chara_fermier' conversation: Starting option queteverif_e does not exist
+[29.10.2019 17:16:30] ERROR: Error in 'secondaire.e_fermierretraitseed' event (take): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'secondaire.seeds' is not defined
+[29.10.2019 17:16:30] ERROR: Error in 'secondaire.e_fermiercondition' condition (item): Error while parsing 1 argument: Error while parsing 'seeds:60' item: Error while parsing 1 argument: Error while loading item: Item 'secondaire.seeds' is not defined
+[29.10.2019 17:16:30] ERROR: Error in 'secondaire.chara_fermier' conversation: Error in 'h_finquete' NPC option option's events: Event 'secondaire.reput_plus_1' is not defined

@@ -1,5 +1,5 @@
 quester: 'Fermier'
-first: 'queteverif_h,queteverif_o,humain,orc,elfe,nain'
+first: 'queteverif_e,queteverif_n,queteverif_h,queteverif_o,humain,orc,elfe,nain'
 stop: 'false'
 
 # NPC
@@ -23,10 +23,10 @@ NPC_options:
   h_renvoiquete:
     text: 'Dans ce cas, retournez-y ! Plus vite vous aurez accompli cette tâche, plus vite vous obtiendrez votre récompense! '
   h_reponseabandon:
-    text: 'Vraiment ? C''est plus que dommage..'
+    text: 'Vraiment ? C''est plus que dommage...'
     events: 'h_fermierfin1,h_retraitseau'
   h_dejafait:
-    text: 'Mais vous m''avez déjà aidé, je n''ai plus rien à vous proposer..'
+    text: 'Mais vous m''avez déjà aidé, je n''ai plus rien à vous proposer...'
     conditions: 'h_fermierverif'
 
 
@@ -68,16 +68,16 @@ NPC_options:
     conditions: 'e_fermierquete'
     pointers: 'e_verify,e_verifn,e_abandon'
   e_finquete:
-    text: 'Le compte est bon ! Voici donc ta récompense !'
-    events: 'e_fermierfin1,e_fermierfin2,default.reput_plus_1'
+    text: 'Le compte est bon ! Voici donc votre récompense !'
+    events: 'e_fermierfin1,e_fermierfin2,e_fermierretraitseed,default.reput_plus_1'
     #Possibilité d'ajouter d'autres récompenses. Récompenses actuelle : Réputation 1, \
   e_renvoiquete:
     text: 'Je suis sûr que vous y êtes presque ! Retournez-y pour amasser le nombre nécessaire !'
   e_dejafait:
-    text: 'J''adorerais vous proposer du travail mais.. Vous m''avez déjà aidé plus que nécessaire !'
+    text: 'J''adorerais vous proposer du travail mais... Vous m''avez déjà aidé plus que nécessaire !'
     conditions: 'e_fermierverif'
   e_reponseabandon:
-    text: 'Vraiment ? Je suis plus que désolé de l''apprendre..'
+    text: 'Vraiment ? Je suis plus que désolé de l''apprendre...'
     events: 'e_fermierfin1'
 
   nain:
@@ -92,8 +92,8 @@ NPC_options:
     conditions: 'n_fermierquete'
     pointers: 'n_verify,n_verifn,n_abandon'
   n_finquete:
-    text: 'La voici donc ! L''adresse légendaire des nains n''était donc pas qu''une légende.. J''oubliais ! Voici votre récompense !'
-    events: 'n_fermierfin1,n_fermierfin2,default.reput_plus_1'
+    text: 'La voici donc ! L''adresse légendaire des nains n''était donc pas qu''une légende... J''oubliais ! Voici votre récompense !'
+    events: 'n_fermierfin1,n_fermierfin2,n_fermierretraithoue,default.reput_plus_1'
     #Possibilité d'ajouter d'autres récompenses. Récompenses actuelle : Réputation 1, \
   n_renvoiquete:
     text: 'La forge est une tâche longue et ardue ! Je suis sûr que vous êtes déjà en train de forger les matériaux !'
@@ -101,7 +101,7 @@ NPC_options:
     text: 'Je vous donnerais un travail avec plaisir mais... Je n''ai plus rien à vous proposer, vous m''avez déjà aidé !'
     conditions: 'n_fermierverif'
   n_reponseabandon:
-    text: 'Vraiment ? Je suis plus que désolé de l''apprendre..'
+    text: 'Vraiment ? Je suis plus que désolé de l''apprendre...'
     events: 'n_fermierfin1'
 
 
@@ -139,7 +139,7 @@ player_options:
 
   aide_e: 
     text: 'J''ai besoin d''argent. Auriez-vous une quelconque tâche à me confier ?'
-    pointers: 'quete_e'
+    pointers: 'e_dejafait,quete_e'
   acceptation_e:
     text: 'Entendu.'
     events: 'e_fermieraccept'
@@ -153,12 +153,12 @@ player_options:
     conditions: 'e_fermiercondition'
     pointers: 'e_finquete'
   e_verifn:
-    text: 'Non, je n''ai pas encore réussi à toutes les réunir..'
+    text: 'Non, je n''ai pas encore réussi à toutes les réunir...'
     pointers: 'e_renvoiquete'
 
   aide_n:
     text: 'As-tu un p''tit boulot à me donner ? La richesse n''attend que moi !' 
-    pointers: 'quete_n'
+    pointers: 'n_dejafait,quete_n'
   acceptation_n:
     text: 'Parfait ! Cela rentre dans le champ de mes compétences on dirait !'
     events: 'n_fermieraccept'

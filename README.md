@@ -17,4 +17,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 If you have any questions about this project, please contact me at:
 hollish@gaia-craft.fr
-Ceci est un message de ma part #Axeloow#

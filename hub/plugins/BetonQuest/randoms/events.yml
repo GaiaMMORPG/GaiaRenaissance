@@ -8,43 +8,52 @@
 #     Convervsations     #
 #                        #    
 #===========[¤]==========#
-conversation_elf_girl: 'conversation elf_girl'
-conversation_vieil_homme: 'conversation vieil_homme'
-conversation_possede: 'conversation possede'
-
+conversation_adult_eglesias: 'conversation adult_eglesias'
+conversation_adult eraguias: 'conversation adult_eraguias'
+conversation_adult_griselda: 'conversation adult_griselda'
+conversation_adult_ulfric: 'conversation adult_ulfric'
+conversation_child_artaina: 'conversation child_artaina'
+conversation_child_elenwen: 'conversation child_elenwen'
+conversation_child_erelon: 'conversation child_erelon'
+conversation_sdf_special: 'conversation sdf_special'
+conversation_sdf: 'conversation sdf'
 #========[¤]========#
 #                   #         
 #        Tags       #
 #                   #  
 #========[¤]========#
-elf_girl_tag: 'tag add elf_girl'
-elf_girl_timer: 'objective start elf_girl_timer'
-elf_girl_timer_puit: 'objective start elf_girl_timer_puit'
-elf_girl_untag: 'tag del elf_girl'
-sdf_timer: 'objective start sdf_timer'
-sdf_untag: 'tag del sdf_tag'
-elf_girl_tag_puit: 'tag add elf_girl'
-elf_girl_puit_untag: 'tag del elf_girl_tag_puit'
+elf_girl_tag: 'tag add elenwen'
+elf_girl_timer: 'objective start elenwen_timer'
+elf_girl_untag: 'tag del elenwen'
+
+elf_girl_tag_puit: 'tag add elenwen_puit'
+elf_girl_timer_puit: 'objective start elenwen_timer_puit'
+elf_girl_puit_untag: 'tag del elenwen_puit'
 
 #========[¤]======#
 #                 #
 #     Possédé     #
 #                 #
 #========[¤]======#
-possede_tag_1: 'tag add possede_tag_1'
-possede_tag_2: 'tag add possede_tag_2'
-possede_tag_3: 'tag add possede_tag_3'
-possede_tag_4: 'tag add possede_tag_4'
-possede_tag_5: 'tag add possede_tag_5'
-untag_possede_tag_1: 'tag del possede_tag_1'
-untag_possede_tag_2: 'tag del possede_tag_2'
-untag_possede_tag_3: 'tag del possede_tag_3'
-untag_possede_tag_4: 'tag del possede_tag_4'
-untag_possede_tag_5: 'tag del possede_tag_5'
-tag_incomprise: 'tag add tag_incomprise'
-tag_conclusion_1: 'tag add tag_conclusion_1'
-despawn_time: 'despawn npc ...'
-tag_conclusion_2: 'tag add tag_conclusion_2'
-tag_sdf: 'tag add tag_sdf'
-sdf_tag: 'tag add sdf_tag'
-erelon_tag: 'tag add erelon_tag'
+possede_tag_1: 'tag add eglesias1'
+possede_tag_2: 'tag add eglesias2'
+possede_tag_3: 'tag add eglesias3'
+possede_tag_4: 'tag add eglesias4'
+possede_tag_5: 'tag add eglesias5'
+untag_possede_tag_1: 'tag del eglesias1'
+untag_possede_tag_2: 'tag del eglesias2'
+untag_possede_tag_3: 'tag del eglesias3'
+untag_possede_tag_4: 'tag del eglesias4'
+untag_possede_tag_5: 'tag del eglesias5'
+
+tag_incomprise: 'tag add griselda_incomprise'
+tag_conclusion_1: 'tag add griselda_conclusion_1'
+tag_conclusion_2: 'tag add griselda_conclusion_2'
+
+tag_sdf_special: 'tag add sdf_special'
+
+sdf_tag: 'tag add sdf'
+sdf_timer: 'objective start sdf_timer'
+sdf_untag: 'tag del sdf'
+
+erelon_tag: 'tag add erelon'

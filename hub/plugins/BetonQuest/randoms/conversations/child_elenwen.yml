@@ -10,7 +10,7 @@ stop: 'false'
 NPC_options:
   debut:
     text: 'Une légende raconte que si on jète une piece dans cette eau en faisant un vœux, il se réalisera dans notre vie par la sainte Gaïa.\nTu n''aurais pas une petite pièce, j''aimerais essayer...'
-    condition: '!elf_girl_tag'
+    condition: '!elf_girl_tag,!elf_girl_tag_puit'
     pointer: 'rep1,rep2,rep3'
   done:
     text: 'Excuse moi, mais je suis un peu trop occupée à regarder le fond de ce puit maintenant...'

@@ -9,12 +9,12 @@ stop: 'false'
 
 NPC_options:
   debut: 
-    conditions: '!sdf_tag,!tag_sdf'
+    conditions: '!sdf_tag,!tag_sdf_special'
     text: 'Une petite pièce ?'
     pointer: 'oui,non,passage'
 
   remerciement:
-    conditions: 'sdf_tag,tag_sdf'
+    conditions: '!sdf_tag,tag_sdf_special'
     text: 'Je remercie votre bienveillance.'
     events: 'default.reput_plus_1,default.argent_moins_1,sdf_tag,sdf_timer'
 
@@ -25,8 +25,8 @@ NPC_options:
     text: '...'
 
   special:
-    conditions: 'tag_sdf,!sdf_tag'
-    text: 'J''ai développé un nouveau marché, oui hahahah, moi ! A présent, j''assiste à des cours pour avoir une chance de retourner dans le monde du travail !\n Et en plus, on m''offre un repas après la séance de ... comment elle appelait ça déjà... de rééducation !'
+    conditions: 'tag_sdf_special,!sdf_tag'
+    text: 'J''ai développé un nouveau marché, oui hahahah, moi ! A présent, j''assiste à des cours pour avoir une chance de retourner dans le monde du travail !\n Et en plus, on m''offre un repas après la séance de... comment elle appelait ça déjà... de rééducation !'
 
 player_options:
   oui:

@@ -8,6 +8,6 @@
 #	      Timers     	#
 #					          #
 #========[¤]========#
-elf_girl_timer: delay 1440 interval:12000 events:elf_girl_untag
-elf_girl_timer_puit: delay 1440 interval:12000 events:elf_girl_puit_untag
+elenwen_timer: delay 1440 interval:12000 events:elf_girl_untag
+elenwen_timer_puit: delay 1440 interval:12000 events:elf_girl_puit_untag
 sdf_timer: delay 1440 interval:12000 events:sdf_untag

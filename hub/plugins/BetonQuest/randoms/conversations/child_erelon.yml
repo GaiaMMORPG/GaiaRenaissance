@@ -20,9 +20,11 @@ NPC_options:
 
   salut:
     condition: 'erelon_tag'
-    text: 'Je vais m''entrainer, et un jour, je serais plus fort que vous !'
+    text: 'Je vais m''entraîner, et un jour, je serais plus fort que vous !'
 
 player_options:
   reponse:
-    text: 'Merci, mais tu sais, toi aussi tu peux devenir comme moi, il te suffit de t''entrainer !'
+    text: 'Merci, mais tu sais, toi aussi tu peux devenir comme moi, il te suffit de t''entraîner !'
     pointer: 'final'
+
+  

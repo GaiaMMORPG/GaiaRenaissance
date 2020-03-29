@@ -41,12 +41,12 @@ NPC_options:
     pointer: 'solution_p2'
   
   conclusion_1:
-    text: 'Vous avez raison, je vais tenter de les convaincres ! Merci !'
+    text: 'Vous avez raison, je vais tenter de les convaincre ! Merci !'
     events: 'tag_conclusion_1,despawn_time'
   
   bjr_1:
     conditions: 'tag_conclusion_1,!tag_conclusion_2,!tag_incomprise'
-    text: 'Bonjour ! J''ai réussi à convaincre une famille ! Pour le moment, nous avons un petit contrat, tous les marcilas après midi, j''apprends certaines bases à leur fils !'
+    text: 'Bonjour ! J''ai réussi à convaincre une famille ! Pour le moment, nous avons un petit contrat, toutes les semaines, j''apprends certaines bases à leur fils !'
 
   Conclusion_2:
     text: 'Vous pensez ? Dans ce cas, je pourrais peut-être plus facilement convaincre les sans-abris, ils pourront peut-être ensuite trouver du travail grâce à moi ! Au revoir !'
@@ -79,7 +79,7 @@ player_options:
     pointer: 'solution_1'
 
   solution_p1:
-    text: 'Commencez par proposer aux adultes d''éduquer leurs enfants pendant leur travail, l''affaire pourrait-être intérressante pour eux.'
+    text: 'Commencez par proposer aux adultes d''éduquer leurs enfants pendant leur travail, l''affaire pourrait être intéressante pour eux.'
     pointer: 'Conclusion_1'
 
   life_p2_2:

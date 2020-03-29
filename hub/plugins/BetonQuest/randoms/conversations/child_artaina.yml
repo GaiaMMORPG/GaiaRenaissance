@@ -29,7 +29,7 @@ NPC_options:
 
   erelon:
     condition: 'erelon_tag'
-    text: 'Depuis quelques temps, Erelön ne joue plus avec moi... Il passe son temps à s''entrainer à grimper sur tous les bâtiments...\n Il dit que c''est pour se muscler les bras...'
+    text: 'Depuis quelques temps, Erelön ne joue plus avec moi... Il passe son temps à s''entraîner à grimper sur tous les bâtiments...\n Il dit que c''est pour se muscler les bras...'
     
 player_options:
   debut_p1:
@@ -41,7 +41,7 @@ player_options:
     pointer: 'suite_2'
 
   suite_p2:
-    text: 'C''est parce-que tu es encore une enfant.'
+    text: 'C''est parce que tu es encore une enfant.'
     pointer: 'raisonner'
 
   debut_p3:

@@ -1,0 +1,43 @@
+#race: random 
+#emplacement:
+#sexe: random
+#Nom: Sans-abri
+
+quester: 'Sans-abri'
+first: 'debut,remerciement,special'
+stop: 'false'
+
+NPC_options:
+  debut: 
+    conditions: '!sdf_tag,!tag_sdf'
+    text: 'Une petite pièce ?'
+    pointer: 'oui,non,passage'
+
+  remerciement:
+    conditions: 'sdf_tag,tag_sdf'
+    text: 'Je remercie votre bienveillance.'
+    events: 'default.reput_plus_1,default.argent_moins_1,sdf_tag,sdf_timer'
+
+  pg:
+    text: 'Ce n''est pas grave...'
+
+  bye:
+    text: '...'
+
+  special:
+    conditions: 'tag_sdf,!sdf_tag'
+    text: 'J''ai développé un nouveau marché, oui hahahah, moi ! A présent, j''assiste à des cours pour avoir une chance de retourner dans le monde du travail !\n Et en plus, on m''offre un repas après la séance de ... comment elle appelait ça déjà... de rééducation !'
+
+player_options:
+  oui:
+    text: 'Tenez.'
+    pointer: 'remerciement'
+  
+  non:
+    text: 'Désolé, je n''ai pas de monnaie sur moi...'
+    pointer: 'pg'
+
+  passage:
+    text: 'Excusez-moi, je suis pressé.'
+    pointer: 'bye'
+  

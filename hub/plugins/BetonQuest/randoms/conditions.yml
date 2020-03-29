@@ -9,6 +9,7 @@
 #                   #
 #========[¤]========#
 elf_girl_tag: 'tag elf_girl'
+elf_girl_tag_puit: 'tag elf_girl_tag_puit'
 possede_tag_1: 'tag possede_tag_1'
 possede_tag_2: 'tag possede_tag_2'
 possede_tag_3: 'tag possede_tag_3'
@@ -17,3 +18,9 @@ possede_tag_5: 'tag possede_tag_5'
 weather_sun: 'weather sun'
 weather_rain: 'weather rain'
 time_day: 'time 2-23'
+tag_incomprise: 'tag tag_incomprise'
+tag_conclusion_1: 'tag tag_conclusion_1'
+tag_sdf: 'tag tag_sdf'
+tag_conclusion_2: 'tag tag_conclusion_2'
+sdf_tag: 'tag sdf_tag'
+erelon_tag: 'tag erelon_tag'

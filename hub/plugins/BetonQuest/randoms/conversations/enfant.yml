@@ -1,0 +1,28 @@
+#race : random
+#âge  : enfant
+#nom  : Erelön
+#sexe : Masculin 
+#emplacement : 
+
+quester: 'Erelön'
+first: 'debut,salut'
+stop: 'false'
+
+NPC_options:
+  debut:
+    condition: '!erelon_tag'
+    text: 'Ouahh ! Vous êtes impressionnant ! On dirait un athlète !'
+    pointer: 'reponse'
+
+  final:
+    text: 'Vous avez raison ! Je vais faire ça !'
+    event: 'erelon_tag'
+
+  salut:
+    condition: 'erelon_tag'
+    text: 'Je vais m''entrainer, et un jour, je serais plus fort que vous !'
+
+player_options:
+  reponse:
+    text: 'Merci, mais tu sais, toi aussi tu peux devenir comme moi, il te suffit de t''entrainer !'
+    pointer: 'final'

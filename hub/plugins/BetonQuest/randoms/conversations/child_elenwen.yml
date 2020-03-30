@@ -4,28 +4,28 @@
 #Âge : Enfant
 
 quester: 'Elenwën'
-first: 'debut,done'
+first: 'debut,done,Haine'
 stop: 'false'
 
 NPC_options:
   debut:
     text: 'Une légende raconte que si on jète une piece dans cette eau en faisant un vœux, il se réalisera dans notre vie par la sainte Gaïa.\nTu n''aurais pas une petite pièce, j''aimerais essayer...'
-    condition: '!elf_girl_tag'
+    condition: '!elf_girl_tag,!elf_girl_tag_puit'
     pointer: 'rep1,rep2,rep3'
   done:
     text: 'Excuse moi, mais je suis un peu trop occupée à regarder le fond de ce puit maintenant...'
-    condition: 'elf_girl_tag'
+    condition: 'elf_girl_tag_puit'
 
   opt1:
     text: 'Oh merci ! Vous êtes très gentil !'
-    event: 'default.reput_plus_1,default.argent_moins_1,elf_girl_timer,elf_girl_tag'
+    events: 'default.reput_plus_1,default.argent_moins_1,elf_girl_timer_puit,elf_girl_tag_puit'
 
   opt2:
     text: 'Ce ne sont pas des mensonges ! Si tu ne veux pas me donner une pièce, vas-t''en ! Moi, tout ce que je veux, c''est que mon vœux le plus cher se réalise.'
     pointer: 'txt2,text2'
   Rtxt2:
     text: 'Merci. Je vais le faire tout de suite ! Au revoir !'
-    event: 'default.reput_plus_1,default.argent_moins_1,elf_girl_timer,elf_girl_tag'
+    events: 'default.reput_plus_1,default.argent_moins_1,elf_girl_timer_puit,elf_girl_tag_puit'
 
   opt3:
     text: 'Comment ?! Tu ne connais pas Gaïa ?! Mais c''est notre déesse ! Notre protection céleste ! C''est elle qui nous a créé ! Mais... Qui es-tu pour ne pas la connaître ?'
@@ -38,10 +38,11 @@ NPC_options:
     pointer: 'Demo,Question'
   fuite:
     text: 'Ne me touchez pas !'
-    event: 'default.reput_moins_3,default.vie_moins_5,default.lenteur_5_temps_5,elf_girl_timer,elf_girl_tag'
+    events: 'default.reput_moins_3,default.vie_moins_5,default.lenteur_5_temps_5,elf_girl_timer,elf_girl_tag'
 
   Haine:
     text: 'Ne m''aproches plus jamais ! Vas-t''en !'
+    condition: 'elf_girl_tag'
   Ftext3:
     text: 'Je t''aime bien, tu es assez drôle, même si ce n''est pas sérieusement, ne t''inquiètes pas, je retiendrais ton nom et le partagerais à ma famille. HA HA HA !'
     

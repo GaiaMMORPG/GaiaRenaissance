@@ -1,0 +1,49 @@
+#sexe : Féminin
+#Age  : Enfant
+#Nom  : Artaiña
+#race : Random
+#Emplacement : 
+
+quester: 'Artaiña'
+first: 'debut,erelon'
+stop: 'false'
+
+NPC_options:
+  debut:
+    condition: '!erelon_tag'
+    text: 'Mon père veut que je devienne aubergiste, mais moi je veux être garde comme maman !'
+    pointer: 'debut_p1,debut_p2,debut_p3'
+
+  suite:
+    text: 'C''est bien ce que je compte faire !'
+  
+  suite_2:
+    text: 'Vous êtes tous les mêmes... Moi j''aimerais bien savoir pourquoi tout le monde me défend de devenir garde mais qu''ils ne disent rien à ma mère !'
+    pointer: 'suite_p2'
+
+  raisonner:
+    text: 'Je ne vois pas le rapport ! Les enfants ne travaillent pas ! Moi je veux être garde, quand je serais grande !'
+
+  bye:
+    text: 'Non...'
+
+  erelon:
+    condition: 'erelon_tag'
+    text: 'Depuis quelques temps, Erelön ne joue plus avec moi... Il passe son temps à s''entraîner à grimper sur tous les bâtiments...\n Il dit que c''est pour se muscler les bras...'
+    
+player_options:
+  debut_p1:
+    text: 'Fais ce qui te conduira à ton bonheur, c''est le plus important.'
+    debut: 'suite'
+
+  debut_p2:
+    text: 'Tu devrais écouter ton père... être garde, c''est dangereux !'
+    pointer: 'suite_2'
+
+  suite_p2:
+    text: 'C''est parce que tu es encore une enfant.'
+    pointer: 'raisonner'
+
+  debut_p3:
+    text: 'On se connaît ?'
+    pointer: 'bye'

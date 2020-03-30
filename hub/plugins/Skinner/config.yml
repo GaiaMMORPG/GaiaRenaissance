@@ -29,15 +29,35 @@ MM-Disguises:
   pnj_guard_bank4:
     displayName:
     disguise: pnj_guard_bank
-  pnj_elf_girl:
-    displayName:
-    disguise: pnj_elf_girl
-  pnj_ulfric:
-    displayName:
-    disguise: pnj_ulfric
   pnj_eglesias:
     displayName:
-    disguise: pnj_eglesias
+    disguise: pnj_adult_eglesias
+  pnj_eraguias:
+    displayName:
+    disguise: pnj_adult_eraguias
+  pnj_adult_griselda:
+    displayName:
+    disguise: pnj_adult_griselda
+  pnj_adult_ulfric:
+    displayName:
+    disguise: pnj_adult_ulfric
+  pnj_child_artaina:
+    displayName:
+    disguise: pnj_child_artaina
+  pnj_child_elenwen:
+    displayName:
+    disguise: pnj_child_elenwen
+  pnj_child_erelon:
+    displayName:
+    disguise: pnj_child_erelon
+  pnj_sdf_special:
+    displayName:
+    disguise: pnj_sdf_special
+  pnj_sdf:
+    displayName:
+    disguise: pnj_sdf
+    
+  
 Citizens-Disguises:
   #ExampleNPCName:
   #  displayName: Example NPC display name

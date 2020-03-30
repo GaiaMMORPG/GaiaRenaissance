@@ -4,7 +4,7 @@
 #Nom:Griselda
 
 quester: 'Griselda'
-first: 'rencontre,bjr_1,bjr_2,bjr_3'
+first: 'rencontre,bjr_1,bjr_2,bjr_3,delay_1,delay_2'
 stop: 'false'
 
 NPC_options:
@@ -42,18 +42,26 @@ NPC_options:
   
   conclusion_1:
     text: 'Vous avez raison, je vais tenter de les convaincre ! Merci !'
-    events: 'tag_conclusion_1,despawn_time'
-  
+    events: 'griselda_timer_conclusion_1,griselda_tag_delay_1'
+
+  delay_1:
+    text: 'Vous m''avez convaincu ! Je recherche encore une famille afin d''éduquer leur enfant.'
+    condition: 'griselda_tag_delay_1'
+
   bjr_1:
-    conditions: 'tag_conclusion_1,!tag_conclusion_2,!tag_incomprise'
+    conditions: 'griselda_tag_conclusion_1,!griselda_tag_conclusion_2,!tag_incomprise'
     text: 'Bonjour ! J''ai réussi à convaincre une famille ! Pour le moment, nous avons un petit contrat, toutes les semaines, j''apprends certaines bases à leur fils !'
 
   Conclusion_2:
     text: 'Vous pensez ? Dans ce cas, je pourrais peut-être plus facilement convaincre les sans-abris, ils pourront peut-être ensuite trouver du travail grâce à moi ! Au revoir !'
-    events: 'tag_conclusion_2,despawn_time,tag_sdf'
+    events: 'griselda_timer_conclusion_2,tag_sdf_special,griselda_tag_delay_2'
+ 
+  delay_2:
+    text: 'Vous m''avez convaincu ! Je recherche encore un sans-abri afin de le rééduquer pour qu''il puisse trouver du travail.'
+    condition: 'griselda_tag_delay_2'
 
   bjr_2:
-    conditions: 'tag_conclusion_2,!tag_conclusion_1,!tag_incomprise'
+    conditions: 'griselda_tag_conclusion_2,!griselda_tag_conclusion_1,!tag_incomprise'
     text: 'Bonjour ! J''ai suivi votre conseil, un sans-abris à accepter très rapidement à condition que je lui offre à manger après chaque cours ! C''est un bon début, n''est-ce pas ?'
     pointer: 'salut,bye_p'
 

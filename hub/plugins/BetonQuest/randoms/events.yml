@@ -46,11 +46,27 @@ untag_possede_tag_3: 'tag del eglesias3'
 untag_possede_tag_4: 'tag del eglesias4'
 untag_possede_tag_5: 'tag del eglesias5'
 
+#========[¤]======#
+#                 #
+#     Griselda    #
+#                 #
+#========[¤]======#
 tag_incomprise: 'tag add griselda_incomprise'
-tag_conclusion_1: 'tag add griselda_conclusion_1'
-tag_conclusion_2: 'tag add griselda_conclusion_2'
+griselda_tag_conclusion_1: 'tag add griselda_conclusion_1'
+griselda_timer_conclusion_1: 'objective start griselda_timer'
+griselda_tag_delay_1: 'tag add griselda_delay_1'
+griselda_utag_delay_1: 'tag del griselda_delay_1'
+
+griselda_tag_conclusion_2: 'tag add griselda_conclusion_2'
+griselda_timer_conclusion_2: 'objective start griselda_timer_2'
+griselda_tag_delay_2: 'tag add griselda_delay_2'
+griselda_untag_delay_2: 'tag del griselda_delay_2'
+
 
 tag_sdf_special: 'tag add sdf_special'
+
+
+
 
 sdf_tag: 'tag add sdf'
 sdf_timer: 'objective start sdf_timer'

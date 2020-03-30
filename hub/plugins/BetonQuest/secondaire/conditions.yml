@@ -1,0 +1,32 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+humain: permission group.humain
+orc: permission group.orc
+elfe: permission group.elfe
+nain: permission group.nain
+
+#========[¤]========#
+#                   #
+#     Personnage    #
+#      Fermier      #
+#========[¤]========#
+
+h_fermierquete: tag h_fermierquete
+h_fermierverif: tag h_fermierfin
+h_fermiercondition: item water_bucket:1
+
+o_fermierquete: tag o_fermierquete
+o_fermierverif: tag o_fermierfin
+o_fermiercondition: item bone:20
+
+e_fermierquete: tag e_fermierquete
+e_fermierverif: tag e_fermierfin
+e_fermiercondition: item wheat_seeds:60
+
+n_fermierquete: tag n_fermierquete
+n_fermierverif: tag n_fermierfin
+n_fermiercondition: item iron_hoe:1
+

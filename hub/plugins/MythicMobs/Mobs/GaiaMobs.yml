@@ -4,6 +4,31 @@
 
 #========[¤]========#
 #					          #
+#	      Main  	    #
+#					          #
+#========[¤]========#
+
+pnj_marie:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> main.conversation_pnj_marie"} @trigger ~onInteract
+
+#========[¤]========#
+#					          #
 #	     Defaults	    #
 #					          #
 #========[¤]========#
@@ -212,7 +237,8 @@ pnj_guard_bank4:
 #	     Randoms	    #
 #					          #
 #========[¤]========#
-pnj_elf_girl:
+
+pnj_adult_eglesias:
   Type: pig
   Display: ''
   Options:
@@ -229,8 +255,160 @@ pnj_elf_girl:
   AITargetSelectors:
   - 0 clear
   Skills:
-  - command{c="bq event <trigger.name> randoms.conversation_elf_girl"} @trigger ~onInteract
-  
+  - command{c="bq event <trigger.name> randoms.conversation_adult_eglesias"} @trigger ~onInteract
+
+pnj_adult_eraguias:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_adult_eraguias"} @trigger ~onInteract
+
+pnj_adult_griselda:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_adult_griselda"} @trigger ~onInteract
+
+pnj_adult_ulfric:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_vieil_homme"} @trigger ~onInteract
+
+pnj_child_artaina:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_child_artaina"} @trigger ~onInteract
+
+pnj_child_elenwen:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_child_elenwen"} @trigger ~onInteract
+
+pnj_child_erelon:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_child_erelon"} @trigger ~onInteract
+
+pnj_sdf_special:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_sdf_special"} @trigger ~onInteract
+
+pnj_sdf:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_sdf"} @trigger ~onInteract
+
 pnj_fermier:
   Type: pig
   Display: '&2Fermier'
@@ -253,4 +431,3 @@ pnj_fermier:
   - 0 clear
   Skills:
   - command{c="bq event <trigger.name> secondaire.conversation_fermier"} @trigger ~onInteract
-

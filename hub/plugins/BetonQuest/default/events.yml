@@ -1,51 +1,162 @@
-#
-# This file is symlinked to all other BetonQuest instances across the bungeecord.
-#   It should NEVER execute tasks on a global scale, which maybe repeated.
+
 #
 
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+
+#
+
+
+
 #========[¤]========#
-#					          #
-#	  Convervsations	#
-#					          #
+
+#                   #
+
+#   Convervsations  #
+
+#                   #
+
 #========[¤]========#
+
 conversation_pnj_test: 'conversation test'
+
 conversation_pnj_1: 'conversation jacopo'
+
 conversation_pnj_2: 'conversation banker'
 
+conversation_pnj_market: 'conversation market'
+
+
+
 conversation_bank_guard1: 'conversation bank_guard1'
+
 conversation_bank_guard2: 'conversation bank_guard2'
+
 conversation_bank_guard3: 'conversation bank_guard3'
+
 conversation_bank_guard4: 'conversation bank_guard4'
 
+
+
 #========[¤]========#
-#					          #
-#	  Global Events	  #
-#					          #
+
+#                   #
+
+#   Global Events   #
+
+#                   #
+
 #========[¤]========#
+
+
+
+# Utilities
+
+journal: 'givejournal'
+
+
+
+# RP elements
+
 reput_plus_1: 'folder reput_plus_1_exe,reput_plus_1_message'
-reput_moins_3: 'point reputation -3'
+
+reput_plus_2: 'folder reput_plus_2_exe,reput_plus_2_message'
+
+reput_plus_3: 'folder reput_plus_3_exe,reput_plus_3_message'
+
+reput_moins_1: 'folder reput_moins_1_exe,reput_moins_1_message'
+
+reput_moins_3: 'folder reput_moins_2_exe,reput_moins_2_message'
+
+reput_moins_3: 'folder reput_moins_3_exe,reput_moins_3_message'
+
+
 
 reput_plus_1_exe: 'point reputation 1'
+
 reput_plus_1_message: 'message &7Vous gagnez 1 point de réputation (Total: %point.reputation.amount%)'
+
+reput_plus_2_exe: 'point reputation 2'
+
+reput_plus_2_message: 'message &7Vous gagnez 2 points de réputation (Total: %point.reputation.amount%)'
+
+reput_plus_3_exe: 'point reputation 3'
+
+reput_plus_3_message: 'message &7Vous gagnez 3 points de réputation (Total: %point.reputation.amount%)'
+
+
+
+reput_moins_1_exe: 'point reputation -1'
+
+reput_moins_1_message: 'message &7Vous perdez 1 point de réputation (Total: %point.reputation.amount%)'
+
+reput_moins_2_exe: 'point reputation -2'
+
+reput_moins_2_message: 'message &7Vous perdez 2 points de réputation (Total: %point.reputation.amount%)'
+
+reput_moins_3_exe: 'point reputation -3'
+
+reput_moins_3_message: 'message &7Vous perdez 3 points de réputation (Total: %point.reputation.amount%)'
+
+
+
+argent_plus_1: 'command eco give %player% 1'
 
 argent_moins_1: 'command eco take %player% 1'
 
 
+
 vie_moins_5: 'damage 5'
+
+
 
 lenteur_5_temps_5: 'effect SLOW 5 1 hidden noicon'
 
-#========[¤]========#
-#					          #
-#	  Server Teleport	#
-#					          #
-#========[¤]========#
-server_teleport_gui: 'command serverteleportations %player%'
+
 
 #========[¤]========#
-#					          #
-#	    Bank Addon	  #
-#					          #
+
+#                   #
+
+#  Server Teleport  #
+
+#                   #
+
 #========[¤]========#
+
+server_teleport_gui: 'command serverteleportations %player%'
+
+
+
+#========[¤]========#
+
+#                   #
+
+#   Bank & Trade    #
+
+#                   #
+
+#========[¤]========#
+
 open_bank_gui: 'command openbankgui %player%'
+
 display_interest_time: 'sudo bank time'
+
+
+
+market_gui: 'folder market_auth,market_auth_delay'
+
+market_auth_delay: 'folder open_market_gui delay:1'
+
+market_search_gui: 'folder market_auth,market_search_gui_delay'
+
+market_search_gui_delay: 'folder open_market_search_gui delay:1'
+
+market_auth: 'command lp user %player% permission settemp market.temp true 3seconds'
+
+open_market_gui: 'sudo market self'
+
+open_market_search_gui: 'sudo market search'
+
+market_sell: 'command custommarktsell %player%'

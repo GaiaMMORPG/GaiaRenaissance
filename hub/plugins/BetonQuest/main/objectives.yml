@@ -1,0 +1,5 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+marie_obj_gear: 'action right CHEST loc:4566;105;-8502;gaia range:2 events:marie_give_gear,marie_del_journal_gear,marie_add_journal_gear_done'

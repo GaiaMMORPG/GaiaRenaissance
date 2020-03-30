@@ -5,6 +5,9 @@ MM-Disguises:
   pnj_jacopo:
     displayName:
     disguise: pnj_jacopo
+  pnj_marie:
+    displayName:
+    disguise: pnj_marie
   pnj_market:
     displayName:
     disguise: pnj_market

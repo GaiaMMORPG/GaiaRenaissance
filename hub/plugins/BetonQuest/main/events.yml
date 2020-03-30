@@ -1,0 +1,30 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+#========[¤]========#
+#                   #
+#   Convervsations  #
+#                   #
+#========[¤]========#
+conversation_pnj_marie: 'conversation pnj_marie'
+
+
+#========[¤]========#
+#                   #
+#       Main        #
+#                   #
+#========[¤]========#
+
+# Marie
+marie_add_journal: 'journal add marie_journal'
+marie_del_journal: 'journal del marie_journal'
+marie_add_journal_gear: 'journal add marie_journal_gear'
+marie_del_journal_gear: 'journal del marie_journal_gear'
+marie_add_journal_gear_done: 'journal add marie_journal_gear_done'
+marie_del_journal_gear_done: 'journal del marie_journal_gear_done'
+
+marie_obj_gear: 'objective start marie_obj_gear'
+marie_give_gear: 'give default.wooden_shovel,default.wooden_axe,default.wooden_pickaxe,default.wooden_hoe'
+marie_done: 'tag add marie_done'

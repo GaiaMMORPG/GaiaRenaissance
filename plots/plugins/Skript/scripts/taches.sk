@@ -18,13 +18,13 @@ on first join:
 # On Join
 #
 on join:
-	set join message to "&8%player% &7a rejoint Thol Gaïa."
+	set join message to "&8%player% &7a rejoint les Îles."
 
 #
 # On Quit
 #
 on quit:
-	set leave message to "&8%player% &7a quitté Thol Gaïa."
+	set leave message to "&8%player% &7a quitté les Îles."
 	set {_uuid} to player's uuid
 	loop tree of {local::temp::%{_uuid}%::*}:
 		delete {local::temp::%{_uuid}%::%branch%}

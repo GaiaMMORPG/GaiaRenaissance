@@ -1,0 +1,62 @@
+# Race: Humain
+# Emplacement: 4568 101 -8503
+# Sexe: Féminin
+
+quester: 'Marie'
+first: 'welcome, gear, gear_progress, gear_done, done'
+stop: 'false'
+
+NPC_options:
+  welcome: 
+    text: 'Et bien ! Te voilà enfin réveillé &8%player% &7! Tu es prêt pour aller à Questrelle ?'
+    conditions: '!marie_journal, !marie_gear, !marie_gear_done, !marie_done'
+    pointers: 'oui, non, who, what, questrelle'
+
+  who_rep:
+    text: 'Eh bien voyons, je suis &8Marie&7, je t''ai hébergé cette nuit...\nTu n''es pas très reconnaissant de mon accueil dis donc !'
+    pointers: 'oui, what, questrelle, non'
+  what_rep:
+    text: 'Tu es juste à l''extérieur de Questrelle, si tu es perdu, jettes un oeil sur la carte !\nPour y accéder, utilises ton &8/menu&7.'
+  questrelle_rep:
+    text: 'Mais enfin, tu m''as l''air bien perdu...\nQuestrelle c''est la capitale du monde connu de Gaïa ; tu m''as dit hier que tu voulais absolument t''y rendre...'
+    pointers: 'oui, what, who, non'
+  not_ready:
+    text: 'Pas de problème, prends ton temps.'
+    
+  ready:
+    text: 'Très bien, avant toute chose, prends ce livre, ouvre ce &8Journal de Progression&7. Il te sera indispensable tout au long de ton voyage.\nSi jamais tu ne le retrouves pas dans ton inventaire, il sera dans ton &8/sac.'
+    events: 'default.journal, marie_add_journal'
+
+  gear:
+    text: 'Maintenant que tu as ce livre, va donc chercher tes outils dans le grand coffre à l''étage.'
+    conditions: 'marie_journal, !marie_gear, !marie_done'
+    events: 'marie_obj_gear, marie_del_journal, marie_add_journal_gear'
+  gear_progress:
+    text: 'Allez, grimpe chercher tes outils, puis reviens me voir.'
+    conditions: 'marie_journal, marie_gear, !marie_gear_done, !marie_done'
+  
+  gear_done:
+    text: 'Te voilà équipé. Va voir mon fils dehors, il va t''apprendre comment t''en servir.\nBon voyage à toi &8%player%&7, j''espère que tu viendras me rendre visite de temps à autre...'
+    conditions: 'marie_gear_done, !marie_done'
+    event: 'marie_del_journal_gear_done, marie_done'
+
+  done:
+    text: 'Qui voilà ! Quel plaisir de te revoir &8%player% &7! J''espère que tu as trouvé ce que tu recherchais à Questrelle !'
+    conditions: 'marie_done'
+
+player_options:
+  oui:
+    text: 'Je suis prêt à y aller !'
+    pointer: 'ready'
+  non:
+    text: 'Je suis pas encore prêt à partir...'
+    pointer: 'not_ready'
+  who:
+    text: 'Qui êtes vous ?'
+    pointers: 'who_rep'
+  what:
+    text: 'Où suis-je ? Qu''est-ce que je fais ici ?'
+    pointers: 'what_rep'
+  questrelle:
+    text: 'Questrelle ? Qu''est-ce que c''est ?'
+    pointers: 'questrelle_rep'

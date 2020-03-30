@@ -2,9 +2,8 @@ quester: 'Fermier'
 first: 'queteverif_e,queteverif_n,queteverif_h,queteverif_o,humain,orc,elfe,nain'
 stop: 'false'
 
-# NPC
+#NPC
 NPC_options:
-
   humain:
     text: 'Salutations à vous, Humain ! Que venez-vous faire dans mon humble champ ?'
     condition: 'humain'
@@ -206,4 +205,3 @@ player_options:
     text: 'Rien du tout, passez une bonne journée.'
   bye2:
     text: 'Je m''en vais, au revoir.'
-

@@ -5,9 +5,9 @@
 
 
 #========[¤]========#
-#					          #
+#                   #
 #	     Général    	#
-#					          #
+#                   #
 #========[¤]========#
 
 # default.reput_plus_1 : Donne 1 réputation.
@@ -15,17 +15,17 @@
 
 
 #========[¤]========#
-#					          #
-#	  Conversations   #
-#					          #
+#                   #
+#   Conversations   #
+#                   #
 #========[¤]========#
 
 conversation_fermier: 'conversation chara_fermier'
 
 #========[¤]========#
-#					          #
-#	    Personnage	  #
-#				Fermier	    #
+#                   #
+#	    Personnage    #
+#       Fermier     #
 #========[¤]========#
 
 h_fermieraccept: tag add h_fermierquete

@@ -1,0 +1,207 @@
+quester: 'Fermier'
+first: 'queteverif_e,queteverif_n,queteverif_h,queteverif_o,humain,orc,elfe,nain'
+stop: 'false'
+
+#NPC
+NPC_options:
+  humain:
+    text: 'Salutations à vous, Humain ! Que venez-vous faire dans mon humble champ ?'
+    condition: 'humain'
+    pointers: 'aide_h,localisation,bye'
+  quete_h:
+    text: 'Il me reste justement un travail ! Que diriez-vous d''aller chercher de l''eau ? Je vous fournirais le seau.'
+    pointers: 'acceptation_h,refus_h'
+  queteverif_h:
+    text: 'Vous voilà de retour ! Avez-vous l''eau que je vous avais demandé ?'
+    condition: 'h_fermierquete'
+    pointers: 'h_verify,h_verifn,h_abandon'
+  h_finquete:
+    text: 'Parfait ! Je le récupère, voici pour vous !'
+    events: 'h_fermierfin1,h_fermierfin2,h_retraitseau,default.reput_plus_1'
+    #Possibilité d'ajouter d'autres récompenses. Récompenses actuelle : Réputation 1, \
+  h_renvoiquete:
+    text: 'Dans ce cas, retournez-y ! Plus vite vous aurez accompli cette tâche, plus vite vous obtiendrez votre récompense! '
+  h_reponseabandon:
+    text: 'Vraiment ? C''est plus que dommage...'
+    events: 'h_fermierfin1,h_retraitseau'
+  h_dejafait:
+    text: 'Mais vous m''avez déjà aidé, je n''ai plus rien à vous proposer...'
+    conditions: 'h_fermierverif'
+
+
+  orc:
+    text: 'Que fais-tu dans mon champ, misérable Orc ! Déguerpis avant que je n''appelle les gardes !'
+    condition: 'orc'
+    pointers: 'persuasion_orc1,persuasion_orc2,bye2'
+  quete_o:
+    text: 'Très bien, mais ne t''attends pas à être bien payé. Va me chercher des os. Disons que 20 suffiront.'
+    pointers: 'acceptation_o,refus_o'
+  queteverif_o:
+    text: 'Te voilà de retour. As-tu ce que j''ai demandé ?'
+    conditions: 'o_fermierquete'
+    pointers: 'o_verify,o_verifn,o_abandon'
+  o_finquete:
+    text: 'Très bien. Je te les prends, voilà ta récompense.'
+    events: 'o_fermierfin1,o_fermierfin2,o_fermierretraitos,default.reput_plus_1'
+    #Possibilité d'ajouter d'autres récompenses. Récompenses actuelle : Réputation 1, \
+  o_renvoiquete:
+    text: 'Qu''est-ce que t''attends dans ce cas ?'
+  o_dejafait: 
+    text: 'Tu es encore là ? Je n''ai plus rien à te proposer, ouste !'
+    conditions: 'o_fermierverif'
+  o_reponseabandon:
+    text: 'Je savais que tu ne finirais pas ce travail !'
+    events: 'o_fermierfin1'
+  
+
+
+  elfe:
+    text: 'Salutations à vous, noble Elfe ! Que venez-vous faire dans mon humble champ ?'
+    condition: 'elfe'
+    pointers: 'aide_e,localisation,bye'
+  quete_e: 
+    text: 'Bien sûr ! Que diriez-vous d''aller me chercher des graines ? Disons que 60 me suffiront.'
+    pointers: 'acceptation_e,refus_e'
+  queteverif_e:
+    text: 'Je vois que vous êtes de retour ! Avez-vous réussi à récupérer des graines ?'
+    conditions: 'e_fermierquete'
+    pointers: 'e_verify,e_verifn,e_abandon'
+  e_finquete:
+    text: 'Le compte est bon ! Voici donc votre récompense !'
+    events: 'e_fermierfin1,e_fermierfin2,e_fermierretraitseed,default.reput_plus_1'
+    #Possibilité d'ajouter d'autres récompenses. Récompenses actuelle : Réputation 1, \
+  e_renvoiquete:
+    text: 'Je suis sûr que vous y êtes presque ! Retournez-y pour amasser le nombre nécessaire !'
+  e_dejafait:
+    text: 'J''adorerais vous proposer du travail mais... Vous m''avez déjà aidé plus que nécessaire !'
+    conditions: 'e_fermierverif'
+  e_reponseabandon:
+    text: 'Vraiment ? Je suis plus que désolé de l''apprendre...'
+    events: 'e_fermierfin1'
+
+  nain:
+    text: 'Salutations à vous, vaillant Nain ! Que venez-vous faire dans mon humble champ ?'
+    condition: 'nain'
+    pointers: 'aide_n,localisation,bye'
+  quete_n:
+    text: 'Bien sûr ! Que diriez-vous de me créer une Houe de Fer ? Une seule me suffira.'
+    pointers: 'acceptation_n,refus_n'
+  queteverif_n:
+    text: 'Vous voilà de retour ! Avez-vous la fameuse houe ?'
+    conditions: 'n_fermierquete'
+    pointers: 'n_verify,n_verifn,n_abandon'
+  n_finquete:
+    text: 'La voici donc ! L''adresse légendaire des nains n''était donc pas qu''une légende... J''oubliais ! Voici votre récompense !'
+    events: 'n_fermierfin1,n_fermierfin2,n_fermierretraithoue,default.reput_plus_1'
+    #Possibilité d'ajouter d'autres récompenses. Récompenses actuelle : Réputation 1, \
+  n_renvoiquete:
+    text: 'La forge est une tâche longue et ardue ! Je suis sûr que vous êtes déjà en train de forger les matériaux !'
+  n_dejafait:
+    text: 'Je vous donnerais un travail avec plaisir mais... Je n''ai plus rien à vous proposer, vous m''avez déjà aidé !'
+    conditions: 'n_fermierverif'
+  n_reponseabandon:
+    text: 'Vraiment ? Je suis plus que désolé de l''apprendre...'
+    events: 'n_fermierfin1'
+
+
+
+  localisation_rep:
+    text: 'Nous sommes à Questrelle, la capitale aux multiples cultures, dans laquelle toutes les races sont acceptées et aimées !'
+  renvoi:
+    text: 'Dans ce cas, vas te promener plus loin, tu n''as rien à faire ici !'
+  mefiance:
+    text: 'J''ai déjà eu des problèmes avec des personnes de ton espèce, comment pourrais-je avoir confiance !'
+    pointers: 'persuasion_orc3'
+
+
+
+# Joueur
+player_options:
+  aide_h:
+    text: 'Je recherche un travail, avez-vous besoin d''aide ?'
+    pointers: 'h_dejafait,quete_h'
+  acceptation_h:
+    text: 'Bien sûr ! J''y vais de ce pas !'
+    events: 'h_fermieraccept,h_fermierseaugive'
+  refus_h:
+    text: 'Je suis désolé, ça ne m''interesse pas.'
+  h_verify:
+    text: 'Oui, j''ai ce que vous m''avez demandé.'
+    conditions: 'h_fermiercondition'
+    pointers: 'h_finquete'
+  h_verifn:
+    text: 'Non, je n''ai pas ce que vous m''avez demandé.'
+    pointers: 'h_renvoiquete'
+  h_abandon:
+    text: 'Je souhaite abandonner, désolé.'
+    pointers: 'h_reponseabandon'
+
+  aide_e: 
+    text: 'J''ai besoin d''argent. Auriez-vous une quelconque tâche à me confier ?'
+    pointers: 'e_dejafait,quete_e'
+  acceptation_e:
+    text: 'Entendu.'
+    events: 'e_fermieraccept'
+  refus_e:
+    text: 'Désolé. Cette tâche est ininteressante.'
+  e_abandon:
+    text: 'Je souhaite abandonner, désolé.'
+    pointers: 'e_reponseabandon'
+  e_verify:
+    text: 'Bien sûr, prenez-les !'
+    conditions: 'e_fermiercondition'
+    pointers: 'e_finquete'
+  e_verifn:
+    text: 'Non, je n''ai pas encore réussi à toutes les réunir...'
+    pointers: 'e_renvoiquete'
+
+  aide_n:
+    text: 'As-tu un p''tit boulot à me donner ? La richesse n''attend que moi !' 
+    pointers: 'n_dejafait,quete_n'
+  acceptation_n:
+    text: 'Parfait ! Cela rentre dans le champ de mes compétences on dirait !'
+    events: 'n_fermieraccept'
+  refus_n:
+    text: 'Désolé, mais ça ne me conviendra pas.'
+  n_abandon:
+    text: 'Je souhaite abandonner, désolé.'
+  n_verify:
+    text: 'En effet ! La voici M''sieur !'
+    conditions: 'n_fermiercondition'
+    pointers: 'n_finquete'
+  n_verifn:
+    text: 'Malheureusement M''sieur, votre outil n''est pas encore terminé.'
+    pointers: 'n_renvoiquete'
+
+  persuasion_orc1:
+    text: 'Je ne suis pas venu ici pour dégrader votre champ. Je me promenais simplement dans la ville.'
+    pointers: 'renvoi'
+  persuasion_orc2:
+    text: 'Je recherchais un travail, en auriez-vous un à me confier ?'
+    pointers: 'mefiance'
+  persuasion_orc3:
+    text: 'Je vous donne ma parole de ne pas vous faire de tort. Si vous n''avez tout de même pas confiance, donnez-moi simplement un travail de récolte.'
+    pointers: 'o_dejafait,quete_o'
+  acceptation_o:
+    text: 'Parfait ! J''y vais de ce pas !'
+    events: 'o_fermieraccept'
+  refus_o:
+    text: 'Désolé de vous avoir dérangé, cette tâche de m''interesse pas.'
+  o_abandon:
+    text: 'Je souhaite abandonner, désolé.'
+    pointers: 'o_reponseabandon'
+  o_verify:
+    text: 'Oui, les voici.'
+    conditions: 'o_fermiercondition'
+    pointers: 'o_finquete'
+  o_verifn:
+    text: 'Non, je n''ai pas encore réussi à les récupérer.'
+    pointers: 'o_renvoiquete'
+
+  localisation:
+    text: 'Où sommes-nous ?'
+    pointers: 'localisation_rep'
+  bye:
+    text: 'Rien du tout, passez une bonne journée.'
+  bye2:
+    text: 'Je m''en vais, au revoir.'

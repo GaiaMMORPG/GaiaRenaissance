@@ -11,7 +11,7 @@ Config:
   block-ecraft-command: true
   enable-categories: true
   hide-craftings-with-permissions: false
-  workbench-attach: true
+  workbench-attach: false
   block-player-crafting-inventory: false
   cooldown-notification-messages: true
   cooldown-notification-sound:
@@ -707,11 +707,17 @@ Config:
       - job,Artisan,11
     workbench:
       id: CRAFTING_TABLE
+      name: '&fÉtabli'
+      lore:
+      - '&7Un établi'
+      - '&7pour des toutes'
+      - '&7recettes.'
+      - ' '
+      - '&7&oRareté : &fCommun'
       amount: 1
-      ignore-required-items-data-values: true
       requires:
-      - OAK_PLANKS;4
-      category: basic
+      - 'OAK_PLANKS;4;&fPlanches de chêne;&7Des planches de chêne;&7pour la construction;&7ou pour le crafting.; ;&7&oRareté : &fCommun'
+      category: advanced
     furnace:
       id: FURNACE
       amount: '1'
@@ -725,7 +731,7 @@ Config:
       - '&7&oRareté : &fCommun'
       requires:
       - COBBLESTONE;10
-      category: basic
+      category: advanced
     steel_furnace:
       id: FURNACE
       amount: '1'
@@ -741,4 +747,4 @@ Config:
       - COBBLESTONE;10
       - 'IRON_INGOT;5;&fLingot d''acier;&7Un lingot;&7d''acier traditionnel.; ;&7&oRareté
         : &fCommun'
-      category: basic
+      category: advanced

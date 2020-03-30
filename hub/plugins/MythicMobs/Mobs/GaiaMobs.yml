@@ -4,6 +4,31 @@
 
 #========[¤]========#
 #					          #
+#	      Main  	    #
+#					          #
+#========[¤]========#
+
+pnj_marie:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> main.conversation_pnj_marie"} @trigger ~onInteract
+
+#========[¤]========#
+#					          #
 #	     Defaults	    #
 #					          #
 #========[¤]========#

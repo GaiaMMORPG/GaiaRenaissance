@@ -16,15 +16,34 @@ command /formattedservermessages <player> <text>:
 	executable by: console
 	trigger:
 		send "&7%arg 2%" to arg 1
-#
-# Banking
-#
 
-#GUI
+#
+# GUI
+#
 command /openbankgui <offlineplayer>:
 	executable by: console
 	trigger:
 		make arg 1 run command "bank open" as op
+
+on inventory click:
+	if "%clicked slot type%" is "result":
+		cancel event
+		make player execute command "menu"
+	else if "%clicked slot type%" is "crafting":
+		if clicked slot is 1:
+			cancel event
+			make player execute command "teleportations"
+		else if clicked slot is 2:
+			cancel event
+			make player execute command "journal"
+			message "&7Vous recevez/mettez à jour votre journal."
+			message "&7Il devrait se trouver dans votre inventaire."
+		else if clicked slot is 3:
+			cancel event
+			make player execute command "progression"
+		else if clicked slot is 4:
+			cancel event
+			make player execute command "sac"
 
 #
 # Aliases
@@ -74,6 +93,11 @@ on craft:
 		if gamemode of player is survival:
 			cancel event
 			message "&7Vous ne pouvez pas faire cela."
+
+on right click on crafting table:
+	if player is not sneaking:
+		cancel event
+		execute console command "ecraft open main %player%"
 
 on right click on enchantment table:
 	cancel event
@@ -139,7 +163,6 @@ on block break:
 					set biome at event-block to biome south of event-block
 			else:
 				set biome at event-block to biome north of event-block
-			
 
 #
 # SideBar

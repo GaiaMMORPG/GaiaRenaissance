@@ -508,7 +508,9 @@ function ServerTeleportationGUI(player: player):
 function TeleportationExecution(player: player, location: location):
 	close {_player}'s inventory
 	TeleportParticles({_player})
-	wait 5 seconds
+	apply potion of nausea 1 to {_player} for 12 seconds
+	play resource sound pack "teleportation" to {_player} with volume 1
+	wait 9 seconds
 	teleport {_player} to location at {_location}
 
 function TeleportationGUI(player: player):
@@ -750,80 +752,44 @@ function TeleportationGUI(player: player):
 			
 		format gui slot 9 to {_capitales}
 		format gui slot 11 to {_spawn}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Spawn})
 		format gui slot 12 to {_questrelle}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Questrelle})
 		format gui slot 13 to {_capitale_hommes}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Hommes})
 		format gui slot 14 to {_capitale_elfes}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Elfes})
 		format gui slot 15 to {_capitale_nains}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Nains})
 		format gui slot 16 to {_capitale_orcs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Orcs})
 			
 		format gui slot 18 to {_villes}
 		format gui slot 20 to {_ville_questrelle_ap}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Questrelle_avantposte})
 		format gui slot 21 to {_ville_desert}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Desert})
 
 		format gui slot 27 to {_guildes}
 		format gui slot 29 to {_Bucherons}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Bucherons})
 		format gui slot 30 to {_Mineurs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Mineurs})
 		format gui slot 31 to {_Excavateurs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Excavateurs})
 		format gui slot 32 to {_Constructeurs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Constructeurs})
 		format gui slot 33 to {_Fermiers}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Fermiers})
 		format gui slot 38 to {_Eleveurs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Eleveurs})
 		format gui slot 39 to {_Chasseurs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Chasseurs})
 		format gui slot 40 to {_Artisans}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Artisans})
 		format gui slot 41 to {_Pecheurs}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Pecheurs})
 		format gui slot 42 to {_Forgerons}:
-			async
-			play resource sound pack "click" to {_player} with volume 1
 			TeleportationExecution({_player}, location at {@Forgerons})
 
 	open last gui to {_player}

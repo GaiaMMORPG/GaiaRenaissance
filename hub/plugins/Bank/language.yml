@@ -1,0 +1,309 @@
+Message:
+  Bank_Is_Full: '&7Votre banque est pleine.'
+  Money_Is_Full: '&7Montant d''argent maxium atteint. Vous ne pouvez pas déposer plus d''argent dans votre banque.'
+  Exp_Is_Full: '&b[Bank] &aExp is full'
+  Invalid_Money: '&Montant invalide.'
+  Not_Enough_Money_In_Bank: '&7Vous n''avez pas assez d''argent dans votre banque pour faire cela.'
+  Not_Enough_Money: '&7Vous n''avez pas assez d''argent en poche pour faire cela.'
+  Money_Deposit: '&7Vous avez déposé &8¤<a> &7dans votre banque.'
+  Money_Withdraw: '&7Vous avez retiré &8¤<a> &7de votre banque.'
+  Money_Deposit_Chat: '&7Entrez dans votre chat le montant que vous voulez déposer dans votre banque.'
+  Money_Withdraw_Chat: '&7Entrez dans votre chat le montant que vous voulez retirer de votre banque.'
+  Money_Interest_Time: '&7Intérêts payés dans &8<a> &7secondes.'
+  Money_Sent: '&7Vous avez envoyé &8¤<d> &7à &8<n>&7.'
+  Money_Received: '&7Vous avez reçu &8¤<d> &7de la part de &8<n>&7.'
+  Exp_Sent: '&b[Bank] &aSent <d> to <n>'
+  Exp_Received: '&b[Bank] &aReceived <d> from <n>'
+  No_Creative_Mode: '&7Vous ne pouvez pas ouvrir votre banque en mode créatif.'
+  Money_Balance_Chat: '&7Vous avez un montant de &8¤<a> &7dans votre banque.'
+  Slots_Bought: '&7Vous avez acheté &8<i> &7emplacement(s) pour un montant de &8¤<p>&7.'
+  Tabs_Bought: '&7Vous avez acheté l''onglet &8<i> &7pour un montant de &8¤<p>&7.'
+  Slots_Failed: '&7Vous n''avez pas assez d''argent pour acheter ceci.'
+  Tabs_Failed: '&7Vous n''avez pas assez d''argent pour acheter ceci.'
+  Interest_Gained: '&7Vous venez de gagner un montant de &8¤<a> &7d''intérêts.'
+  Interest_Gained_Offline: '&Vous avez $<a> in interest whilst offline'
+  Exp_Interest_Gained: '&b[Bank] &aYou just gained <a> in exp interest'
+  Exp_Interest_Gained_Offline: '&b[Bank] &aYou gained <a> in exp interest whilst offline'
+  Bank_Loading: '&7Votre banque est en chargement.'
+  Bank_Disabled: '&7Votre banque a été supprimmée par un administrateur.'
+  Pin_Wrong: '&7Mauvais code pin.'
+  Pin_Must: '&7Vous devez entrer votre code pin avant de faire ceci.'
+  Pin_Removed: '&7Code pin supprimé.'
+  Pin_New: '&7Nouveau code pin créé.'
+  Invalid_Exp: '&b[Bank] &aCannot parse amount'
+  Invalid_Loan: '&b[Bank] &aCannot parse amount'
+  Not_Enough_Exp_In_Bank: '&b[Bank] &aYou do not have enough exp in your bank to do
+    that'
+  Not_Enough_Exp: '&b[Bank] &aYou do not have enough exp to do that'
+  Exp_Deposit: '&b[Bank] &aYou have deposited <a> exp into your bank'
+  Exp_Withdraw: '&b[Bank] &aYou have withdrawn <a> exp from your bank'
+  Exp_Deposit_Chat: '&b[Bank] &aEnter into chat the amount you wish to deposit:'
+  Exp_Withdraw_Chat: '&b[Bank] &aEnter into chat the amount you wish to withdraw:'
+  Exp_Balance_Chat: '&b[Bank] &aYou have <a> exp in your bank'
+  Exp_Interest_Time: '&b[Bank] &aExp interest in <a> seconds'
+  Loan_Interest_Time: '&b[Bank] &aLoan interest in <a> seconds'
+  Loan_Payback_Time: '&b[Bank] &aLoan payback in <a> seconds'
+  Loan_Take_Out: '&b[Bank] &aTaken out loan for a total of $<a>'
+  Loan_Take_Out_Deadline: '&b[Bank] &aTaken out loan for a total of $<a>, you have
+    <d> days to pay back'
+  Loan_Payback: '&b[Bank] &aYou payed back $<a> of your loans'
+  Unable_To_Find: '&7Impossible de trouver le joueur &8<n>&7.'
+  Info_Border: '&7-----------------------------------------------------'
+  Info:
+  - '&7 Solde : &8¤<bank_money>'
+  - '&7 Intérêts payés dans &8<bank_money_interest_minutes> &7minutes (&8<bank_money_interest_seconds> &7secondes).'
+  Info_Loans:
+  - '&a Loans:'
+  - '&b Total: $<bank_loan_total>'
+  - '&b Paid so far: $<bank_loan_paid>'
+  - '&b Left to pay: $<bank_loan_left>'
+  - '&b Interest: $<bank_loan_interest>'
+  - '&b Loans interest in <bank_loan_interest_minutes> minutes (<bank_loan_interest_seconds>
+    seconds)'
+  - '&b Total payback: $<bank_loan_payback>'
+  - '&b Loans payback in <bank_loan_payback_minutes> minutes (<bank_loan_payback_seconds>
+    seconds)'
+  - '&b You have <bank_loan_deadline_days_formatted> days left to pay back'
+  Info_Other:
+  - '&7 Solde : &8¤<bank_money>'
+  - '&7 Intérêts payés dans &8<bank_money_interest_minutes> &7minutes (&8<bank_money_interest_seconds> &7secondes).'
+  Info_Other_Loans:
+  - '&a Loans:'
+  - '&b Total: $<bank_loan_total>'
+  - '&b Paid so far: $<bank_loan_paid>'
+  - '&b Left to pay: $<bank_loan_left>'
+  - '&b Interest: $<bank_loan_interest>'
+  - '&b Loans interest in <bank_loan_interest_minutes> minutes (<bank_loan_interest_seconds>
+    seconds)'
+  - '&b Total payback: $<bank_loan_payback>'
+  - '&b Loans payback in <bank_loan_payback_minutes> minutes (<bank_loan_payback_seconds>
+    seconds)'
+  - '&b <name> have <bank_loan_deadline_days_formatted> days left to pay back'
+  Item_Is_Blacklisted: '&7 L''objet est blacklisté. Il ne peut donc pas être mis dans la banque.'
+  Loans_Unable_To_Take_Out: '&cYou are unable to take out a loan.'
+  Loans_Unable_To_Amount: '&cYou are unable to take out a loan for <a>.'
+  Loans_Interest_Gained: '&b[Bank] &cYour loans gained $<a> in interest'
+  Loans_Request_Amount_Chat: '&b[Bank] &aEnter into chat the amount you wish to request:'
+  Loans_Payback_Amount_Chat: '&b[Bank] &aEnter into chat the amount you wish to pay
+    back:'
+  Loans_Payback_Chat: '&b[Bank] &aYou have payed back $<a> of your loan, $<r> remaining.'
+Global:
+  Minus: '&c-'
+  Add: '&a+'
+  Back: '&cRetour'
+  Back_Lore: '&7Page précédente'
+  Entity_Name: '&aBanque'
+Choose:
+  Pin: '&aOptions code pin'
+  Pin_Lore: '&7Cliquez pour définir/modifier votre code pin.'
+  Balance: '&aSolde &2¤<a>'
+  Balance_Lore: '&7Cliquez pour retirer/déposer de l''argent.'
+  Bank: '&aObjets'
+  Bank_Lore: '&7Cliquez pour voir vos coffres d''objets.'
+  Loans: '&bLoans'
+  Loans_Lore: '&aClick to take and view current loans'
+  Exp: '&b<a> exp'
+  Exp_Lore: '&aYour current amount of exp'
+Loans:
+  Scroll_Up: '&bScroll Up'
+  Scroll_Up_Lore: '&aScrolls up the tab'
+  Scroll_Down: '&bScroll Down'
+  Scroll_Down_Lore: '&aScrolls down the tab'
+  Take_Out_Loan: '&bTake out loan'
+  Take_Out_Loan_Lore: '&aClick to take out a loan'
+  View_Loans: '&bView loans'
+  View_Loans_Lore: '&aClick to view current loans'
+  Pay_Back_All: '&bPay back all loans'
+  Pay_Back_All_Lore: '&aClick to pay back all current loans'
+  Take_Out_Confirm: '&bConfirm'
+  Take_Out_Confirm_Lore: '&aClick to confirm loan'
+  Take_Out_Amount: '&bAmount: $<a>'
+  Take_Out_Amount_Lore_Max: '&aMax Loan: <a>'
+  Take_Out_Amount_Lore_Interest: '&aInterest rate: <a>'
+  Take_Out_Amount_Lore_Minimum: '&aMinimum: <a>'
+  Take_Out_Amount_Lore_Fee: '&aFee: <a>'
+  Take_Out_Amount_Lore_Payback: '&aPayback: <a>'
+  Take_Out_Amount_Lore_Deadline: '&aDeadline: <d> days'
+  View_Loan: '&bAmount: $<a>'
+  View_Loan_Lore_Admin_Info:
+  - '&7Username: <name>'
+  - '&7UUID: <uuid>'
+  View_Loan_Lore_Interest: '&aInterest rate: <a>'
+  View_Loan_Lore_Original: '&aOriginal: <a>'
+  View_Loan_Lore_Created: '&aCreated: <d>'
+  View_Loan_Lore_Deadline: '&aDeadline: <d> days'
+  View_Loan_Lore_Payback: '&aPayback: <a>'
+  View_Loan_Lore_Click: '&aClick to payback/edit'
+  View_Payback: '&bPayback'
+  View_Payback_Lore: '&aPayback part of the loan'
+  Payback_Custom: '&bCustom payback'
+  Payback_Custom_Lore: '&aClick to set custom payback'
+  Sort: '&bSort: <sort>'
+  Sort_Lore: '&aClick to change sort'
+Pin:
+  Set: '&aRéglez votre code pin.'
+  Set_Lore: '&7Cliquez pour régler votre code pin.'
+  Remove: '&aSupprimez votre code pin'
+  Remove_Lore: '&7Cliquez pour supprimer votre code pin.'
+  Reset: '&cRéinitialiser'
+  Progress: '&b<i>/4'
+  Number: '&b<i>'
+Balance:
+  Balance_Lore: '&7Votre argent en banque.'
+  Withdraw: '&aRetirer de l''argent'
+  Withdraw_Lore: '&7Entrez le montant à retirer.'
+  Withdraw_All: '&aRetirer tout votre argent'
+  Withdraw_All_Lore: ''
+  Deposit: '&aDéposer de l''argent'
+  Deposit_Lore: '&7Entrez le montant à déposer.'
+  Deposit_All: '&aDéposer tout votre argent'
+  Deposit_All_Lore: ''
+  Cheque: '&aChéquier'
+  Cheque_Lore: '&7Recevoir un carnet de chèques.'
+  Send_Other: '&aEnvoyer de l''argent'
+  Send_Other_Lore: '&7Entrez le nom du joueur puis le montant à envoyer.'
+  Top_Format: '&e<pos>. &f<name> : &7¤<a>'
+  Top_Blacklist_Add: '&a<name> / <uuid> ajouté à la blacklist.'
+  Top_Blacklist_Remove: '&a<name> / <uuid> supprimé de la blacklist.'
+Bank:
+  Tab: '&aOnglet <i>'
+  Tab_Change: ''
+  Tab_Current: '&aOnglet ouvert'
+  Tab_Items: '&8<i> &7objets'
+  Tab_Disabled: '&cVérouillé'
+  Tab_Locked: '&cBloqué'
+  Tabs: '&aOnglets'
+  Available_Tabs: '&7Onglets disponibles : &8<i>'
+  Buy_Tabs: '&7Cliquez pour acheter plus d''onglets.'
+  Slots: '&aEmplacements'
+  Used_Slots: '&7Emplacements utilisés : &8<i>'
+  Available_Slots: '&7Emplacements libres : &8<i>'
+  Total_Slots: '&7Nombe total d''emplacements : &8<i>'
+  Click_To_Buy: '&7Cliquez pour acheter plus d''emplacements.'
+  Scroll_Up: '&aDéfiler vers le haut'
+  Scroll_Up_Lore: '&7Faire défiler l''onglet vers le haut.'
+  Scroll_Down: '&aDéfiler vers le bas'
+  Scroll_Down_Lore: '&7Faire défiler l''onglet vers le bas.'
+  Sort: '&aTrier cet onglet'
+  Sort_Lore: '&7Cliquez pour les options de tri.'
+  Remove_Items: '&aRécupérer'
+  Remove_Items_Lore: '&7Récupérer rapidement des objets.'
+  Add_Items: '&aDéposer'
+  Add_Items_Lore: '&7Déposez rapidement des objets.'
+  Trashcan: '&cPoubelle'
+  Trashcan_Lore: '&7Les objets sont détruits.'
+Tabitempicker:
+  Scroll_Up: '&aFaire défiler vers le haut'
+  Scroll_Up_Lore: '&aAller tout en haut'
+  Scroll_Down: '&aFaire défiler vers le bas'
+  Scroll_Down_Lore: '&aAller tout en bas'
+  Reset: '&cRéinitialiser'
+  Reset_Lore: '&cRéinitialiser les objets de l''onglet.'
+Slots:
+  Buy: '&aAchter &2<i> &aemplacement(s) pour &2¤<p>'
+Tabs:
+  Buy: '&aAchter &2<i> &aonglet(s) pour &2¤<p>'
+Sort:
+  Alphabetically_Material: '&aTrier par matériau'
+  Alphabetically_Material_Lore: '&7Trier l''onglet par matériau.'
+  Alphabetically_Name: '&aTrier par ordre alphabétique'
+  Alphabetically_Name_Lore: '&7Trier l''onglet par ordre alphabétique.'
+  Amount: '&aTrier par quantité'
+  Amount_Lore: '&7Trier l''onglet par la quantité d''objets.'
+Add:
+  Inventory: '&aDéposer votre inventaire'
+  Inventory_Lore: '&7Mettre tous les objets dans l''onglet.'
+  Hotbar: '&aDéposer votre barre d''objets'
+  Hotbar_Lore: '&7Mettre votre barre d''objets dans l''onglet.'
+  All: '&aDéposer tout'
+  All_Lore: '&7Mettre votre inventaire dans l''onglet.'
+Remove:
+  Hotbar: '&aRécupérer dans votre barre d''objets'
+  Hotbar_Lore: '&7Mettre l''onglet dans votre barre d''objets.'
+  Inventory: '&aRécupérer dans votre inventaire'
+  Inventory_Lore: '&7Mettre l''onglet dans votre inventaire.'
+  All: '&aRécupérer tout'
+  All_Lore: '&7Mettre l''onglet dans tout votre inventairer.'
+Exp:
+  Exp_Lore: '&aClick to withdraw/deposit'
+  Withdraw: '&bClick to withdraw exp'
+  Withdraw_Lore: '&aEnter the amount to withdraw'
+  Withdraw_All: '&bClick to withdraw all exp'
+  Withdraw_All_Lore: '&aWithdraws all exp'
+  Deposit: '&bClick to deposit exp'
+  Deposit_Lore: '&aEnter the amount to deposit'
+  Deposit_All: '&bClick to deposit all exp'
+  Deposit_All_Lore: '&aDeposits all exp'
+  Send_Other: '&bSend exp to another player'
+  Send_Other_Lore: '&aEnter the player to send exp to, then the amount'
+Command:
+  Title_Format: '&7---------- &8¤ &7Banque &8¤ &7----------  [&a<base>&b<args>&7].'
+  Commands_Format: '&7/&7<base>&b<args>.'
+  Message_Format: '&7[&aBank&7] <message>.'
+  Unknown_Format: '&7Commande inconnue /<base><args>.'
+  Unknown_Player: '&7Joueur inconnu <name>.'
+  No_Permission: '&7Vous n''avez pas la permissions d''utiliser cette commande.'
+  Admin_Removed: '&7<uuid> Supprimer de la base de données.'
+  Time: ''
+  Top: '&7---------- &8¤ &7Banques - Rangs &8¤ &7----------'
+Money:
+  Million: Million
+  Billion: Billion
+  Trillion: Trillion
+  Quadrillion: Quadrillion
+  Quintillion: Quintillion
+  Sextillion: Sextillion
+  Septillion: Septillion
+  Octillion: Octillion
+  Nonillion: Nonillion
+  Decillion: Decillion
+  Undecillion: Undecillion
+  Duodecillion: Duodecillion
+  Tredecillion: Tredecillion
+  Quattuordecillion: Quattuordecillion
+  Quinquadecillion: Quinquadecillion
+  Sedecillion: Sedecillion
+  Septendecillion: Septendecillion
+  Octodecillion: Octodecillion
+  Novendecillion: Novendecillion
+  Vigintillion: Vigintillion
+  Unvigintillion: Unvigintillion
+  Duovigintillion: Duovigintillion
+  Tresvigintillion: Tresvigintillion
+  Quattuorvigintillion: Quattuorvigintillion
+  Quinquavigintillion: Quinquavigintillion
+  Sesvigintillion: Sesvigintillion
+  Septemvigintillion: Septemvigintillion
+  Octovigintillion: Octovigintillion
+  Novemvigintillion: Novemvigintillion
+  Trigintillion: Trigintillion
+  Untrigintillion: Untrigintillion
+  Duotrigintillion: Duotrigintillion
+  Trestrigintillion: Trestrigintillion
+  Quattuortrigintillion: Quattuortrigintillion
+  Quinquatrigintillion: Quinquatrigintillion
+  Sestrigintillion: Sestrigintillion
+  Septentrigintillion: Septentrigintillion
+  Octotrigintillion: Octotrigintillion
+  Noventrigintillion: Noventrigintillion
+  Quadragintillion: Quadragintillion
+Title:
+  Bank: '&aBanque'
+  Admin: '&aBanque - Administrateur'
+  Blacklist: '&aBanque - BlackList'
+  Choose: '&aBanque'
+  Sort: '&aBanque'
+  Buy_Slots: '&aBanque'
+  Buy_Tabs: '&aBanque'
+  Add_Items: '&aBankque'
+  Remove_Items: '&aBanque'
+  Balance: '&aBanque'
+  Exp: '&aBanque'
+  Pin: '&aBanque'
+  Pin_Set: '&aBanque'
+  Pin_Options: '&aBanque'
+  Tabitempicker: '&aBanque'
+  Loans: '&aBanque'
+  Trashcan: '&cPoubelle'
+Sign:
+  Text: '&2[Banque]'

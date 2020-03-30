@@ -1,0 +1,106 @@
+#race:Humain
+#emplacement:
+#sexe:Féminin
+#Nom:Griselda
+
+quester: 'Griselda'
+first: 'rencontre,bjr_1,bjr_2,bjr_3,delay_1,delay_2'
+stop: 'false'
+
+NPC_options:
+  rencontre:
+    conditions: '!tag_incomprise,!tag_conclusion_1,!tag_conclusion_2'
+    text: 'Bonjour, vous vouliez me poser une question ?'
+    pointer: 'rencontre_p,rencontre_p2,'
+
+  Bye:
+    text: 'Oh, et bien... Passez une bonne journée !'
+
+  life: 
+    text: 'Et bien, moi je m''appelle Griselda, je suis née dans cette ville et ne la quitte plus. Mon rêve est d''apprendre aux gens différentes choses afin de mieux vivre.' 
+    pointer: 'life_p,incomprise'
+  
+  Incomprise_final:
+    text: 'C''est bien l''avis de beaucoup de personnes...'
+    event: 'tag_incomprise'
+  
+  bjr_3:
+    conditions: 'tag_incomprise,!tag_conclusion_2,!tag_conclusion_1'
+    text: 'Je n''ai pas le temps de vous parler.'
+
+  life_2:
+    text: 'Merci, mais le problème voyez-vous, c''est que je ne peux réaliser ce rêve. J''ai fait mes propres recherches et j''ai malheureusement appris que ce métier n''existait pas.'
+    pointer: 'life_p2_1,life_p2_2'
+
+  solution_1:
+    text: 'Vous êtes bien drôle, cela ne se fait pas en un claquement de doigts !'
+    pointer: 'solution_p1'
+  
+  solution_2:
+    text: 'C''est malheureusement ce que je fais depuis des années mais je ne trouve pas... Comment faire pour motiver la jeune population à aller en nouvelle éducation alors qu''ils ont leurs parents et qu''ils peuvent aller s''amuser toute la journée ?'  
+    pointer: 'solution_p2'
+  
+  conclusion_1:
+    text: 'Vous avez raison, je vais tenter de les convaincre ! Merci !'
+    events: 'griselda_timer_conclusion_1,griselda_tag_delay_1'
+
+  delay_1:
+    text: 'Vous m''avez convaincu ! Je recherche encore une famille afin d''éduquer leur enfant.'
+    condition: 'griselda_tag_delay_1'
+
+  bjr_1:
+    conditions: 'griselda_tag_conclusion_1,!griselda_tag_conclusion_2,!tag_incomprise'
+    text: 'Bonjour ! J''ai réussi à convaincre une famille ! Pour le moment, nous avons un petit contrat, toutes les semaines, j''apprends certaines bases à leur fils !'
+
+  Conclusion_2:
+    text: 'Vous pensez ? Dans ce cas, je pourrais peut-être plus facilement convaincre les sans-abris, ils pourront peut-être ensuite trouver du travail grâce à moi ! Au revoir !'
+    events: 'griselda_timer_conclusion_2,tag_sdf_special,griselda_tag_delay_2'
+ 
+  delay_2:
+    text: 'Vous m''avez convaincu ! Je recherche encore un sans-abri afin de le rééduquer pour qu''il puisse trouver du travail.'
+    condition: 'griselda_tag_delay_2'
+
+  bjr_2:
+    conditions: 'griselda_tag_conclusion_2,!griselda_tag_conclusion_1,!tag_incomprise'
+    text: 'Bonjour ! J''ai suivi votre conseil, un sans-abris à accepter très rapidement à condition que je lui offre à manger après chaque cours ! C''est un bon début, n''est-ce pas ?'
+    pointer: 'salut,bye_p'
+
+player_options:
+  rencontre_p:
+    text: 'Oui, je viens d''arriver en ville et j''aimerais faire quelques rencontres pour mieux connaître les habitants. '
+    pointer: 'life'
+
+  rencontre_p2:
+    text: 'Non, je ne faisais que passer.'
+    pointer: 'Bye'
+
+  life_p:
+    text: 'Je trouve que c''est un très bel objectif !'
+    pointer: 'life_2'
+  
+  Incomprise:
+    text: 'Je ne trouve pas cela très intérressant...'
+    pointer: 'Incomprise_final'
+
+  life_p2_1:
+    text: 'Mais en quoi cela pose t''il un problème ? Ce serait justement pour vous l''occasion de réaliser l''impossible, de devenir célèbre pour avoir créé un nouveau système d''éducation !'
+    pointer: 'solution_1'
+
+  solution_p1:
+    text: 'Commencez par proposer aux adultes d''éduquer leurs enfants pendant leur travail, l''affaire pourrait être intéressante pour eux.'
+    pointer: 'Conclusion_1'
+
+  life_p2_2:
+    text: 'Je comprends. C''est bien dommage tout de même, continuez de chercher un moyen, je vous assure que cette idée tient la route.'
+    pointer: 'solution_2'
+   
+  solution_p2: 
+    text: 'Ne perdez pas espoir, vous savez, même les adultes n''ont pas beaucoup de connaissances à l''heure actuelle, vous pourriez changer cela...'
+    pointer: 'Conclusion_2'
+  
+  salut:
+    text: 'Vous voyez, vous pouvez y arriver !'
+
+  bye_p:
+    text: 'Bonjour, je suis content pour vous mais pardonnez-moi... Je suis pressé.'
+    pointer: 'Bye'

@@ -74,7 +74,6 @@ on unload:
 # Periodic
 #
 
-# Is this still necessary with blockregen installed ?
 every 10 minutes in world "gaia":
 	loop {local::mined::locations::*}:
 		set block at loop-value to metadata "gaiaresource" of block at location at loop-value
@@ -82,37 +81,50 @@ every 10 minutes in world "gaia":
 
 every 1 minute in world "gaia":
 	async
-	set {_json} to text from url "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,BCH,ETH,DASH,LTC,ZEC&tsyms=EUR"
+	set {_limit} to text from url "https://min-api.cryptocompare.com/stats/rate/limit"
+	if CryptoMarketStatus({_limit}) is true:
+		set line 2 of block at location at 3906, 144, -8393 of the world "gaia" to "&2&lOuvert"
+		set {_json} to text from url "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,BCH,ETH,DASH,LTC,ZEC&tsyms=EUR"
 
-	#BTC = Bons du Trésor
-	set line 1 of block at location at 3906, 143, -8393 of the world "gaia" to "&lBons du Trésor"
-	set line 2 of block at location at 3906, 143, -8393 of the world "gaia" to CryptoPrice({_json}, "BTC")
-	set line 3 of block at location at 3906, 143, -8393 of the world "gaia" to CryptoVariation({_json}, "BTC")
+		#BTC = Bons du Trésor
+		set line 1 of block at location at 3906, 143, -8393 of the world "gaia" to "&lBons du Trésor"
+		set line 2 of block at location at 3906, 143, -8393 of the world "gaia" to CryptoPrice({_json}, "BTC")
+		set line 3 of block at location at 3906, 143, -8393 of the world "gaia" to CryptoVariation({_json}, "BTC")
 
-	#BCH = Métaux précieux
-	set line 1 of block at location at 3906, 143, -8394 of the world "gaia" to "&lMétaux précieux"
-	set line 2 of block at location at 3906, 143, -8394 of the world "gaia" to CryptoPrice({_json}, "BCH")
-	set line 3 of block at location at 3906, 143, -8394 of the world "gaia" to CryptoVariation({_json}, "BCH")
+		#BCH = Métaux précieux
+		set line 1 of block at location at 3906, 143, -8394 of the world "gaia" to "&lMétaux précieux"
+		set line 2 of block at location at 3906, 143, -8394 of the world "gaia" to CryptoPrice({_json}, "BCH")
+		set line 3 of block at location at 3906, 143, -8394 of the world "gaia" to CryptoVariation({_json}, "BCH")
 
-	#ETH = Nourriture
-	set line 1 of block at location at 3906, 143, -8395 of the world "gaia" to "&lNourriture"
-	set line 2 of block at location at 3906, 143, -8395 of the world "gaia" to CryptoPrice({_json}, "ETH")
-	set line 3 of block at location at 3906, 143, -8395 of the world "gaia" to CryptoVariation({_json}, "ETH")
+		#ETH = Nourriture
+		set line 1 of block at location at 3906, 143, -8395 of the world "gaia" to "&lNourriture"
+		set line 2 of block at location at 3906, 143, -8395 of the world "gaia" to CryptoPrice({_json}, "ETH")
+		set line 3 of block at location at 3906, 143, -8395 of the world "gaia" to CryptoVariation({_json}, "ETH")
 
-	#DASH = Minerais
-	set line 1 of block at location at 3906, 143, -8396 of the world "gaia" to "&lMinerais"
-	set line 2 of block at location at 3906, 143, -8396 of the world "gaia" to CryptoPrice({_json}, "DASH")
-	set line 3 of block at location at 3906, 143, -8396 of the world "gaia" to CryptoVariation({_json}, "DASH")
+		#DASH = Minerais
+		set line 1 of block at location at 3906, 143, -8396 of the world "gaia" to "&lMinerais"
+		set line 2 of block at location at 3906, 143, -8396 of the world "gaia" to CryptoPrice({_json}, "DASH")
+		set line 3 of block at location at 3906, 143, -8396 of the world "gaia" to CryptoVariation({_json}, "DASH")
 
-	#LTC = Équipement
-	set line 1 of block at location at 3906, 143, -8392 of the world "gaia" to "&lÉquipement"
-	set line 2 of block at location at 3906, 143, -8392 of the world "gaia" to CryptoPrice({_json}, "LTC")
-	set line 3 of block at location at 3906, 143, -8392 of the world "gaia" to CryptoVariation({_json}, "LTC")
+		#LTC = Équipement
+		set line 1 of block at location at 3906, 143, -8392 of the world "gaia" to "&lÉquipement"
+		set line 2 of block at location at 3906, 143, -8392 of the world "gaia" to CryptoPrice({_json}, "LTC")
+		set line 3 of block at location at 3906, 143, -8392 of the world "gaia" to CryptoVariation({_json}, "LTC")
 
-	#ZEC = Bétail
-	set line 1 of block at location at 3906, 143, -8391 of the world "gaia" to "&lBétail"
-	set line 2 of block at location at 3906, 143, -8391 of the world "gaia" to CryptoPrice({_json}, "ZEC")
-	set line 3 of block at location at 3906, 143, -8391 of the world "gaia" to CryptoVariation({_json}, "ZEC")
+		#ZEC = Bétail
+		set line 1 of block at location at 3906, 143, -8391 of the world "gaia" to "&lBétail"
+		set line 2 of block at location at 3906, 143, -8391 of the world "gaia" to CryptoPrice({_json}, "ZEC")
+		set line 3 of block at location at 3906, 143, -8391 of the world "gaia" to CryptoVariation({_json}, "ZEC")
+		
+	else:
+		set line 2 of block at location at 3906, 144, -8393 of the world "gaia" to "&4&lFermé"
+
+function CryptoMarketStatus(json: string) :: boolean:
+	set {_response} to content of json value "Response" from text {_json}
+	if {_response} is "Success":
+		return true
+	else:
+		return false
 
 function CryptoPrice(json: string, currency: string) :: string:
 	set {_temp} to content of json value "RAW" from text {_json}
@@ -123,7 +135,6 @@ function CryptoPrice(json: string, currency: string) :: string:
 	if {_currency} is not "BTC":
 		set {_temp} to {_temp} * 10
 	set {_temp} to first 10 characters of {_temp}
-	
 	return "%{_temp}%¤"
 
 function CryptoVariation(json: string, currency: string) :: string:

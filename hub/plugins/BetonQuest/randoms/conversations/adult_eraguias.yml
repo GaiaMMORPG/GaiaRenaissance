@@ -1,0 +1,38 @@
+#race:Humain
+#emplacement:
+#sexe:Masculin
+#Eraguias
+
+quester: 'Eraguias'
+first: 'beau,moche,nuit'
+stop: 'false'
+
+NPC_options:
+  beau:
+    condition: 'weather_sun,time_day'
+    text: 'Ahh, quel beau temps ! Ca fait du bien de temps en temps !'
+    pointer: 'beau_p'
+  moche:
+    condition: 'weather_rain,time_day'
+    text: 'On dirait une journée d''enterrement ! Oh... je ne devrais pas m''exclamer autant pour ce genre de chose...'
+    pointer: 'moche_p,moche_p_2'
+  nuit:
+    condition: '!time_day'
+    text: 'Je vous avouerai que c''est mon moment préféré de la journée ! Toutes ces étoiles dans le ciel m''aident à penser. Prenez le temps quelques fois de vous perdre en ce beau paysage.'
+    pointer: 'nuit_p,nuit_p_2'
+  reflexion:
+    text: 'Que faites-vous ici à me parler dans ce cas ?'
+
+player_options:
+  beau_p:
+    text: 'Je suis tout à fait d''accord avec vous !'
+  moche_p:
+    text: 'Effectivement, ce serait préférable.'
+  moche_p_2:
+    text: 'Ne vous en faites pas, ça m''arive de temps en temps.'
+  nuit_p:
+    text: 'J''y veillerai.'
+  nuit_p_2:
+    text: 'Désolé, mais moi je dors à cette heure-ci.'
+    pointer: 'reflexion'
+  

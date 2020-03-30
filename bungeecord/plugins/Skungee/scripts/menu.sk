@@ -1,0 +1,1563 @@
+#========[¤]========#
+#					#
+#		 Menu		#
+#					#
+#========[¤]========#
+#
+# This file is synced over the BungeeCord Network
+# 	and should therefore ONLY execute tasks which CAN
+#	affect players on join on ANY server of the network.
+#
+
+#
+# Todo 
+#
+#For /jobs commands, deny them all, then associate them with /metiers
+#create custom help output for /metiers
+#run specified commands as op to override the denying permissions.
+
+options:
+	Spawn: 4565, 106, -8505
+	Questrelle: 3828, 219, -8201
+	Hommes: 2972, 102, -6082
+	Elfes: -983, 192, -4710
+	Nains: 384, 62, -9891
+	Orcs: 5249, 126, -3905
+	
+	Questrelle_avantposte: 3014, 83, -7462
+	Desert: 23, 38, -2935
+
+	Bucherons: 4118, 131, -8388
+	Mineurs: 4090, 98, -8717
+	Excavateurs: 3916, 106, -8713
+	Constructeurs: 3928, 130, -8174
+	Fermiers: 4319, 113, -8600
+	Eleveurs: 4356, 104, -8657
+	Chasseurs: 4147, 34, -8080
+	Artisans: 4278, 19, -8002
+	Pecheurs: 3854, 19, -8787
+	Forgerons: 4453, 98, -8349
+
+command /menu:
+	aliases: /m, /me, /men
+	usage: &8/menu
+	trigger:
+		if name of current inventory of player is not "&aMenu":
+			close inventory of player
+		wait 1 tick
+		async
+		MenuGUI(player)
+		
+command /teleportations:
+	aliases: /teleportation, /teleport, /tele, /t
+	usage: &8/teleportation
+	trigger:
+		if current server is "hub":
+			async
+			TeleportationGUI(player)
+		else:
+			message "&7Vous ne pouvez pas vous téléporter ici."
+
+command /serverteleportations <player>:
+	executable by: console
+	trigger:
+		async
+		ServerTeleportationGUI(arg 1)
+
+command /progression:
+	aliases: /prog, /progress
+	usage: &8/progression
+	trigger:
+		async
+		ProgressionGUI(player)
+
+command /options:
+	aliases: /option
+	usage: &8/options
+	trigger:
+		async
+		OptionsGUI(player)
+
+command /actions:
+	aliases: /action
+	usage: &8/actions
+	trigger:
+		async
+		ActionGUI(player)
+
+command /liens:
+	aliases: /lien
+	usage: &8/liens
+	trigger:
+		async
+		LiensGUI(player)
+
+command /classements:
+	aliases: /classement
+	usage: &8/classements
+	trigger:
+		async
+		ClassementsGUI(player)
+
+command /metiers [<string>] [<string>]:
+	aliases: /metier
+	usage: &8/metiers [info | bossbar | actionbar | top]
+	trigger:
+
+		if arg 1 is not set:
+			execute console command "lp user %player% settemp jobs.command.browse true 5s"
+			wait 1 tick
+			make player execute command "jobs browse"
+			wait 1 tick
+			while display name of current inventory of player contains "Menu des Métiers":
+				execute console command "lp user %player% settemp jobs.command.join true 10s"
+				wait 10 seconds
+
+		else if arg 1 is "info":
+			execute console command "lp user %player% settemp jobs.command.stats true 5s"
+			wait 1 tick
+			make player execute command "jobs stats"
+
+		else if arg 1 is "quete" or "quetes":
+			execute console command "lp user %player% settemp jobs.command.quests true 5s"
+			wait 1 tick
+			make player execute command "jobs quests"
+
+		else if arg 1 is "bossbar":
+			execute console command "lp user %player% settemp jobs.command.toggle true 5s"
+			wait 1 tick
+			make player execute command "jobs toggle bossbar"
+		else if arg 1 is "actionbar":
+			execute console command "lp user %player% settemp jobs.command.toggle true 5s"
+			wait 1 tick
+			make player execute command "jobs toggle actionbar"
+
+		else if arg 1 is "top":
+			if arg 2 is set:
+				execute console command "lp user %player% settemp jobs.command.top true 5s"
+				wait 1 tick
+				make player execute command "jobs top %arg 2%"
+			else:
+				message "&7Utilisez /metiers top [Artisan | Bûcheron | Chasseur | Constructeur | Excavateur | Fermier | Forgeron | Mineur | Pêcheur | Éleveur]"
+		else if arg 1 is "gtop":
+			execute console command "lp user %player% settemp jobs.command.gtop true 5s"
+			wait 1 tick
+			make player execute command "jobs gtop"
+		
+		else if arg 1 is "bonus":
+			if arg 2 is set:
+				execute console command "lp user %player% settemp jobs.command.bonus true 5s"
+				wait 1 tick
+				make player execute command "jobs bonus %arg 2%"
+			else:
+				message "&7Utilisez /metiers bonus [Artisan | Bûcheron | Chasseur | Constructeur | Excavateur | Fermier | Forgeron | Mineur | Pêcheur | Éleveur]"
+
+		else:
+			message "&7Utilisez /metiers [info | quetes | bonus | bossbar | actionbar | top | gtop]"
+
+command /banque [<string>]:
+	usage: &8/banque [ info | interets | top]
+	trigger:
+		if arg 1 is "info":
+			make player execute command "bank info"
+		else if arg 1 is "interet" or "interets":
+			make player execute command "bank time"
+		else if arg 1 is "top" or "classement":
+			make player execute command "bank top"
+		else:
+			message "&7Utilisez /banque [ info | interets | top]"
+
+command /argent [<string>]:
+	aliases: /poche
+	usage: &8/argent
+	trigger:
+		if arg 1 is not set:
+			make player execute command "balance"
+		else if arg 1 is "info" or "poche":
+			make player execute command "balance"
+		else if arg 1 is "top" or "classement":
+			make player execute command "balancetop"
+		else:
+			message "&7Utilisez &8/argent [info|top]"
+
+command /echange [<string>]:
+	usage: &8/echange [joueur]
+	trigger:
+		if arg 1 is "acc" or "accept" or "accepter":
+			make player execute command "trade accept"
+		else if arg 1 is "ref" or "refus" or "refuser":
+			make player execute command "trade deny"
+		else if arg 1 is "info":
+			message "&7Utilisez &8/echange [nom de joueur | accepter | refuser | info]"
+		else:
+			set {_partner} to arg 1 parsed as offline player
+			if {_partner} has played before:
+				make player execute command "trade %arg 1%"
+			else:
+				message "&7Il n'y a personne de ce nom sur Gaïa."
+
+command /chat [<string>] [<string>]:
+	usage: &8/chat [ info | liste | entrer | quitter | ignorer ] [ channel | nom du joueur à ignorer]
+	trigger:
+		if arg 1 is "info":
+			make player execute command "ch"
+		else if arg 1 is "list" or "liste":
+			if arg 2 is set:
+				make player execute command "ch list %arg 2%"
+			else:
+				message "&7Vous devez définir un nom de channel."
+		else if arg 1 is "entrer":
+			if arg 2 is set:
+				make player execute command "ch join %arg 2%"
+			else:
+				message "&7Vous devez définir un nom de channel."
+		else if arg 1 is "quitter":
+			if arg 2 is set:
+				make player execute command "ch leave %arg 2%"
+			else:
+				message "&7Vous devez définir un nom de channel."
+		else if arg 1 is "ignorer" or "ignore":
+			if arg 2 is set:
+				make player execute command "ignore %arg 2%"
+			else:
+				message "&7Vous devez définir un nom de joueur."
+		else if arg 1 is "messages":
+			make player execute command "togglepm"
+		else:
+			message "&7Utilisez /chat [ info | liste | entrer | quitter | ignorer ] [ channel | nom du joueur à ignorer]"
+
+command /carte [<string>]:
+	usage: &8/carte [gaia|factions|iles]
+	trigger:
+		if arg 1 is not set:
+			TellRaw(player, "&7Lien vers la Carte de Gaïa.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "http://carte.gaia-craft.fr/")
+		else if arg 1 is "gaia":
+			TellRaw(player, "&7Lien vers la Carte de Gaïa.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "http://carte.gaia-craft.fr/")
+		else if arg 1 is "factions":
+			TellRaw(player, "&7Lien vers la Carte des Factions de Gaïa.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "http://factions.gaia-craft.fr/")
+		else if arg 1 is "iles":
+			TellRaw(player, "&7Lien vers la Carte des Îles de Gaïa.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "http://iles.gaia-craft.fr/")
+		else:
+			message "&7Utilisez &8/carte [gaia | faction | iles]"
+
+command /succes [<string>]:
+	aliases: /success
+	usage: &8/succes [info | stats | livre | top | semaine | mois | notifications]
+	trigger:
+		if arg 1 is not set:
+			execute console command "lp user %player% settemp achievement.list true 5s"
+			wait 1 tick
+			make player execute command "aach list"
+		else if arg 1 is "info":
+			execute console command "lp user %player% settemp achievement.list true 5s"
+			wait 1 tick
+			make player execute command "aach list"
+		else if arg 1 is "stats":
+			execute console command "lp user %player% settemp achievement.stats true 5s"
+			wait 1 tick
+			make player execute command "aach stats"
+		else if arg 1 is "livre" or "book":
+			execute console command "lp user %player% settemp achievement.book true 5s"
+			wait 1 tick
+			make player execute command "aach book"
+		else if arg 1 is "top":
+			execute console command "lp user %player% settemp achievement.top true 5s"
+			wait 1 tick
+			make player execute command "aach top"
+		else if arg 1 is "semaine":
+			execute console command "lp user %player% settemp achievement.week true 5s"
+			wait 1 tick
+			make player execute command "aach week"
+		else if arg 1 is "mois":
+			execute console command "lp user %player% settemp achievement.month true 5s"
+			wait 1 tick
+			make player execute command "aach month"
+		else if arg 1 is "notifications" or "notification":
+			execute console command "lp user %player% settemp achievement.toggle true 5s"
+			wait 1 tick
+			make player execute command "aach toggle"
+
+command /administrateur <player>:
+	executable by: console
+	trigger:
+		if arg 1 has permission "admin.admin":
+			wait 4 ticks
+			set {_player} to arg 1
+			create a gui with virtual chest with 3 rows named "&aOptions":
+				format gui slot 0, 1, 2, 3, 4, 5, 6, 18, 19, 20, 21, 22, 23, 24, 25 and 26 with black stained glass named " "
+				format gui slot 7 to stick named "&aRetour":
+					MenuGUI({_player})
+					play resource sound pack "click" to {_player} with volume 1
+				format gui slot 8 to barrier named "&c&lFermer":
+					close {_player}'s inventory
+					play resource sound pack "click" to {_player} with volume 1
+			open last gui to {_player}
+			
+			#set {_Money} to {data::bank.total} + {data::poche.total}
+			format slot 4 of arg 1 with chest named "&aInformations" with lore "&7Joueurs : ||&7Total argent : %{_Money}% ¤||&7Comptes : %size of offline players%||&7Mémoire : %total ram%MB / %max ram%MB" to be unstealable
+			format slot 10 of arg 1 with arg 1's skull named "&aModération" to close then run [make arg 1 execute command "moderation"]
+			
+		else:
+			message "&d&oLe compte %arg 1% n'est pas administrateur et l'occurrence de la commande /administrateur pour ce même joueur est donc suspecte.%nl%&c&oUn rapport a été envoyé pour prévenir l'administration."
+			log "Le joueur %arg 1% n'est pas administrateur et l'occurrence de la commande /administrateur pour ce même joueur est donc suspecte." to "errors.log" 
+
+#
+# GUIs
+#
+# I - MenuGUI
+# II - ProgressionGUI
+# III - AmisGUI
+# IV - OptionsGUI
+# V - LiensGUI
+# VI - AdminGUI
+#
+#
+function MenuGUI(player: player):
+	set {_options} to {_player}'s skull named "&2%{_player}%"
+	set line 1 of lore of {_options} to "&7Temps de jeu : &8%placeholder ""statistic_hours_played"" from {_player}%&7h"
+	set line 2 of lore of {_options} to "&7Bloc cassés : &8%placeholder ""statistic_mine_block"" from {_player}%"
+	set line 3 of lore of {_options} to "&7Dommages infligés : &8%placeholder ""statistic_damage_dealt"" from {_player}%"
+	set line 4 of lore of {_options} to "&7Dommages reçus : &8%placeholder ""statistic_damage_taken"" from {_player}%"
+	
+	set {_teleport} to beacon named "&aTéléportations"
+	set line 1 of lore of {_teleport} to "&7Cliquez ici pour"
+	set line 2 of lore of {_teleport} to "&7afficher vos"
+	set line 3 of lore of {_teleport} to "&7téléportations."
+	set line 4 of lore of {_teleport} to " "
+	set line 5 of lore of {_teleport} to "&7Utilisez /teleportation"
+	set line 6 of lore of {_teleport} to "&7pour afficher ce"
+	set line 7 of lore of {_teleport} to "&7menu directement."
+	
+	set {_progression} to book named "&aProgression"
+	set line 1 of lore of {_progression} to "&7Cliquez ici pour"
+	set line 2 of lore of {_progression} to "&7afficher votre"
+	set line 3 of lore of {_progression} to "&7progression."
+	set line 4 of lore of {_progression} to " "
+	set line 5 of lore of {_progression} to "&7Utilisez /progression"
+	set line 6 of lore of {_progression} to "&7pour afficher ce"
+	set line 7 of lore of {_progression} to "&7menu directement."
+	
+	set {_cheval} to saddle named "&aCheval"
+	set line 1 of lore of {_cheval} to "&7Cliquez ici pour"
+	set line 2 of lore of {_cheval} to "&7invoquer votre"
+	set line 3 of lore of {_cheval} to "&7fidèle destrier."
+	set line 4 of lore of {_cheval} to " "
+	set line 5 of lore of {_cheval} to "&7Utilisez /cheval"
+	set line 6 of lore of {_cheval} to "&7pour effectuer cette"
+	set line 7 of lore of {_cheval} to "&7action directement."
+	
+	set {_chat} to name tag named "&aOptions du Chat"
+	set line 1 of lore of {_chat} to "&7Cliquez ici pour"
+	set line 2 of lore of {_chat} to "&7afficher vos"
+	set line 3 of lore of {_chat} to "&7options du chat."
+	set line 4 of lore of {_chat} to " "
+	set line 5 of lore of {_chat} to "&7Utilisez /options"
+	set line 6 of lore of {_chat} to "&7pour afficher ce"
+	set line 7 of lore of {_chat} to "&7menu directement."
+	
+	set {_actions} to nether star named "&aActions"
+	set line 1 of lore of {_actions} to "&7Cliquez ici pour"
+	set line 2 of lore of {_actions} to "&7afficher vos"
+	set line 3 of lore of {_actions} to "&7actions disponibles."
+	set line 4 of lore of {_actions} to " "
+	set line 5 of lore of {_actions} to "&7Utilisez /actions"
+	set line 6 of lore of {_actions} to "&7pour afficher ce"
+	set line 7 of lore of {_actions} to "&7menu directement."
+
+	set {_ranking} to skull of "Steve" parsed as offline player named "&aClassements"
+	set line 1 of lore of {_ranking} to "&7Cliquez ici pour"
+	set line 2 of lore of {_ranking} to "&7afficher les"
+	set line 3 of lore of {_ranking} to "&7classements."
+	set line 4 of lore of {_ranking} to " "
+	set line 5 of lore of {_ranking} to "&7Utilisez /classements"
+	set line 6 of lore of {_ranking} to "&7pour afficher ce"
+	set line 7 of lore of {_ranking} to "&7menu directement."
+
+	set {_liens} to command block named "&aLiens"
+	set line 1 of lore of {_liens} to "&7Cliquez ici pour"
+	set line 2 of lore of {_liens} to "&7afficher la"
+	set line 3 of lore of {_liens} to "&7liste liens."
+	set line 4 of lore of {_liens} to " "
+	set line 5 of lore of {_liens} to "&7Utilisez /liens"
+	set line 6 of lore of {_liens} to "&7pour afficher ce"
+	set line 7 of lore of {_liens} to "&7menu directement."
+	
+	set {_admin} to nether star named "&aMenu Administrateur"
+	set line 1 of lore of {_admin} to "&7Cliquez ici pour"
+	set line 2 of lore of {_admin} to "&7afficher votre"
+	set line 3 of lore of {_admin} to "&7menu administrateur."
+	set line 4 of lore of {_admin} to " "
+	set line 5 of lore of {_admin} to "&7Utilisez /admin"
+	set line 6 of lore of {_admin} to "&7pour afficher ce"
+	set line 7 of lore of {_admin} to "&7menu directement."
+
+	create new gui with virtual chest with 5 rows named "&aMenu":
+		format gui slot 0, 1, 2, 3, 5, 6, 7, 9, 11, 12, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 30, 32, 33, 35, 36, 37, 38, 39, 41, 42, 43 and 44 with black stained glass pane named " "
+		format gui slot 4 with {_options}
+		format gui slot 8 to barrier named "&c&lFermer":
+			close {_player}'s inventory
+			play resource sound pack "click" to {_player} with volume 1
+		format gui slot 10 with {_teleport}:
+			play resource sound pack "click" to {_player} with volume 1
+			if current server is "hub":
+				TeleportationGUI({_player})
+			else:
+				message "&7Vous ne pouvez pas vous téléporter ici." to {_player}
+				MenuGUI({_player})
+		format gui slot 13 with {_progression}:
+			play resource sound pack "click" to {_player} with volume 1
+			ProgressionGUI({_player})
+		format gui slot 16 with {_cheval}:
+			play resource sound pack "click" to {_player} with volume 1
+			message "WIP" to {_player}
+		if {_player} has permission "group.staff":
+			format gui slot 26 with {_admin}:
+				play resource sound pack "click" to {_player} with volume 1
+				AdminGUI({_player})
+		else:
+			format gui slot 26 with black stained glass pane named " "
+		format gui slot 28 with {_chat}:
+			play resource sound pack "click" to {_player} with volume 1
+			OptionsGUI({_player})
+		format gui slot 34 with {_actions}:
+			play resource sound pack "click" to {_player} with volume 1
+			ActionGUI({_player})
+		format gui slot 40 with {_liens}:
+			play resource sound pack "click" to {_player} with volume 1
+			LiensGUI({_player})
+		format gui slot 31 with {_ranking}:
+			play resource sound pack "click" to {_player} with volume 1
+			ClassementsGUI({_player})
+	open last gui to {_player}
+
+
+#
+# ServerTeleportationGUI
+#
+function ServerTeleportationGUI(player: player):
+	set {_servers} to book named "&aDestinations"
+	set line 1 of lore of {_servers} to "&7=====>"
+
+	set {_questrelle} to beacon named "&aQuestrelle"
+	set line 1 of lore of {_questrelle} to "&7Cliquez ici pour"
+	set line 2 of lore of {_questrelle} to "&7naviguer vers"
+	set line 3 of lore of {_questrelle} to "&7Questrelle."
+	set line 4 of lore of {_questrelle} to " "
+	set line 5 of lore of {_questrelle} to "&7Coût :"
+	set line 6 of lore of {_questrelle} to "&7&o¤XXX"
+	set line 7 of lore of {_questrelle} to " "
+	set line 8 of lore of {_questrelle} to "&7Conditions :"
+	set line 9 of lore of {_questrelle} to "&7&o-"
+
+	set {_factions} to beacon named "&aFactions"
+	set line 1 of lore of {_factions} to "&7Cliquez ici pour"
+	set line 2 of lore of {_factions} to "&7naviguer vers"
+	set line 3 of lore of {_factions} to "&7Factions."
+	set line 4 of lore of {_factions} to " "
+	set line 5 of lore of {_factions} to "&7Coût :"
+	set line 6 of lore of {_factions} to "&7&o¤XXX"
+	set line 7 of lore of {_factions} to " "
+	set line 8 of lore of {_factions} to "&7Conditions :"
+	set line 9 of lore of {_factions} to "&7&o-"
+
+	set {_plots} to beacon named "&aMonde Personnel"
+	set line 1 of lore of {_plots} to "&7Cliquez ici pour"
+	set line 2 of lore of {_plots} to "&7naviguer vers votre"
+	set line 3 of lore of {_plots} to "&7monde personnel."
+	set line 4 of lore of {_plots} to " "
+	set line 5 of lore of {_plots} to "&7Coût :"
+	set line 6 of lore of {_plots} to "&7&o¤XXX"
+	set line 7 of lore of {_plots} to " "
+	set line 8 of lore of {_plots} to "&7Conditions :"
+	set line 9 of lore of {_plots} to "&7&o-"
+
+	set {_minigames} to beacon named "&aMiniGames"
+	set line 1 of lore of {_minigames} to "&7Cliquez ici pour"
+	set line 2 of lore of {_minigames} to "&7naviguer vers"
+	set line 3 of lore of {_minigames} to "&7MiniGames."
+	set line 4 of lore of {_minigames} to " "
+	set line 5 of lore of {_minigames} to "&7Coût :"
+	set line 6 of lore of {_minigames} to "&7&o¤XXX"
+	set line 7 of lore of {_minigames} to " "
+	set line 8 of lore of {_minigames} to "&7Conditions :"
+	set line 9 of lore of {_minigames} to "&7&o-"
+
+	create a gui with virtual chest with 3 rows named "&aNavigation":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 and 26 with black stained glass pane named " "
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+		format gui slot 9 to {_servers}
+		format gui slot 12 to {_questrelle}:
+			play resource sound pack "click" to {_player} with volume 1
+			connect bungeecord player {_player} to "hub" 
+		format gui slot 13 to {_factions}:
+			play resource sound pack "click" to {_player} with volume 1
+			connect bungeecord player {_player} to "factions" 
+		format gui slot 14 to {_plots}:
+			play resource sound pack "click" to {_player} with volume 1
+			connect bungeecord player {_player} to "plots"
+		format gui slot 15 to {_minigames}:
+			play resource sound pack "click" to {_player} with volume 1
+			connect bungeecord player {_player} to "minigames"
+	open last gui to {_player}
+
+#
+# TeleportationGUI
+#
+function TeleportationExecution(player: player, location: location):
+	close {_player}'s inventory
+	TeleportParticles({_player})
+	apply potion of nausea 1 to {_player} for 12 seconds
+	play resource sound pack "teleportation" to {_player} with volume 1
+	wait 9 seconds
+	teleport {_player} to location at {_location}
+
+function TeleportationGUI(player: player):
+	set {_spawn_distance} to (distance between location at {@Spawn} in world "gaia" and {_player})
+	set {_questrelle_distance} to (distance between location at {@Questrelle} in world "gaia" and {_player})
+	set {_capitale_hommes_distance} to (distance between location at {@Hommes} in world "gaia" and {_player})
+	set {_capitale_elfes_distance} to (distance between location at {@Elfes} in world "gaia" and {_player})
+	set {_capitale_nains_distance} to (distance between location at {@Nains} in world "gaia" and {_player})
+	set {_capitale_orcs_distance} to (distance between location at {@Orcs} in world "gaia" and {_player})
+	set {_ville_questrelle_ap_distance} to (distance between location at {@Questrelle_avantposte} in world "gaia" and {_player})
+	set {_ville_desert_distance} to (distance between location at {@Desert} in world "gaia" and {_player})
+
+	set {_bucherons_distance} to (distance between location at {@Bucherons} in world "gaia" and {_player})
+	set {_mineurs_distance} to (distance between location at {@Mineurs} in world "gaia" and {_player})
+	set {_excavateurs_distance} to (distance between location at {@Excavateurs} in world "gaia" and {_player})
+	set {_constructeurs_distance} to (distance between location at {@Constructeurs} in world "gaia" and {_player})
+	set {_fermiers_distance} to (distance between location at {@Fermiers} in world "gaia" and {_player})
+	set {_eleveurs_distance} to (distance between location at {@Eleveurs} in world "gaia" and {_player})
+	set {_chasseurs_distance} to (distance between location at {@Chasseurs} in world "gaia" and {_player})
+	set {_artisans_distance} to (distance between location at {@Artisans} in world "gaia" and {_player})
+	set {_pecheurs_distance} to (distance between location at {@Pecheurs} in world "gaia" and {_player})
+	set {_forgerons_distance} to (distance between location at {@Forgerons} in world "gaia" and {_player})
+
+	set {_capitales} to book named "&aCapitales"
+	set line 1 of lore of {_capitales} to "&7=====>"
+	
+	set {_villes} to book named "&aVilles"
+	set line 1 of lore of {_villes} to "&7=====>"
+
+	set {_guildes} to book named "&aGuildes"
+	set line 1 of lore of {_guildes} to "&7=====>"
+	
+	set {_Bucherons} to beacon named "&aGuilde des Bûcherons"
+	set line 1 of lore of {_Bucherons} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Bucherons} to "&7vous téléporter"
+	set line 3 of lore of {_Bucherons} to "&7à la guilde du métier"
+	set line 4 of lore of {_Bucherons} to "&7de Bûcheron."
+	set line 5 of lore of {_Bucherons} to " "
+	set line 6 of lore of {_Bucherons} to "&7Distance :"
+	set line 7 of lore of {_Bucherons} to "&7&o%{_bucherons_distance}% blocs"
+	set line 8 of lore of {_Bucherons} to "&7Coût :"
+	set line 9 of lore of {_Bucherons} to "&7&o%ceiling({_bucherons_distance} / 100)% Tablettes"
+
+	set {_Mineurs} to 2 beacon named "&aGuilde des Mineurs"
+	set line 1 of lore of {_Mineurs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Mineurs} to "&7vous téléporter"
+	set line 3 of lore of {_Mineurs} to "&7à la guilde du métier"
+	set line 4 of lore of {_Mineurs} to "&7de Mineur."
+	set line 5 of lore of {_Mineurs} to " "
+	set line 6 of lore of {_Mineurs} to "&7Distance :"
+	set line 7 of lore of {_Mineurs} to "&7&o%{_mineurs_distance}% blocs"
+	set line 8 of lore of {_Mineurs} to "&7Coût :"
+	set line 9 of lore of {_Mineurs} to "&7&o%ceiling({_mineurs_distance} / 100)% Tablettes"
+
+	set {_Excavateurs} to 3 beacon named "&aGuilde des Excavateurs"
+	set line 1 of lore of {_Excavateurs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Excavateurs} to "&7vous téléporter"
+	set line 3 of lore of {_Excavateurs} to "&7à la guilde du métier"
+	set line 4 of lore of {_Excavateurs} to "&7d'Excavateur."
+	set line 5 of lore of {_Excavateurs} to " "
+	set line 6 of lore of {_Excavateurs} to "&7Distance :"
+	set line 7 of lore of {_Excavateurs} to "&7&o%{_excavateurs_distance}% blocs"
+	set line 8 of lore of {_Excavateurs} to "&7Coût :"
+	set line 9 of lore of {_Excavateurs} to "&7&o%ceiling({_excavateurs_distance} / 100)% Tablettes"
+
+	set {_Constructeurs} to 4 beacon named "&aGuilde des Constructeurs"
+	set line 1 of lore of {_Constructeurs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Constructeurs} to "&7vous téléporter"
+	set line 3 of lore of {_Constructeurs} to "&7à la guilde du métier"
+	set line 4 of lore of {_Constructeurs} to "&7de Constructeur."
+	set line 5 of lore of {_Constructeurs} to " "
+	set line 6 of lore of {_Constructeurs} to "&7Distance :"
+	set line 7 of lore of {_Constructeurs} to "&7&o%{_constructeurs_distance}% blocs"
+	set line 8 of lore of {_Constructeurs} to "&7Coût :"
+	set line 9 of lore of {_Constructeurs} to "&7&o%ceiling({_constructeurs_distance} / 100)% Tablettes"
+
+	set {_Fermiers} to 5 beacon named "&aGuilde des Fermiers"
+	set line 1 of lore of {_Fermiers} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Fermiers} to "&7vous téléporter"
+	set line 3 of lore of {_Fermiers} to "&7à la guilde du métier"
+	set line 4 of lore of {_Fermiers} to "&7de Fermier."
+	set line 5 of lore of {_Fermiers} to " "
+	set line 6 of lore of {_Fermiers} to "&7Distance :"
+	set line 7 of lore of {_Fermiers} to "&7&o%{_fermiers_distance}% blocs"
+	set line 8 of lore of {_Fermiers} to "&7Coût :"
+	set line 9 of lore of {_Fermiers} to "&7&o%ceiling({_fermiers_distance} / 100)% Tablettes"
+
+	set {_Eleveurs} to 6 beacon named "&aGuilde des Éleveurs"
+	set line 1 of lore of {_Eleveurs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Eleveurs} to "&7vous téléporter"
+	set line 3 of lore of {_Eleveurs} to "&7à la guilde du métier"
+	set line 4 of lore of {_Eleveurs} to "&7d'Éleveur."
+	set line 5 of lore of {_Eleveurs} to " "
+	set line 6 of lore of {_Eleveurs} to "&7Distance :"
+	set line 7 of lore of {_Eleveurs} to "&7&o%{_eleveurs_distance}% blocs"
+	set line 8 of lore of {_Eleveurs} to "&7Coût :"
+	set line 9 of lore of {_Eleveurs} to "&7&o%ceiling({_eleveurs_distance} / 100)% Tablettes"
+
+	set {_Chasseurs} to 7 beacon named "&aGuilde des Chasseurs"
+	set line 1 of lore of {_Chasseurs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Chasseurs} to "&7vous téléporter"
+	set line 3 of lore of {_Chasseurs} to "&7à la guilde du métier"
+	set line 4 of lore of {_Chasseurs} to "&7de Chasseur."
+	set line 5 of lore of {_Chasseurs} to " "
+	set line 6 of lore of {_Chasseurs} to "&7Distance :"
+	set line 7 of lore of {_Chasseurs} to "&7&o%{_chasseurs_distance}% blocs"
+	set line 8 of lore of {_Chasseurs} to "&7Coût :"
+	set line 9 of lore of {_Chasseurs} to "&7&o%ceiling({_chasseurs_distance} / 100)% Tablettes"
+
+	set {_Artisans} to 8 beacon named "&aGuilde des Artisans"
+	set line 1 of lore of {_Artisans} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Artisans} to "&7vous téléporter"
+	set line 3 of lore of {_Artisans} to "&7à la guilde du métier"
+	set line 4 of lore of {_Artisans} to "&7d'Artisan."
+	set line 5 of lore of {_Artisans} to " "
+	set line 6 of lore of {_Artisans} to "&7Distance :"
+	set line 7 of lore of {_Artisans} to "&7&o%{_artisans_distance}% blocs"
+	set line 8 of lore of {_Artisans} to "&7Coût :"
+	set line 9 of lore of {_Artisans} to "&7&o%ceiling({_artisans_distance} / 100)% Tablettes"
+
+	set {_Pecheurs} to 9 beacon named "&aGuilde des Pêcheurs"
+	set line 1 of lore of {_Pecheurs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Pecheurs} to "&7vous téléporter"
+	set line 3 of lore of {_Pecheurs} to "&7à la guilde du métier"
+	set line 4 of lore of {_Pecheurs} to "&7de Pêcheur."
+	set line 5 of lore of {_Pecheurs} to " "
+	set line 6 of lore of {_Pecheurs} to "&7Distance :"
+	set line 7 of lore of {_Pecheurs} to "&7&o%{_pecheurs_distance}% blocs"
+	set line 8 of lore of {_Pecheurs} to "&7Coût :"
+	set line 9 of lore of {_Pecheurs} to "&7&o%ceiling({_pecheurs_distance} / 100)% Tablettes"
+
+	set {_Forgerons} to 10 beacon named "&aGuilde des Forgerons"
+	set line 1 of lore of {_Forgerons} to "&7Cliquez ici pour"
+	set line 2 of lore of {_Forgerons} to "&7vous téléporter"
+	set line 3 of lore of {_Forgerons} to "&7à la guilde du métier"
+	set line 4 of lore of {_Forgerons} to "&7de Forgeron."
+	set line 5 of lore of {_Forgerons} to " "
+	set line 6 of lore of {_Forgerons} to "&7Distance :"
+	set line 7 of lore of {_Forgerons} to "&7&o%{_forgerons_distance}% blocs"
+	set line 8 of lore of {_Forgerons} to "&7Coût :"
+	set line 9 of lore of {_Forgerons} to "&7&o%ceiling({_forgerons_distance} / 100)% Tablettes"
+
+
+	set {_spawn} to beacon named "&aSpawn"
+	set line 1 of lore of {_spawn} to "&7Cliquez ici pour"
+	set line 2 of lore of {_spawn} to "&7vous téléporter"
+	set line 3 of lore of {_spawn} to "&7au spawn."
+	set line 4 of lore of {_spawn} to " "
+	set line 5 of lore of {_spawn} to "&7Distance :"
+	set line 6 of lore of {_spawn} to "&7&o%{_spawn_distance}% blocs"
+	set line 7 of lore of {_spawn} to "&7Coût :"
+	set line 8 of lore of {_spawn} to "&7&o%ceiling({_spawn_distance} / 100)% Tablettes"
+	
+	set {_questrelle} to 2 beacon named "&aQuestrelle"
+	set line 1 of lore of {_questrelle} to "&7Cliquez ici pour"
+	set line 2 of lore of {_questrelle} to "&7vous téléporter"
+	set line 3 of lore of {_questrelle} to "&7à la cité-état"
+	set line 4 of lore of {_questrelle} to "&7de Questrelle."
+	set line 5 of lore of {_questrelle} to " "
+	set line 6 of lore of {_questrelle} to "&7Distance :"
+	set line 7 of lore of {_questrelle} to "&7&o%{_questrelle_distance}% blocs"
+	set line 8 of lore of {_questrelle} to "&7Coût :"
+	set line 9 of lore of {_questrelle} to "&7&o%ceiling({_questrelle_distance} / 100)% Tablettes"
+	
+	set {_capitale_hommes} to 3 beacon named "&aHommes"
+	set line 1 of lore of {_capitale_hommes} to "&7Cliquez ici pour"
+	set line 2 of lore of {_capitale_hommes} to "&7vous téléporter"
+	set line 3 of lore of {_capitale_hommes} to "&7à la capitale"
+	set line 4 of lore of {_capitale_hommes} to "&7de la race humaine."
+	set line 5 of lore of {_capitale_hommes} to " "
+	set line 6 of lore of {_capitale_hommes} to "&7Distance :"
+	set line 7 of lore of {_capitale_hommes} to "&7&o%{_capitale_hommes_distance}% blocs"
+	set line 8 of lore of {_capitale_hommes} to "&7Coût :"
+	set line 9 of lore of {_capitale_hommes} to "&7&o%ceiling({_capitale_hommes_distance} / 100)% Tablettes"
+	
+	set {_capitale_elfes} to 4 beacon named "&aElfes"
+	set line 1 of lore of {_capitale_elfes} to "&7Cliquez ici pour"
+	set line 2 of lore of {_capitale_elfes} to "&7vous téléporter"
+	set line 3 of lore of {_capitale_elfes} to "&7à la capitale"
+	set line 4 of lore of {_capitale_elfes} to "&7de la race elfique."
+	set line 5 of lore of {_capitale_elfes} to " "
+	set line 6 of lore of {_capitale_elfes} to "&7Distance :"
+	set line 7 of lore of {_capitale_elfes} to "&7&o%{_capitale_elfes_distance}% blocs"
+	set line 8 of lore of {_capitale_elfes} to "&7Coût :"
+	set line 9 of lore of {_capitale_elfes} to "&7&o%ceiling({_capitale_elfes_distance} / 100)% Tablettes"
+	
+	set {_capitale_nains} to 5 beacon named "&aNains"
+	set line 1 of lore of {_capitale_nains} to "&7Cliquez ici pour"
+	set line 2 of lore of {_capitale_nains} to "&7vous téléporter"
+	set line 3 of lore of {_capitale_nains} to "&7à la capitale"
+	set line 4 of lore of {_capitale_nains} to "&7de la race naine."
+	set line 5 of lore of {_capitale_nains} to " "
+	set line 6 of lore of {_capitale_nains} to "&7Distance :"
+	set line 7 of lore of {_capitale_nains} to "&7&o%{_capitale_nains_distance}% blocs"
+	set line 8 of lore of {_capitale_nains} to "&7Coût :"
+	set line 9 of lore of {_capitale_nains} to "&7&o%ceiling({_capitale_nains_distance} / 100)% Tablettes"
+	
+	set {_capitale_orcs} to 6 beacon named "&aOrcs"
+	set line 1 of lore of {_capitale_orcs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_capitale_orcs} to "&7vous téléporter"
+	set line 3 of lore of {_capitale_orcs} to "&7à la capitale"
+	set line 4 of lore of {_capitale_orcs} to "&7de la race orc."
+	set line 5 of lore of {_capitale_orcs} to " "
+	set line 6 of lore of {_capitale_orcs} to "&7Distance :"
+	set line 7 of lore of {_capitale_orcs} to "&7&o%{_capitale_orcs_distance}% blocs"
+	set line 8 of lore of {_capitale_orcs} to "&7Coût :"
+	set line 9 of lore of {_capitale_orcs} to "&7&o%ceiling({_capitale_orcs_distance} / 100)% Tablettes"
+	
+	set {_ville_questrelle_ap} to beacon named "&aAvant-Poste de Questrelle"
+	set line 1 of lore of {_ville_questrelle_ap} to "&7Cliquez ici pour"
+	set line 2 of lore of {_ville_questrelle_ap} to "&7vous téléporter"
+	set line 3 of lore of {_ville_questrelle_ap} to "&7à l'avant poste"
+	set line 4 of lore of {_ville_questrelle_ap} to "&7de Questrelle."
+	set line 5 of lore of {_ville_questrelle_ap} to " "
+	set line 6 of lore of {_ville_questrelle_ap} to "&7Distance :"
+	set line 7 of lore of {_ville_questrelle_ap} to "&7&o%{_ville_questrelle_ap_distance}% blocs"
+	set line 8 of lore of {_ville_questrelle_ap} to "&7Coût :"
+	set line 9 of lore of {_ville_questrelle_ap} to "&7&o%ceiling({_ville_questrelle_ap_distance} / 100)% Tablettes"
+	
+	set {_ville_desert} to 2 beacon named "&aDésert"
+	set line 1 of lore of {_ville_desert} to "&7Cliquez ici pour"
+	set line 2 of lore of {_ville_desert} to "&7vous téléporter"
+	set line 3 of lore of {_ville_desert} to "&7à la ville"
+	set line 4 of lore of {_ville_desert} to "&7du désert."
+	set line 5 of lore of {_ville_desert} to " "
+	set line 6 of lore of {_ville_desert} to "&7Distance :"
+	set line 7 of lore of {_ville_desert} to "&7&o%{_ville_desert_distance}% blocs"
+	set line 8 of lore of {_ville_desert} to "&7Coût :"
+	set line 9 of lore of {_ville_desert} to "&7&o%ceiling({_ville_desert_distance} / 100)% Tablettes"
+	
+	create a gui with virtual chest with 5 rows named "&aTéléportations":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 10, 17, 19, 22, 23, 24, 25, 26, 28, 34, 35, 36, 37, 43 and 44 with black stained glass pane named " "
+		format gui slot 7 to stick named "&aRetour":
+			play resource sound pack "click" to {_player} with volume 1
+			MenuGUI({_player})
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			
+		format gui slot 9 to {_capitales}
+		format gui slot 11 to {_spawn}:
+			TeleportationExecution({_player}, location at {@Spawn})
+		format gui slot 12 to {_questrelle}:
+			TeleportationExecution({_player}, location at {@Questrelle})
+		format gui slot 13 to {_capitale_hommes}:
+			TeleportationExecution({_player}, location at {@Hommes})
+		format gui slot 14 to {_capitale_elfes}:
+			TeleportationExecution({_player}, location at {@Elfes})
+		format gui slot 15 to {_capitale_nains}:
+			TeleportationExecution({_player}, location at {@Nains})
+		format gui slot 16 to {_capitale_orcs}:
+			TeleportationExecution({_player}, location at {@Orcs})
+			
+		format gui slot 18 to {_villes}
+		format gui slot 20 to {_ville_questrelle_ap}:
+			TeleportationExecution({_player}, location at {@Questrelle_avantposte})
+		format gui slot 21 to {_ville_desert}:
+			TeleportationExecution({_player}, location at {@Desert})
+
+		format gui slot 27 to {_guildes}
+		format gui slot 29 to {_Bucherons}:
+			TeleportationExecution({_player}, location at {@Bucherons})
+		format gui slot 30 to {_Mineurs}:
+			TeleportationExecution({_player}, location at {@Mineurs})
+		format gui slot 31 to {_Excavateurs}:
+			TeleportationExecution({_player}, location at {@Excavateurs})
+		format gui slot 32 to {_Constructeurs}:
+			TeleportationExecution({_player}, location at {@Constructeurs})
+		format gui slot 33 to {_Fermiers}:
+			TeleportationExecution({_player}, location at {@Fermiers})
+		format gui slot 38 to {_Eleveurs}:
+			TeleportationExecution({_player}, location at {@Eleveurs})
+		format gui slot 39 to {_Chasseurs}:
+			TeleportationExecution({_player}, location at {@Chasseurs})
+		format gui slot 40 to {_Artisans}:
+			TeleportationExecution({_player}, location at {@Artisans})
+		format gui slot 41 to {_Pecheurs}:
+			TeleportationExecution({_player}, location at {@Pecheurs})
+		format gui slot 42 to {_Forgerons}:
+			TeleportationExecution({_player}, location at {@Forgerons})
+
+	open last gui to {_player}
+
+#
+# ProgressionGUI
+#
+function ProgressionGUI(player: player):
+
+	set {_quetes} to book named "&aQuêtes & Succès"
+	set line 1 of lore of {_quetes} to "&7=====>"
+	
+	set {_raceandclass} to book named "&aRace & Classes"
+	set line 1 of lore of {_raceandclass} to "&7=====>"
+
+	set {_jobs} to book named "&aMétiers"
+	set line 1 of lore of {_jobs} to "&7=====>"
+	
+	set {_journal} to book named "&aJournal de Progression"
+	set line 1 of lore of {_journal} to "&7Cliquez ici pour"
+	set line 2 of lore of {_journal} to "&7récupérer votre"
+	set line 3 of lore of {_journal} to "&7journal de progression"
+	set line 4 of lore of {_journal} to "&7de vos quêtes."
+	set line 5 of lore of {_journal} to " "
+	set line 6 of lore of {_journal} to "&7&oUtilisez &8&o/journal &7&opour"
+	set line 7 of lore of {_journal} to "&7&ol'obtenir directement."
+	
+	set {_backpack} to chest named "&aSac à dos"
+	set line 1 of lore of {_backpack} to "&7Cliquez ici pour"
+	set line 2 of lore of {_backpack} to "&7ouvrir votre sac à dos."
+	set line 3 of lore of {_backpack} to " "
+	set line 4 of lore of {_backpack} to "&7Ce sac ne peut"
+	set line 5 of lore of {_backpack} to "&7contenir que des"
+	set line 6 of lore of {_backpack} to "&7Objets de Quêtes."
+	set line 7 of lore of {_backpack} to " "
+	set line 8 of lore of {_backpack} to "&7&oUtilisez &8&o/sac &7&opour"
+	set line 9 of lore of {_backpack} to "&7&ol'ouvrir directement."
+	
+	set {_jobs_browse} to item frame named "&aMétiers"
+	set line 1 of lore of {_jobs_browse} to "&7Cliquez ici pour"
+	set line 2 of lore of {_jobs_browse} to "&7voir les métiers."
+	set line 3 of lore of {_jobs_browse} to " "
+	set line 4 of lore of {_jobs_browse} to "&7&oUtilisez &8&o/metiers &7&opour"
+	set line 5 of lore of {_jobs_browse} to "&7&ol'ouvrir directement."
+	
+	set {_jobs_stats} to 2 item frame named "&aProgression Métiers"
+	set line 1 of lore of {_jobs_stats} to "&7Cliquez ici pour"
+	set line 2 of lore of {_jobs_stats} to "&7voir votre progression"
+	set line 3 of lore of {_jobs_stats} to "&7dans vos métiers."
+	set line 4 of lore of {_jobs_stats} to " "
+	set line 5 of lore of {_jobs_stats} to "&7&oUtilisez &8&o/metiers info &7&opour"
+	set line 6 of lore of {_jobs_stats} to "&7&ole voir directement."
+
+	set {_jobs_quests} to 3 item frame named "&aQuêtes Métiers"
+	set line 1 of lore of {_jobs_quests} to "&7Cliquez ici pour"
+	set line 2 of lore of {_jobs_quests} to "&7voir votre progression"
+	set line 3 of lore of {_jobs_quests} to "&7dans vos quêtes métiers."
+	set line 4 of lore of {_jobs_quests} to " "
+	set line 5 of lore of {_jobs_quests} to "&7&oUtilisez &8&o/metiers quetes &7&opour"
+	set line 6 of lore of {_jobs_quests} to "&7&ole voir directement."
+
+	set {_aa} to paper named "&aSuccès"
+	set line 1 of lore of {_aa} to "&7Cliquez ici pour"
+	set line 2 of lore of {_aa} to "&7voir les succès."
+	set line 3 of lore of {_aa} to " "
+	set line 4 of lore of {_aa} to "&7&oUtilisez &8&o/succes &7&opour"
+	set line 5 of lore of {_aa} to "&7&oles voir directement."
+	
+	set {_aa_stats} to 2 paper named "&aStats Succès"
+	set line 1 of lore of {_aa_stats} to "&7Cliquez ici pour"
+	set line 2 of lore of {_aa_stats} to "&7voir vos statistiques"
+	set line 3 of lore of {_aa_stats} to "&7de vos succès. "
+	set line 4 of lore of {_aa_stats} to " "
+	set line 5 of lore of {_aa_stats} to "&7&oUtilisez &8&o/succes stats &7&opour"
+	set line 6 of lore of {_aa_stats} to "&7&oles voir directement."
+
+	set {_aa_book} to 3 paper named "&aLivre des Succès"
+	set line 1 of lore of {_aa_book} to "&7Cliquez ici pour"
+	set line 2 of lore of {_aa_book} to "&7obtenir votre "
+	set line 3 of lore of {_aa_book} to "&7livre des succès."
+	set line 4 of lore of {_aa_book} to " "
+	set line 5 of lore of {_aa_book} to "&7&oUtilisez &8&o/succes livre &7&opour"
+	set line 6 of lore of {_aa_book} to "&7&ol'obtenir directement."
+	
+	create a gui with virtual chest with 5 rows named "&aProgression":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 10, 13, 17, 19, 20, 21, 22, 23, 24, 25, 26, 28, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 and 44 with black stained glass pane named " "
+		format gui slot 7 to stick named "&aRetour":
+			play resource sound pack "click" to {_player} with volume 1
+			MenuGUI({_player})
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			
+		format gui slot 9 to {_quetes}
+		format gui slot 11 to {_journal}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "journal"
+		format gui slot 12 to {_backpack}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "backpack"
+		format gui slot 14 to {_aa}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "succes"
+		format gui slot 15 to {_aa_stats}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "succes stats"
+		format gui slot 16 to {_aa_book}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "succes livre"
+			
+		format gui slot 18 to {_raceandclass}
+
+		format gui slot 27 to {_jobs}
+		format gui slot 29 to {_jobs_browse}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "metiers"
+		format gui slot 30 to {_jobs_stats}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "metiers info"
+		format gui slot 31 to {_jobs_quests}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "metiers quetes"
+		
+	open last gui to {_player}
+
+#
+# OptionsGUI
+#
+function OptionsGUI(player: player):
+
+	set {_info} to paper named "&aChat - Info"
+	set line 1 of lore of {_info} to "&7Cliquez ici pour"
+	set line 2 of lore of {_info} to "&7afficher les informations"
+	set line 3 of lore of {_info} to "&7sur vos channels de chat."
+	set line 4 of lore of {_info} to " "
+	set line 5 of lore of {_info} to "&7&oUtilisez &8&o/chat &7&opour"
+	set line 6 of lore of {_info} to "&7&oles voir directement."
+
+	set {_list} to paper named "&aChat - Liste"
+	set line 1 of lore of {_list} to "&7Utilisez &8/chat liste [channel]"
+	set line 2 of lore of {_list} to "&7pour afficher les joueurs"
+	set line 3 of lore of {_list} to "&7présents dans le channel."
+
+	set {_messages} to paper named "&aChat - Messages"
+	set line 1 of lore of {_messages} to "&7Cliquez ici pour"
+	set line 2 of lore of {_messages} to "&7activer/désactiver"
+	set line 3 of lore of {_messages} to "&7les messages privés."
+	set line 4 of lore of {_messages} to " "
+	set line 5 of lore of {_messages} to "&7&oUtilisez &8&o/chat messages &7&opour"
+	set line 6 of lore of {_messages} to "&7&ole faire directement."
+
+	set {_ignore} to paper named "&aChat - Ignore"
+	set line 1 of lore of {_ignore} to "&7Utilisez &8/chat ignorer [joueur]"
+	set line 2 of lore of {_ignore} to "&7pour ignorer tout ses"
+	set line 3 of lore of {_ignore} to "&7messages de chat."
+	set line 4 of lore of {_ignore} to " "
+	set line 5 of lore of {_ignore} to "&7&oUtilisez &8/chat ignorer ?"
+	set line 6 of lore of {_ignore} to "&7&ovoir qui vous ignorez."
+
+	set {_join_gaia} to paper named "&aChannel Gaïa - Entrer"
+	set line 1 of lore of {_join_gaia} to "&7Cliquez ici pour"
+	set line 2 of lore of {_join_gaia} to "&7entrer dans le channel"
+	set line 3 of lore of {_join_gaia} to "&7Gaïa."
+	set line 4 of lore of {_join_gaia} to " "
+	set line 5 of lore of {_join_gaia} to "&7&oCe channel est global sur"
+	set line 6 of lore of {_join_gaia} to "&7&otous les mondes et Discord."
+	set line 7 of lore of {_join_gaia} to " "
+	set line 8 of lore of {_join_gaia} to "&7&oUtilisez &8&o/chat entrer gaia &7&opour"
+	set line 9 of lore of {_join_gaia} to "&7&ole rejoindre directement."
+
+	set {_join_monde} to paper named "&aChannel Monde - Entrer"
+	set line 1 of lore of {_join_monde} to "&7Cliquez ici pour"
+	set line 2 of lore of {_join_monde} to "&7entrer dans le channel"
+	set line 3 of lore of {_join_monde} to "&7Monde."
+	set line 4 of lore of {_join_monde} to " "
+	set line 5 of lore of {_join_monde} to "&7&oCe channel est local à"
+	set line 6 of lore of {_join_monde} to "&7&ovotre monde actuel."
+	set line 7 of lore of {_join_monde} to " "
+	set line 8 of lore of {_join_monde} to "&7&oUtilisez &8&o/chat entrer monde &7&opour"
+	set line 9 of lore of {_join_monde} to "&7&ole rejoindre directement."
+
+	set {_join_comm} to paper named "&aChannel Commerce - Entrer"
+	set line 1 of lore of {_join_comm} to "&7Cliquez ici pour"
+	set line 2 of lore of {_join_comm} to "&7entrer dans le channel"
+	set line 3 of lore of {_join_comm} to "&7Commerce."
+	set line 4 of lore of {_join_comm} to " "
+	set line 5 of lore of {_join_comm} to "&7&oCe channel est global sur"
+	set line 6 of lore of {_join_comm} to "&7&otous les mondes et Discord."
+	set line 7 of lore of {_join_comm} to "&7&oRespectez le thème de ce channel."
+	set line 8 of lore of {_join_comm} to " "
+	set line 9 of lore of {_join_comm} to "&7&oUtilisez &8&o/chat entrer commerce &7&opour"
+	set line 10 of lore of {_join_comm} to "&7&ole rejoindre directement."
+
+	set {_join_rp} to paper named "&aChannel RolePlay - Entrer"
+	set line 1 of lore of {_join_rp} to "&7Cliquez ici pour"
+	set line 2 of lore of {_join_rp} to "&7entrer dans le channel"
+	set line 3 of lore of {_join_rp} to "&7RolePlay."
+	set line 4 of lore of {_join_rp} to " "
+	set line 5 of lore of {_join_rp} to "&7&oCe channel est global sur"
+	set line 6 of lore of {_join_rp} to "&7&otous les mondes et Discord."
+	set line 7 of lore of {_join_rp} to "&7&oRespectez le thème de ce channel."
+	set line 8 of lore of {_join_rp} to " "
+	set line 9 of lore of {_join_rp} to "&7&oUtilisez &8&o/chat entrer roleplay &7&opour"
+	set line 10 of lore of {_join_rp} to "&7&ole rejoindre directement."
+
+	set {_quit_gaia} to paper named "&aChannel Gaïa - Quitter"
+	set line 1 of lore of {_quit_gaia} to "&7Cliquez ici pour"
+	set line 2 of lore of {_quit_gaia} to "&7quitter dans le channel"
+	set line 3 of lore of {_quit_gaia} to "&7Gaïa."
+	set line 4 of lore of {_quit_gaia} to " "
+	set line 5 of lore of {_quit_gaia} to "&7&oUtilisez &8&o/chat quitter gaia &7&opour"
+	set line 6 of lore of {_quit_gaia} to "&7&ole rejoindre directement."
+
+	set {_quit_monde} to paper named "&aChannel Monde - Quitter"
+	set line 1 of lore of {_quit_monde} to "&7Cliquez ici pour"
+	set line 2 of lore of {_quit_monde} to "&7quitter dans le channel"
+	set line 3 of lore of {_quit_monde} to "&7Monde."
+	set line 4 of lore of {_quit_monde} to " "
+	set line 5 of lore of {_quit_monde} to "&7&oUtilisez &8&o/chat quitter monde"
+	set line 6 of lore of {_quit_monde} to "&7&opour le rejoindre directement."
+
+	set {_quit_comm} to paper named "&aChannel Commerce - Quitter"
+	set line 1 of lore of {_quit_comm} to "&7Cliquez ici pour"
+	set line 2 of lore of {_quit_comm} to "&7quitter dans le channel"
+	set line 3 of lore of {_quit_comm} to "&7Commerce."
+	set line 4 of lore of {_quit_comm} to " "
+	set line 5 of lore of {_quit_comm} to "&7&oUtilisez &8&o/chat quitter commerce"
+	set line 6 of lore of {_quit_comm} to "&7&opour le rejoindre directement."
+
+	set {_quit_rp} to paper named "&aChannel RolePlay - Quitter"
+	set line 1 of lore of {_quit_rp} to "&7Cliquez ici pour"
+	set line 2 of lore of {_quit_rp} to "&7quitter dans le channel"
+	set line 3 of lore of {_quit_rp} to "&7RolePlay."
+	set line 4 of lore of {_quit_rp} to " "
+	set line 5 of lore of {_quit_rp} to "&7&oUtilisez &8&o/chat quitter roleplay"
+	set line 6 of lore of {_quit_rp} to "&7&opour le rejoindre directement."
+
+	create a gui with virtual chest with 5 rows named "&aOptions du Chat":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 33, 34, 35, 36, 37, 42, 43 and 44 with black stained glass pane named " "
+		format gui slot 7 to stick named "&aRetour":
+			play resource sound pack "click" to {_player} with volume 1
+			MenuGUI({_player})
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			
+		format gui slot 11 to {_info}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "chat info"
+		format gui slot 12 to {_list}
+		format gui slot 13 to {_ignore}
+		format gui slot 14 to {_messages}
+
+		format gui slot 29 to {_join_gaia}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat entrer gaia"
+		format gui slot 30 to {_join_monde}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat entrer monde"
+		format gui slot 31 to {_join_comm}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat entrer commerce"
+		format gui slot 32 to {_join_rp}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat entrer roleplay"
+		
+		format gui slot 38 to {_quit_gaia}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat quitter gaia"
+		format gui slot 39 to {_quit_monde}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat quitter monde"
+		format gui slot 40 to {_quit_comm}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat quitter commerce"
+		format gui slot 41 to {_quit_rp}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "chat quitter roleplay"
+
+	open last gui to {_player}
+
+#
+# ActionGUI
+#
+function ActionGUI(player: player):
+	set {_economy} to book named "&aÉconomie"
+	set line 1 of lore of {_economy} to "&7=====>"
+	
+	set {_settings} to book named "&aRéglages"
+	set line 1 of lore of {_settings} to "&7=====>"
+
+	set {_balance} to gold nugget named "&aArgent en poche"
+	set line 1 of lore of {_balance} to "&7Cliquez ici pour"
+	set line 2 of lore of {_balance} to "&7voir votre"
+	set line 3 of lore of {_balance} to "&7argent en poche."
+	set line 4 of lore of {_balance} to " "
+	set line 5 of lore of {_balance} to "&7&oUtilisez &8&o/argent &7&opour"
+	set line 6 of lore of {_balance} to "&7&ole voir directement."
+
+	set {_bank_info} to chest named "&aBanque"
+	set line 1 of lore of {_bank_info} to "&7Cliquez ici pour"
+	set line 2 of lore of {_bank_info} to "&7voir vos informations"
+	set line 3 of lore of {_bank_info} to "&7bancaires."
+	set line 4 of lore of {_bank_info} to " "
+	set line 5 of lore of {_bank_info} to "&7&oUtilisez &8&o/banque info &7&opour"
+	set line 6 of lore of {_bank_info} to "&7&ole voir directement."
+	set line 7 of lore of {_bank_info} to " "
+	set line 8 of lore of {_bank_info} to "&7&oCette action est protégée"
+	set line 9 of lore of {_bank_info} to "&7&opar votre code pin."
+	
+	set {_bank_interests} to clock named "&aIntérêts"
+	set line 1 of lore of {_bank_interests} to "&7Cliquez ici pour"
+	set line 2 of lore of {_bank_interests} to "&7voir l'heure de paiement"
+	set line 3 of lore of {_bank_interests} to "&7des intérêts bancaires."
+	set line 4 of lore of {_bank_interests} to " "
+	set line 5 of lore of {_bank_interests} to "&7&oUtilisez &8&o/banque interets &7&opour"
+	set line 6 of lore of {_bank_interests} to "&7&ole voir directement."
+	set line 7 of lore of {_bank_interests} to " "
+	set line 8 of lore of {_bank_interests} to "&7&oConsultez un banquier"
+	set line 9 of lore of {_bank_interests} to "&7&opour plus d'informations."
+
+	set {_trade} to paper named "&aÉchanger"
+	set line 1 of lore of {_trade} to "&7Cliquez ici pour"
+	set line 2 of lore of {_trade} to "&7commencer un échange"
+	set line 3 of lore of {_trade} to "&7avec un autre joueur."
+	set line 4 of lore of {_trade} to " "
+	set line 5 of lore of {_trade} to "&7&oUtilisez &8&o/echange [joueur] &7&opour"
+	set line 6 of lore of {_trade} to "&7&ole faire directement,"
+	set line 7 of lore of {_trade} to "&7&oou faites un clic droit + sneak"
+	set line 8 of lore of {_trade} to "&7&osur un joueur pour échanger."
+
+	set {_trade_accept} to 2 paper named "&aÉchanger - Accepter"
+	set line 1 of lore of {_trade_accept} to "&7Cliquez ici pour"
+	set line 2 of lore of {_trade_accept} to "&7accepter un échange"
+	set line 3 of lore of {_trade_accept} to "&7proposé par un autre joueur."
+	set line 4 of lore of {_trade_accept} to " "
+	set line 5 of lore of {_trade_accept} to "&7&oUtilisez &8&o/echange accepter &7&opour"
+	set line 6 of lore of {_trade_accept} to "&7&ole faire directement."
+
+	set {_trade_deny} to 3 paper named "&aÉchanger - Refuser"
+	set line 1 of lore of {_trade_deny} to "&7Cliquez ici pour"
+	set line 2 of lore of {_trade_deny} to "&7refuser un échange"
+	set line 3 of lore of {_trade_deny} to "&7proposé par un autre joueur."
+	set line 4 of lore of {_trade_deny} to " "
+	set line 5 of lore of {_trade_deny} to "&7&oUtilisez &8&o/echange refuser &7&opour"
+	set line 6 of lore of {_trade_deny} to "&7&ole faire directement."
+
+	set {_jobs_bossbar} to paper named "&aMessages Métiers (bossbar)"
+	set line 1 of lore of {_jobs_bossbar} to "&7Cliquez ici pour"
+	set line 2 of lore of {_jobs_bossbar} to "&7activer/désactiver les"
+	set line 3 of lore of {_jobs_bossbar} to "&7messages des métiers"
+	set line 4 of lore of {_jobs_bossbar} to "&7dans la bossbar."
+	set line 5 of lore of {_jobs_bossbar} to " "
+	set line 6 of lore of {_jobs_bossbar} to "&7&oUtilisez &8&o/metiers bossbar &7&opour"
+	set line 7 of lore of {_jobs_bossbar} to "&7&ole faire directement."
+
+	set {_jobs_actionbar} to paper named "&aMessages Métiers (actionbar)"
+	set line 1 of lore of {_jobs_actionbar} to "&7Cliquez ici pour"
+	set line 2 of lore of {_jobs_actionbar} to "&7activer/désactiver les"
+	set line 3 of lore of {_jobs_actionbar} to "&7messages des métiers"
+	set line 4 of lore of {_jobs_actionbar} to "&7dans la actionbar."
+	set line 5 of lore of {_jobs_actionbar} to " "
+	set line 6 of lore of {_jobs_actionbar} to "&7&oUtilisez &8&o/metiers actionbar &7&opour"
+	set line 7 of lore of {_jobs_actionbar} to "&7&ole faire directement."
+
+	set {_success_notifs} to paper named "&aMessages Succès"
+	set line 1 of lore of {_success_notifs} to "&7Cliquez ici pour"
+	set line 2 of lore of {_success_notifs} to "&7activer/désactiver les"
+	set line 3 of lore of {_success_notifs} to "&7messages des succès"
+	set line 4 of lore of {_success_notifs} to "&7des autres joueurs."
+	set line 5 of lore of {_success_notifs} to " "
+	set line 6 of lore of {_success_notifs} to "&7&oUtilisez &8&o/succes notifications"
+	set line 7 of lore of {_success_notifs} to "&7&opour le faire directement."
+
+	create a gui with virtual chest with 5 rows named "&aActions":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 10, 14, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 and 44 with black stained glass pane named " "
+		format gui slot 7 to stick named "&aRetour":
+			play resource sound pack "click" to {_player} with volume 1
+			MenuGUI({_player})
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			
+		format gui slot 9 to {_economy}
+		format gui slot 11 to {_balance}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "argent"
+		format gui slot 12 to {_bank_info}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "banque info"
+		format gui slot 13 to {_bank_interests}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "banque interets"
+		format gui slot 15 to {_trade}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "echange info"
+		format gui slot 16 to {_trade_accept}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "echange accept"
+		format gui slot 17 to {_trade_deny}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "echange refus"
+		
+		format gui slot 27 to {_settings}
+		format gui slot 29 to {_jobs_bossbar}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "metiers bossbar"
+		format gui slot 30 to {_jobs_actionbar}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "metiers actionbar"
+
+		format gui slot 32 to {_success_notifs}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "success notifications"
+
+	open last gui to {_player}
+
+#
+# LiensGUI
+#
+function LiensGUI(player: player):
+	set {_cartes} to book named "&aCartes"
+	set line 1 of lore of {_cartes} to "&7=====>"
+	
+	set {_network} to book named "&aRéseaux"
+	set line 1 of lore of {_network} to "&7=====>"
+
+	set {_votes} to book named "&aVotes"
+	set line 1 of lore of {_votes} to "&7=====>"
+
+	set {_carte_gaia} to paper named "&aCarte - Gaïa"
+	set line 1 of lore of {_carte_gaia} to "&7Cliquez ici pour"
+	set line 2 of lore of {_carte_gaia} to "&7le lien vers la"
+	set line 3 of lore of {_carte_gaia} to "&7carte de Gaïa."
+	set line 4 of lore of {_carte_gaia} to " "
+	set line 5 of lore of {_carte_gaia} to "&7&oUtilisez &8&o/carte &7&opour"
+	set line 6 of lore of {_carte_gaia} to "&7&ole voir directement."
+
+	set {_carte_factions} to 2 paper named "&aCarte - Factions"
+	set line 1 of lore of {_carte_factions} to "&7Cliquez ici pour"
+	set line 2 of lore of {_carte_factions} to "&7le lien vers la"
+	set line 3 of lore of {_carte_factions} to "&7carte des Factions."
+	set line 4 of lore of {_carte_factions} to " "
+	set line 5 of lore of {_carte_factions} to "&7&oUtilisez &8&o/carte factions &7&opour"
+	set line 6 of lore of {_carte_factions} to "&7&ole voir directement."
+
+	set {_carte_iles} to 3 paper named "&aCarte - Iles"
+	set line 1 of lore of {_carte_iles} to "&7Cliquez ici pour"
+	set line 2 of lore of {_carte_iles} to "&7le lien vers la"
+	set line 3 of lore of {_carte_iles} to "&7carte des Iles."
+	set line 4 of lore of {_carte_iles} to " "
+	set line 5 of lore of {_carte_iles} to "&7&oUtilisez &8&o/carte iles &7&opour"
+	set line 6 of lore of {_carte_iles} to "&7&ole voir directement."
+
+	set {_discord} to paper named "&aDiscord"
+	set line 1 of lore of {_discord} to "&7Cliquez ici pour"
+	set line 2 of lore of {_discord} to "&7le lien vers le"
+	set line 3 of lore of {_discord} to "&7Discord."
+
+	set {_discord_link} to 2 paper named "&aDiscord"
+	set line 1 of lore of {_discord_link} to "&7Cliquez ici pour"
+	set line 2 of lore of {_discord_link} to "&7lier vos comptes"
+	set line 3 of lore of {_discord_link} to "&7Minecraft et Discord."
+	set line 4 of lore of {_discord_link} to " "
+	set line 5 of lore of {_discord_link} to "&7&oEn liant vos comptes, vos"
+	set line 6 of lore of {_discord_link} to "&7&ogrades seront synchronisés."
+
+	set {_discord_linked} to 3 paper named "&aDiscord"
+	set line 1 of lore of {_discord_linked} to "&7Cliquez ici pour"
+	set line 2 of lore of {_discord_linked} to "&7afficher le compte Discord"
+	set line 3 of lore of {_discord_linked} to "&7lié à votre compte Minecraft."
+
+	set {_twitter} to 4 paper named "&aTwitter"
+	set line 1 of lore of {_twitter} to "&7Cliquez ici pour"
+	set line 2 of lore of {_twitter} to "&7le lien vers le"
+	set line 3 of lore of {_twitter} to "&7Twitter."
+
+	set {_facebook} to 5 paper named "&aFacebook"
+	set line 1 of lore of {_facebook} to "&7Cliquez ici pour"
+	set line 2 of lore of {_facebook} to "&7le lien vers le"
+	set line 3 of lore of {_facebook} to "&7Facebook."
+
+	set {_lien1} to paper named "&aSite 1"
+	set line 1 of lore of {_lien1} to "&7Cliquez ici pour"
+	set line 2 of lore of {_lien1} to "&7le lien vers le"
+	set line 3 of lore of {_lien1} to "&7premier site de votes."
+
+	create a gui with virtual chest with 5 rows named "&aLiens":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 10, 14, 15, 16, 17, 19, 25, 26, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 and 44 with black stained glass pane named " "
+		format gui slot 7 to stick named "&aRetour":
+			play resource sound pack "click" to {_player} with volume 1
+			MenuGUI({_player})
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			
+		format gui slot 9 to {_cartes}
+		format gui slot 11 to {_carte_gaia}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "carte gaia"
+		format gui slot 12 to {_carte_factions}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "carte factions"
+		format gui slot 13 to {_carte_iles}:
+			play resource sound pack "click" to {_player} with volume 1
+			make {_player} execute command "carte iles"
+			
+		format gui slot 18 to {_network}
+		format gui slot 20 to {_discord}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			TellRaw(player, "&7Lien vers le Discord.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "http://discord.gaia-craft.fr/")
+		format gui slot 21 to {_discord_link}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "discord link"
+		format gui slot 22 to {_discord_linked}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "discord linked"
+		format gui slot 23 to {_twitter}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			TellRaw(player, "&7Lien vers le Twitter de Gaïa.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "https://twitter.com/Gaia_RPG/")
+		format gui slot 24 to {_facebook}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			TellRaw(player, "&7Lien vers le Facebook de Gaïa.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "https://facebook.com/gaiarpg/")
+
+		format gui slot 27 to {_votes}
+		format gui slot 29 to {_lien1}:
+			play resource sound pack "click" to {_player} with volume 1
+			TellRaw(player, "&7Lien vers le site de vote 1.", "&7&oCliquez ici pour\n&7&oafficher le lien.", "http://discord.gaia-craft.fr/")
+		
+	open last gui to {_player}
+
+
+#
+# ClassementsGUI
+#
+function ClassementsGUI(player: player):
+	set {_argent} to book named "&aArgent & Succès"
+	set line 1 of lore of {_argent} to "&7=====>"
+
+	set {_metiers} to book named "&aMétiers"
+	set line 1 of lore of {_metiers} to "&7=====>"
+
+	set {_banque_top} to paper named "&aBanque"
+	set line 1 of lore of {_banque_top} to "&7Cliquez ici pour"
+	set line 2 of lore of {_banque_top} to "&7afficher le classement"
+	set line 3 of lore of {_banque_top} to "&7des comptes en banque."
+	set line 4 of lore of {_banque_top} to " "
+	set line 5 of lore of {_banque_top} to "&7&oUtilisez &8&o/banque top &7&opour"
+	set line 6 of lore of {_banque_top} to "&7&ole voir directement."
+
+	set {_total_top} to paper named "&aArgent - Total"
+	set line 1 of lore of {_total_top} to "&7Cliquez ici pour"
+	set line 2 of lore of {_total_top} to "&7afficher le classement"
+	set line 3 of lore of {_total_top} to "&7des l'argent des comptes ET"
+	set line 4 of lore of {_total_top} to "&7de l'argent en poche."
+	set line 5 of lore of {_total_top} to " "
+	set line 6 of lore of {_total_top} to "&7&oUtilisez &8&o/argent top &7&opour"
+	set line 7 of lore of {_total_top} to "&7&ole voir directement."
+
+	set {_metiers_top} to paper named "&aMétiers - Total"
+	set line 1 of lore of {_metiers_top} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_top} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_top} to "&7global des métiers."
+	set line 4 of lore of {_metiers_top} to " "
+	set line 5 of lore of {_metiers_top} to "&7&oUtilisez &8&o/metiers gtop &7&opour"
+	set line 6 of lore of {_metiers_top} to "&7&ole voir directement."
+
+	set {_success_top} to paper named "&aSuccès - Total"
+	set line 1 of lore of {_success_top} to "&7Cliquez ici pour"
+	set line 2 of lore of {_success_top} to "&7afficher le classement"
+	set line 3 of lore of {_success_top} to "&7global des succès."
+	set line 4 of lore of {_success_top} to " "
+	set line 5 of lore of {_success_top} to "&7&oUtilisez &8&o/succes top &7&opour"
+	set line 6 of lore of {_success_top} to "&7&ole voir directement."
+
+	set {_success_week} to paper named "&aSuccès - Semaine"
+	set line 1 of lore of {_success_week} to "&7Cliquez ici pour"
+	set line 2 of lore of {_success_week} to "&7afficher le classement"
+	set line 3 of lore of {_success_week} to "&7des succès de la semaine."
+	set line 4 of lore of {_success_week} to " "
+	set line 5 of lore of {_success_week} to "&7&oUtilisez &8&o/succes semaine &7&opour"
+	set line 6 of lore of {_success_week} to "&7&ole voir directement."
+
+	set {_success_month} to paper named "&aSuccès - Mois"
+	set line 1 of lore of {_success_month} to "&7Cliquez ici pour"
+	set line 2 of lore of {_success_month} to "&7afficher le classement"
+	set line 3 of lore of {_success_month} to "&7des succès du mois."
+	set line 4 of lore of {_success_month} to " "
+	set line 5 of lore of {_success_month} to "&7&oUtilisez &8&o/succes mois &7&opour"
+	set line 6 of lore of {_success_month} to "&7&ole voir directement."
+
+	set {_metiers_artisans} to crafting table named "&aMétiers - Artisan"
+	set line 1 of lore of {_metiers_artisans} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_artisans} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_artisans} to "&7des Artisans."
+	set line 4 of lore of {_metiers_artisans} to " "
+	set line 5 of lore of {_metiers_artisans} to "&7&oUtilisez &8&o/metiers top Artisan"
+	set line 6 of lore of {_metiers_artisans} to "&7&opour le voir directement."
+
+	set {_metiers_bucheron} to oak log named "&aMétiers - Bûcheron"
+	set line 1 of lore of {_metiers_bucheron} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_bucheron} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_bucheron} to "&7des Bûcherons."
+	set line 4 of lore of {_metiers_bucheron} to " "
+	set line 5 of lore of {_metiers_bucheron} to "&7&oUtilisez &8&o/metiers top Bûcheron"
+	set line 6 of lore of {_metiers_bucheron} to "&7&opour le voir directement."
+
+	set {_metiers_chasseur} to bow named "&aMétiers - Chasseur"
+	set line 1 of lore of {_metiers_chasseur} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_chasseur} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_chasseur} to "&7des Chasseurs."
+	set line 4 of lore of {_metiers_chasseur} to " "
+	set line 5 of lore of {_metiers_chasseur} to "&7&oUtilisez &8&o/metiers top Chasseur"
+	set line 6 of lore of {_metiers_chasseur} to "&7&opour le voir directement."
+
+	set {_metiers_constructeur} to stone brick stairs named "&aMétiers - Constructeur"
+	set line 1 of lore of {_metiers_constructeur} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_constructeur} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_constructeur} to "&7des Constructeurs."
+	set line 4 of lore of {_metiers_constructeur} to " "
+	set line 5 of lore of {_metiers_constructeur} to "&7&oUtilisez &8&o/metiers top Constructeur"
+	set line 6 of lore of {_metiers_constructeur} to "&7&opour le voir directement."
+
+	set {_metiers_excavateur} to iron shovel named "&aMétiers - Excavateur"
+	set line 1 of lore of {_metiers_excavateur} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_excavateur} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_excavateur} to "&7des Excavateurs."
+	set line 4 of lore of {_metiers_excavateur} to " "
+	set line 5 of lore of {_metiers_excavateur} to "&7&oUtilisez &8&o/metiers top Excavateur"
+	set line 6 of lore of {_metiers_excavateur} to "&7&opour le voir directement."
+
+	set {_metiers_fermier} to iron hoe named "&aMétiers - Fermier"
+	set line 1 of lore of {_metiers_fermier} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_fermier} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_fermier} to "&7des Fermiers."
+	set line 4 of lore of {_metiers_fermier} to " "
+	set line 5 of lore of {_metiers_fermier} to "&7&oUtilisez &8&o/metiers top Fermier"
+	set line 6 of lore of {_metiers_fermier} to "&7&opour le voir directement."
+
+	set {_metiers_forgeron} to furnace named "&aMétiers - Forgeron"
+	set line 1 of lore of {_metiers_forgeron} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_forgeron} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_forgeron} to "&7des Forgerons."
+	set line 4 of lore of {_metiers_forgeron} to " "
+	set line 5 of lore of {_metiers_forgeron} to "&7&oUtilisez &8&o/metiers top Forgeron"
+	set line 6 of lore of {_metiers_forgeron} to "&7&opour le voir directement."
+
+	set {_metiers_mineur} to iron pickaxe named "&aMétiers - Mineur"
+	set line 1 of lore of {_metiers_mineur} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_mineur} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_mineur} to "&7des Mineurs."
+	set line 4 of lore of {_metiers_mineur} to " "
+	set line 5 of lore of {_metiers_mineur} to "&7&oUtilisez &8&o/metiers top Mineur"
+	set line 6 of lore of {_metiers_mineur} to "&7&opour le voir directement."
+
+	set {_metiers_pecheur} to fishing rod named "&aMétiers - Pêcheur"
+	set line 1 of lore of {_metiers_pecheur} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_pecheur} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_pecheur} to "&7des Pêcheurs."
+	set line 4 of lore of {_metiers_pecheur} to " "
+	set line 5 of lore of {_metiers_pecheur} to "&7&oUtilisez &8&o/metiers top Pêcheur"
+	set line 6 of lore of {_metiers_pecheur} to "&7&opour le voir directement."
+
+	set {_metiers_eleveur} to leash named "&aMétiers - Éleveur"
+	set line 1 of lore of {_metiers_eleveur} to "&7Cliquez ici pour"
+	set line 2 of lore of {_metiers_eleveur} to "&7afficher le classement"
+	set line 3 of lore of {_metiers_eleveur} to "&7des Éleveurs."
+	set line 4 of lore of {_metiers_eleveur} to " "
+	set line 5 of lore of {_metiers_eleveur} to "&7&oUtilisez &8&o/metiers top Éleveur"
+	set line 6 of lore of {_metiers_eleveur} to "&7&opour le voir directement."
+
+
+	create a gui with virtual chest with 5 rows named "&aClassements":
+		format gui slot 0, 1, 2, 3, 4, 5, 6, 10, 13, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 34, 36, 37, 43 and 44 with black stained glass pane named " "
+		format gui slot 7 to stick named "&aRetour":
+			play resource sound pack "click" to {_player} with volume 1
+			MenuGUI({_player})
+		format gui slot 8 to barrier named "&c&lFermer":
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			
+		format gui slot 9 to {_argent}
+
+		format gui slot 11 to {_banque_top}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "banque top"
+		format gui slot 12 to {_total_top}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "argent top"
+		format gui slot 14 to {_success_top}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "succes top"
+		format gui slot 15 to {_success_week}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "succes semaine"
+		format gui slot 16 to {_success_month}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make {_player} execute command "succes mois"
+		
+		format gui slot 27 to {_metiers}
+
+		format gui slot 35 to {_metiers_top}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers gtop"
+		
+		format gui slot 29 to {_metiers_artisans}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Artisan"
+		format gui slot 30 to {_metiers_bucheron}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Bûcheron"
+		format gui slot 31 to {_metiers_chasseur}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Chasseur"
+		format gui slot 32 to {_metiers_constructeur}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Constructeur"
+		format gui slot 33 to {_metiers_excavateur}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Excavateur"
+
+		format gui slot 38 to {_metiers_fermier}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Fermier"
+		format gui slot 39 to {_metiers_forgeron}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Forgeron"
+		format gui slot 40 to {_metiers_mineur}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Mineur"
+		format gui slot 41 to {_metiers_pecheur}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Pêcheur"
+		format gui slot 42 to {_metiers_eleveur}:
+			play resource sound pack "click" to {_player} with volume 1
+			close {_player}'s inventory
+			make player execute command "metiers top Éleveur"
+
+	open last gui to {_player}
+#
+# AdminGUI
+#
+function AdminGUI(player: player):
+	play resource sound pack "click" to {_player} with volume 1
+	message "AdminGUI - WIP" to {_player}

@@ -1,0 +1,47 @@
+#========[¤]========#
+#                   #
+# Financial Market  #
+#                   #
+#========[¤]========#
+
+on right click on sign:
+	if "%region at event-location%" contains "questrelle_bank_2ndfloor":
+		if line 1 of block at event-location contains "Minerais" or "Nourriture" or "Métaux précieux"  or "Bons du Trésor" or "Équipement" or "Bétail":
+			if "%player's tool%" is "0 air":
+				open an anvil gui named "MarchéFinancier" to player with default text "%line 1 of block at event-location% : combien ?"
+			else if "%player's tool%" is "pieces of paper named &aObligation":
+				if line 1 of lore of player's tool contains line 1 of block at event-location:
+					
+					set {_amount} to line 2 of lore of player's tool
+					replace "&7" with "" in {_amount}
+					set {_amount} to {_amount} parsed as integer
+					
+
+					set {_price} to line 2 of block at location at targeted block
+					replace "¤" with "" in {_price}
+					set {_price} to {_price} parsed as number
+
+					add {_amount} * {_price} to player's balance
+					set player's tool to air
+					message "&7Vous vendez %{_amount}% obligation(s) de %line 1 of block at location at targeted block% &r&7pour un prix total de %{_amount} * {_price}%¤."
+				else:
+					message "&7Pour vendre cette Obligation, utilisez le panneau associé."
+
+			else:
+				message "&7Pour acheter des Obligations, faites un clic droit en ayant la main vide."
+				message "&7Pour vendre des Obligations, faites un clic droit en ayant une seule obligation dans votre main."
+
+on close anvil gui named "MarchéFinancier":
+	set {_integer} to event-text parsed as integer
+	if {_integer} is integer:
+		set {_price} to line 2 of block at location at targeted block
+		replace "¤" with "" in {_price}
+		set {_price} to {_price} parsed as number
+		if player's balance >= {_integer} * {_price}:
+			give player 1 paper named "&aObligation" with lore "&7%line 1 of block at location at targeted block% :" and "&7%{_integer}%"
+			remove {_integer} * {_price} from player's balance
+			message "&7Vous achetez %{_integer}% obligations de %line 1 of block at location at targeted block% &r&7pour un prix total de %{_integer} * {_price}%¤."
+		else:
+			message "&7Vous n'avez pas les %{_integer} * {_price}%¤ requis pour acheter les %{_integer}% obligations de %line 1 of block at location at targeted block%&r&7."
+	else:
+		message "&7Merci de préciser le nombre entier d'obligations de Bons du Trésor que vous souhaitez acheter."

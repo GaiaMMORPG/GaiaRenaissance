@@ -11,7 +11,7 @@ Config:
   block-ecraft-command: true
   enable-categories: true
   hide-craftings-with-permissions: false
-  workbench-attach: true
+  workbench-attach: false
   block-player-crafting-inventory: false
   cooldown-notification-messages: true
   cooldown-notification-sound:
@@ -28,185 +28,6 @@ Config:
   craft-with-money-item: INK_SAC
   previous-next-crafting-item: RED_STAINED_GLASS_PANE
   Crafts:
-    super_sword:
-      name: '&4&lSuper Sword'
-      lore:
-      - '&6This is one of the best'
-      - '&6swords on the server!'
-      - ''
-      - '&8[Created by: &c%player%&8]'
-      category: resources
-      enchants:
-      - DAMAGE_ALL;6
-      - FIRE_ASPECT;3
-      permission: ecraft.supersword
-      one-time: true
-      cooldown: 1800
-      hide-flags:
-      - HIDE_ATTRIBUTES
-      extra-requires:
-      - level,15,take
-      commands-when-crafted:
-      - broadcast &2&l%player% crafted a &4&lSUPER SWORD&2&l!
-      id: DIAMOND_SWORD
-      requires:
-      - DIAMOND;15;&bUnique Diamond;&7A legendary mineral;&7very hard to obtain..
-      - GOLD_INGOT;10
-    gold_helmet:
-      name: '&e&lKing Helmet'
-      lore:
-      - '&6Difficult to obtain, difficult to craft.'
-      - '&6The &eKing Helmet &6is one of the most'
-      - '&6wanted items on the server...'
-      category: resources
-      unbreakable: true
-      enchants:
-      - PROTECTION_ENVIRONMENTAL;8
-      - THORNS;8
-      - OXYGEN;5
-      id: GOLDEN_HELMET
-      requires:
-      - GOLDEN_HELMET;10
-      - GOLDEN_APPLE;20
-      - GOLDEN_CARROT;20
-      - GOLD_INGOT;50
-      - GLOWSTONE_DUST;50
-      - GOLD_NUGGET;60
-    epic_bow:
-      name: '&aE&bP&cI&dC &6Bow'
-      amount: '2'
-      category: resources
-      enchants:
-      - ARROW_DAMAGE;4
-      - ARROW_INFINITE;1
-      id: BOW
-      requires:
-      - BOW;10;ENCHANTS:ARROW_DAMAGE,1;DONT_REMOVE
-      - GOLD_INGOT;40
-      - DIAMOND;30
-    command_1:
-      name: '&2&lMoney Exchange'
-      lore:
-      - '&6When crafting this, you will get'
-      - '&2$500&6. You can use the money to buy'
-      - '&6items on the shop.'
-      category: resources
-      command: eco give %player% 500
-      cooldown: 30
-      id: GHAST_TEAR
-      requires:
-      - GOLD_INGOT;10
-    command_2:
-      name: '&4&lVIP &7Rank'
-      lore:
-      - '&6When crafting this, you will receive'
-      - '&6the &4&lVIP &6rank. Good luck getting'
-      - '&6the ingredients!'
-      category: resources
-      command: pex user %player% group set VIP
-      id: GHAST_TEAR
-      requires:
-      - COMMAND_BLOCK;30
-      - BARRIER;30
-      - BEDROCK;30
-      - DEAD_BUSH;30
-      - SPAWNER;1
-    command_on_click:
-      name: '&5&lSpeed &d&lStick'
-      lore:
-      - '&6This stick have a little secret'
-      - '&bRight Click &6to know it ;)'
-      category: resources
-      command-on-click:
-      - 'console: effect %player% 1 30 2'
-      - 'console: msg %player% &4You used the &5&lSpeed &d&lStick'
-      command-wait: 180
-      id: STICK
-      requires:
-      - STICK;64
-      - BLAZE_ROD;64
-    key_item:
-      name: '&2&lMagic &d&lKey'
-      lore:
-      - '&6With this item you can open one'
-      - '&6of the mystery vaults on the spawn'
-      category: resources
-      block-interaction: true
-      block-interaction-message: '&cThis is a special item, you can''t interact with
-        it'
-      block-use-in-crafting-tables: true
-      block-use-in-crafting-tables-message: '&cThis is a special item, you can''t
-        craft with it'
-      success-rate: 25
-      success-rate-failed-message: '&cThe creation of the &2Magic &dKey &cfailed!
-        The Mystery Vaults can''t be opened yet...'
-      success-rate-failed-commands:
-      - eco take %player% 100
-      id: LEVER
-      requires:
-      - GOLD_INGOT;30
-    random:
-      name: '&c&lRandom Item'
-      lore:
-      - '&aCrafting this, you can get one of these items:'
-      - '&4Super Sword &7-> &220%'
-      - '&4King Helmet &7-> &230%'
-      - '&4Epic Bow    &7-> &250%'
-      - ''
-      - '&6Good luck! :)'
-      category: resources
-      random:
-      - super_sword;20
-      - gold_helmet;30
-      - epic_bow;50
-      id: EMERALD
-      requires:
-      - BEACON;5
-    enchants_sword:
-      name: '&4&lAlpha Sword'
-      lore:
-      - '&aCrafting this, you can get a sword'
-      - '&awith Damage_All enchant from level 1 to 10'
-      category: resources
-      cooldown: 40
-      cooldown-bypass-cost: 500
-      enchants:
-      - DAMAGE_ALL;1-10
-      id: DIAMOND_SWORD
-      requires:
-      - DIAMOND;55
-    skull-with-texture:
-      skull-id: ec62ea75-402c-44fb-8f71-bef0015a4634
-      skull-texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTA4Yjc3MmVjYWVlNzA2MjM1ZDFhZGJmMGI5YTI5YjU4YmE5YzBlZDYwZGU2ZjEwZWZiMWE3Zjg2ZDllIn19fQ==
-      name: '&2&lChristmas Ornament'
-      amount: 16
-      category: resources
-      id: PLAYER_HEAD
-      requires:
-      - COD;1
-    random-lore-stats:
-      name: '&6Magic Boots'
-      unbreakable: true
-      lore:
-      - '&8&m---------&7STATS&8&m---------'
-      - ''
-      - '&a+$random-120-170$ &7Health &4❤'
-      - '&a+$random-5-10$ &7Dexterity &f✸'
-      - ''
-      - '&8&m-----------------------'
-      ignore-required-items-lore: true
-      category: resources
-      id: IRON_BOOTS
-      requires:
-      - MELON;1
-      - IRON_BOOTS;1;&2Normal Boots;&7Level 1
-    workbench:
-      amount: 1
-      category: resources
-      ignore-required-items-data-values: true
-      id: CRAFTING_TABLE
-      requires:
-      - OAK_PLANKS;4
     oak_planks:
       id: OAK_PLANKS
       amount: '1'
@@ -884,3 +705,46 @@ Config:
       - eco give %player% 500
       extra-requires:
       - job,Artisan,11
+    workbench:
+      id: CRAFTING_TABLE
+      name: '&fÉtabli'
+      lore:
+      - '&7Un établi'
+      - '&7pour des toutes'
+      - '&7recettes.'
+      - ' '
+      - '&7&oRareté : &fCommun'
+      amount: 1
+      requires:
+      - 'OAK_PLANKS;4;&fPlanches de chêne;&7Des planches de chêne;&7pour la construction;&7ou pour le crafting.; ;&7&oRareté : &fCommun'
+      category: advanced
+    furnace:
+      id: FURNACE
+      amount: '1'
+      durability: '0'
+      name: '&fFourneau banal'
+      lore:
+      - '&7Un fourneau'
+      - '&7pour des recettes'
+      - '&7banales.'
+      - ' '
+      - '&7&oRareté : &fCommun'
+      requires:
+      - COBBLESTONE;10
+      category: advanced
+    steel_furnace:
+      id: FURNACE
+      amount: '1'
+      durability: '0'
+      name: '&fHaut-Fourneau'
+      lore:
+      - '&7Un haut fourneau'
+      - '&7capable de fondre'
+      - '&7des minerais.'
+      - ' '
+      - '&7&oRareté : &fCommun'
+      requires:
+      - COBBLESTONE;10
+      - 'IRON_INGOT;5;&fLingot d''acier;&7Un lingot;&7d''acier traditionnel.; ;&7&oRareté
+        : &fCommun'
+      category: advanced

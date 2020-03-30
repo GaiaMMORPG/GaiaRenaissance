@@ -1,0 +1,180 @@
+# -------------------------------------------------------------------------------
+# This file manages rules in chat (not commands) and includes rules from rules.txt.
+#
+# For help, see the header in the rules.txt file.
+# -------------------------------------------------------------------------------
+
+# -------- Prevent people saying bad things about your server
+# Notice the id, it can be a string and can used multiple times.
+#match this server (is (bad|crappy|shitty)|suck)
+#id ServerHate
+#then rewrite I love this filter!|I can't behave property due to brain damage!|My bad manners was corrected by server.
+#then notify chatcontrol.notify.rulesalert &8[&7ID {ruleID}&8] &7{player}: &f{message}
+#then console kick {player} &cYour rating will be processed by our staff soon. \nThanks and welcome back!
+#then log
+
+# Example of limiting repeating characters to four repeats maximum.
+#match (.)(?=([a-z])\1{3})
+#then replace
+
+# Example of preventing special, unicode characters. Those are misused to bypass filters.
+# Please keep in mind that non-english languages might use them as well.
+#match [^\u0000-\u007F]+
+#then warn Unicode is prohibited
+#then deny
+
+#
+#
+# Hollish  Autocorrection
+#
+#
+#
+
+# bvn = Bienvenue
+match (\bbvn|bievenu\b)
+then replace Bienvenue
+
+# bjr = Bonjour
+match \bbjr\b
+then replace Bonjour
+
+# slt = Salut
+match \bslt\b
+then replace Salut
+
+# re = Rebonjour
+match ^\bre\b
+then replace Rebonjour
+
+# Tu fais quoi?
+match \btfk\b
+then replace Tu fais quoi ?
+
+# cc = coucou
+match \bcc\b
+then replace Coucou
+
+# ça va
+match (\bca va\b|\bsa va\b|\bsava\b|\bcava\b)
+then replace ça va
+
+# merci
+match (\bmrc\b|\bmersi\b)
+then replace merci
+
+# désolé
+match (\bdsl\b|\bdéso\b|\bdeso\b|\bdésso\b|\bdesso\b)
+then replace désolé
+
+#jve = je veux
+match (\bjve\b|\bjveu\b)
+then replace je veux
+
+# d'accord
+match (\bdac\b|\bd'ac\b|\bdako\b|\bdacord\b|\bd'acord\b|\bdaccord\b|\bd'accors\b|\bd'acors\b)
+then replace d'accord
+
+# m'aider
+match \bm'aidé\b
+then replace m'aider
+
+# qu'est-ce que
+match (\bqu'est ce que\b|\bkeske\b)
+then replace qu'est-ce que
+
+# argent
+match (\bargen\b|\bargan\b)
+then replace argent
+
+# pourquoi
+match \bpk\b
+then replace pourquoi
+
+# tu es où
+match (\bt ou\b|\btes ou\b|\btu est ou\b|\btu es ou\b)
+then replace tu es où
+
+# s'il te plaît
+match \bstp\b
+then replace s'il te plaît
+
+# s'il vous plaît
+match \bsvp\b
+then replace s'il vous plaît
+
+# rendez-vous
+match \brdv\b
+then replace rendez-vous
+
+# toujours
+match \btj\b
+then replace toujours
+
+# j'avoue
+match (\bjavou|javoue\b)
+then replace j'avoue
+
+# quoi
+match \bkoi\b
+then replace quoi
+
+# je te
+match \bjte\b
+then replace je te
+
+# j'ai
+match (\bjai\b|\bg\b)
+then replace j'ai
+
+# je suis
+match (\bchui|je sui\b)
+then replace je suis
+
+# c'était
+match (\bct\b|\bc t\b)
+then replace c'était
+
+# c'est
+match \bcest\b
+then replace c'est
+
+# qu'il
+match (\bkil\b|\bquil\b)
+then replace qu'il
+
+# dans
+match \bdan\b
+then replace dans
+
+# puis
+match \bpui\b
+then replace puis
+
+# je ne sais pas
+match \bjsp\b
+then replace je ne sais pas
+
+#Smileys
+match :\)
+then replace ☺
+
+match :-\)
+then replace ☺
+
+match :\(
+then replace ☹
+
+match :-\(
+then replace ☹
+
+match ;\)
+then replace ㋡
+
+match ;-\)
+then replace ㋡
+
+match \:star\:
+then replace ★
+
+match <3\b
+then replace ❤

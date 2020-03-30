@@ -1,0 +1,71 @@
+MythicMobs: true
+Citizens: false
+VanillaMobs: false
+MM-Disguises:
+  pnj_jacopo:
+    displayName:
+    disguise: pnj_jacopo
+  pnj_marie:
+    displayName:
+    disguise: pnj_marie
+  pnj_market:
+    displayName:
+    disguise: pnj_market
+  pnj_banker1:
+    displayName:
+    disguise: pnj_banker1
+  pnj_banker2:
+    displayName:
+    disguise: pnj_banker2
+  pnj_banker3:
+    displayName:
+    disguise: pnj_banker3
+  pnj_guard_bank1:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_guard_bank2:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_guard_bank3:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_guard_bank4:
+    displayName:
+    disguise: pnj_guard_bank
+  pnj_eglesias:
+    displayName:
+    disguise: pnj_adult_eglesias
+  pnj_eraguias:
+    displayName:
+    disguise: pnj_adult_eraguias
+  pnj_adult_griselda:
+    displayName:
+    disguise: pnj_adult_griselda
+  pnj_adult_ulfric:
+    displayName:
+    disguise: pnj_adult_ulfric
+  pnj_child_artaina:
+    displayName:
+    disguise: pnj_child_artaina
+  pnj_child_elenwen:
+    displayName:
+    disguise: pnj_child_elenwen
+  pnj_child_erelon:
+    displayName:
+    disguise: pnj_child_erelon
+  pnj_sdf_special:
+    displayName:
+    disguise: pnj_sdf_special
+  pnj_sdf:
+    displayName:
+    disguise: pnj_sdf
+    
+  
+Citizens-Disguises:
+  #ExampleNPCName:
+  #  displayName: Example NPC display name
+  #  disguise: exampleDisguiseName
+VanillaMobs-Disguises:
+  #CREEPER:
+  #  displayName: Example display name
+  #  disguise: exampleDisguiseName

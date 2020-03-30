@@ -1,0 +1,20 @@
+quester: 'Commerçant'
+first: 'start'
+stop: 'false'
+NPC_options:
+  start:
+    text: 'Je peux vous aider ?'
+    pointer: 'open,open_search,market_sell,bye'
+
+player_options:
+  open:
+    text: 'Je voudrais accéder au marché.'
+    event: 'market_gui'
+  open_search:
+    text: 'Je voudrais rechercher quelque chose sur le marché.'
+    event: 'market_search_gui'
+  market_sell:
+    text: 'Je voudrais vendre ce que j''ai dans la main sur le marché.'
+    event: 'market_sell'
+  bye:
+    text: 'En rien, merci !'

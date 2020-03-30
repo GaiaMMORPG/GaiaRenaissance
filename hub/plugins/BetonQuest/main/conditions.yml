@@ -1,0 +1,16 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+
+#========[¤]========#
+#                   #
+#       Main        #
+#                   #
+#========[¤]========#
+
+# Marie
+marie_journal: 'journal marie_journal'
+marie_gear: 'journal marie_journal_gear'
+marie_gear_done: 'journal marie_journal_gear_done'
+marie_done: 'tag marie_done'

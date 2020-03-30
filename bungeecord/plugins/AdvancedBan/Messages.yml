@@ -1,0 +1,242 @@
+General:
+  Prefix: "&2&lModération&r"
+  NoPerms: "&7Utilisez votre &8/menu &7pour toutes vos options."
+  LayoutNotFound: "&d&oIl n'y a aucun Layout nommé %NAME%."
+  # This will be the replacement for the %DURATION% variable
+  TimeLayoutD: "%D%jour(s) %H%h %M%min et %S%sec"
+  TimeLayoutH: "%H%heure(s) %M%min et %S%sec"
+  TimeLayoutM: "%M%min et %S%sec"
+  TimeLayoutS: "%S% secondes"
+  FailedFetch: "&cImpossible de récupérer l'UUID de &2%NAME% &c! Veuillez vérifier la console."
+
+
+Ban:
+  Usage: "&7Utilisez &8/ban [Joueur] [Motif]"
+  Done: ""
+  AlreadyDone: "&8%NAME% &7est déjà banni."
+  Exempt: "&7Vous ne pouvez pas bannir &8%NAME%&7."
+  Layout:
+  - '&cBanni définitivement'
+  - '&7'
+  - '&7Motif : &8%REASON%'
+  - '&7'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Date : &8%DATE%'
+  Notification:
+  - "&8%NAME% &7a été banni par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+
+Ipban:
+  Usage: "&7Utilisez &8/banip [Joueur/IP] [Motif]"
+  Layout:
+  - '&cBanni définitivement'
+  - '&7'
+  - '&7Motif : &8%REASON%'
+  - '&7'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Date : &8%DATE%'
+  Notification:
+  - "&8%NAME% &7a été banni par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+  IpNotCashed: "&7Il n'y aucune IP connue pour &8%NAME%&7."
+
+Tempban:
+  Usage: "&7Utilisez &8/tempban [Joueur/IP] [Xmo/Xd/Xh/Xm/Xs] [Motif]"
+  MaxDuration: "&7Vous ne pouvez pas bannir pour plus de &8%MAX%&7sec."
+  Layout:
+  - '&cBanni Temporairement'
+  - '&7'
+  - '&7Motif : &8%REASON%'
+  - '&7'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Date : &8%DATE%'
+  - '&7Reste : &8%DURATION%'
+  Notification:
+  - "&8%NAME% &7a été banni temporairement par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+  - "&7Durée : &8%DURATION%"
+
+Tempipban:
+  Usage: "&7Utilisez &8/tempipban [Joueur/IP] [Xmo/Xd/Xh/Xm/Xs] [Motif]"
+  MaxDuration: "&7Vous ne pouvez pas bannir pour plus de &8%MAX%&7sec."
+  Layout:
+  - '&cBanni Temporairement'
+  - '&7'
+  - '&7Motif : &8%REASON%'
+  - '&7'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Date : &8%DATE%'
+  - '&7Reste : &8%DURATION%'
+  Notification:
+  - "&8%NAME% &7a été banni temporairement par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+  - "&7Durée : &8%DURATION%"
+
+Mute:
+  Usage: "&7Utilisez &8/mute [Joueur] [Motif]"
+  Done: ""
+  AlreadyDone: "&8%NAME% &7est déjà mute."
+  Exempt: "&7Vous ne pouvez pas mute &8%NAME%&7."
+  Layout:
+  - '&cVous avez été mute définitivement.'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Motif : &8%REASON%'
+  Notification:
+  - "&8%NAME% &7a été mute définitivement par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+
+Tempmute:
+  Usage: "&7Utilisez &8/tempmute [Joueur] [Xmo/Xd/Xh/Xm/Xs] [Motif]"
+  MaxDuration: "&7Vous ne pouvez pas muter pour plus de &8%MAX%&d&osec."
+  Layout:
+  - '&cVous avez été mute temporairement.'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Motif : &8%REASON%'
+  - '&7Durée : &8%DURATION%'
+  Notification:
+  - "&8%NAME% &7a été mute temporairement par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+  - "&7Durée : &8%DURATION%"
+
+Warn:
+  Usage: "&7Utilisez &8/warn [Joueur] [Motif]"
+  Done: "&8%NAME% &7a été averti."
+  Exempt: "&7Vous ne pouvez pas avertir &8%NAME%&7."
+  Layout:
+  - '&cVous avez été averti.'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Motif : &8%REASON%'
+  - '&7Total : &8%COUNT%'
+  - '&7'
+  - '&7Rappel :'
+  - '&7Un nombre trop élevé d''avertissements peut résulter en un bannissement, temporaires, ou non !'
+  Notification:
+  - "&8%NAME% &7a été averti par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+
+Tempwarn:
+  Usage: "&7Utilisez &8/tempwarn [Joueur] [Xmo/Xd/Xh/Xm/Xs] [Motif]"
+  MaxDuration: "&7Vous ne pouvez pas avertir pour plus de &8%MAX%&7sec."
+  Layout:
+  - '&cVous avez été averti temporairement.'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Motif : &8%REASON%'
+  - '&7Durée : &8%DURATION%'
+  - '&7Total : &8%COUNT%'
+  - '&7'
+  - '&7Rappel :'
+  - '&7Un nombre trop élevé d''avertissements peut résulter en un bannissement, temporaires, ou non !'
+  Notification:
+  - "&8%NAME% &7a été averti temporairement par &8%OPERATOR%&7."
+  - "&d&oMotif : &a%REASON%"
+  - "&d&oDurée : &a%DURATION%"
+
+Kick:
+  Usage: "&7Utilisez &8/kick [Joueur] [Motif]"
+  Done: "&8%NAME% &7a été kické."
+  NotOnline: "&2%NAME% &&d&on'est pas en ligne."
+  Exempt: "&7Vous ne pouvez pas kicker &8%NAME%&7."
+  Layout:
+  - '&cVous avez été kick.'
+  - '&7Par : &8%OPERATOR%'
+  - '&7Motif : &8%REASON%'
+  - '&7'
+  - '&7Rappel :'
+  - '&7Un nombre trop élevé d''avertissements peut résulter en un bannissement, temporaires, ou non !'
+  Notification:
+  - "&8%NAME% &7a été kické par &8%OPERATOR%&7."
+  - "&7Motif : &8%REASON%"
+  - "&7Durée : &8%DURATION%"
+
+UnBan:
+  Usage: "&cUsage &8\xbb &7&o/unban [Name/IP]"
+  NotPunished: "&c&o%NAME% is not banned!"
+  Done: "&a&o%NAME% &7was successfully unbanned!"
+
+UnMute:
+  Usage: "&cUsage &8\xbb &7&o/unmute [Name]"
+  NotPunished: "&c&o%NAME% is not muted!"
+  Done: "&a&o%NAME% &7was successfully unmuted!"
+
+UnWarn:
+  Usage: "&cUsage &8\xbb &7&o/unwarn [ID] or /unwarn clear [Name]"
+  NotFound: "&cCould not find warning #%ID%"
+  Done: "&7Warn &a&o#%ID% &7was successfully deleted!"
+  Clear:
+    Empty: "&c&o%NAME% &7has no warnings!"
+    Done: "&7Cleared &a&o%COUNT% &7warnings"
+
+UnPunish:
+  Usage: "&cUsage &8\xbb &7&o/unpunish [ID]"
+  NotFound: "&cCould not find punishment #%ID%"
+  Done: "&7Punishment &a&o#%ID% &7was successfully deleted!"
+
+
+Banlist:
+  Usage: "&cUsage &8\xbb &7&o/banlist <Page>"
+  OutOfIndex: "&cThere is no page %PAGE%!"
+  NoEntries: "&c&oThere are no entries"
+  Header:
+  - "%PREFIX% &7Banlist:"
+  - "&c&oPlayer/IP &8| &e&oDuration &8| &7&oBanned by"
+  - "&c&oType &8> &7&oReason"
+  - "&7"
+  Entry:
+  - "&8[&e%DATE%&8]"
+  - "&c%NAME% &8| &e%DURATION% &8| &7%OPERATOR%"
+  - "&c%TYPE% &8> &7&o%REASON%"
+  - "&7"
+  Footer: "&7Page &e&o%CURRENT_PAGE% &7of &e&o%TOTAL_PAGES% &8| &7Listed bans: &e&o%COUNT%"
+  PageFooter: "&7Use &e&o/banlist %NEXT_PAGE% &7to see the next page"
+
+History:
+  Usage: "&cUsage &8\xbb &7&o/history [Name/IP] <Page>"
+  OutOfIndex: "&cThere is no page %PAGE%!"
+  NoEntries: "&c&oCould not find the history of %NAME% :("
+  Header:
+  - "%PREFIX% &7History for %NAME%:"
+  - "&c&oName &8| &e&oDuration &8| &7&oOperator"
+  - "&c&oType &8> &7&oReason"
+  - "&7"
+  Entry:
+  - "&8[&e%DATE%&8]"
+  - "&c%NAME% &8| &e%DURATION% &8| &7%OPERATOR%"
+  - "&c%TYPE% &8> &7&o%REASON%"
+  - "&7"
+  Footer: "&7Page &e&o%CURRENT_PAGE% &7of &e&o%TOTAL_PAGES% &8| &7Total entries: &e&o%COUNT%"
+  PageFooter: "&7Use &e&o/history %NAME% %NEXT_PAGE% &7to see the next page"
+
+Warns:
+  Usage: "&7Utilisez &8/warns <page>"
+  OutOfIndex: "&7La page &8%PAGE% &7n'existe pas."
+  NoEntries: "&8%NAME% &7n'a aucun avertissement."
+  Header:
+  - "&7Avertissements pour &8%NAME% &7:"
+  - "&7Nom &8| &7Durée &8| &7Averti par"
+  - "&7#ID de l'avertissement : &8Motif"
+  - "&7"
+  Entry:
+  - "&8[&7%DATE%&8]"
+  - "&7%NAME% &8| &7%DURATION% &8| &7%OPERATOR%"
+  - "&7#%ID% : &8%REASON%"
+  - "&7"
+  Footer: "&7Page &8%CURRENT_PAGE% &7sur &8%TOTAL_PAGES% &8| &7Avertissements : &8%COUNT%"
+  PageFooter: "&7Utilisez &8/warns %NAME% %NEXT_PAGE% &7pour voir la page suivante."
+
+ChangeReason:
+  Usage: "&cUsage &8\xbb &7&o/change-reason [ID or ban/mute USER] [New reason]"
+  Done: "&7Punishment &a&o#%ID% &7has successfully been updated!"
+  NotFound: "&cSorry we have not been able to find this punishment"
+
+Check:
+  Usage: "&cUsage &8\xbb &7&o/check [Name]"
+  Header: "&7Checking &e&o%NAME%"
+  UUID: "&cUUID &8\xbb &7%UUID%"
+  IP: "&cIP &8\xbb &7%IP%"
+  Geo: "&cCountry &8\xbb &7%LOCATION%"
+  Mute: "&cMuted &8\xbb &7%DURATION%"
+  MuteReason: "  &cReason &8\xbb &7%REASON%"
+  Ban: "&cBanned &8\xbb &7%DURATION%"
+  BanReason: "  &cReason &8\xbb &7%REASON%"
+  Warn: "&cWarns &8\xbb &7%COUNT%"
+  NotFound: "&cSorry we have not been able to find %NAME%"

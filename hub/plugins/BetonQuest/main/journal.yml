@@ -1,0 +1,7 @@
+#
+# This file is symlinked to all other BetonQuest instances across the bungeecord.
+#   It should NEVER execute tasks on a global scale, which maybe repeated.
+#
+marie_journal: 'Marie m''a donné ce &2Journal de Progression&0. Je devrais lui reparler pour savoir quoi faire maintenant...'
+marie_journal_gear: 'Marie m''a dit d''aller chercher des outils dans le grand coffre à l''étage.'
+marie_journal_gear_done: 'J''ai récupéré les outils que Marie m''a dit d''aller chercher, je devrais retourner la voir.'

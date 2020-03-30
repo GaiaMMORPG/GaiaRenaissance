@@ -4,8 +4,24 @@
 #
 
 #========[¤]========#
-#					          #
-#	      Timers     	#
-#					          #
+#                   #
+#       Timers      #
+#                   #
 #========[¤]========#
-elf_girl_tag: tag elf_girl
+elf_girl_tag: 'tag elenwen'
+elf_girl_tag_puit: 'tag elenwen_puit'
+possede_tag_1: 'tag eglesias_1'
+possede_tag_2: 'tag eglesias_2'
+possede_tag_3: 'tag eglesias_3'
+possede_tag_4: 'tag eglesias_4'
+possede_tag_5: 'tag eglesias_5'
+weather_sun: 'weather sun'
+weather_rain: 'weather rain'
+time_day: 'time 2-23'
+tag_incomprise: 'tag griselda_incomprise'
+griselda_tag_conclusion_1: 'tag griselda_conclusion_1'
+griselda_tag_delay_1: 'tag griselda_tag_delay_1'
+tag_sdf_special: 'tag sdf_special'
+griselda_tag_conclusion_2: 'tag griselda_conclusion_2'
+sdf_tag: 'tag sdf'
+erelon_tag: 'tag erelon'

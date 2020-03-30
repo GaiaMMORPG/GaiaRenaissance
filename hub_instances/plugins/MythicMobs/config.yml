@@ -4,7 +4,7 @@
 Configuration:
   Version: 4.5
   General:
-    AllowMetrics: false
+    AllowMetrics: true
     CheckForUpdates: true
     CompatibilityMode: false
     DebugLevel: 0
@@ -65,12 +65,12 @@ Configuration:
     Heroes:
       Enabled: true
     McMMO:
-      Enabled: false
-      ShowXPMessage: false
+      Enabled: true
+      ShowXPMessage: true
       XPMessageFormat: You receive <drops.mcmmo> experience for slaying <mob.name>
     SkillAPI:
-      Enabled: false
-      ShowXPMessage: false
+      Enabled: true
+      ShowXPMessage: true
       XPMessageFormat: You receive <drops.skillapi> experience for slaying <mob.name>
     Vault:
       Enabled: true

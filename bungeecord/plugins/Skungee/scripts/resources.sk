@@ -336,6 +336,7 @@ on block break of any log:
 		if "%region at event-block%" contains "resource":
 			if metadata "health" of event-block is set:
 				if metadata "health" of event-block <= 1:
+					play resource sound pack "falling_tree" to player with volume 1
 					loop tree at location at event-block:
 						add 1 to {_count}
 						set {_ty} to type of loop-block

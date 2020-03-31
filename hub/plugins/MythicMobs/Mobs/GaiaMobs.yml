@@ -93,46 +93,6 @@ pnj_banker2:
 pnj_banker3:
   Type: pig
   Display: ''
-  Type: pig
-  Display: ''
-  Options:
-    AlwaysShowName: true
-    Collidable: false
-    Invincible: true
-    PreventMobKillDrops: true
-    Silent: true
-    Despawn: true
-  AIGoalSelectors:
-  - 0 clear
-  - 1 lookatplayers
-  - 2 randomlookaround
-  AITargetSelectors:
-  - 0 clear
-  Skills:
-  - command{c="bq event <trigger.name> default.conversation_pnj_2"} @trigger ~onInteract
-
-pnj_banker2:
-  Type: pig
-  Display: ''
-  Options:
-    AlwaysShowName: true
-    Collidable: false
-    Invincible: true
-    PreventMobKillDrops: true
-    Silent: true
-    Despawn: true
-  AIGoalSelectors:
-  - 0 clear
-  - 1 lookatplayers
-  - 2 randomlookaround
-  AITargetSelectors:
-  - 0 clear
-  Skills:
-  - command{c="bq event <trigger.name> default.conversation_pnj_2"} @trigger ~onInteract
-
-pnj_banker3:
-  Type: pig
-  Display: ''
   Options:
     AlwaysShowName: true
     Collidable: false
@@ -451,12 +411,6 @@ pnj_sdf:
 
 pnj_fermier:
   Type: pig
-  Display: '&2Fermier'
-  Disguise:
-    Type: player
-    Player: '&2Fermier'
-    Skin: fermier
-  Type: pig
   Display: ''
   Options:
     AlwaysShowName: true
@@ -473,4 +427,3 @@ pnj_fermier:
   - 0 clear
   Skills:
   - command{c="bq event <trigger.name> secondaire.conversation_fermier"} @trigger ~onInteract
-

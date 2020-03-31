@@ -1,0 +1,14 @@
+enabled: true
+type: whitelist
+list:
+  - "resource_marie_ore"
+  - "resource_ore_1"
+  - "resource_ore_2"
+  - "resource_ore_3"
+  - "resource_ore_4"
+  - "resource_ore_5"
+  - "resource_flower_1"
+  - "resource_flower_2"
+  - "resource_flower_3"
+  - "resource_flower_5"
+  - "resource_flower_6"

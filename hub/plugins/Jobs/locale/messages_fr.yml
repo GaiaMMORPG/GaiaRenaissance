@@ -235,6 +235,7 @@ command:
       jobinfo: '&8&7[métier] &7info!'
       actions: '&7Actions rémunérées :'
       leftClick: '&7&oClic gauche pour plus d''infos'
+      middleClick: '&7&oClic molette pour quitter ce métier'
       rightClick: '&7&oClic droit pour rejoindre ce métier'
       leftSlots: '&7Nombre de places restantes : &8'
       working: '&2Vous exercez déjà ce métier.'
@@ -334,6 +335,19 @@ command:
       totalWorkers: '&7Employés : &8[amount]'
       penalty: '&7Pénalité : &8[amount]%'
       bonus: '&7Bonus : &8[amount]%'
+  quests:
+    help:
+      info: '&7Affiche les quêtes disponibles'
+      args: '[playername]'
+    error:
+      noquests: '&7Aucune quête disponible'
+    toplineseparator: '&8---------- &7[playerName] &8(&7[questsDone]&8) &8----------'
+    output:
+      completed: '&2      ! Terminé !&r      '
+      questLine: '[progress] &7[questName] &f[done]&7/&8[required]'
+      skip: '&7Cliquez pour ne pas faire la quête'
+      skips: '&7Left skips: &f[skips]'
+      hover: "&f[jobName] \n[desc] \n&7Nouvelle quête dans : &8[time]"
   fire:
     help:
       info: '&7Renvoie le joueur de son métier.'

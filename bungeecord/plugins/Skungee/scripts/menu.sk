@@ -111,6 +111,7 @@ command /metiers [<string>] [<string>]:
 			wait 1 tick
 			while display name of current inventory of player contains "Menu des Métiers":
 				execute console command "lp user %player% settemp jobs.command.join true 10s"
+				execute console command "lp user %player% settemp jobs.command.leave true 10s"
 				wait 10 seconds
 
 		else if arg 1 is "info":

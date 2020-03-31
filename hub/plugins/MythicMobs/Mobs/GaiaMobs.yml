@@ -3,9 +3,9 @@
 #
 
 #========[¤]========#
-#					          #
-#	      Main  	    #
-#					          #
+#                   #
+#	      Main        #
+#                   #
 #========[¤]========#
 
 pnj_marie:
@@ -28,9 +28,9 @@ pnj_marie:
   - command{c="bq event <trigger.name> main.conversation_pnj_marie"} @trigger ~onInteract
 
 #========[¤]========#
-#					          #
-#	     Defaults	    #
-#					          #
+#                   #
+#      Defaults     #
+#                   #
 #========[¤]========#
 
 pnj_jacopo:
@@ -273,9 +273,9 @@ pnj_guard_bank4:
   - command{c="bq event <trigger.name> default.conversation_bank_guard4"} @trigger ~onInteract
 
 #========[¤]========#
-#					          #
-#	     Randoms	    #
-#					          #
+#                   #
+#      Randoms      #
+#                   #
 #========[¤]========#
 
 pnj_adult_eglesias:

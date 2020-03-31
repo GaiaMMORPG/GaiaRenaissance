@@ -10,3 +10,10 @@ npc_effects:
     grow: 0.1
     radius: 0.5
     interval: 100
+
+notifications:
+  new_journal_entry:
+    io: advancement
+    frame: challenge
+    icon: book
+    sound: journal_ping

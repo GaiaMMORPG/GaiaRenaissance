@@ -9,7 +9,7 @@ stop: 'false'
 
 NPC_options:
   rencontre:
-    conditions: '!tag_incomprise,!tag_conclusion_1,!tag_conclusion_2'
+    conditions: '!tag_incomprise,!griselda_tag_conclusion_1,!griselda_tag_conclusion_2'
     text: 'Bonjour, vous vouliez me poser une question ?'
     pointer: 'rencontre_p,rencontre_p2,'
 
@@ -25,7 +25,7 @@ NPC_options:
     event: 'tag_incomprise'
   
   bjr_3:
-    conditions: 'tag_incomprise,!tag_conclusion_2,!tag_conclusion_1'
+    conditions: 'tag_incomprise,!tag_conclusion_2,!griselda_tag_conclusion_1'
     text: 'Je n''ai pas le temps de vous parler.'
 
   life_2:

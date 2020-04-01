@@ -1,0 +1,31 @@
+#Race: Humain
+#Emplacement: Post
+#Sexe: Masculin
+
+quester: 'Commandant'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'Que faites-vous ici ?!'
+    pointer: 'oui, non, fu'
+
+  oui_rep:
+    text: 'Vous vous situez dans le corps de garde et vous n''avez rien à faire là ! Sortez immédiatement !'
+  non_rep:
+    text: 'Il vaudrait mieux pour vous, en effet.'
+  fu_rep:
+    text: 'Comment osez-vous me parler sur ce ton ! Sortez immédiatement !'
+    event: 'reput_moins_2,vie_moins_5'
+
+player_options:
+  oui:
+    text: 'Quel est cet endroit ?'
+    pointers: 'oui_rep'
+  non:
+    text: 'Désolé, je m''en vais tout de suite.'
+    pointers: 'non_rep'
+  fu:
+    text: 'Je fais ce qu''il me plaît ! Si cela ne vous plaît pas, sortez !'
+    pointers: 'fu_rep'

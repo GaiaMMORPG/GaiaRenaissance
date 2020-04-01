@@ -1,0 +1,46 @@
+#Race: Nain
+#Emplacement: 4106 / 131 / -8406 (3)
+#Sexe: Féminin
+
+quester: 'Rugnoga'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'T''es un bûcheron toi aussi ?'
+    pointer: 'oui, non, same, fu'
+
+  oui_rep:
+    text: 'Tu as pourtant les mains bien fragiles pour un bûcheron...'
+    pointer: 'same, girl'
+  non_rep:
+    text: 'Avec ces petites mains tu ne pourrais pas l''être de toute façon.'
+    pointer: 'same, girl, fu'
+  fu_rep:
+    text: 'Quelle petite nature...'
+    pointer: 'same, girl'
+
+  same_rep:
+    text: 'Ah lui, c''est mon petit frère. Ne vas surtout pas lui parler, il est un peu bête.'
+  girl_rep:
+    text: 'Tu es encore plus bête que mon frère, et c''est dire.'
+    events: 'default.reput_moins_1'
+
+player_options:
+  oui:
+    text: 'Oui, biensûr !'
+    pointers: 'oui_rep'
+  non:
+    text: 'Non, je suis pas un bûcheron !'
+    pointers: 'non_rep'
+  fu:
+    text: 'Mêles toi de tes affaires !'
+    pointers: 'fu_rep'
+
+  same:
+    text: 'Tu n''as pas un peu le même nom que le nain là bas ?'
+    pointers: 'same_rep'
+  girl:
+    text: 'Tu es une fille, c''est pire !'
+    pointers: 'girl_rep'

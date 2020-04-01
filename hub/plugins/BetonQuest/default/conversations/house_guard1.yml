@@ -1,0 +1,30 @@
+#Race: Humain
+#Emplacement: GateHouse
+#Sexe: Masculin
+
+quester: 'Garde'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'Bienvenue à Questrelle ! Si vous vous perdez, il y aura sûrement un guide que vous pourrez trouver à côté des grands bâtiments visibles de loin !'
+    pointer: 'oui, non, fu'
+
+  oui_rep:
+    text: 'Bonne journée à vous aussi !'
+  non_rep:
+    text: 'C''est votre choix, d''autres diront le contraire pour éviter de perdre du temps à tourner en rond.'
+  fu_rep:
+    text: 'Qu''est-ce que vous insinuez par là ?'
+
+player_options:
+  oui:
+    text: Merci pour l''information ! Bonne journée !'
+    pointers: 'oui_rep'
+  non:
+    text: 'Je n''ai pas envie de perdre mes biens innutilement.'
+    pointers: 'non_rep'
+  fu:
+    text: 'J''ai le sens de l''orientation, comparé à certains...'
+    pointers: 'fu_rep'

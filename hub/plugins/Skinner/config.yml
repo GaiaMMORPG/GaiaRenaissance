@@ -22,6 +22,14 @@ MM-Disguises:
     disguise: pnj_guard_bank
   pnj_guard_bank4:
     disguise: pnj_guard_bank
+  pnj_guard_gate1:
+    disguise: pnj_guard_bank
+  pnj_guard_gate2:
+    disguise: pnj_guard_bank
+  pnj_guard_house1:
+    disguise: pnj_guard_bank
+  pnj_guard_post1:
+    disguise: pnj_guard_bank
   pnj_adult_eglesias:
     disguise: pnj_adult_eglesias
   pnj_adult_eraguias:
@@ -34,6 +42,14 @@ MM-Disguises:
     disguise: pnj_sdf_special
   pnj_sdf:
     disguise: pnj_sdf
+  pnj_gregor:
+    disguise: pnj_gregor
+  pnj_rugnogo:
+    disguise: pnj_rugnogo
+  pnj_rugnoga:
+    disguise: pnj_rugnoga
+  pnj_yeries:
+    disguise: pnj_yeries
 Citizens-Disguises:
   #ExampleNPCName:
   #  disguise: exampleDisguiseName

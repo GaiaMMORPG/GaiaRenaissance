@@ -1,0 +1,37 @@
+#Race: Nain
+#Emplacement: 4092 / 131 / -8404 (4)
+#Sexe: Masculin
+
+quester: 'Rugnogo'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'Ah, eh, salut !'
+    pointer: 'hello, same'
+
+  same_rep:
+    text: 'Oh, eh, oui ! C''est ma petite soeur...\nQuelle créativité de la part de mes parents, tu ne trouves pas ?'
+    pointer: 'non, oui, bye'
+
+  non_rep:
+    text: 'Mais, eh, Rugnoga !! Il a insulté nos parents !!'
+    events: 'default.reput_moins_1'
+  oui_rep:
+    text: 'Je le savais, tu m''as l''air bien gentil !\nC''est comme si on était déjà amis !'
+
+player_options:
+  hello:
+    text: 'Salut !'
+  same:
+    text: 'Tu n''aurais pas le même nom que la naine là-bas ?'
+    pointers: 'same_rep'
+  non:
+    text: 'Absolument pas, tes parents sont bêtes...'
+    pointers: 'non_rep'
+  oui:
+    text: 'Absolument, quelle... ingéniosité...'
+    pointer: 'oui_rep'
+  bye:
+    text: 'Je dois y aller, aurevoir.'

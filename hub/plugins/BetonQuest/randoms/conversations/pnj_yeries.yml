@@ -1,0 +1,30 @@
+#Race: Elfe
+#Emplacement: 4074 124 -8422 (10)
+#Sexe: Féminin
+
+quester: 'Yeries'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'Ah, enchantée, je suis un peu occupée pour parler là...'
+    pointer: 'why, brunette, bye'
+
+  why_rep:
+    text: 'Je transporte mes marchandises en ville pour aller les vendre au marché !\nN''hésitez pas de passer me voir sur mon stand.'
+  brunette_rep:
+    text: 'Vous êtes plein de préjugés, et ne comprenez pas grand chose aux Elfes, visiblement.\nRestez donc dans votre ignorance, aurevoir.'
+    events: 'default.reput_moins_1'
+  fu_rep:
+    text: 'Je ne voulais pas être intrusif...'
+
+player_options:
+  why:
+    text: 'Pourquoi, qu''est-ce que vous faites ?'
+    pointers: 'why_rep'
+  brunette:
+    text: 'Vous êtes pas un peu... brune... pour une elfe ?!'
+    pointers: 'brunette_rep'
+  bye:
+    text: 'Je vous laisse alors.'

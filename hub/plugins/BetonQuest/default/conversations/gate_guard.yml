@@ -1,0 +1,30 @@
+#Race: Humain
+#Emplacement: gate
+#Sexe: Masculin
+
+quester: 'Garde'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'Bienvenue à l''entrée principale de Questrelle !'
+    pointer: 'oui, non, fu'
+
+  oui_rep:
+    text: 'Oui ! Vous êtes aux portes de la seule et unique ville qui a souhaité de bannir les différents entre nos races !'
+  non_rep:
+    text: 'Mais de rien !'
+  fu_rep:
+    text: 'Je ne comptais pas vous paraître malpoli.'
+
+player_options:
+  oui:
+    text: 'Alors, c''est là !'
+    pointers: 'oui_rep'
+  non:
+    text: 'Je le sais très bien, merci.'
+    pointers: 'non_rep'
+  fu:
+    text: 'Pas la peine de me prendre pour une personne en déficience mentale !'
+    pointers: 'fu_rep'

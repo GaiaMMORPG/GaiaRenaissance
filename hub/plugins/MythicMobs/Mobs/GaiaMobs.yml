@@ -232,11 +232,191 @@ pnj_guard_bank4:
   Skills:
   - command{c="bq event <trigger.name> default.conversation_bank_guard4"} @trigger ~onInteract
 
+pnj_guard_gate1:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  - QHalberd HAND
+  - QShield OFFHAND
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_gate_guard"} @trigger ~onInteract
+
+pnj_guard_gate2:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  - QHalberd HAND
+  - QShield OFFHAND
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_gate_guard"} @trigger ~onInteract
+
+pnj_guard_house1:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_guard_house1"} @trigger ~onInteract
+
+pnj_guard_post1:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  Equipment:
+  - QHelmet HEAD
+  - QChestplate CHEST
+  - QLeggings LEGS
+  - QBoots FEET
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> default.conversation_guard_post1"} @trigger ~onInteract
+
 #========[¤]========#
 #                   #
 #      Randoms      #
 #                   #
 #========[¤]========#
+
+pnj_gregor:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_gregor"} @trigger ~onInteract
+
+pnj_rugnogo:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_rugnogo"} @trigger ~onInteract
+
+pnj_rugnoga:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_rugnoga"} @trigger ~onInteract
+
+pnj_yeries:
+  Type: pig
+  Display: ''
+  Options:
+    AlwaysShowName: true
+    Collidable: false
+    Invincible: true
+    PreventMobKillDrops: true
+    Silent: true
+    Despawn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 lookatplayers
+  - 2 randomlookaround
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  Skills:
+  - command{c="bq event <trigger.name> randoms.conversation_yeries"} @trigger ~onInteract
 
 pnj_adult_eglesias:
   Type: pig

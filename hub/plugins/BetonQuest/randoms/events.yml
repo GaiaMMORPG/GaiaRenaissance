@@ -17,6 +17,11 @@ conversation_child_elenwen: 'conversation child_elenwen'
 conversation_child_erelon: 'conversation child_erelon'
 conversation_sdf_special: 'conversation sdf_special'
 conversation_sdf: 'conversation sdf'
+
+conversation_gregor: 'conversation pnj_gregor'
+conversation_rugnoga: 'conversation pnj_rugnoga'
+conversation_rugnogo: 'conversation pnj_rugnogo'
+conversation_yeries: 'conversation pnj_yeries'
 #========[¤]========#
 #                   #         
 #        Tags       #

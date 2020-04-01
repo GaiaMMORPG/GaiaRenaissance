@@ -1,0 +1,30 @@
+#Race: Humain
+#Emplacement: 4074 124 -8422 (10)
+#Sexe: Masculin
+
+quester: 'Gregor'
+first: 'welcome'
+stop: 'false'
+
+NPC_options:
+  welcome:
+    text: 'Vous êtes en route pour Questrelle ?'
+    pointer: 'oui, non, fu'
+
+  oui_rep:
+    text: 'Je préfère le grand air moi...'
+  non_rep:
+    text: 'Vous avez bien raison, y''a trop d''agitation dans cette ville !'
+  fu_rep:
+    text: 'Je ne voulais pas être intrusif...'
+
+player_options:
+  oui:
+    text: 'Oui, je comptais m''y rendre depuis longtemps !'
+    pointers: 'oui_rep'
+  non:
+    text: 'Non, je sortais de la ville !'
+    pointers: 'non_rep'
+  fu:
+    text: 'Cela ne te regarde pas !'
+    pointers: 'fu_rep'

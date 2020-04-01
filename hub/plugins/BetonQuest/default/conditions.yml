@@ -2,3 +2,6 @@
 # This file is symlinked to all other BetonQuest instances across the bungeecord.
 #   It should NEVER execute tasks on a global scale, which maybe repeated.
 #
+
+reput_above_0: point reputation 0
+reput_above_minus_10: point reputation -10

@@ -2,3 +2,5 @@
 # This file is symlinked to all other BetonQuest instances across the bungeecord.
 #   It should NEVER execute tasks on a global scale, which maybe repeated.
 #
+
+reput_prison_timer: 'delay 1 interval:20 event:reput_prison_timer_done'

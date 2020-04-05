@@ -1,7 +1,8 @@
 #==========[¤]==========#
-#						#
-#		Fonctions		#
-#						#
+#                       #
+#        Global         #
+#       Functions       #
+#                       #
 #==========[¤]==========#
 #
 # This file is synced over the BungeeCord Network
@@ -10,7 +11,6 @@
 #
 options:
     bench-id : "siege"
-
 
 #
 # TellRaw
@@ -27,16 +27,130 @@ function ActionBarSend(Player: player, Text: text):
         wait 2 seconds
 
 #
-# Particles
+# Teleportation
 #
 
-#Teleportation
+#With pitch and yaw
+function Teleportation(Player: player, x: integer, y: integer, z: integer, Yaw: number, Pitch: number, World: string):
+    set {_loc} to location at {_x}, {_y}, {_z} in world "%{_World}%"
+    set {_Yaw} to {_Yaw} + 0.001
+    set {_Pitch} to {_Pitch} + 0.001
+    set {_loc}'s yaw to {_Yaw}
+    set {_loc}'s pitch to {_Pitch}
+    teleport {_Player} to {_loc}
+
+
+#Particles
 function TeleportParticles(Player: player):
     drawRings particle "redstone", speed 1, RGB 255, 255, 255, center {_Player}, id "teleport_%{_Player}%", randomRotation true, animated true, radius 1, ringCount 4, ringDensity 1, visibleRange 32
     drawDot count 50, particle "mobspell", XYZ 255, 255, 255, center {_Player}, visibleRange 32, pulseDelay 1, keepFor 10 seconds
     wait 10 seconds
     stopEffect id "teleport_%{_Player}%"
 
+#
+# PackChecker
+#
+    # This code can be easily updated with a new pack version by mapping a new item
+    # to each of the numbers. This must be done in both the texture pack and here.
+    # e.g. change the stick to a bucket.
+function PackChecker(Player: player):
+    set {_uuid} to {_Player}'s uuid
+    delete {local::temp::%{_uuid}%::packcheck::*}
+    delete {local::temp::%{_uuid}%::packchecksecret::*}
+
+    set {_instructions} to book named "&aVérification du pack de ressources"
+    set line 1 of lore of {_instructions} to "&7Pour vérifier que vous"
+    set line 2 of lore of {_instructions} to "&7utilisez le bon pack,"
+    set line 3 of lore of {_instructions} to "&7veuillez entrer le code"
+    set line 4 of lore of {_instructions} to "&7qui s'affiche."
+
+    add stick named "&konerr" to {_code::*}
+    add stick named "&ktworr" to {_code::*}
+    add stick named "&kthree" to {_code::*}
+    add stick named "&kfourr" to {_code::*}
+    add stick named "&kfiver" to {_code::*}
+    add stick named "&ksixrr" to {_code::*}
+    add stick named "&kseven" to {_code::*}
+    add stick named "&keight" to {_code::*}
+    add stick named "&kniner" to {_code::*}
+
+    loop 5 times:
+        add random integer between 1 and 9 to {local::temp::%{_uuid}%::packchecksecret::*}
+
+    set {_first} to {_code::%{local::temp::%{_uuid}%::packchecksecret::1}%}
+    set {_second} to {_code::%{local::temp::%{_uuid}%::packchecksecret::2}%}
+    set {_third} to {_code::%{local::temp::%{_uuid}%::packchecksecret::3}%}
+    set {_fourth} to {_code::%{local::temp::%{_uuid}%::packchecksecret::4}%}
+    set {_fifth} to {_code::%{local::temp::%{_uuid}%::packchecksecret::5}%}
+
+    create new gui with virtual chest with 4 rows named "&aVérification":
+        format gui slot 0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 and 26 with black stained glass pane named " "
+        format gui slot 4 with {_instructions}
+
+        format gui slot 11 with {_first}
+        format gui slot 12 with {_second}
+        format gui slot 13 with {_third}
+        format gui slot 14 with {_fourth}
+        format gui slot 15 with {_fifth}
+
+        format gui slot 27 with {_code::1}:
+            PackCheckerClick({_Player}, 1)
+        format gui slot 28 with {_code::2}:
+            PackCheckerClick({_Player}, 2) 
+        format gui slot 29 with {_code::3}:
+            PackCheckerClick({_Player}, 3) 
+        format gui slot 30 with {_code::4}:
+            PackCheckerClick({_Player}, 4)
+        format gui slot 31 with {_code::5}:
+            PackCheckerClick({_Player}, 5)
+        format gui slot 32 with {_code::6}:
+            PackCheckerClick({_Player}, 6)
+        format gui slot 33 with {_code::7}:
+            PackCheckerClick({_Player}, 7)
+        format gui slot 34 with {_code::8}:
+            PackCheckerClick({_Player}, 8)
+        format gui slot 35 with {_code::9}:
+            PackCheckerClick({_Player}, 9)
+	
+    open last gui to {_Player}
+
+function PackCheckerClick(Player: player, Digit: integer):
+    play resource sound pack "click" to {_Player} with volume 1
+    set {_uuid} to {_Player}'s uuid
+    add "%{_Digit}%" to {local::temp::%{_uuid}%::packcheck::*}
+    PackCheckerCode({_Player})
+
+function PackCheckerCode(Player: player):
+    set {_uuid} to {_Player}'s uuid
+    if size of {local::temp::%{_uuid}%::packcheck::*} >= 5:
+        loop 5 times:
+            set {_param} to {local::temp::%{_uuid}%::packcheck::%loop-value%} parsed as integer
+            if {_param} is {local::temp::%{_uuid}%::packchecksecret::%loop-value%}:
+                set {_validated} to true
+            else:
+                set {_validated} to false
+                exit loop
+        close {_Player}'s inventory
+        if {_validated} is true:
+            delete {local::temp::%{_uuid}%::packchecking}
+            play resource sound pack "success" to {_Player} with volume 1
+            wait 1 tick
+            VisualIntro({_Player})
+        else:
+            execute bungeecord command "kick %{_Player}% -s @TexturePackLayout"
+
+function PackCheckerForce(Player: player):
+    set {_uuid} to {_Player}'s uuid
+    set {local::temp::%{_uuid}%::packchecking} to true
+    while {local::temp::%{_uuid}%::packchecking} is true:
+        wait 1 second
+        if display name of current inventory of {_Player} contains "Vérification":
+            wait 1 second
+        else:
+            if {local::temp::%{_uuid}%::packchecking} is true:
+                PackChecker({_Player})
+            else:
+                exit
     
 #
 # Sièges

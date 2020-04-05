@@ -73,15 +73,15 @@ UUID-Fetcher:
 # You can also use non-AdvancedBan-Commands like 'broadcast' or 'clear %PLAYER%
 # Variables: %PLAYER%, %REASON%, %COUNT%
 WarnActions:
-  2: "kick %PLAYER% 2 Avertissements ! Au 3ème avertissement vous serez banni pendant 1 heure."
-  3: "tempban %PLAYER% 1h 3 Avertissements ! Au 4ème avertissement vous serez banni pendant 3 heures."
-  4: "tempban %PLAYER% 3h 4 Avertissements ! Au 5ème avertissement vous serez banni pendant 6 heures."
-  5: "tempban %PLAYER% 6h 5 Avertissements ! Au 6ème avertissement vous serez banni pendant 12 heures."
-  6: "tempban %PLAYER% 12h 6 Avertissements ! Au 7ème avertissement vous serez banni pendant 1 jour."
-  7: "tempban %PLAYER% 1d 7 Avertissements ! Au 8ème avertissement vous serez banni pendant 7 jours."
-  8: "tempban %PLAYER% 7d 8 Avertissements ! Au 9ème avertissement vous serez banni pendant 1 mois."
-  9: "tempban %PLAYER% 1mo 9 Avertissements ! Au 10ème avertissement vous serez banni pendant 1 an."
-  10: "tempban %PLAYER% 12mo 10 Avertissements ! On vous avait pourtant prévenu..."
+  2: "kick %PLAYER% 2 Avertissements"
+  3: "tempban %PLAYER% 1h 3 Avertissements"
+  4: "tempban %PLAYER% 3h 4 Avertissements"
+  5: "tempban %PLAYER% 6h 5 Avertissements"
+  6: "tempban %PLAYER% 12h 6 Avertissements"
+  7: "tempban %PLAYER% 1d 7 Avertissements"
+  8: "tempban %PLAYER% 7d 8 Avertissements"
+  9: "tempban %PLAYER% 1mo 9 Avertissements"
+  10: "tempban %PLAYER% 12mo 10 Avertissements"
 
 # Here you can create permission-nodes for max-punishment-duration.
 # The permission "ab.tempban.dur.1" would allow the player to ban max. for 600sec = 10min

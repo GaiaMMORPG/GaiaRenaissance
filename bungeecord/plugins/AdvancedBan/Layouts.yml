@@ -32,6 +32,13 @@ Message:
     - '&7'
     - '&7Par : &a%OPERATOR%'
     - '&7Date : %DATE%'
+    
+  TexturePackLayout:
+    - '&7Vous n''utilisez pas le bon texture pack,'
+    - '&7ou sa version est trop ancienne.'
+    - '&7'
+    - '&7Afin de pouvoir continuer, téléchargez et installez le :'
+    - '&7pack.gaia-craft.fr'
 
 # You would use this time-layout for example like this: "/tempban Leoko #ExampleLayout Hacking in FFA"
 # Or with "/tempwarn Leoko #ExampleLayout Advertising" or even "/tempwarn Leoko #ExampleLayout No capslock please"

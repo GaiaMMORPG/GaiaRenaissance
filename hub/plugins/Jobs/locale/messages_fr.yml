@@ -509,19 +509,19 @@ command:
       'off': '&7Messages &8désactivés&7.'
 message:
   skillup:
-    broadcast: '%playername% a été promu %titlename% %jobname%.'
-    nobroadcast: 'Félicitations, vous avez été promu %titlename% %jobname%.'
+    broadcast: '&8%playername% &7a été promu &8%titlename% %jobname%&7.'
+    nobroadcast: '&7Félicitations, vous avez été promu &8%titlename% %jobname%&7.'
   levelup:
-    broadcast: '%playername% est maintenant %jobname% niveau %joblevel%.'
-    nobroadcast: 'Vous êtes maintenant %jobname% niveau %joblevel%.'
-  cowtimer: '&eVous devez attendre &6%time% &esec avant d''être payé à nouveau.'
-  blocktimer: '&eVous devez attendre &3[time] &esec avant d''être payé à nouveau.'
-  placeblocktimer: '&eVous ne pouvez placer des blocs que toutes les &6[time] &esec au même endroit!'
-  taxes: '&3[amount] &ede taxes du serveur ont été transférées sur ce compte'
-  boostStarted: '&eLe boost métier a commencé!'
-  boostStoped: '&eLe boost métier est terminé!'
+    broadcast: '&8%playername% &7est maintenant &8%jobname% &7niveau &8%joblevel%&7.'
+    nobroadcast: '&7Vous êtes maintenant &8%jobname% &7niveau &8%joblevel%&7.'
+  cowtimer: '&7Vous devez attendre &8%time% &7secondes avant d''être payé à nouveau.'
+  blocktimer: '&7Vous devez attendre &8%time% &7secondes avant d''être payé à nouveau.'
+  placeblocktimer: '&7Vous ne pouvez placer des blocs que toutes les &8%time% &7secondes au même endroit !'
+  taxes: '&8%amount% &8de taxes ont été transférées sur ce compte.'
+  boostStarted: '&dLe boost métier a commencé !'
+  boostStoped: '&dLe boost métier est terminé !'
   crafting:
-    fullinventory: 'Votre inventaire est plein!'
+    fullinventory: 'Votre inventaire est plein !'
 signs:
   List: '[number].&9[player]&7:&8[level]'
   SpecialList:

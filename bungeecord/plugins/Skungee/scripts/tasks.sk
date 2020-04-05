@@ -115,6 +115,11 @@ on smelt:
 	if event-block's ore slot is any ore:
 		cancel event
 
+on right click on item frame:
+	if world of player is "gaia":
+		if gamemode of player is survival:
+			cancel event
+
 #
 # Vehicule Management
 #

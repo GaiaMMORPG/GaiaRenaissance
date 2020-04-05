@@ -13,21 +13,20 @@
 #
 on first join:
 	set join message to "&7&oBienvenue sur Gaïa Renaissance, &8%player% &7&o!"
+	wait 1 tick
+	Teleportation(player, 5405, 205, -5036, 90, 90, "gaia")
+	wait 1 tick
+	PackChecker(player)
+	PackCheckerForce(player)
 
 #
 # On Join
 #
 on join:
 	set join message to "&8%player% &7a rejoint Thol Gaïa."
-
-	# Visual Intro
-	apply potion of blindness 1 to the player for 15 seconds
-	apply potion of night vision 1 to the player for 6 seconds
-	async
-	ActionBarSend(player,"&4Pensez à utiliser le resource pack!")
-	play resource sound pack "gaia_intro" to player with volume 3
-	send title "&6Bienvenue" with subtitle "&esur Gaïa Renaissance" to player for 10 seconds with fadein 2 second and fade out 2 second
-
+	wait 1 tick
+	PackChecker(player)
+	PackCheckerForce(player)
 
 #
 # On Quit

@@ -1,8 +1,41 @@
 #==========[¤]==========#
-#						#
-#		Fonctions		#
-#						#
+#                       #
+#         Local         #
+#       Fonctions       #
+#                       #
 #==========[¤]==========#
+
+#
+# Choix de la Race
+#
+on right click on sign:
+    if "%region at event-location%" contains "cine_race":
+        if line 2 of block at event-location contains "Humain" or "Orc" or "Nain" or "Elfe":
+            RaceConfirm(player, line 2 of block at event-location)
+
+function RaceConfirm(Player: player, Race: string):
+    set {_confirm} to green wool named "&aConfirmer"
+    set line 1 of lore of {_confirm} to "&7Choisir la race :"
+    set line 2 of lore of {_confirm} to "&7%{_Race}%"
+    set line 3 of lore of {_confirm} to "&7"
+    set line 4 of lore of {_confirm} to "&7&oAttention, ce choix est"
+    set line 5 of lore of {_confirm} to "&7&ocrucial, choissisez bien."
+
+    set {_cancel} to red wool named "&cAnnuler"
+    set line 1 of lore of {_cancel} to "&7Annulez votre choix"
+    set line 2 of lore of {_cancel} to "&7et choisir une autre race."
+
+    create new gui with virtual chest with 4 rows named "&aChoix de la Race":
+        format gui slot 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 and 26 with black stained glass pane named " "
+        format gui slot 11 with {_confirm}:
+            close {_Player}'s inventory
+            execute console command "hero admin race %{_Player}% %{_Race}%"
+            Teleportation({_Player}, 4565, 105, -8505, -15, 10, "gaia")
+        format gui slot 15 with {_cancel}:
+            close {_Player}'s inventory
+            message "&7Veuillez choisir votre Race en cliquant sur le panneau correspondant."
+
+    open last gui to {_Player}
 
 #
 # Items Fixer
@@ -10,75 +43,167 @@
 #permet de donner des items (MM ou non) à des inventaires de joueurs pleins par commande
 #
 function ProperItemGiver(Player: player,Item: item):
-	if the inventory of {_Player} can hold {_Item}:
-		give {_Player} {_Item}
-	else:
-		message "&d&oVous n'avez pas assez de place dans votre inventaire." to {_Player}
-		message "&d&oVidez une place dans votre inventaire pour recevoir l'objet." to {_Player}
-		wait 20 seconds
-		if {_Player} is online:
-			ProperItemGiver({_Player}, {_Item})
-		else:
-			log "ProperItemGiver : %{_Player}% reçoit %{_Item}%" to "errors.log" 
+    if the inventory of {_Player} can hold {_Item}:
+        give {_Player} {_Item}
+    else:
+        message "&d&oVous n'avez pas assez de place dans votre inventaire." to {_Player}
+        message "&d&oVidez une place dans votre inventaire pour recevoir l'objet." to {_Player}
+        wait 20 seconds
+        if {_Player} is online:
+            ProperItemGiver({_Player}, {_Item})
+        else:
+            log "ProperItemGiver : %{_Player}% reçoit %{_Item}%" to "errors.log" 
 
 function MMProperItemGiver(Player: player,Item: string):
-	if the inventory of {_Player} can hold 1 diamond pickaxe named "Rumplestiltskin":
-		execute console command "mm items give %{_Player}% %{_Item}%"
-	else:
-		message "&d&oVous n'avez pas assez de place dans votre inventaire." to {_Player}
-		message "&d&oVidez une place dans votre inventaire pour recevoir l'objet." to {_Player}
-		wait 20 seconds
-		if {_Player} is online:
-			MMProperItemGiver({_Player}, {_Item})
-		else:
-			log "MMProperItemGiver : %{_Player}% reçoit %{_Item}%" to "errors.log"
+    if the inventory of {_Player} can hold 1 diamond pickaxe named "Rumplestiltskin":
+        execute console command "mm items give %{_Player}% %{_Item}%"
+    else:
+        message "&d&oVous n'avez pas assez de place dans votre inventaire." to {_Player}
+        message "&d&oVidez une place dans votre inventaire pour recevoir l'objet." to {_Player}
+        wait 20 seconds
+        if {_Player} is online:
+            MMProperItemGiver({_Player}, {_Item})
+        else:
+            log "MMProperItemGiver : %{_Player}% reçoit %{_Item}%" to "errors.log"
 
 command /properitemgiver <player> <item>:
-	executable by: console
-	trigger:
-		ProperItemGiver(arg 1, arg 2)
-			
+    executable by: console
+    trigger:
+        ProperItemGiver(arg 1, arg 2)
+            
 command /mmproperitemgiver <player> <string>:
-	executable by: console
-	trigger:
-		MMProperItemGiver(arg 1, arg 2)
-		
+    executable by: console
+    trigger:
+        MMProperItemGiver(arg 1, arg 2)
+
+#
+# Visual Intro
+#
+function VisualIntro(Player: player):
+    apply potion of blindness 1 to {_Player} for 27 seconds
+    apply potion of night vision 1 to {_Player} for 20 seconds
+    play resource sound pack "gaia_intro" to {_Player} with volume 1
+    send title "&6Bienvenue" with subtitle "&esur Gaïa Renaissance" to {_Player} for 17 seconds with 5 seconds fade in and 7 seconds fade out
+    if "%regions at location at {_Player}%" contains "cine_":
+        wait 28 seconds
+        InitialIntro({_Player})
+
+#
+# Initial Intro
+#
+function InitialIntro(Player: player):
+    # Volcan 
+    Teleportation({_Player}, 5405, 205, -5036, 90, 90, "gaia")
+    send title "&6Histoire Ancienne" with subtitle "&eles 3 premières Ères" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oGaïa est en perpétuel combat contre Khaos." to {_Player}
+    wait 5 seconds
+    message "&7&oCette lutte est titanesque, Gaïa crée la nature qui est ensuite ravagée par Khaos." to {_Player}
+    wait 10 seconds
+    message "&7&oGaïa créa les Primordiaux, auquels Khaos opposa immédiatement les Titans." to {_Player}
+    wait 10 seconds
+    message "&7&oLes Primordiaux sont les ancêtres des 4 races aujourd'hui connus sur Gaïa, alors qu'aucune trace des Titans n'est connue..." to {_Player}
+    wait 10 seconds
+    send title "&6Aujourd'hui" with subtitle "&eQuatrième Ère" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    wait 7 seconds
+    # Humain (35 secondes de theme)
+    Teleportation({_Player}, 3050, 101, -6071, 180, 35, "gaia")
+    play resource sound pack "human_theme" to {_Player} with volume 1
+    send title "&6Hommes" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oLes Hommes descendent d'une tribu de Primordiaux vivant dans la plaine, proche de l'eau." to {_Player} 
+    wait 10 seconds
+    message "&7&oIls se sont installés le long des rivières et des lacs, fondant des villes plutôt petites, mais très fortifiées." to {_Player} 
+    wait 10 seconds
+    message "&7&oLes Hommes forment alors un peuple moyen, ne spécialisant en rien de particulier, mais en étant fort dans tout." to {_Player} 
+    wait 10 seconds
+    message "&7&oOn dit qu'ils ont subi le moins de transformations physiques, mais ont réussi à résister aux troupes de Khaos en bataille ouverte." to {_Player} 
+    wait 10 seconds
+    # Elf (33 secondes de theme)
+    Teleportation({_Player}, -1343, 201, -4529, -30, 25, "gaia")
+    play resource sound pack "elfes_theme" to {_Player} with volume 1
+    send title "&6Elfes" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oLes Elfes se sont réfugiés sur les îles aux alentours du continent." to {_Player} 
+    wait 10 seconds
+    message "&7&oCes descendants de Primordiaux ont alors pu s'épanouir plus aisément, ayant moins de frontières à défendre." to {_Player} 
+    wait 10 seconds
+    message "&7&oIls ont pu développer leur culture, leur savoir et leur architecture. Néanmoins, ils en deviennent moins féroces au combat." to {_Player} 
+    wait 10 seconds
+    message "&7&oD'après ce que l'on sait, cette race ne ressemble que peu aux Primordiaux, étant plus grands et aux traits beaucoup plus fins." to {_Player} 
+    wait 10 seconds
+    # Orc (22 secondes de theme)
+    Teleportation({_Player}, 5200, 175, -3875, 90, 45, "gaia")
+    play resource sound pack "orc_theme" to {_Player} with volume 1
+    send title "&6Orcs" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oLes Orcs ne descendent pas des Primordiaux, mais vraisemblablement des Titans." to {_Player} 
+    wait 10 seconds
+    message "&7&oCette race renie ses origines de Khaos. Les Orcs en héritent néanmoins des traits culturels forts." to {_Player} 
+    wait 10 seconds
+    message "&7&oLes Orcs sont connus pour être de féroces combattants, probablement au détriment d'autres compétences." to {_Player} 
+    wait 10 seconds
+    message "&7&oPhysiquement ils conservent beaucoup de similitude avec les troupes de Khaos, créant parfois des craintes infondées à Questrelle." to {_Player} 
+    wait 10 seconds
+    # Dwarf (35 secondes de theme)
+    Teleportation({_Player}, 382, 126, -9797, 180, 15, "gaia")
+    play resource sound pack "dwarf_theme" to {_Player} with volume 1
+    send title "&6Nains" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oLes Nains proviennent de la tribu de Primordiaux qui s'est cachée sous la montagne de glace." to {_Player} 
+    wait 10 seconds
+    message "&7&oAyant vécu sous la terre et en creusant sans cesse, ils se sont recourbés et ont perdu de leur taille initialle." to {_Player} 
+    wait 10 seconds
+    message "&7&oCeci leur a permi de développer une force hors pair, même s'ils ne sont pas des plus rapides." to {_Player} 
+    wait 10 seconds
+    message "&7&oIls n'en demeurent pas moins un peuple riche et prospère qui ont toujours su se battre contre les forces de Khaos en confrontation directe." to {_Player} 
+    wait 10 seconds
+    # Questrelle
+    Teleportation({_Player}, 3949, 175, -8031, 180, 20, "gaia")
+    play resource sound pack "questrelle_theme" to {_Player} with volume 1
+    send title "&6Questrelle" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oLa Cité-État de Questrelle est une ville indépendante des races, où tout le monde se côtoie sans distinction." to {_Player} 
+    wait 10 seconds
+    message "&7&oElle forme une solide coopération des races contre les forces de Khaos." to {_Player} 
+    wait 10 seconds
+    message "&7&oVous vous rendez à Questrelle pour débuter votre aventure." to {_Player} 
+    wait 10 seconds
+    # Choix de la race
+    Teleportation({_Player}, 4567, 50, -8505, 90, 90, "gaia")
+    send title "&6Race" to {_Player} for 5 seconds with 2 seconds fade in and 2 seconds fade out
+    message "&7&oChoissisez votre race. Cliquez sur un panneau pour choisir." to {_Player}
+        
 #
 #
 # Interface Pancarte (seems to dysfunction)
 #
 #
 command /signsearch <player>:
-	executable by: console
-	trigger:
-		wait 4 ticks
-		set {temp::%arg 1's uuid%::signsearch.bank} to true
-		set {_input::*} to "", "", "1: (retrait|depot)" and "2: (montant)"
-		set {_loc} to location of arg 1
-		set {_block} to type of block at {_loc}
-		set block at {_loc} to sign
-		loop {_input::*}:
-			(loop-index parsed as int) < 5
-			set line (loop-index parsed as int) of block at {_loc} to colored loop-value
-		wait 1 tick
-		set {_packet} to new play_server_open_sign_editor packet
-		set location pinfo 0 of {_packet} to {_loc}
-		send arg 1 packet {_packet}
-		set block at {_loc} to {_block}
+    executable by: console
+    trigger:
+        wait 4 ticks
+        set {temp::%arg 1's uuid%::signsearch.bank} to true
+        set {_input::*} to "", "", "1: (retrait|depot)" and "2: (montant)"
+        set {_loc} to location of arg 1
+        set {_block} to type of block at {_loc}
+        set block at {_loc} to sign
+        loop {_input::*}:
+            (loop-index parsed as int) < 5
+            set line (loop-index parsed as int) of block at {_loc} to colored loop-value
+        wait 1 tick
+        set {_packet} to new play_server_open_sign_editor packet
+        set location pinfo 0 of {_packet} to {_loc}
+        send arg 1 packet {_packet}
+        set block at {_loc} to {_block}
  
 on packet event play_client_update_sign:
-	if {temp::%player's uuid%::signsearch.bank} is true:
-		set {_input::*} to string array pinfo 0 of event-packet
-		set {_amount} to {_input::2} parsed as integer 
-		if {_amount} is an integer:
-			if "%{_input::1}%" contains "dep":
-				make player execute command "/depot %{_amount}%"
-			else if "%{_input::1}%" contains "ret":
-				make player execute command "/retrait %{_amount}%"
-			else:
-				message "&d&oUtilisez ""depot"" ou ""retrait"" sur la première ligne."
-		else:
-			message "&d&oUtilisez un nombre entier sur la seconde ligne !"
+    if {temp::%player's uuid%::signsearch.bank} is true:
+        set {_input::*} to string array pinfo 0 of event-packet
+        set {_amount} to {_input::2} parsed as integer 
+        if {_amount} is an integer:
+            if "%{_input::1}%" contains "dep":
+                make player execute command "/depot %{_amount}%"
+            else if "%{_input::1}%" contains "ret":
+                make player execute command "/retrait %{_amount}%"
+            else:
+                message "&d&oUtilisez ""depot"" ou ""retrait"" sur la première ligne."
+        else:
+            message "&d&oUtilisez un nombre entier sur la seconde ligne !"
 
-	delete {temp::%player's uuid%::signsearch.bank}
-	stop
+    delete {temp::%player's uuid%::signsearch.bank}
+    stop
